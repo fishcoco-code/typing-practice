@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="一个简洁、专注的网页打字练习工具"
+    />
+    <title>轻打字 · Typing Practice</title>
+    <link rel="stylesheet" href="styles.css?v=2" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <a class="brand" href="#" aria-label="轻打字首页">
+          <span class="brand-mark">T</span>
+          <span>轻打字</span>
+        </a>
+        <button class="theme-button" id="themeButton" type="button" aria-label="切换深色模式">
+          <span aria-hidden="true">◐</span>
+        </button>
+      </header>
+
+      <section class="hero">
+        <p class="eyebrow">指法引导练习</p>
+        <h1>先找准位置，再开始打字。</h1>
+        <p class="subtitle">让手指记住键位，而不是让眼睛寻找键盘。</p>
+      </section>
+
+      <section class="practice-card" id="practiceCard" aria-label="打字练习区域">
+        <div class="stats" aria-live="polite">
+          <div class="stat-item">
+            <strong id="wpm">0</strong>
+            <span>WPM</span>
+          </div>
+          <div class="stat-item">
+            <strong id="accuracy">100%</strong>
+            <span>正确率</span>
+          </div>
+          <div class="stat-item">
+            <strong id="time">0:00</strong>
+            <span>用时</span>
+          </div>
+        </div>
+
+        <section class="calibration" id="calibration" aria-labelledby="calibrationTitle">
+          <span class="step-label">开始前 · 手指归位</span>
+          <h2 id="calibrationTitle">找到 F 和 J 上的小凸点</h2>
+          <p id="calibrationInstruction">左手食指按一下 <kbd>F</kbd></p>
+
+          <div class="home-row" aria-label="基准键位 ASDF JKL 分号">
+            <div class="home-group left-hand">
+              <span class="home-key">A<small>小指</small></span>
+              <span class="home-key">S<small>无名指</small></span>
+              <span class="home-key">D<small>中指</small></span>
+              <span class="home-key anchor" id="calibrationF">F<small>食指</small></span>
+            </div>
+            <div class="home-group right-hand">
+              <span class="home-key anchor" id="calibrationJ">J<small>食指</small></span>
+              <span class="home-key">K<small>中指</small></span>
+              <span class="home-key">L<small>无名指</small></span>
+              <span class="home-key">;<small>小指</small></span>
+            </div>
+          </div>
+
+          <p class="calibration-status" id="calibrationStatus" aria-live="polite">
+            不用看键盘，用食指触摸凸点。
+          </p>
+        </section>
+
+        <div class="practice-content" id="practiceContent" hidden>
+          <div class="finger-guide" aria-live="polite">
+            <span class="next-key" id="nextKey">S</span>
+            <div>
+              <span class="guide-label">下一键</span>
+              <strong id="fingerName">左手无名指</strong>
+            </div>
+            <span class="return-hint" id="returnHint">按完回到 S</span>
+          </div>
+
+          <div class="typing-area" id="typingArea" tabindex="0" role="textbox" aria-label="开始输入">
+            <p class="prompt" id="prompt"></p>
+            <div class="start-hint" id="startHint">
+              <span class="key-icon">A</span>
+              <span>点击这里开始</span>
+            </div>
+          </div>
+
+          <div class="keyboard-wrap">
+            <div class="keyboard-status" id="keyboardStatus" aria-live="polite">
+              看屏幕提示，按完让手指回到基准键。
+            </div>
+            <div class="virtual-keyboard" id="virtualKeyboard" aria-label="虚拟键盘"></div>
+
+            <div class="finger-map" aria-label="手指负责键位图">
+              <div class="hand-card">
+                <div class="hand-card-title">
+                  <strong>左手</strong>
+                  <span>基准位置 A S D F</span>
+                </div>
+                <div class="hand-shape hand-left" aria-label="左手图形">
+                  <span class="finger-shape pinky finger-group-left-pinky" data-hand="左手" data-finger="小指">
+                    <b>小指</b><small>Q A Z</small>
+                  </span>
+                  <span class="finger-shape ring finger-group-left-ring" data-hand="左手" data-finger="无名指">
+                    <b>无名</b><small>W S X</small>
+                  </span>
+                  <span class="finger-shape middle finger-group-left-middle" data-hand="左手" data-finger="中指">
+                    <b>中指</b><small>E D C</small>
+                  </span>
+                  <span class="finger-shape index finger-group-left-index" data-hand="左手" data-finger="食指">
+                    <b>食指</b><small>R T F G V B</small>
+                  </span>
+                  <span class="finger-shape thumb finger-group-thumb" data-hand="双手" data-finger="拇指">
+                    <b>拇指</b><small>空格</small>
+                  </span>
+                  <span class="palm-shape">左手掌</span>
+                </div>
+              </div>
+
+              <div class="mapping-center" aria-live="polite">
+                <span>当前动作</span>
+                <strong id="mappingHint">左手无名指</strong>
+                <i aria-hidden="true">→</i>
+                <b id="mappingKey">S 键</b>
+              </div>
+
+              <div class="hand-card">
+                <div class="hand-card-title">
+                  <strong>右手</strong>
+                  <span>基准位置 J K L ;</span>
+                </div>
+                <div class="hand-shape hand-right" aria-label="右手图形">
+                  <span class="finger-shape thumb finger-group-thumb" data-hand="双手" data-finger="拇指">
+                    <b>拇指</b><small>空格</small>
+                  </span>
+                  <span class="finger-shape index finger-group-right-index" data-hand="右手" data-finger="食指">
+                    <b>食指</b><small>Y U H J N M</small>
+                  </span>
+                  <span class="finger-shape middle finger-group-right-middle" data-hand="右手" data-finger="中指">
+                    <b>中指</b><small>I K ,</small>
+                  </span>
+                  <span class="finger-shape ring finger-group-right-ring" data-hand="右手" data-finger="无名指">
+                    <b>无名</b><small>O L .</small>
+                  </span>
+                  <span class="finger-shape pinky finger-group-right-pinky" data-hand="右手" data-finger="小指">
+                    <b>小指</b><small>P ; /</small>
+                  </span>
+                  <span class="palm-shape">右手掌</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="hand-legend" aria-hidden="true">
+              <span class="color-scale">
+                <i class="finger-group-left-pinky"></i>
+                <i class="finger-group-left-ring"></i>
+                <i class="finger-group-left-middle"></i>
+                <i class="finger-group-left-index"></i>
+                <i class="finger-group-right-index"></i>
+                <i class="finger-group-right-middle"></i>
+                <i class="finger-group-right-ring"></i>
+                <i class="finger-group-right-pinky"></i>
+              </span>
+              <span>同色手指负责同色按键，食指从 <b>F</b> 和 <b>J</b> 出发</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="result" id="result" hidden>
+          <span class="result-icon" aria-hidden="true">✓</span>
+          <div>
+            <strong>完成得很好！</strong>
+            <p id="resultText"></p>
+          </div>
+        </div>
+
+        <div class="actions">
+          <button class="button secondary" id="resetButton" type="button">重新开始</button>
+          <button class="button primary" id="nextButton" type="button">换一段文字</button>
+        </div>
+      </section>
+
+      <p class="tip"><kbd>Tab</kbd> + <kbd>Enter</kbd> 可以用键盘操作按钮</p>
+    </main>
+
+    <textarea
+      id="typingInput"
+      class="typing-input"
+      aria-hidden="true"
+      autocomplete="off"
+      autocapitalize="off"
+      autocorrect="off"
+      spellcheck="false"
+    ></textarea>
+
+    <script src="app.js?v=2"></script>
+  </body>
+</html>
