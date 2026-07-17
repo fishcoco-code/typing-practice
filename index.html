@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="简洁专注的网页打字与指法练习工具" />
     <title>轻打字 · Typing Practice</title>
-    <link rel="stylesheet" href="styles.css?v=4" />
+    <link rel="stylesheet" href="styles.css?v=5" />
   </head>
   <body>
     <main class="focus-shell">
@@ -24,14 +24,6 @@
               <span>点击文字区域，然后直接输入</span>
             </div>
           </div>
-
-          <div class="result" id="result" hidden>
-            <span class="result-icon" aria-hidden="true">✓</span>
-            <div>
-              <strong>完成本段，按 Enter 进入下一段</strong>
-              <p id="resultText"></p>
-            </div>
-          </div>
         </div>
 
         <div class="keyboard-panel">
@@ -44,6 +36,9 @@
             <span class="guide-arrow" aria-hidden="true">→</span>
             <b class="guide-home" id="returnHint">手指留在 S</b>
             <span class="keyboard-status" id="keyboardStatus">请用左手无名指按 S</span>
+            <span class="result" id="result" hidden>
+              <span id="resultText"></span>
+            </span>
           </div>
 
           <div class="virtual-keyboard" id="virtualKeyboard" aria-label="虚拟键盘"></div>
@@ -88,6 +83,6 @@
     ></textarea>
 
     <script src="passages.js?v=3"></script>
-    <script src="app.js?v=4"></script>
+    <script src="app.js?v=5"></script>
   </body>
 </html>

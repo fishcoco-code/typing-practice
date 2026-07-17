@@ -143,9 +143,10 @@ function renderFingerGuide() {
   if (!target) {
     elements.nextKey.textContent = "✓";
     elements.fingerName.textContent = "本段完成";
-    elements.returnHint.textContent = "双手放松";
+    elements.returnHint.textContent = "按 Enter 下一段";
     elements.mappingHint.textContent = "练习完成";
     elements.mappingKey.textContent = "✓";
+    elements.keyboardStatus.hidden = true;
     return;
   }
 
@@ -170,6 +171,7 @@ function renderFingerGuide() {
       : target.toUpperCase() === guide.home
         ? `手指留在 ${guide.home}`
         : `按完回到 ${guide.home}`;
+  elements.keyboardStatus.hidden = false;
   elements.keyboardStatus.classList.remove("error");
   elements.keyboardStatus.textContent = `请用${guide.hand}${guide.finger}按 ${target === " " ? "空格" : target.toUpperCase()}`;
 }
@@ -282,6 +284,7 @@ function resetPractice() {
   correctKeystrokes = 0;
   elements.typingInput.value = "";
   elements.result.hidden = true;
+  elements.keyboardStatus.hidden = false;
   elements.startHint.classList.remove("hidden");
   keyboardKeys.forEach((keyElement) => keyElement.classList.remove("target", "wrong"));
   renderPrompt();

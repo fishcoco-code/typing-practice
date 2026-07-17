@@ -78,16 +78,16 @@ textarea {
 .typing-panel {
   position: relative;
   min-height: 0;
-  flex: 1 1 auto;
+  flex: 1 1 33.333%;
 }
 
 .typing-area {
   position: relative;
   display: flex;
   height: 100%;
-  min-height: 220px;
+  min-height: 0;
   align-items: center;
-  padding: clamp(34px, 6vh, 62px) clamp(28px, 7vw, 76px);
+  padding: clamp(24px, 4vh, 38px) clamp(28px, 7vw, 76px);
   cursor: text;
   outline: none;
 }
@@ -173,78 +173,47 @@ textarea {
   font-size: 10px;
 }
 
-.result {
-  position: absolute;
-  right: 24px;
-  bottom: 16px;
-  left: 24px;
-  z-index: 3;
-  display: flex;
-  gap: 11px;
-  align-items: center;
-  padding: 12px 15px;
-  border: 1px solid color-mix(in srgb, var(--accent) 28%, var(--line));
-  border-radius: 11px;
-  background: color-mix(in srgb, var(--accent-soft) 90%, var(--surface));
-  box-shadow: 0 8px 24px rgba(30, 65, 45, 0.1);
-}
-
 .result[hidden] {
   display: none;
 }
 
-.result-icon {
-  display: grid;
-  width: 30px;
-  height: 30px;
-  flex: 0 0 auto;
-  place-items: center;
-  border-radius: 50%;
-  background: var(--accent);
-  color: #fff;
-  font-weight: 800;
-}
-
-.result strong {
-  color: var(--accent);
-  font-size: 13px;
-}
-
-.result p {
-  margin: 2px 0 0;
+.result {
+  margin-left: auto;
   color: var(--muted);
-  font-size: 11px;
+  font-size: 10px;
+  white-space: nowrap;
 }
 
 .keyboard-panel {
-  flex: 0 0 auto;
-  padding: 12px clamp(14px, 4vw, 34px) 15px;
+  min-height: 0;
+  flex: 2 1 66.667%;
+  padding: 18px clamp(16px, 4vw, 38px) 22px;
   border-top: 1px solid var(--line);
   background: var(--surface-soft);
 }
 
 .finger-guide {
   display: flex;
-  min-height: 48px;
-  gap: 10px;
+  min-height: 52px;
+  gap: 12px;
   align-items: center;
-  width: min(100%, 700px);
-  margin: 0 auto 10px;
+  width: min(100%, 820px);
+  margin: 0 auto 16px;
 }
 
 .next-key {
   display: grid;
-  width: 38px;
-  height: 38px;
+  width: 44px;
+  height: 44px;
   flex: 0 0 auto;
   place-items: center;
   border: 1px solid var(--accent);
   border-bottom-width: 3px;
-  border-radius: 8px;
+  border-radius: 9px;
   background: var(--surface);
   color: var(--accent);
   font-family: "SFMono-Regular", Consolas, monospace;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 800;
   text-transform: uppercase;
 }
@@ -261,7 +230,7 @@ textarea {
 }
 
 .guide-copy strong {
-  font-size: 12px;
+  font-size: 13px;
 }
 
 .guide-arrow {
@@ -270,7 +239,7 @@ textarea {
 
 .guide-home {
   color: var(--muted);
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 500;
 }
 
@@ -291,40 +260,40 @@ textarea {
 
 .virtual-keyboard {
   display: flex;
-  width: min(100%, 700px);
+  width: min(100%, 820px);
   flex-direction: column;
-  gap: 5px;
+  gap: 8px;
   margin: 0 auto;
 }
 
 .keyboard-row {
   display: flex;
-  gap: 5px;
+  gap: 8px;
   justify-content: center;
 }
 
 .keyboard-row:nth-child(2) {
-  padding: 0 16px;
+  padding: 0 20px;
 }
 
 .keyboard-row:nth-child(3) {
-  padding: 0 42px;
+  padding: 0 52px;
 }
 
 .virtual-key {
   position: relative;
   display: grid;
-  height: 34px;
+  height: 48px;
   flex: 1 1 0;
   place-items: center;
   border: 1px solid var(--line);
   border-top-color: var(--finger-color, var(--line));
   border-bottom-width: 2px;
-  border-radius: 6px;
+  border-radius: 8px;
   background: color-mix(in srgb, var(--finger-color, var(--surface)) 6%, var(--surface));
   color: var(--muted);
   font-family: "SFMono-Regular", Consolas, monospace;
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 700;
   text-transform: uppercase;
   transition: 100ms ease;
@@ -342,8 +311,8 @@ textarea {
 }
 
 .virtual-key.space {
-  max-width: 300px;
-  flex-basis: 300px;
+  max-width: 350px;
+  flex-basis: 350px;
   text-transform: none;
 }
 
@@ -380,15 +349,15 @@ textarea {
 .compact-hands {
   display: grid;
   grid-template-columns: 1fr auto auto 1fr;
-  gap: 12px;
+  gap: 14px;
   align-items: center;
-  width: min(100%, 700px);
-  margin: 10px auto 0;
+  width: min(100%, 820px);
+  margin: 18px auto 0;
 }
 
 .hand-strip {
   display: flex;
-  gap: 4px;
+  gap: 6px;
   align-items: end;
 }
 
@@ -404,41 +373,41 @@ textarea {
   align-self: center;
   padding: 0 3px;
   color: var(--muted);
-  font-size: 9px;
+  font-size: 10px;
 }
 
 .finger-marker {
   display: flex;
-  width: 31px;
-  height: 38px;
+  width: 39px;
+  height: 50px;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   border: 1px solid var(--finger-color);
-  border-radius: 14px 14px 7px 7px;
+  border-radius: 17px 17px 8px 8px;
   background: color-mix(in srgb, var(--finger-color) 12%, var(--surface));
   color: color-mix(in srgb, var(--finger-color) 80%, var(--text));
   transition: 120ms ease;
 }
 
-.finger-marker.index { height: 44px; }
-.finger-marker.middle { height: 48px; }
-.finger-marker.ring { height: 44px; }
-.finger-marker.pinky { height: 38px; }
+.finger-marker.index { height: 58px; }
+.finger-marker.middle { height: 64px; }
+.finger-marker.ring { height: 58px; }
+.finger-marker.pinky { height: 50px; }
 .finger-marker.thumb {
-  width: 42px;
-  height: 32px;
-  border-radius: 14px;
+  width: 50px;
+  height: 40px;
+  border-radius: 17px;
 }
 
 .finger-marker b {
-  font-size: 9px;
+  font-size: 10px;
 }
 
 .finger-marker small {
   margin-top: 2px;
   font-family: "SFMono-Regular", Consolas, monospace;
-  font-size: 6px;
+  font-size: 7px;
 }
 
 .finger-marker.active {
@@ -457,7 +426,7 @@ textarea {
 }
 
 .mapping-center strong {
-  font-size: 10px;
+  font-size: 11px;
 }
 
 .mapping-center i {
@@ -468,8 +437,8 @@ textarea {
 
 .mapping-center > b {
   display: grid;
-  min-width: 38px;
-  height: 28px;
+  min-width: 44px;
+  height: 34px;
   padding: 0 7px;
   place-items: center;
   border: 1px solid var(--accent);
@@ -478,7 +447,7 @@ textarea {
   background: var(--accent-soft);
   color: var(--accent);
   font-family: "SFMono-Regular", Consolas, monospace;
-  font-size: 9px;
+  font-size: 10px;
 }
 
 .typing-input {
