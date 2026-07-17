@@ -4,8 +4,9 @@ const stage = document.querySelector("#gameStage");
 const speedValue = document.querySelector("#speedValue");
 const driveState = document.querySelector("#driveState");
 const controlCard = document.querySelector("#controlCard");
-const TOP_SPEED_KMH = 376;
-const SPEED_MULTIPLIER = 9.2;
+const TOP_SPEED_KMH = 639;
+const SPEED_MULTIPLIER = 15.64;
+const MAX_MOTION_TRAIL_FRAMES = 6;
 
 const controls = {
   up: false,
@@ -45,6 +46,11 @@ let airWallHits = 0;
 let cameraZoom = 1.65;
 let worldTiltX = 0.22;
 let worldTiltY = 0.7;
+let currentSpeedRatio = 0;
+let currentSteeringAmount = 0;
+let turnSlowdownAmount = 0;
+let motionTrailFrames = [];
+let motionCaptureAccumulator = 0;
 const demoMode = new URLSearchParams(window.location.search).get("demo");
 
 const car = {
@@ -90,8 +96,8 @@ function buildTrack() {
     const end = points[(index + 1) % points.length];
     const next = points[(index + 2) % points.length];
 
-    for (let step = 0; step < 32; step += 1) {
-      samples.push(catmullRom(previous, start, end, next, step / 32));
+    for (let step = 0; step < 64; step += 1) {
+      samples.push(catmullRom(previous, start, end, next, step / 64));
     }
   }
 
@@ -116,6 +122,11 @@ function resetCar() {
   onTrack = true;
   airWallImpact = 0;
   airWallHits = 0;
+  currentSpeedRatio = 0;
+  currentSteeringAmount = 0;
+  turnSlowdownAmount = 0;
+  motionTrailFrames = [];
+  motionCaptureAccumulator = 0;
 }
 
 function resizeCanvas() {
@@ -124,8 +135,8 @@ function resizeCanvas() {
   width = Math.max(320, bounds.width);
   height = Math.max(420, bounds.height);
   // Double the complete circuit footprint again for a much longer lap.
-  worldWidth = width * 9.4;
-  worldHeight = height * 6.6;
+  worldWidth = width * 18.8;
+  worldHeight = height * 13.2;
   canvas.width = Math.round(width * ratio);
   canvas.height = Math.round(height * ratio);
   context.setTransform(ratio, 0, 0, ratio, 0, 0);
@@ -174,10 +185,17 @@ function drawGrass() {
   context.strokeStyle = "#263d28";
   context.lineWidth = 1;
   const gap = Math.max(22, Math.min(width, height) * 0.045);
-  for (let x = -worldWidth - worldHeight; x < worldWidth * 2 + worldHeight; x += gap) {
+  // Draw only the world-anchored stripe range near the camera to keep high-speed echoes smooth.
+  const visibleSpan = Math.max(width, height) / cameraZoom * 1.8;
+  const minimumY = car.y - visibleSpan;
+  const maximumY = car.y + visibleSpan;
+  const minimumOffset = car.x - car.y - visibleSpan * 2;
+  const maximumOffset = car.x - car.y + visibleSpan * 2;
+  const firstOffset = Math.floor(minimumOffset / gap) * gap;
+  for (let offset = firstOffset; offset < maximumOffset; offset += gap) {
     context.beginPath();
-    context.moveTo(x, -worldHeight);
-    context.lineTo(x + worldHeight * 3, worldHeight * 2);
+    context.moveTo(offset + minimumY, minimumY);
+    context.lineTo(offset + maximumY, maximumY);
     context.stroke();
   }
   context.restore();
@@ -291,7 +309,9 @@ function updateCar(deltaTime) {
   }
 
   forwardSpeed = clamp(forwardSpeed, -maximumSpeed * 0.34, maximumSpeed);
-  const steeringPower = 0.4 + Math.min(1, Math.abs(forwardSpeed) / maximumSpeed) * 1.28;
+  const speedRatioBeforeTurn = clamp(Math.abs(forwardSpeed) / maximumSpeed, 0, 1);
+  currentSteeringAmount = Math.abs(steering);
+  const steeringPower = 0.4 + speedRatioBeforeTurn * 1.28;
   if (Math.abs(forwardSpeed) > 4) {
     car.angle +=
       steering *
@@ -299,6 +319,12 @@ function updateCar(deltaTime) {
       deltaTime *
       (forwardSpeed >= 0 ? 1 : -1);
   }
+
+  // Steering scrubs speed progressively; high-speed bends lose substantially more momentum.
+  const turningResistance =
+    currentSteeringAmount * (0.18 + speedRatioBeforeTurn * 0.46);
+  forwardSpeed *= Math.max(0, 1 - turningResistance * deltaTime);
+  turnSlowdownAmount = currentSteeringAmount * speedRatioBeforeTurn;
 
   const grip = 6.8;
   lateralSpeed *= Math.max(0, 1 - grip * deltaTime);
@@ -340,15 +366,22 @@ function updateCar(deltaTime) {
   car.x = clamp(car.x, -margin, worldWidth + margin);
   car.y = clamp(car.y, -margin, worldHeight + margin);
 
-  const speed = Math.round(Math.abs(forwardSpeed) / maximumSpeed * TOP_SPEED_KMH);
+  currentSpeedRatio = clamp(
+    Math.hypot(car.velocityX, car.velocityY) / maximumSpeed,
+    0,
+    1,
+  );
+  const speed = Math.round(currentSpeedRatio * TOP_SPEED_KMH);
   speedValue.textContent = String(speed);
   driveState.textContent = !hasDriven
     ? "待发车"
     : airWallImpact > 0
       ? "碰到空气墙"
+      : turnSlowdownAmount > 0.12 && speed > 5
+        ? "弯道减速"
       : speed > 5
-        ? "行驶中"
-        : "已停车";
+          ? "行驶中"
+          : "已停车";
 }
 
 function roundedRectangle(x, y, rectangleWidth, rectangleHeight, radius) {
@@ -541,22 +574,115 @@ function drawCar() {
   context.restore();
 }
 
-function drawScene() {
-  context.clearRect(0, 0, width, height);
+function drawCarAfterimages() {
+  if (currentSpeedRatio < 0.08 || window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    return;
+  }
+
+  const layerCount = Math.ceil(currentSpeedRatio * MAX_MOTION_TRAIL_FRAMES);
+  const directionX = Math.cos(car.angle);
+  const directionY = Math.sin(car.angle);
+
+  for (let layer = layerCount; layer >= 1; layer -= 1) {
+    const layerProgress = layer / (layerCount + 1);
+    const trailDistance =
+      car.length * layer * (0.08 + currentSpeedRatio * 0.055);
+    context.save();
+    context.globalAlpha =
+      (0.035 + currentSpeedRatio * 0.065) * (1 - layerProgress * 0.68);
+    context.translate(-directionX * trailDistance, -directionY * trailDistance);
+    drawCar();
+    context.restore();
+  }
+}
+
+function captureWorldMotionFrame(deltaTime) {
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  if (currentSpeedRatio < 0.04) {
+    motionCaptureAccumulator = 0;
+    if (currentSpeedRatio < 0.015) motionTrailFrames = [];
+    return;
+  }
+
+  motionCaptureAccumulator += deltaTime;
+  const captureInterval = 0.12 - currentSpeedRatio * 0.07;
+  if (motionCaptureAccumulator < captureInterval) return;
+  motionCaptureAccumulator = 0;
+
+  const frame = motionTrailFrames.length < MAX_MOTION_TRAIL_FRAMES
+    ? document.createElement("canvas")
+    : motionTrailFrames.pop();
+  if (frame.width !== canvas.width || frame.height !== canvas.height) {
+    frame.width = canvas.width;
+    frame.height = canvas.height;
+  }
+  const frameContext = frame.getContext("2d");
+  frameContext.setTransform(1, 0, 0, 1, 0, 0);
+  frameContext.clearRect(0, 0, frame.width, frame.height);
+  frameContext.drawImage(canvas, 0, 0);
+  motionTrailFrames.unshift(frame);
+}
+
+function drawWorldAfterimages() {
+  if (motionTrailFrames.length === 0 || currentSpeedRatio < 0.08) return;
+  const layerCount = Math.min(
+    motionTrailFrames.length,
+    Math.ceil(currentSpeedRatio * MAX_MOTION_TRAIL_FRAMES),
+  );
+
   context.save();
+  context.globalCompositeOperation = "screen";
+  for (let layer = layerCount - 1; layer >= 0; layer -= 1) {
+    const layerProgress = (layer + 1) / (layerCount + 1);
+    context.globalAlpha =
+      (0.012 + currentSpeedRatio * 0.022) * (1 - layerProgress * 0.5);
+    context.drawImage(motionTrailFrames[layer], 0, 0, width, height);
+  }
+  context.restore();
+}
+
+function applyWorldCamera() {
   context.translate(width / 2, height / 2);
-  // The oblique projection tilts the complete game world while keeping the car centred.
   context.transform(1, -0.08, worldTiltX, worldTiltY, 0, 0);
   context.scale(cameraZoom, cameraZoom);
   context.translate(-car.x, -car.y);
+}
+
+function drawScene(deltaTime) {
+  context.clearRect(0, 0, width, height);
+
+  // Draw and capture the moving world separately so the road and grass gain speed echoes.
+  context.save();
+  applyWorldCamera();
   drawGrass();
   drawTrack();
+  context.restore();
+
+  captureWorldMotionFrame(deltaTime);
+  drawWorldAfterimages();
+
+  // Keep the current F1 crisp while stacking speed-dependent ghosts behind it.
+  context.save();
+  applyWorldCamera();
+  drawCarAfterimages();
   drawCar();
   context.restore();
 }
 
 function updateDemoControls() {
   if (!demoMode) return;
+  if (demoMode === "speed-test") {
+    controls.up = true;
+    controls.left = false;
+    controls.right = false;
+    return;
+  }
+  if (demoMode === "turn-test") {
+    controls.up = true;
+    controls.left = false;
+    controls.right = elapsed > 2.5 && elapsed < 4.8;
+    return;
+  }
   if (demoMode === "continuous") {
     controls.up = true;
     controls.left = false;
@@ -579,6 +705,12 @@ function publishDiagnostics() {
   stage.dataset.topSpeedKmh = String(TOP_SPEED_KMH);
   stage.dataset.speedMultiplier = String(SPEED_MULTIPLIER);
   stage.dataset.accelerationProfile = "progressive";
+  stage.dataset.turnSlowdown = turnSlowdownAmount.toFixed(3);
+  stage.dataset.ghostLayers = String(
+    currentSpeedRatio < 0.08 ? 0 : Math.ceil(currentSpeedRatio * MAX_MOTION_TRAIL_FRAMES),
+  );
+  stage.dataset.worldGhostFrames = String(motionTrailFrames.length);
+  stage.dataset.speedRatio = currentSpeedRatio.toFixed(3);
   stage.dataset.cameraZoom = String(cameraZoom);
   stage.dataset.worldTiltX = String(worldTiltX);
   stage.dataset.worldTiltY = String(worldTiltY);
@@ -597,7 +729,7 @@ function gameLoop(timestamp) {
   updateDemoControls();
   updateCar(deltaTime);
   publishDiagnostics();
-  drawScene();
+  drawScene(deltaTime);
   window.requestAnimationFrame(gameLoop);
 }
 
@@ -668,6 +800,11 @@ window.raceDebug = {
     topSpeedKmh: TOP_SPEED_KMH,
     speedMultiplier: SPEED_MULTIPLIER,
     accelerationProfile: "progressive",
+    turnSlowdown: turnSlowdownAmount,
+    ghostLayers:
+      currentSpeedRatio < 0.08 ? 0 : Math.ceil(currentSpeedRatio * MAX_MOTION_TRAIL_FRAMES),
+    worldGhostFrames: motionTrailFrames.length,
+    speedRatio: currentSpeedRatio,
     trackSamples: trackSamples.length,
   }),
 };
