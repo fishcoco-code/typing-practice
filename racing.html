@@ -3,29 +3,47 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="帅气逼人吊炸天 · 赛车板块" />
-    <title>赛车 · 帅气逼人吊炸天</title>
-    <link rel="stylesheet" href="site.css?v=1" />
+    <meta name="description" content="帅气逼人吊炸天 · 漫画风漂移赛车" />
+    <title>漂移赛车 · 帅气逼人吊炸天</title>
+    <link rel="stylesheet" href="racing.css?v=1" />
   </head>
-  <body class="racing-page">
-    <main class="racing-shell">
-      <a class="back-link" href="./">← 返回首页</a>
-      <section class="racing-stage">
-        <div class="stage-copy">
-          <span class="stage-kicker">MODULE 02 · RACING</span>
-          <h1>赛车</h1>
-          <p>赛道已经铺好。这里将加入车辆选择、计时赛和排行榜。</p>
-          <span class="coming-badge"><i></i> 正在开发</span>
+  <body>
+    <main class="game-shell">
+      <header class="game-header">
+        <a class="game-back" href="./">← 首页</a>
+        <div class="game-title">
+          <span>DRIFT CIRCUIT</span>
+          <h1>漫画漂移赛</h1>
         </div>
-        <div class="track-scene" aria-hidden="true">
-          <span class="track-edge edge-left"></span>
-          <span class="track-edge edge-right"></span>
-          <span class="track-dash dash-one"></span>
-          <span class="track-dash dash-two"></span>
-          <span class="track-dash dash-three"></span>
-          <span class="race-car"><i></i><b></b></span>
+        <div class="game-stats" aria-live="polite">
+          <div><span>速度</span><strong id="speedValue">0</strong><small>KM/H</small></div>
+          <div><span>状态</span><strong id="driveState">待发车</strong></div>
+        </div>
+      </header>
+
+      <section class="game-stage" id="gameStage" aria-label="漂移赛车游戏区域">
+        <canvas id="raceCanvas" width="1000" height="650" aria-label="带弯道的俯视赛车赛道"></canvas>
+
+        <div class="control-card" id="controlCard">
+          <span class="control-title">驾驶方式</span>
+          <div><kbd>W</kbd><kbd>↑</kbd><span>油门</span></div>
+          <div><kbd>A</kbd><kbd>D</kbd><kbd>←</kbd><kbd>→</kbd><span>转向</span></div>
+          <div><kbd>空格</kbd><span>按住漂移</span></div>
+          <div><kbd>R</kbd><span>重置车辆</span></div>
+        </div>
+
+        <div class="route-hint"><i></i> 沿双轮车印路线前进</div>
+
+        <div class="touch-controls" aria-label="触控驾驶按钮">
+          <button type="button" data-control="left" aria-label="左转">←</button>
+          <button type="button" data-control="up" aria-label="油门">↑</button>
+          <button type="button" data-control="right" aria-label="右转">→</button>
+          <button class="drift-button" type="button" data-control="drift">漂移</button>
         </div>
       </section>
+
+      <p class="game-note">入弯前加速，转向时按住空格。后轮会留下胎印并喷出烟雾。</p>
     </main>
+    <script src="racing.js?v=1"></script>
   </body>
 </html>

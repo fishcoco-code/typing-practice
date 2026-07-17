@@ -165,6 +165,11 @@ a {
   color: var(--green);
 }
 
+.module-status.racing-live {
+  background: var(--orange-soft);
+  color: var(--orange);
+}
+
 .module-status.live i,
 .coming-badge i {
   width: 6px;
