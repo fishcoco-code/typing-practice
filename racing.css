@@ -237,8 +237,9 @@ kbd {
   left: 14px;
   z-index: 4;
   display: none;
-  grid-template-columns: 48px 48px 48px 1fr 72px;
+  grid-template-columns: repeat(3, 48px);
   gap: 8px;
+  justify-content: center;
   pointer-events: none;
 }
 
@@ -259,11 +260,6 @@ kbd {
 .touch-controls button.pressed {
   border-color: var(--orange);
   background: var(--orange);
-}
-
-.touch-controls .drift-button {
-  grid-column: 5;
-  font-size: 12px;
 }
 
 @media (max-width: 760px), (pointer: coarse) {

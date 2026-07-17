@@ -3,17 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="帅气逼人吊炸天 · 漫画风漂移赛车" />
-    <title>漂移赛车 · 帅气逼人吊炸天</title>
-    <link rel="stylesheet" href="racing.css?v=5" />
+    <meta name="description" content="帅气逼人吊炸天 · 漫画风 F1 赛车" />
+    <title>F1 赛车 · 帅气逼人吊炸天</title>
+    <link rel="stylesheet" href="racing.css?v=6" />
   </head>
   <body>
     <main class="game-shell">
       <header class="game-header">
         <a class="game-back" href="./">← 首页</a>
         <div class="game-title">
-          <span>DRIFT CIRCUIT</span>
-          <h1>漫画漂移赛</h1>
+          <span>FORMULA CIRCUIT</span>
+          <h1>漫画 F1 极速赛</h1>
         </div>
         <div class="game-stats" aria-live="polite">
           <div><span>速度</span><strong id="speedValue">0</strong><small>KM/H</small></div>
@@ -21,14 +21,13 @@
         </div>
       </header>
 
-      <section class="game-stage" id="gameStage" aria-label="漂移赛车游戏区域">
-        <canvas id="raceCanvas" width="1000" height="650" aria-label="带弯道的俯视赛车赛道"></canvas>
+      <section class="game-stage" id="gameStage" aria-label="F1 赛车游戏区域">
+        <canvas id="raceCanvas" width="1000" height="650" aria-label="带弯道和空气墙的 F1 赛道"></canvas>
 
         <div class="control-card" id="controlCard">
           <span class="control-title">驾驶方式</span>
           <div><kbd>W</kbd><kbd>↑</kbd><span>油门</span></div>
           <div><kbd>A</kbd><kbd>D</kbd><kbd>←</kbd><kbd>→</kbd><span>转向</span></div>
-          <div><kbd>空格</kbd><span>按住漂移</span></div>
           <div><kbd>R</kbd><span>重置车辆</span></div>
         </div>
 
@@ -38,12 +37,11 @@
           <button type="button" data-control="left" aria-label="左转">←</button>
           <button type="button" data-control="up" aria-label="油门">↑</button>
           <button type="button" data-control="right" aria-label="右转">→</button>
-          <button class="drift-button" type="button" data-control="drift">漂移</button>
         </div>
       </section>
 
-      <p class="game-note">提前为弯道转向，按住空格漂移。倾斜世界视角下，带硬朗车顶的 RX-7 风格赛车会留下胎印。</p>
+      <p class="game-note">驾驶宽体 F1 沿车印路线前进；赛道边缘使用不可见空气墙，碰撞时会自动阻挡车辆。</p>
     </main>
-    <script src="racing.js?v=5"></script>
+    <script src="racing.js?v=6"></script>
   </body>
 </html>
