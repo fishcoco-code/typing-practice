@@ -132,9 +132,9 @@ function resizeCanvas() {
   canvas.width = Math.round(width * ratio);
   canvas.height = Math.round(height * ratio);
   context.setTransform(ratio, 0, 0, ratio, 0, 0);
-  trackWidth = clamp(Math.min(width, height) * 0.33, 128, 210);
+  trackWidth = clamp(Math.min(width, height) * 0.66, 256, 420);
   cameraZoom = width < 600 ? 1.42 : 1.65;
-  car.length = trackWidth * 0.58;
+  car.length = clamp(Math.min(width, height) * 0.19, 94, 122);
   car.width = car.length * 0.51;
   buildTrack();
   tireMarks = [];
@@ -355,10 +355,10 @@ function spawnSmoke(wheels) {
       velocityY: -car.velocityY * 0.08 + (Math.random() - 0.5) * 18,
       life: 4,
       maximumLife: 4,
-      size: car.width * (0.42 + Math.random() * 0.2),
+      size: car.width * (0.12 + Math.random() * 0.08),
     });
   });
-  if (smokeParticles.length > 520) smokeParticles.splice(0, smokeParticles.length - 520);
+  if (smokeParticles.length > 220) smokeParticles.splice(0, smokeParticles.length - 220);
 }
 
 function updateParticles(deltaTime) {
@@ -368,13 +368,13 @@ function updateParticles(deltaTime) {
     particle.y += particle.velocityY * deltaTime;
     particle.velocityX *= 0.985;
     particle.velocityY *= 0.985;
-    particle.size += deltaTime * car.width * 0.48;
+    particle.size += deltaTime * car.width * 0.11;
   });
   smokeParticles = smokeParticles.filter((particle) => particle.life > 0);
 }
 
 function updateCar(deltaTime) {
-  const maximumSpeed = trackWidth * 2.65;
+  const maximumSpeed = car.length * 4.6;
   const acceleration = maximumSpeed * 0.92;
   const cosine = Math.cos(car.angle);
   const sine = Math.sin(car.angle);
@@ -448,9 +448,9 @@ function updateCar(deltaTime) {
   if (isDrifting) {
     addTireMarks(wheels);
     smokeAccumulator += deltaTime;
-    while (smokeAccumulator >= 0.025) {
+    while (smokeAccumulator >= 0.05) {
       spawnSmoke(wheels);
-      smokeAccumulator -= 0.025;
+      smokeAccumulator -= 0.05;
     }
   } else {
     previousRearWheels = null;
@@ -488,7 +488,7 @@ function drawSmoke() {
   smokeParticles.forEach((particle) => {
     const progress = particle.life / particle.maximumLife;
     context.save();
-    context.globalAlpha = Math.min(0.78, progress * 0.86);
+    context.globalAlpha = Math.min(0.62, progress * 0.7);
     context.fillStyle = "#f4f0e7";
     context.strokeStyle = "rgba(40, 43, 39, 0.45)";
     context.lineWidth = 2;
@@ -522,7 +522,7 @@ function roundedRectangle(x, y, rectangleWidth, rectangleHeight, radius) {
 function drawCar() {
   const length = car.length;
   const carWidth = car.width;
-  const outlineWidth = clamp(carWidth * 0.055, 2.6, 4.2);
+  const outlineWidth = clamp(carWidth * 0.07, 3.2, 5);
   context.save();
   context.translate(car.x, car.y);
   context.rotate(car.angle);
@@ -555,17 +555,20 @@ function drawCar() {
     });
   });
 
-  // RX-7 FD inspired low, rounded silhouette with a long nose.
+  // RX-7 FD inspired silhouette, sharpened into a harder comic shape.
   context.fillStyle = "#d94c32";
   context.strokeStyle = "#141714";
   context.lineWidth = outlineWidth;
   context.beginPath();
   context.moveTo(-length * 0.5, -carWidth * 0.21);
-  context.bezierCurveTo(-length * 0.47, -carWidth * 0.4, -length * 0.28, -carWidth * 0.48, -length * 0.06, -carWidth * 0.47);
-  context.bezierCurveTo(length * 0.2, -carWidth * 0.46, length * 0.43, -carWidth * 0.36, length * 0.52, -carWidth * 0.15);
-  context.bezierCurveTo(length * 0.56, -carWidth * 0.04, length * 0.55, carWidth * 0.17, length * 0.48, carWidth * 0.28);
-  context.bezierCurveTo(length * 0.25, carWidth * 0.48, -length * 0.25, carWidth * 0.5, -length * 0.48, carWidth * 0.31);
-  context.bezierCurveTo(-length * 0.53, carWidth * 0.17, -length * 0.53, -carWidth * 0.08, -length * 0.5, -carWidth * 0.21);
+  context.lineTo(-length * 0.41, -carWidth * 0.39);
+  context.lineTo(-length * 0.08, -carWidth * 0.48);
+  context.lineTo(length * 0.36, -carWidth * 0.37);
+  context.lineTo(length * 0.52, -carWidth * 0.16);
+  context.lineTo(length * 0.54, carWidth * 0.14);
+  context.lineTo(length * 0.42, carWidth * 0.34);
+  context.lineTo(-length * 0.34, carWidth * 0.45);
+  context.lineTo(-length * 0.5, carWidth * 0.27);
   context.closePath();
   context.fill();
   context.stroke();
@@ -574,9 +577,10 @@ function drawCar() {
   context.fillStyle = "#9f2e20";
   context.beginPath();
   context.moveTo(-length * 0.48, carWidth * 0.2);
-  context.bezierCurveTo(-length * 0.15, carWidth * 0.33, length * 0.22, carWidth * 0.3, length * 0.49, carWidth * 0.18);
-  context.bezierCurveTo(length * 0.48, carWidth * 0.33, length * 0.21, carWidth * 0.48, -length * 0.35, carWidth * 0.43);
-  context.bezierCurveTo(-length * 0.43, carWidth * 0.4, -length * 0.47, carWidth * 0.31, -length * 0.48, carWidth * 0.2);
+  context.lineTo(length * 0.49, carWidth * 0.17);
+  context.lineTo(length * 0.42, carWidth * 0.34);
+  context.lineTo(-length * 0.34, carWidth * 0.45);
+  context.lineTo(-length * 0.48, carWidth * 0.32);
   context.closePath();
   context.fill();
   context.stroke();
@@ -585,9 +589,12 @@ function drawCar() {
   context.fillStyle = "#ef704e";
   context.beginPath();
   context.moveTo(-length * 0.3, -carWidth * 0.3);
-  context.bezierCurveTo(-length * 0.22, -carWidth * 0.4, length * 0.01, -carWidth * 0.41, length * 0.14, -carWidth * 0.29);
+  context.lineTo(-length * 0.19, -carWidth * 0.4);
+  context.lineTo(length * 0.04, -carWidth * 0.4);
+  context.lineTo(length * 0.15, -carWidth * 0.28);
   context.lineTo(length * 0.24, carWidth * 0.07);
-  context.bezierCurveTo(length * 0.05, carWidth * 0.17, -length * 0.16, carWidth * 0.18, -length * 0.34, carWidth * 0.08);
+  context.lineTo(-length * 0.15, carWidth * 0.18);
+  context.lineTo(-length * 0.34, carWidth * 0.08);
   context.closePath();
   context.fill();
   context.stroke();
@@ -618,9 +625,11 @@ function drawCar() {
   context.lineWidth = outlineWidth * 0.58;
   context.beginPath();
   context.moveTo(length * 0.15, -carWidth * 0.28);
-  context.bezierCurveTo(length * 0.3, -carWidth * 0.3, length * 0.42, -carWidth * 0.23, length * 0.48, -carWidth * 0.11);
+  context.lineTo(length * 0.35, -carWidth * 0.27);
+  context.lineTo(length * 0.48, -carWidth * 0.11);
   context.moveTo(length * 0.18, carWidth * 0.13);
-  context.bezierCurveTo(length * 0.31, carWidth * 0.12, length * 0.43, carWidth * 0.09, length * 0.49, carWidth * 0.03);
+  context.lineTo(length * 0.37, carWidth * 0.11);
+  context.lineTo(length * 0.49, carWidth * 0.03);
   context.stroke();
 
   context.fillStyle = "#c9402c";
