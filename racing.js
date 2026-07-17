@@ -136,6 +136,7 @@ let worldTiltY = 0.7;
 let currentSpeedRatio = 0;
 let currentSteeringAmount = 0;
 let currentSteeringDirection = 0;
+let wheelRotation = 0;
 let turnSlowdownAmount = 0;
 let motionTrailFrames = [];
 let motionCaptureAccumulator = 0;
@@ -226,6 +227,7 @@ function resetCar() {
   currentSpeedRatio = 0;
   currentSteeringAmount = 0;
   currentSteeringDirection = 0;
+  wheelRotation = 0;
   turnSlowdownAmount = 0;
   motionTrailFrames = [];
   motionCaptureAccumulator = 0;
@@ -572,6 +574,10 @@ function updateCar(deltaTime) {
 
   const updatedCosine = Math.cos(car.angle);
   const updatedSine = Math.sin(car.angle);
+  const wheelCircumference = Math.max(1, car.length * 0.18 * Math.PI);
+  wheelRotation = (
+    wheelRotation + forwardSpeed * deltaTime / wheelCircumference * Math.PI * 2
+  ) % (Math.PI * 2);
   car.velocityX = updatedCosine * forwardSpeed - updatedSine * lateralSpeed;
   car.velocityY = updatedSine * forwardSpeed + updatedCosine * lateralSpeed;
   car.x += car.velocityX * deltaTime;
@@ -840,9 +846,15 @@ function drawCar() {
   const wheelWidth = carWidth * 0.23;
   [-0.31, 0.31].forEach((frontBack) => {
     [-1, 1].forEach((side) => {
+      const frontWheelSteer = frontBack > 0 ? currentSteeringDirection * 0.13 : 0;
+      const spinProgress = ((wheelRotation / (Math.PI * 2)) % 1 + 1) % 1;
+      context.save();
+      context.translate(frontBack * length, side * carWidth * 0.43);
+      context.rotate(frontWheelSteer);
+
       roundedRectangle(
-        frontBack * length - wheelLength / 2,
-        side * carWidth * 0.43 - wheelWidth / 2,
+        -wheelLength / 2,
+        -wheelWidth / 2,
         wheelLength,
         wheelWidth,
         wheelWidth * 0.24,
@@ -853,27 +865,42 @@ function drawCar() {
       // A separate near sidewall makes each tyre read as a thick rubber cylinder.
       context.fillStyle = side > 0 ? "rgba(4, 6, 5, 0.84)" : "rgba(104, 113, 106, 0.42)";
       roundedRectangle(
-        frontBack * length - wheelLength * 0.46,
-        side * carWidth * 0.43 + (side > 0 ? wheelWidth * 0.24 : -wheelWidth * 0.38),
+        -wheelLength * 0.46,
+        side > 0 ? wheelWidth * 0.24 : -wheelWidth * 0.38,
         wheelLength * 0.92,
         wheelWidth * 0.14,
         wheelWidth * 0.05,
       );
       context.fill();
 
-      context.strokeStyle = "#59605a";
-      context.lineWidth = outlineWidth * 0.28;
-      context.beginPath();
-      context.moveTo(frontBack * length - wheelLength * 0.22, side * carWidth * 0.43);
-      context.lineTo(frontBack * length + wheelLength * 0.22, side * carWidth * 0.43);
-      context.stroke();
+      // Tread bands travel along the tyre surface, matching actual forward or reverse motion.
+      context.strokeStyle = `rgba(164, 174, 166, ${0.38 + currentSpeedRatio * 0.28})`;
+      context.lineWidth = outlineWidth * 0.2;
+      for (let tread = 0; tread < 5; tread += 1) {
+        const treadX = (((tread / 5 + spinProgress) % 1) - 0.5) * wheelLength * 0.82;
+        context.beginPath();
+        context.moveTo(treadX - wheelLength * 0.025, -wheelWidth * 0.34);
+        context.lineTo(treadX + wheelLength * 0.025, wheelWidth * 0.34);
+        context.stroke();
+      }
+
+      if (currentSpeedRatio > 0.18) {
+        context.strokeStyle = `rgba(205, 216, 207, ${currentSpeedRatio * 0.16})`;
+        context.lineWidth = wheelWidth * 0.12;
+        context.beginPath();
+        context.moveTo(-wheelLength * 0.38, -wheelWidth * 0.18);
+        context.lineTo(wheelLength * 0.38, -wheelWidth * 0.18);
+        context.moveTo(-wheelLength * 0.38, wheelWidth * 0.18);
+        context.lineTo(wheelLength * 0.38, wheelWidth * 0.18);
+        context.stroke();
+      }
 
       context.fillStyle = side < 0 ? "#6f7871" : "#303630";
       context.strokeStyle = "#0c0f0d";
       context.lineWidth = outlineWidth * 0.3;
       roundedRectangle(
-        frontBack * length - wheelLength * 0.22,
-        side * carWidth * 0.43 - wheelWidth * 0.11,
+        -wheelLength * 0.22,
+        -wheelWidth * 0.11,
         wheelLength * 0.44,
         wheelWidth * 0.22,
         wheelWidth * 0.08,
@@ -881,24 +908,23 @@ function drawCar() {
       context.fill();
       context.stroke();
 
-      context.strokeStyle = "rgba(142, 153, 144, 0.58)";
-      context.lineWidth = outlineWidth * 0.2;
-      [-0.25, 0.25].forEach((groove) => {
-        context.beginPath();
-        context.moveTo(
-          frontBack * length - wheelLength * 0.34,
-          side * carWidth * 0.43 + groove * wheelWidth,
-        );
-        context.lineTo(
-          frontBack * length + wheelLength * 0.34,
-          side * carWidth * 0.43 + groove * wheelWidth,
-        );
-        context.stroke();
-      });
+      // A rotating hub highlight reinforces wheel rotation at lower speeds.
+      context.save();
+      context.rotate(wheelRotation);
+      context.strokeStyle = "rgba(225, 231, 225, 0.76)";
+      context.lineWidth = outlineWidth * 0.19;
+      context.beginPath();
+      context.moveTo(-wheelWidth * 0.1, 0);
+      context.lineTo(wheelWidth * 0.1, 0);
+      context.moveTo(0, -wheelWidth * 0.1);
+      context.lineTo(0, wheelWidth * 0.1);
+      context.stroke();
+      context.restore();
 
       context.fillStyle = tyreGradient;
       context.strokeStyle = "#080a08";
       context.lineWidth = outlineWidth * 0.65;
+      context.restore();
     });
   });
 
@@ -1326,6 +1352,9 @@ function publishDiagnostics() {
   stage.dataset.dynamicCarLighting = "true";
   stage.dataset.projectedCarShadow = "true";
   stage.dataset.wheelSidewalls = "true";
+  stage.dataset.wheelSpin = Math.abs(currentSpeedRatio) > 0.008 ? "active" : "stopped";
+  stage.dataset.wheelRotation = wheelRotation.toFixed(3);
+  stage.dataset.frontWheelSteer = (currentSteeringDirection * 0.13).toFixed(3);
   stage.dataset.steeringLean = currentSteeringDirection.toFixed(2);
   stage.dataset.renderQuality = "high";
   stage.dataset.performanceMode = "optimized";
@@ -1455,6 +1484,9 @@ window.raceDebug = {
     dynamicCarLighting: true,
     projectedCarShadow: true,
     wheelSidewalls: true,
+    wheelSpin: Math.abs(currentSpeedRatio) > 0.008 ? "active" : "stopped",
+    wheelRotation,
+    frontWheelSteer: currentSteeringDirection * 0.13,
     renderQuality: "high",
     performanceMode: "optimized",
     fps: Math.round(smoothedFps),
