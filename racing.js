@@ -4,6 +4,8 @@ const stage = document.querySelector("#gameStage");
 const speedValue = document.querySelector("#speedValue");
 const driveState = document.querySelector("#driveState");
 const controlCard = document.querySelector("#controlCard");
+const TOP_SPEED_KMH = 376;
+const SPEED_MULTIPLIER = 9.2;
 
 const controls = {
   up: false,
@@ -272,8 +274,7 @@ function drawTrack() {
 }
 
 function updateCar(deltaTime) {
-  const maximumSpeed = car.length * 4.6;
-  const acceleration = maximumSpeed * 0.92;
+  const maximumSpeed = car.length * SPEED_MULTIPLIER;
   const cosine = Math.cos(car.angle);
   const sine = Math.sin(car.angle);
   let forwardSpeed = car.velocityX * cosine + car.velocityY * sine;
@@ -282,6 +283,9 @@ function updateCar(deltaTime) {
   const throttle = Number(controls.up) - Number(controls.down);
 
   if (throttle !== 0) {
+    const speedRatio = clamp(Math.abs(forwardSpeed) / maximumSpeed, 0, 1);
+    // Strong but progressive acceleration: quick launch, then a smooth approach to top speed.
+    const acceleration = maximumSpeed * 0.48 * (1 - speedRatio * 0.72);
     forwardSpeed += throttle * acceleration * deltaTime;
     hasDriven = true;
   }
@@ -336,7 +340,7 @@ function updateCar(deltaTime) {
   car.x = clamp(car.x, -margin, worldWidth + margin);
   car.y = clamp(car.y, -margin, worldHeight + margin);
 
-  const speed = Math.round(Math.abs(forwardSpeed) / maximumSpeed * 188);
+  const speed = Math.round(Math.abs(forwardSpeed) / maximumSpeed * TOP_SPEED_KMH);
   speedValue.textContent = String(speed);
   driveState.textContent = !hasDriven
     ? "待发车"
@@ -572,6 +576,9 @@ function publishDiagnostics() {
   stage.dataset.vehicle = "f1";
   stage.dataset.driftEnabled = "false";
   stage.dataset.visibleFences = "false";
+  stage.dataset.topSpeedKmh = String(TOP_SPEED_KMH);
+  stage.dataset.speedMultiplier = String(SPEED_MULTIPLIER);
+  stage.dataset.accelerationProfile = "progressive";
   stage.dataset.cameraZoom = String(cameraZoom);
   stage.dataset.worldTiltX = String(worldTiltX);
   stage.dataset.worldTiltY = String(worldTiltY);
@@ -658,6 +665,9 @@ window.raceDebug = {
     vehicle: "f1",
     driftEnabled: false,
     airWallHits,
+    topSpeedKmh: TOP_SPEED_KMH,
+    speedMultiplier: SPEED_MULTIPLIER,
+    accelerationProfile: "progressive",
     trackSamples: trackSamples.length,
   }),
 };
