@@ -3,86 +3,67 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="简洁专注的网页打字与指法练习工具" />
-    <title>轻打字 · Typing Practice</title>
-    <link rel="stylesheet" href="styles.css?v=5" />
+    <meta name="description" content="帅气逼人吊炸天——打字、赛车等轻量在线工具与游戏" />
+    <title>帅气逼人吊炸天</title>
+    <link rel="stylesheet" href="site.css?v=1" />
   </head>
-  <body>
-    <main class="focus-shell">
-      <section class="practice-card" id="practiceCard" aria-label="打字练习区域">
-        <div class="hidden-metrics" hidden>
-          <span id="wpm">0</span>
-          <span id="accuracy">100%</span>
-          <span id="time">0:00</span>
-        </div>
+  <body class="home-page">
+    <main class="home-shell">
+      <header class="home-header">
+        <a class="site-brand" href="./" aria-label="帅气逼人吊炸天首页">
+          <span class="brand-mark">帅</span>
+          <span>帅气逼人吊炸天</span>
+        </a>
+        <span class="header-note">PLAY · LEARN · CREATE</span>
+      </header>
 
-        <div class="typing-panel">
-          <div class="typing-area" id="typingArea" tabindex="0" role="textbox" aria-label="开始输入">
-            <p class="prompt" id="prompt"></p>
-            <div class="start-hint" id="startHint">
-              <span class="key-icon">A</span>
-              <span>点击文字区域，然后直接输入</span>
-            </div>
+      <section class="hero" aria-labelledby="heroTitle">
+        <p class="eyebrow">欢迎回来</p>
+        <h1 id="heroTitle">今天想玩点什么？</h1>
+        <p>选择一个板块，马上开始。</p>
+      </section>
+
+      <section class="module-grid" aria-label="网站板块">
+        <a class="module-card typing-module" href="typing.html">
+          <div class="module-topline">
+            <span class="module-number">01</span>
+            <span class="module-status live"><i></i> 可使用</span>
           </div>
-        </div>
-
-        <div class="keyboard-panel">
-          <div class="finger-guide" aria-live="polite">
-            <span class="next-key" id="nextKey">S</span>
-            <div class="guide-copy">
-              <span>下一键</span>
-              <strong id="fingerName">左手无名指</strong>
-            </div>
-            <span class="guide-arrow" aria-hidden="true">→</span>
-            <b class="guide-home" id="returnHint">手指留在 S</b>
-            <span class="keyboard-status" id="keyboardStatus">请用左手无名指按 S</span>
-            <span class="result" id="result" hidden>
-              <span id="resultText"></span>
-            </span>
+          <div class="typing-visual" aria-hidden="true">
+            <span>Q</span><span>W</span><span>E</span><span>R</span><span>T</span>
+            <span>A</span><span class="active">S</span><span>D</span><span>F</span><span>G</span>
+            <span>Z</span><span>X</span><span>C</span><span>V</span><span>B</span>
           </div>
-
-          <div class="virtual-keyboard" id="virtualKeyboard" aria-label="虚拟键盘"></div>
-
-          <div class="compact-hands" aria-label="手指键位提示">
-            <div class="hand-strip left-strip">
-              <span class="hand-name">左手</span>
-              <span class="finger-marker pinky finger-group-left-pinky" data-hand="左手" data-finger="小指"><b>小</b><small>QAZ</small></span>
-              <span class="finger-marker ring finger-group-left-ring" data-hand="左手" data-finger="无名指"><b>无</b><small>WSX</small></span>
-              <span class="finger-marker middle finger-group-left-middle" data-hand="左手" data-finger="中指"><b>中</b><small>EDC</small></span>
-              <span class="finger-marker index finger-group-left-index" data-hand="左手" data-finger="食指"><b>食</b><small>RTFGVB</small></span>
+          <div class="module-copy">
+            <div>
+              <span class="module-label">练习工具</span>
+              <h2>打字</h2>
+              <p>跟随键盘与手指提示，练准指法，提高速度。</p>
             </div>
-
-            <div class="mapping-center" aria-live="polite">
-              <strong id="mappingHint">左手无名指</strong>
-              <i aria-hidden="true">→</i>
-              <b id="mappingKey">S 键</b>
-            </div>
-
-            <span class="finger-marker thumb finger-group-thumb" data-hand="双手" data-finger="拇指"><b>拇</b><small>空格</small></span>
-
-            <div class="hand-strip right-strip">
-              <span class="finger-marker index finger-group-right-index" data-hand="右手" data-finger="食指"><b>食</b><small>YUHJNM</small></span>
-              <span class="finger-marker middle finger-group-right-middle" data-hand="右手" data-finger="中指"><b>中</b><small>IK,</small></span>
-              <span class="finger-marker ring finger-group-right-ring" data-hand="右手" data-finger="无名指"><b>无</b><small>OL.</small></span>
-              <span class="finger-marker pinky finger-group-right-pinky" data-hand="右手" data-finger="小指"><b>小</b><small>P;/</small></span>
-              <span class="hand-name">右手</span>
-            </div>
+            <span class="enter-button">开始练习 <b>→</b></span>
           </div>
-        </div>
+        </a>
+
+        <a class="module-card racing-module" href="racing.html">
+          <div class="module-topline">
+            <span class="module-number">02</span>
+            <span class="module-status soon">准备中</span>
+          </div>
+          <div class="racing-visual" aria-hidden="true">
+            <span class="road-line line-one"></span>
+            <span class="road-line line-two"></span>
+            <span class="car"><i></i><b></b></span>
+          </div>
+          <div class="module-copy">
+            <div>
+              <span class="module-label">游戏</span>
+              <h2>赛车</h2>
+              <p>赛车板块已经就位，下一站进入极速赛道。</p>
+            </div>
+            <span class="enter-button">进入板块 <b>→</b></span>
+          </div>
+        </a>
       </section>
     </main>
-
-    <textarea
-      id="typingInput"
-      class="typing-input"
-      aria-hidden="true"
-      autocomplete="off"
-      autocapitalize="off"
-      autocorrect="off"
-      spellcheck="false"
-    ></textarea>
-
-    <script src="passages.js?v=3"></script>
-    <script src="app.js?v=5"></script>
   </body>
 </html>

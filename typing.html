@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="帅气逼人吊炸天 · 打字与指法练习" />
+    <title>打字 · 帅气逼人吊炸天</title>
+    <link rel="stylesheet" href="styles.css?v=6" />
+  </head>
+  <body>
+    <a class="home-link" href="./" aria-label="返回首页">← <span>首页</span></a>
+    <main class="focus-shell">
+      <section class="practice-card" id="practiceCard" aria-label="打字练习区域">
+        <div class="hidden-metrics" hidden>
+          <span id="wpm">0</span>
+          <span id="accuracy">100%</span>
+          <span id="time">0:00</span>
+        </div>
+
+        <div class="typing-panel">
+          <div class="typing-area" id="typingArea" tabindex="0" role="textbox" aria-label="开始输入">
+            <p class="prompt" id="prompt"></p>
+            <div class="start-hint" id="startHint">
+              <span class="key-icon">A</span>
+              <span>点击文字区域，然后直接输入</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="keyboard-panel">
+          <div class="finger-guide" aria-live="polite">
+            <span class="next-key" id="nextKey">S</span>
+            <div class="guide-copy">
+              <span>下一键</span>
+              <strong id="fingerName">左手无名指</strong>
+            </div>
+            <span class="guide-arrow" aria-hidden="true">→</span>
+            <b class="guide-home" id="returnHint">手指留在 S</b>
+            <span class="keyboard-status" id="keyboardStatus">请用左手无名指按 S</span>
+            <span class="result" id="result" hidden>
+              <span id="resultText"></span>
+            </span>
+          </div>
+
+          <div class="virtual-keyboard" id="virtualKeyboard" aria-label="虚拟键盘"></div>
+
+          <div class="compact-hands" aria-label="手指键位提示">
+            <div class="hand-strip left-strip">
+              <span class="hand-name">左手</span>
+              <span class="finger-marker pinky finger-group-left-pinky" data-hand="左手" data-finger="小指"><b>小</b><small>QAZ</small></span>
+              <span class="finger-marker ring finger-group-left-ring" data-hand="左手" data-finger="无名指"><b>无</b><small>WSX</small></span>
+              <span class="finger-marker middle finger-group-left-middle" data-hand="左手" data-finger="中指"><b>中</b><small>EDC</small></span>
+              <span class="finger-marker index finger-group-left-index" data-hand="左手" data-finger="食指"><b>食</b><small>RTFGVB</small></span>
+            </div>
+
+            <div class="mapping-center" aria-live="polite">
+              <strong id="mappingHint">左手无名指</strong>
+              <i aria-hidden="true">→</i>
+              <b id="mappingKey">S 键</b>
+            </div>
+
+            <span class="finger-marker thumb finger-group-thumb" data-hand="双手" data-finger="拇指"><b>拇</b><small>空格</small></span>
+
+            <div class="hand-strip right-strip">
+              <span class="finger-marker index finger-group-right-index" data-hand="右手" data-finger="食指"><b>食</b><small>YUHJNM</small></span>
+              <span class="finger-marker middle finger-group-right-middle" data-hand="右手" data-finger="中指"><b>中</b><small>IK,</small></span>
+              <span class="finger-marker ring finger-group-right-ring" data-hand="右手" data-finger="无名指"><b>无</b><small>OL.</small></span>
+              <span class="finger-marker pinky finger-group-right-pinky" data-hand="右手" data-finger="小指"><b>小</b><small>P;/</small></span>
+              <span class="hand-name">右手</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <textarea id="typingInput" class="typing-input" aria-hidden="true" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false"></textarea>
+    <script src="passages.js?v=3"></script>
+    <script src="app.js?v=5"></script>
+  </body>
+</html>
