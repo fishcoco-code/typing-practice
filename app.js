@@ -1,10 +1,4 @@
-const passages = [
-  "small steps every day can lead to remarkable progress over time",
-  "focus on accuracy first and your typing speed will naturally follow",
-  "the quick brown fox jumps over the lazy dog near the quiet river",
-  "practice makes each movement feel easier calmer and more natural",
-  "keep your eyes on the screen and let your fingers learn the way",
-];
+const passages = window.typingPassages;
 
 const keyboardRows = [
   ["q", "w", "e", "r", "t", "y", "u", "i", "o", "p"],
