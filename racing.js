@@ -11,9 +11,9 @@ const currentMapName = document.querySelector("#currentMapName");
 const TOP_SPEED_KMH = 639;
 const SPEED_MULTIPLIER = 15.64;
 const MAX_MOTION_TRAIL_FRAMES = 6;
-const MAX_WORLD_TRAIL_FRAMES = 4;
-const MAX_RENDER_SCALE = 2.5;
-const MAX_TRAIL_RENDER_SCALE = 1.25;
+const MAX_WORLD_TRAIL_FRAMES = 2;
+const MAX_RENDER_SCALE = 2.25;
+const MAX_TRAIL_RENDER_SCALE = 0.85;
 const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
 
 const controls = {
@@ -135,6 +135,7 @@ let worldTiltX = 0.22;
 let worldTiltY = 0.7;
 let currentSpeedRatio = 0;
 let currentSteeringAmount = 0;
+let currentSteeringDirection = 0;
 let turnSlowdownAmount = 0;
 let motionTrailFrames = [];
 let motionCaptureAccumulator = 0;
@@ -224,6 +225,7 @@ function resetCar() {
   hasDriven = false;
   currentSpeedRatio = 0;
   currentSteeringAmount = 0;
+  currentSteeringDirection = 0;
   turnSlowdownAmount = 0;
   motionTrailFrames = [];
   motionCaptureAccumulator = 0;
@@ -233,7 +235,7 @@ function resetCar() {
 function resizeCanvas() {
   const bounds = stage.getBoundingClientRect();
   const qualityCap = bounds.width < 600 ? 2.25 : MAX_RENDER_SCALE;
-  const minimumQualityScale = bounds.width < 600 ? 1.75 : 2.25;
+  const minimumQualityScale = bounds.width < 600 ? 1.65 : 2;
   const ratio = Math.min(
     Math.max(window.devicePixelRatio || 1, minimumQualityScale),
     qualityCap,
@@ -547,6 +549,7 @@ function updateCar(deltaTime) {
   forwardSpeed = clamp(forwardSpeed, -maximumSpeed * 0.34, maximumSpeed);
   const speedRatioBeforeTurn = clamp(Math.abs(forwardSpeed) / maximumSpeed, 0, 1);
   currentSteeringAmount = Math.abs(steering);
+  currentSteeringDirection = steering;
   const steeringPower = 0.4 + speedRatioBeforeTurn * 1.28;
   if (Math.abs(forwardSpeed) > 4) {
     car.angle +=
@@ -657,27 +660,72 @@ function traceF1Body(length, carWidth) {
   context.closePath();
 }
 
+function traceF1Crown(length, carWidth) {
+  context.beginPath();
+  context.moveTo(-length * 0.37, -carWidth * 0.085);
+  context.lineTo(-length * 0.2, -carWidth * 0.14);
+  context.lineTo(length * 0.13, -carWidth * 0.115);
+  context.lineTo(length * 0.43, -carWidth * 0.035);
+  context.lineTo(length * 0.5, 0);
+  context.lineTo(length * 0.43, carWidth * 0.035);
+  context.lineTo(length * 0.13, carWidth * 0.115);
+  context.lineTo(-length * 0.2, carWidth * 0.14);
+  context.lineTo(-length * 0.37, carWidth * 0.085);
+  context.closePath();
+}
+
 function drawCar() {
   const length = car.length;
   const carWidth = car.width;
   const outlineWidth = clamp(carWidth * 0.055, 3.4, 5.4);
+  const lightDirection = -0.9;
+  const relativeLight = lightDirection - car.angle;
+  const lightAcrossBody = Math.sin(relativeLight);
+  const bodyLift = carWidth * (0.14 + currentSpeedRatio * 0.02);
+  const steeringLean = currentSteeringDirection * currentSpeedRatio * carWidth * 0.018;
   context.save();
   context.translate(car.x, car.y);
   context.rotate(car.angle);
 
-  // Layered ground shadow separates the raised chassis from the road.
+  // The projected shadow moves against the fixed world light and stretches with speed.
   context.save();
-  context.translate(carWidth * 0.11, carWidth * 0.18);
+  context.translate(
+    -Math.cos(relativeLight) * carWidth * 0.08 - currentSpeedRatio * length * 0.035,
+    carWidth * 0.16 - lightAcrossBody * carWidth * 0.055 + steeringLean,
+  );
   context.filter = `blur(${Math.max(2, carWidth * 0.055)}px)`;
-  context.fillStyle = "rgba(7, 9, 8, 0.46)";
+  context.fillStyle = `rgba(7, 9, 8, ${0.43 - currentSpeedRatio * 0.1})`;
   context.beginPath();
-  context.ellipse(0, 0, length * 0.57, carWidth * 0.5, 0, 0, Math.PI * 2);
+  context.ellipse(
+    -currentSpeedRatio * length * 0.025,
+    0,
+    length * (0.56 + currentSpeedRatio * 0.045),
+    carWidth * 0.48,
+    0,
+    0,
+    Math.PI * 2,
+  );
   context.fill();
   context.restore();
 
+  // Four stepped silhouettes create a continuous body wall instead of a flat decal edge.
+  const depthColors = ["#3b1211", "#511716", "#681d19", "#81251e"];
+  for (let layer = depthColors.length; layer >= 1; layer -= 1) {
+    const progress = layer / depthColors.length;
+    context.save();
+    context.translate(-bodyLift * progress * 0.12, bodyLift * progress + steeringLean * progress);
+    context.fillStyle = depthColors[layer - 1];
+    context.strokeStyle = "#0a0c0a";
+    context.lineWidth = outlineWidth * 0.8;
+    traceF1Body(length, carWidth);
+    context.fill();
+    if (layer === depthColors.length) context.stroke();
+    context.restore();
+  }
+
   // Dark lower layer gives the body, wings and tyres visible physical thickness.
   context.save();
-  context.translate(0, carWidth * 0.09);
+  context.translate(-bodyLift * 0.08, bodyLift * 0.92 + steeringLean);
   context.fillStyle = "#651c19";
   context.strokeStyle = "#0b0d0b";
   context.lineWidth = outlineWidth * 0.9;
@@ -802,6 +850,17 @@ function drawCar() {
       context.fill();
       context.stroke();
 
+      // A separate near sidewall makes each tyre read as a thick rubber cylinder.
+      context.fillStyle = side > 0 ? "rgba(4, 6, 5, 0.84)" : "rgba(104, 113, 106, 0.42)";
+      roundedRectangle(
+        frontBack * length - wheelLength * 0.46,
+        side * carWidth * 0.43 + (side > 0 ? wheelWidth * 0.24 : -wheelWidth * 0.38),
+        wheelLength * 0.92,
+        wheelWidth * 0.14,
+        wheelWidth * 0.05,
+      );
+      context.fill();
+
       context.strokeStyle = "#59605a";
       context.lineWidth = outlineWidth * 0.28;
       context.beginPath();
@@ -856,6 +915,31 @@ function drawCar() {
   context.fill();
   context.stroke();
 
+  // A raised centre spine adds a second top plane with its own highlight and side face.
+  context.save();
+  context.translate(-bodyLift * 0.08, bodyLift * 0.22 + steeringLean * 0.45);
+  context.fillStyle = "rgba(77, 18, 17, 0.86)";
+  context.strokeStyle = "#151715";
+  context.lineWidth = outlineWidth * 0.48;
+  traceF1Crown(length, carWidth);
+  context.fill();
+  context.stroke();
+  context.restore();
+
+  context.save();
+  context.translate(-bodyLift * 0.14, -bodyLift * 0.18 + steeringLean * 0.2);
+  const crownGradient = context.createLinearGradient(0, -carWidth * 0.14, 0, carWidth * 0.14);
+  crownGradient.addColorStop(0, lightAcrossBody > 0 ? "#ffb083" : "#ef6849");
+  crownGradient.addColorStop(0.48, "#e34e34");
+  crownGradient.addColorStop(1, lightAcrossBody < 0 ? "#a42b23" : "#741e1b");
+  context.fillStyle = crownGradient;
+  context.strokeStyle = "#171917";
+  context.lineWidth = outlineWidth * 0.7;
+  traceF1Crown(length, carWidth);
+  context.fill();
+  context.stroke();
+  context.restore();
+
   // The near-side skirt is a visible side face beneath the top body plane.
   context.fillStyle = "rgba(92, 22, 20, 0.88)";
   context.strokeStyle = "#151715";
@@ -896,6 +980,19 @@ function drawCar() {
     context.closePath();
     context.fill();
     context.stroke();
+
+    // Dark intake cavities break up the sidepods and reveal their depth.
+    context.fillStyle = "rgba(18, 20, 18, 0.9)";
+    context.strokeStyle = side > 0 ? "rgba(255, 111, 78, 0.34)" : "rgba(255, 186, 145, 0.58)";
+    context.lineWidth = outlineWidth * 0.28;
+    context.beginPath();
+    context.moveTo(-length * 0.21, side * carWidth * 0.215);
+    context.lineTo(-length * 0.12, side * carWidth * 0.285);
+    context.lineTo(-length * 0.035, side * carWidth * 0.27);
+    context.lineTo(-length * 0.08, side * carWidth * 0.205);
+    context.closePath();
+    context.fill();
+    context.stroke();
   });
 
   // Fine panel seams and fasteners remain visible at the higher render scale.
@@ -917,6 +1014,17 @@ function drawCar() {
     context.fill();
   });
 
+  // The cockpit has its own lower shell, then the driver assembly sits on a raised plane.
+  context.save();
+  context.translate(-bodyLift * 0.04, bodyLift * 0.22 + steeringLean * 0.25);
+  context.fillStyle = "rgba(7, 9, 8, 0.88)";
+  context.beginPath();
+  context.ellipse(-length * 0.08, 0, length * 0.19, carWidth * 0.18, 0, 0, Math.PI * 2);
+  context.fill();
+  context.restore();
+
+  context.save();
+  context.translate(-bodyLift * 0.1, -bodyLift * 0.17 + steeringLean * 0.12);
   // Open cockpit, driver helmet and protective halo.
   context.fillStyle = "#171b19";
   context.strokeStyle = "#171a17";
@@ -979,6 +1087,7 @@ function drawCar() {
   context.moveTo(length * 0.06, 0);
   context.lineTo(length * 0.13, 0);
   context.stroke();
+  context.restore();
 
   // Nose stripe, number and crisp body highlights.
   context.save();
@@ -1008,7 +1117,8 @@ function drawCar() {
   context.textBaseline = "middle";
   context.fillText("7", length * 0.27, 0);
 
-  context.strokeStyle = "rgba(255, 206, 176, 0.9)";
+  const highlightStrength = clamp(0.52 + lightAcrossBody * 0.28, 0.28, 0.86);
+  context.strokeStyle = `rgba(255, 218, 190, ${highlightStrength})`;
   context.lineWidth = outlineWidth * 0.42;
   context.beginPath();
   context.moveTo(-length * 0.39, -carWidth * 0.1);
@@ -1019,6 +1129,15 @@ function drawCar() {
   context.lineTo(-length * 0.2, -carWidth * 0.22);
   context.moveTo(-length * 0.39, carWidth * 0.1);
   context.lineTo(-length * 0.2, carWidth * 0.22);
+  context.stroke();
+
+  // A short moving specular stroke makes the paint react as the car changes heading.
+  const highlightPosition = clamp(lightAcrossBody * carWidth * 0.08, -carWidth * 0.075, carWidth * 0.075);
+  context.strokeStyle = `rgba(255, 239, 218, ${0.22 + Math.abs(lightAcrossBody) * 0.34})`;
+  context.lineWidth = outlineWidth * 0.3;
+  context.beginPath();
+  context.moveTo(-length * 0.22, -carWidth * 0.13 + highlightPosition);
+  context.quadraticCurveTo(length * 0.04, -carWidth * 0.19 + highlightPosition, length * 0.34, -carWidth * 0.055 + highlightPosition);
   context.stroke();
   context.restore();
 }
@@ -1202,8 +1321,12 @@ function publishDiagnostics() {
   stage.dataset.airWallImpact = String(airWallImpact > 0);
   stage.dataset.airWallHits = String(airWallHits);
   stage.dataset.vehicle = "f1";
-  stage.dataset.vehicleDepth = "layered-3d";
-  stage.dataset.vehicleDepthLayers = "3";
+  stage.dataset.vehicleDepth = "multi-plane-3d";
+  stage.dataset.vehicleDepthLayers = "6";
+  stage.dataset.dynamicCarLighting = "true";
+  stage.dataset.projectedCarShadow = "true";
+  stage.dataset.wheelSidewalls = "true";
+  stage.dataset.steeringLean = currentSteeringDirection.toFixed(2);
   stage.dataset.renderQuality = "high";
   stage.dataset.performanceMode = "optimized";
   stage.dataset.fps = String(Math.round(smoothedFps));
@@ -1327,8 +1450,11 @@ window.raceDebug = {
     state: driveState.textContent,
     onTrack,
     vehicle: "f1",
-    vehicleDepth: "layered-3d",
-    vehicleDepthLayers: 3,
+    vehicleDepth: "multi-plane-3d",
+    vehicleDepthLayers: 6,
+    dynamicCarLighting: true,
+    projectedCarShadow: true,
+    wheelSidewalls: true,
     renderQuality: "high",
     performanceMode: "optimized",
     fps: Math.round(smoothedFps),
