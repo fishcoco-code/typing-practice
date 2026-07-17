@@ -4,6 +4,10 @@ const stage = document.querySelector("#gameStage");
 const speedValue = document.querySelector("#speedValue");
 const driveState = document.querySelector("#driveState");
 const controlCard = document.querySelector("#controlCard");
+const mapSelector = document.querySelector("#mapSelector");
+const mapToggle = document.querySelector("#mapToggle");
+const mapMenu = document.querySelector("#mapMenu");
+const currentMapName = document.querySelector("#currentMapName");
 const TOP_SPEED_KMH = 639;
 const SPEED_MULTIPLIER = 15.64;
 const MAX_MOTION_TRAIL_FRAMES = 6;
@@ -15,20 +19,97 @@ const controls = {
   right: false,
 };
 
-const trackShape = [
-  [0.18, 0.78],
-  [0.08, 0.53],
-  [0.16, 0.21],
-  [0.37, 0.12],
-  [0.55, 0.24],
-  [0.78, 0.11],
-  [0.91, 0.31],
-  [0.78, 0.53],
-  [0.88, 0.79],
-  [0.66, 0.89],
-  [0.47, 0.72],
-  [0.28, 0.9],
-];
+const MAPS = {
+  meadow: {
+    name: "绿野大奖赛",
+    description: "开阔草坪 · 连续高速弯",
+    pattern: "stripes",
+    palette: {
+      terrain: "#78945e",
+      terrainLine: "#263d28",
+      terrainDot: "rgba(31, 58, 31, 0.23)",
+      roadBorder: "#191c19",
+      roadEdge: "#efe4c8",
+      road: "#424641",
+      roadLight: "rgba(255,255,255,0.055)",
+      curbA: "#f4ecda",
+      curbB: "#e45536",
+      route: "rgba(18, 20, 18, 0.44)",
+    },
+    shape: [
+      [0.18, 0.78], [0.08, 0.53], [0.16, 0.21], [0.37, 0.12],
+      [0.55, 0.24], [0.78, 0.11], [0.91, 0.31], [0.78, 0.53],
+      [0.88, 0.79], [0.66, 0.89], [0.47, 0.72], [0.28, 0.9],
+    ],
+  },
+  coast: {
+    name: "海岸公路",
+    description: "金色海岸 · 长直道",
+    pattern: "waves",
+    palette: {
+      terrain: "#c5a665",
+      terrainLine: "#477f99",
+      terrainDot: "rgba(74, 112, 126, 0.22)",
+      roadBorder: "#232729",
+      roadEdge: "#f1dfba",
+      road: "#4b5153",
+      roadLight: "rgba(166, 223, 232, 0.075)",
+      curbA: "#f6e2b6",
+      curbB: "#2d8fa8",
+      route: "rgba(25, 43, 47, 0.42)",
+    },
+    shape: [
+      [0.12, 0.75], [0.08, 0.38], [0.2, 0.12], [0.48, 0.1],
+      [0.76, 0.16], [0.91, 0.39], [0.82, 0.61], [0.93, 0.83],
+      [0.62, 0.9], [0.42, 0.82], [0.25, 0.9],
+    ],
+  },
+  neon: {
+    name: "霓虹都市",
+    description: "夜间街区 · 技术弯道",
+    pattern: "grid",
+    palette: {
+      terrain: "#17232b",
+      terrainLine: "#2b7180",
+      terrainDot: "rgba(232, 69, 151, 0.34)",
+      roadBorder: "#05070a",
+      roadEdge: "#55dce9",
+      road: "#282b35",
+      roadLight: "rgba(234, 69, 151, 0.09)",
+      curbA: "#60e7ef",
+      curbB: "#ed4e98",
+      route: "rgba(106, 229, 240, 0.42)",
+    },
+    shape: [
+      [0.16, 0.8], [0.08, 0.55], [0.13, 0.2], [0.36, 0.09],
+      [0.5, 0.31], [0.67, 0.1], [0.9, 0.2], [0.82, 0.46],
+      [0.93, 0.72], [0.73, 0.9], [0.52, 0.68], [0.34, 0.92],
+    ],
+  },
+  canyon: {
+    name: "沙漠峡谷",
+    description: "赤色荒漠 · 大回环",
+    pattern: "rocks",
+    palette: {
+      terrain: "#b87843",
+      terrainLine: "#704129",
+      terrainDot: "rgba(91, 48, 29, 0.34)",
+      roadBorder: "#2d241f",
+      roadEdge: "#e8c58f",
+      road: "#5a5048",
+      roadLight: "rgba(255, 222, 168, 0.065)",
+      curbA: "#f1d09a",
+      curbB: "#a43f2d",
+      route: "rgba(41, 31, 25, 0.46)",
+    },
+    shape: [
+      [0.14, 0.72], [0.07, 0.42], [0.2, 0.14], [0.42, 0.08],
+      [0.6, 0.2], [0.78, 0.1], [0.93, 0.3], [0.83, 0.49],
+      [0.92, 0.76], [0.7, 0.92], [0.49, 0.8], [0.31, 0.93],
+      [0.22, 0.78],
+    ],
+  },
+};
 
 let width = 1000;
 let height = 650;
@@ -51,6 +132,7 @@ let currentSteeringAmount = 0;
 let turnSlowdownAmount = 0;
 let motionTrailFrames = [];
 let motionCaptureAccumulator = 0;
+let currentMapKey = "meadow";
 const demoMode = new URLSearchParams(window.location.search).get("demo");
 
 const car = {
@@ -87,7 +169,10 @@ function catmullRom(previous, start, end, next, amount) {
 }
 
 function buildTrack() {
-  const points = trackShape.map(([x, y]) => ({ x: x * worldWidth, y: y * worldHeight }));
+  const points = MAPS[currentMapKey].shape.map(([x, y]) => ({
+    x: x * worldWidth,
+    y: y * worldHeight,
+  }));
   const samples = [];
 
   for (let index = 0; index < points.length; index += 1) {
@@ -122,6 +207,7 @@ function resetCar() {
   onTrack = true;
   airWallImpact = 0;
   airWallHits = 0;
+  hasDriven = false;
   currentSpeedRatio = 0;
   currentSteeringAmount = 0;
   turnSlowdownAmount = 0;
@@ -152,6 +238,27 @@ function resizeCanvas() {
   resetCar();
 }
 
+function setMapMenuOpen(open) {
+  mapMenu.hidden = !open;
+  mapToggle.setAttribute("aria-expanded", String(open));
+}
+
+function selectMap(mapKey) {
+  if (!MAPS[mapKey]) return;
+  currentMapKey = mapKey;
+  currentMapName.textContent = MAPS[mapKey].name;
+  document.querySelectorAll("[data-map]").forEach((option) => {
+    const selected = option.dataset.map === mapKey;
+    option.classList.toggle("selected", selected);
+    option.setAttribute("aria-pressed", String(selected));
+  });
+  buildTrack();
+  resetCar();
+  speedValue.textContent = "0";
+  driveState.textContent = "待发车";
+  setMapMenuOpen(false);
+}
+
 function createTrackPath() {
   const path = new Path2D();
   trackSamples.forEach((point, index) => {
@@ -177,40 +284,84 @@ function getNearestTrackPoint(x, y) {
 }
 
 function drawGrass() {
-  context.fillStyle = "#78945e";
+  const currentMap = MAPS[currentMapKey];
+  const { palette } = currentMap;
+  context.fillStyle = palette.terrain;
   context.fillRect(-worldWidth, -worldHeight, worldWidth * 3, worldHeight * 3);
 
   context.save();
-  context.globalAlpha = 0.16;
-  context.strokeStyle = "#263d28";
+  context.globalAlpha = currentMap.pattern === "grid" ? 0.34 : 0.2;
+  context.strokeStyle = palette.terrainLine;
   context.lineWidth = 1;
   const gap = Math.max(22, Math.min(width, height) * 0.045);
-  // Draw only the world-anchored stripe range near the camera to keep high-speed echoes smooth.
   const visibleSpan = Math.max(width, height) / cameraZoom * 1.8;
+  const minimumX = car.x - visibleSpan;
+  const maximumX = car.x + visibleSpan;
   const minimumY = car.y - visibleSpan;
   const maximumY = car.y + visibleSpan;
-  const minimumOffset = car.x - car.y - visibleSpan * 2;
-  const maximumOffset = car.x - car.y + visibleSpan * 2;
-  const firstOffset = Math.floor(minimumOffset / gap) * gap;
-  for (let offset = firstOffset; offset < maximumOffset; offset += gap) {
-    context.beginPath();
-    context.moveTo(offset + minimumY, minimumY);
-    context.lineTo(offset + maximumY, maximumY);
-    context.stroke();
+
+  if (currentMap.pattern === "grid") {
+    const gridGap = gap * 3.2;
+    const firstX = Math.floor(minimumX / gridGap) * gridGap;
+    const firstY = Math.floor(minimumY / gridGap) * gridGap;
+    for (let x = firstX; x < maximumX; x += gridGap) {
+      context.beginPath();
+      context.moveTo(x, minimumY);
+      context.lineTo(x, maximumY);
+      context.stroke();
+    }
+    for (let y = firstY; y < maximumY; y += gridGap) {
+      context.beginPath();
+      context.moveTo(minimumX, y);
+      context.lineTo(maximumX, y);
+      context.stroke();
+    }
+  } else if (currentMap.pattern === "waves") {
+    const waveGap = gap * 2.8;
+    const firstY = Math.floor(minimumY / waveGap) * waveGap;
+    for (let y = firstY; y < maximumY; y += waveGap) {
+      context.beginPath();
+      for (let x = minimumX; x <= maximumX; x += gap * 1.5) {
+        const waveY = y + Math.sin(x / (gap * 2.6)) * gap * 0.18;
+        if (x === minimumX) context.moveTo(x, waveY);
+        else context.lineTo(x, waveY);
+      }
+      context.stroke();
+    }
+  } else {
+    // World-anchored diagonal markings suit meadow stripes and canyon strata.
+    const minimumOffset = car.x - car.y - visibleSpan * 2;
+    const maximumOffset = car.x - car.y + visibleSpan * 2;
+    const firstOffset = Math.floor(minimumOffset / gap) * gap;
+    for (let offset = firstOffset; offset < maximumOffset; offset += gap) {
+      context.beginPath();
+      context.moveTo(offset + minimumY, minimumY);
+      context.lineTo(offset + maximumY, maximumY);
+      context.stroke();
+    }
   }
   context.restore();
 
-  context.fillStyle = "rgba(31, 58, 31, 0.23)";
-  for (let index = 0; index < 120; index += 1) {
-    const x = ((index * 173) % 997) / 997 * worldWidth;
-    const y = ((index * 277) % 643) / 643 * worldHeight;
-    context.beginPath();
-    context.arc(x, y, 2 + (index % 4), 0, Math.PI * 2);
-    context.fill();
+  context.fillStyle = palette.terrainDot;
+  const markerGap = currentMap.pattern === "rocks" ? gap * 5.5 : gap * 7;
+  const firstMarkerX = Math.floor(minimumX / markerGap) * markerGap;
+  const firstMarkerY = Math.floor(minimumY / markerGap) * markerGap;
+  for (let x = firstMarkerX; x < maximumX; x += markerGap) {
+    for (let y = firstMarkerY; y < maximumY; y += markerGap) {
+      const gridX = Math.round(x / markerGap);
+      const gridY = Math.round(y / markerGap);
+      const hash = Math.abs((gridX * 73856093) ^ (gridY * 19349663));
+      if (hash % 5 !== 0) continue;
+      const radius = currentMap.pattern === "rocks" ? 5 + hash % 8 : 2 + hash % 4;
+      context.beginPath();
+      context.arc(x + hash % 29, y + hash % 17, radius, 0, Math.PI * 2);
+      context.fill();
+    }
   }
 }
 
 function drawCurbs() {
+  const { palette } = MAPS[currentMapKey];
   const offset = trackWidth / 2 + 1;
   const curbLength = Math.max(12, trackWidth * 0.13);
   const curbDepth = Math.max(7, trackWidth * 0.075);
@@ -220,7 +371,7 @@ function drawCurbs() {
     context.save();
     context.translate(point.x, point.y);
     context.rotate(point.angle);
-    context.fillStyle = index % 10 === 0 ? "#f4ecda" : "#e45536";
+    context.fillStyle = index % 10 === 0 ? palette.curbA : palette.curbB;
     context.strokeStyle = "rgba(20, 22, 19, 0.48)";
     context.lineWidth = 1.2;
     [-1, 1].forEach((side) => {
@@ -234,8 +385,9 @@ function drawCurbs() {
 }
 
 function drawRouteTirePrints() {
+  const { palette } = MAPS[currentMapKey];
   context.save();
-  context.strokeStyle = "rgba(18, 20, 18, 0.44)";
+  context.strokeStyle = palette.route;
   context.lineWidth = clamp(trackWidth * 0.035, 2, 4.5);
   context.lineCap = "round";
 
@@ -265,24 +417,25 @@ function drawRouteTirePrints() {
 }
 
 function drawTrack() {
+  const { palette } = MAPS[currentMapKey];
   const path = createTrackPath();
   context.save();
   context.lineJoin = "round";
   context.lineCap = "round";
 
-  context.strokeStyle = "#191c19";
+  context.strokeStyle = palette.roadBorder;
   context.lineWidth = trackWidth + 20;
   context.stroke(path);
 
-  context.strokeStyle = "#efe4c8";
+  context.strokeStyle = palette.roadEdge;
   context.lineWidth = trackWidth + 14;
   context.stroke(path);
 
-  context.strokeStyle = "#424641";
+  context.strokeStyle = palette.road;
   context.lineWidth = trackWidth;
   context.stroke(path);
 
-  context.strokeStyle = "rgba(255,255,255,0.055)";
+  context.strokeStyle = palette.roadLight;
   context.lineWidth = trackWidth * 0.62;
   context.stroke(path);
   context.restore();
@@ -711,6 +864,9 @@ function publishDiagnostics() {
   );
   stage.dataset.worldGhostFrames = String(motionTrailFrames.length);
   stage.dataset.speedRatio = currentSpeedRatio.toFixed(3);
+  stage.dataset.currentMap = currentMapKey;
+  stage.dataset.currentMapName = MAPS[currentMapKey].name;
+  stage.dataset.availableMaps = String(Object.keys(MAPS).length);
   stage.dataset.cameraZoom = String(cameraZoom);
   stage.dataset.worldTiltX = String(worldTiltX);
   stage.dataset.worldTiltY = String(worldTiltY);
@@ -784,6 +940,22 @@ document.querySelectorAll("[data-control]").forEach((button) => {
   });
 });
 
+mapToggle.addEventListener("click", () => {
+  setMapMenuOpen(mapMenu.hidden);
+});
+
+document.querySelectorAll("[data-map]").forEach((option) => {
+  option.addEventListener("click", () => selectMap(option.dataset.map));
+});
+
+document.addEventListener("click", (event) => {
+  if (!mapSelector.contains(event.target)) setMapMenuOpen(false);
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") setMapMenuOpen(false);
+});
+
 const resizeObserver = new ResizeObserver(resizeCanvas);
 resizeObserver.observe(stage);
 resizeCanvas();
@@ -805,6 +977,9 @@ window.raceDebug = {
       currentSpeedRatio < 0.08 ? 0 : Math.ceil(currentSpeedRatio * MAX_MOTION_TRAIL_FRAMES),
     worldGhostFrames: motionTrailFrames.length,
     speedRatio: currentSpeedRatio,
+    currentMap: currentMapKey,
+    currentMapName: MAPS[currentMapKey].name,
+    availableMaps: Object.keys(MAPS).length,
     trackSamples: trackSamples.length,
   }),
 };

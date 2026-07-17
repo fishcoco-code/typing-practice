@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="帅气逼人吊炸天 · 漫画风 F1 赛车" />
     <title>F1 赛车 · 帅气逼人吊炸天</title>
-    <link rel="stylesheet" href="racing.css?v=8" />
+    <link rel="stylesheet" href="racing.css?v=9" />
   </head>
   <body>
     <main class="game-shell">
@@ -33,6 +33,33 @@
 
         <div class="route-hint"><i></i> 沿双轮车印路线前进</div>
 
+        <div class="map-selector" id="mapSelector">
+          <button class="map-toggle" id="mapToggle" type="button" aria-expanded="false" aria-controls="mapMenu">
+            <span>选择地图</span>
+            <strong id="currentMapName">绿野大奖赛</strong>
+            <b aria-hidden="true">⌃</b>
+          </button>
+          <div class="map-menu" id="mapMenu" role="group" aria-label="选择地图" hidden>
+            <span class="map-menu-title">点击地图立即开赛</span>
+            <button class="map-option selected" type="button" data-map="meadow" aria-pressed="true">
+              <i class="map-swatch" aria-hidden="true"></i>
+              <span><strong>绿野大奖赛</strong><small>开阔草坪 · 连续高速弯</small></span>
+            </button>
+            <button class="map-option" type="button" data-map="coast" aria-pressed="false">
+              <i class="map-swatch" aria-hidden="true"></i>
+              <span><strong>海岸公路</strong><small>金色海岸 · 长直道</small></span>
+            </button>
+            <button class="map-option" type="button" data-map="neon" aria-pressed="false">
+              <i class="map-swatch" aria-hidden="true"></i>
+              <span><strong>霓虹都市</strong><small>夜间街区 · 技术弯道</small></span>
+            </button>
+            <button class="map-option" type="button" data-map="canyon" aria-pressed="false">
+              <i class="map-swatch" aria-hidden="true"></i>
+              <span><strong>沙漠峡谷</strong><small>赤色荒漠 · 大回环</small></span>
+            </button>
+          </div>
+        </div>
+
         <div class="touch-controls" aria-label="触控驾驶按钮">
           <button type="button" data-control="left" aria-label="左转">←</button>
           <button type="button" data-control="up" aria-label="油门">↑</button>
@@ -40,8 +67,8 @@
         </div>
       </section>
 
-      <p class="game-note">最高可达 639 KM/H；转弯会减速，高速时赛车、赛道与草坪会出现渐强虚影。</p>
+      <p class="game-note">左下角可切换 4 张地图，点击后立即开赛；高速时赛车与场景会出现渐强虚影。</p>
     </main>
-    <script src="racing.js?v=8"></script>
+    <script src="racing.js?v=9"></script>
   </body>
 </html>
