@@ -41,6 +41,9 @@ let elapsed = 0;
 let hasDriven = false;
 let isDrifting = false;
 let onTrack = true;
+let fenceImpact = 0;
+let fenceHits = 0;
+let cameraZoom = 1.65;
 const demoMode = new URLSearchParams(window.location.search).get("demo");
 
 const car = {
@@ -108,6 +111,8 @@ function resetCar() {
   previousRearWheels = null;
   isDrifting = false;
   onTrack = true;
+  fenceImpact = 0;
+  fenceHits = 0;
 }
 
 function resizeCanvas() {
@@ -118,7 +123,8 @@ function resizeCanvas() {
   canvas.width = Math.round(width * ratio);
   canvas.height = Math.round(height * ratio);
   context.setTransform(ratio, 0, 0, ratio, 0, 0);
-  trackWidth = clamp(Math.min(width, height) * 0.205, 78, 142);
+  trackWidth = clamp(Math.min(width, height) * 0.27, 104, 174);
+  cameraZoom = width < 600 ? 1.42 : 1.65;
   car.length = trackWidth * 0.56;
   car.width = car.length * 0.51;
   buildTrack();
@@ -137,28 +143,33 @@ function createTrackPath() {
   return path;
 }
 
-function distanceToTrack(x, y) {
+function getNearestTrackPoint(x, y) {
+  let nearest = trackSamples[0];
   let shortest = Number.POSITIVE_INFINITY;
-  for (let index = 0; index < trackSamples.length; index += 2) {
+  for (let index = 0; index < trackSamples.length; index += 1) {
     const point = trackSamples[index];
-    shortest = Math.min(shortest, Math.hypot(x - point.x, y - point.y));
+    const distance = Math.hypot(x - point.x, y - point.y);
+    if (distance < shortest) {
+      shortest = distance;
+      nearest = point;
+    }
   }
-  return shortest;
+  return { point: nearest, distance: shortest };
 }
 
 function drawGrass() {
   context.fillStyle = "#78945e";
-  context.fillRect(0, 0, width, height);
+  context.fillRect(-width, -height, width * 3, height * 3);
 
   context.save();
   context.globalAlpha = 0.16;
   context.strokeStyle = "#263d28";
   context.lineWidth = 1;
   const gap = Math.max(22, Math.min(width, height) * 0.045);
-  for (let x = -height; x < width + height; x += gap) {
+  for (let x = -width - height; x < width * 2 + height; x += gap) {
     context.beginPath();
-    context.moveTo(x, 0);
-    context.lineTo(x + height, height);
+    context.moveTo(x, -height);
+    context.lineTo(x + height * 3, height * 2);
     context.stroke();
   }
   context.restore();
@@ -227,6 +238,53 @@ function drawRouteTirePrints() {
   context.restore();
 }
 
+function createFencePath(side) {
+  const path = new Path2D();
+  const offset = trackWidth / 2 + trackWidth * 0.105;
+  trackSamples.forEach((point, index) => {
+    const x = point.x - Math.sin(point.angle) * offset * side;
+    const y = point.y + Math.cos(point.angle) * offset * side;
+    if (index === 0) path.moveTo(x, y);
+    else path.lineTo(x, y);
+  });
+  path.closePath();
+  return path;
+}
+
+function drawFences() {
+  const fenceOffset = trackWidth / 2 + trackWidth * 0.105;
+  context.save();
+  context.lineJoin = "round";
+  context.lineCap = "round";
+
+  [-1, 1].forEach((side) => {
+    const path = createFencePath(side);
+    context.strokeStyle = "rgba(11, 14, 12, 0.58)";
+    context.lineWidth = 10;
+    context.stroke(path);
+    context.strokeStyle = "#b9c0ba";
+    context.lineWidth = 5.5;
+    context.stroke(path);
+    context.strokeStyle = "#f2f1e9";
+    context.lineWidth = 1.4;
+    context.stroke(path);
+
+    for (let index = 0; index < trackSamples.length; index += 7) {
+      const point = trackSamples[index];
+      const x = point.x - Math.sin(point.angle) * fenceOffset * side;
+      const y = point.y + Math.cos(point.angle) * fenceOffset * side;
+      context.fillStyle = "#dfe2dc";
+      context.strokeStyle = "#161a17";
+      context.lineWidth = 2;
+      context.beginPath();
+      context.arc(x, y, clamp(trackWidth * 0.035, 4, 6), 0, Math.PI * 2);
+      context.fill();
+      context.stroke();
+    }
+  });
+  context.restore();
+}
+
 function drawTrack() {
   const path = createTrackPath();
   context.save();
@@ -252,6 +310,7 @@ function drawTrack() {
 
   drawCurbs();
   drawRouteTirePrints();
+  drawFences();
 }
 
 function getRearWheels() {
@@ -287,10 +346,10 @@ function spawnSmoke(wheels) {
       velocityY: -car.velocityY * 0.08 + (Math.random() - 0.5) * 18,
       life: 2,
       maximumLife: 2,
-      size: car.width * (0.18 + Math.random() * 0.12),
+      size: car.width * (0.32 + Math.random() * 0.18),
     });
   });
-  if (smokeParticles.length > 240) smokeParticles.splice(0, smokeParticles.length - 240);
+  if (smokeParticles.length > 420) smokeParticles.splice(0, smokeParticles.length - 420);
 }
 
 function updateParticles(deltaTime) {
@@ -300,7 +359,7 @@ function updateParticles(deltaTime) {
     particle.y += particle.velocityY * deltaTime;
     particle.velocityX *= 0.985;
     particle.velocityY *= 0.985;
-    particle.size += deltaTime * car.width * 0.22;
+    particle.size += deltaTime * car.width * 0.4;
   });
   smokeParticles = smokeParticles.filter((particle) => particle.life > 0);
 }
@@ -348,10 +407,28 @@ function updateCar(deltaTime) {
   car.x += car.velocityX * deltaTime;
   car.y += car.velocityY * deltaTime;
 
-  onTrack = distanceToTrack(car.x, car.y) <= trackWidth * 0.56;
+  fenceImpact = Math.max(0, fenceImpact - deltaTime);
+  const nearest = getNearestTrackPoint(car.x, car.y);
+  const maximumDistance = trackWidth / 2 - car.width * 0.56;
+  onTrack = nearest.distance <= maximumDistance;
   if (!onTrack) {
-    car.velocityX *= Math.max(0, 1 - 2.4 * deltaTime);
-    car.velocityY *= Math.max(0, 1 - 2.4 * deltaTime);
+    const differenceX = car.x - nearest.point.x;
+    const differenceY = car.y - nearest.point.y;
+    const safeDistance = Math.max(0.001, nearest.distance);
+    const normalX = differenceX / safeDistance;
+    const normalY = differenceY / safeDistance;
+    car.x = nearest.point.x + normalX * maximumDistance;
+    car.y = nearest.point.y + normalY * maximumDistance;
+    const outwardVelocity = car.velocityX * normalX + car.velocityY * normalY;
+    if (outwardVelocity > 0) {
+      car.velocityX -= normalX * outwardVelocity * 1.45;
+      car.velocityY -= normalY * outwardVelocity * 1.45;
+    }
+    car.velocityX *= 0.72;
+    car.velocityY *= 0.72;
+    fenceImpact = 0.34;
+    fenceHits += 1;
+    onTrack = true;
   }
 
   const margin = car.length;
@@ -362,9 +439,9 @@ function updateCar(deltaTime) {
   if (isDrifting) {
     addTireMarks(wheels);
     smokeAccumulator += deltaTime;
-    while (smokeAccumulator >= 0.045) {
+    while (smokeAccumulator >= 0.025) {
       spawnSmoke(wheels);
-      smokeAccumulator -= 0.045;
+      smokeAccumulator -= 0.025;
     }
   } else {
     previousRearWheels = null;
@@ -375,8 +452,8 @@ function updateCar(deltaTime) {
   speedValue.textContent = String(speed);
   driveState.textContent = !hasDriven
     ? "待发车"
-    : !onTrack
-      ? "草地减速"
+    : fenceImpact > 0
+      ? "撞到围栏"
       : isDrifting
         ? "漂移！"
         : speed > 5
@@ -402,10 +479,10 @@ function drawSmoke() {
   smokeParticles.forEach((particle) => {
     const progress = particle.life / particle.maximumLife;
     context.save();
-    context.globalAlpha = Math.min(0.66, progress * 0.72);
+    context.globalAlpha = Math.min(0.78, progress * 0.86);
     context.fillStyle = "#f4f0e7";
     context.strokeStyle = "rgba(40, 43, 39, 0.45)";
-    context.lineWidth = 1.5;
+    context.lineWidth = 2;
     context.beginPath();
     context.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
     context.fill();
@@ -536,15 +613,27 @@ function drawCar() {
 
 function drawScene() {
   context.clearRect(0, 0, width, height);
+  context.save();
+  context.translate(width / 2, height / 2);
+  context.scale(cameraZoom, cameraZoom);
+  context.translate(-car.x, -car.y);
   drawGrass();
   drawTrack();
   drawTireMarks();
   drawSmoke();
   drawCar();
+  context.restore();
 }
 
 function updateDemoControls() {
   if (!demoMode) return;
+  if (demoMode === "continuous") {
+    controls.up = true;
+    controls.left = false;
+    controls.right = elapsed > 0.6;
+    controls.drift = elapsed > 0.9;
+    return;
+  }
   controls.up = elapsed < 2.8;
   controls.left = false;
   controls.right = elapsed > 0.75 && elapsed < 2.8;
@@ -560,6 +649,11 @@ function publishDiagnostics() {
   stage.dataset.driveState = driveState.textContent;
   stage.dataset.onTrack = String(onTrack);
   stage.dataset.drifting = String(isDrifting);
+  stage.dataset.fenceImpact = String(fenceImpact > 0);
+  stage.dataset.fenceHits = String(fenceHits);
+  stage.dataset.cameraZoom = String(cameraZoom);
+  stage.dataset.carScreenX = String(Math.round(width / 2));
+  stage.dataset.carScreenY = String(Math.round(height / 2));
 }
 
 function gameLoop(timestamp) {
