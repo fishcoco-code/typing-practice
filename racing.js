@@ -10,6 +10,7 @@ const mapMenu = document.querySelector("#mapMenu");
 const currentMapName = document.querySelector("#currentMapName");
 const TOP_SPEED_KMH = 639;
 const SPEED_MULTIPLIER = 15.64;
+const WORLD_LIGHT_ANGLE = -2.2;
 const MAX_MOTION_TRAIL_FRAMES = 6;
 const MAX_WORLD_TRAIL_FRAMES = 2;
 const MAX_RENDER_SCALE = 2.25;
@@ -157,6 +158,13 @@ const car = {
 
 function clamp(value, minimum, maximum) {
   return Math.min(maximum, Math.max(minimum, value));
+}
+
+function mixRgb(dark, light, amount) {
+  const mixAmount = clamp(amount, 0, 1);
+  const channels = dark.map((channel, index) =>
+    Math.round(channel + (light[index] - channel) * mixAmount));
+  return `rgb(${channels.join(", ")})`;
 }
 
 function catmullRom(previous, start, end, next, amount) {
@@ -684,8 +692,9 @@ function drawCar() {
   const length = car.length;
   const carWidth = car.width;
   const outlineWidth = clamp(carWidth * 0.055, 3.4, 5.4);
-  const lightDirection = -0.9;
-  const relativeLight = lightDirection - car.angle;
+  const relativeLight = WORLD_LIGHT_ANGLE - car.angle;
+  const lightLocalX = Math.cos(relativeLight);
+  const lightLocalY = Math.sin(relativeLight);
   const lightAcrossBody = Math.sin(relativeLight);
   const bodyLift = carWidth * (0.14 + currentSpeedRatio * 0.02);
   const steeringLean = currentSteeringDirection * currentSpeedRatio * carWidth * 0.018;
@@ -695,9 +704,10 @@ function drawCar() {
 
   // The projected shadow moves against the fixed world light and stretches with speed.
   context.save();
+  const shadowDistance = carWidth * (0.18 + currentSpeedRatio * 0.035);
   context.translate(
-    -Math.cos(relativeLight) * carWidth * 0.08 - currentSpeedRatio * length * 0.035,
-    carWidth * 0.16 - lightAcrossBody * carWidth * 0.055 + steeringLean,
+    -lightLocalX * shadowDistance - currentSpeedRatio * length * 0.025,
+    -lightLocalY * shadowDistance + steeringLean,
   );
   context.filter = `blur(${Math.max(2, carWidth * 0.055)}px)`;
   context.fillStyle = `rgba(7, 9, 8, ${0.43 - currentSpeedRatio * 0.1})`;
@@ -782,10 +792,15 @@ function drawCar() {
   });
 
   // Wide front and rear aero wings.
-  const wingGradient = context.createLinearGradient(0, -carWidth * 0.53, 0, carWidth * 0.53);
-  wingGradient.addColorStop(0, "#555b56");
+  const wingGradient = context.createLinearGradient(
+    -lightLocalX * length * 0.25,
+    -lightLocalY * carWidth * 0.58,
+    lightLocalX * length * 0.25,
+    lightLocalY * carWidth * 0.58,
+  );
+  wingGradient.addColorStop(0, "#0d100e");
   wingGradient.addColorStop(0.42, "#252925");
-  wingGradient.addColorStop(1, "#0d100e");
+  wingGradient.addColorStop(1, "#626a63");
   context.fillStyle = wingGradient;
   context.strokeStyle = "#080a08";
   context.lineWidth = outlineWidth * 0.72;
@@ -835,15 +850,20 @@ function drawCar() {
   });
 
   // Four large exposed F1 tyres make the car substantially wider.
-  const tyreGradient = context.createLinearGradient(0, -carWidth * 0.12, 0, carWidth * 0.12);
-  tyreGradient.addColorStop(0, "#3c423d");
+  const wheelLength = length * 0.21;
+  const wheelWidth = carWidth * 0.23;
+  const tyreGradient = context.createLinearGradient(
+    -lightLocalX * wheelLength * 0.5,
+    -lightLocalY * wheelWidth * 0.7,
+    lightLocalX * wheelLength * 0.5,
+    lightLocalY * wheelWidth * 0.7,
+  );
+  tyreGradient.addColorStop(0, "#070907");
   tyreGradient.addColorStop(0.42, "#171a17");
-  tyreGradient.addColorStop(1, "#070907");
+  tyreGradient.addColorStop(1, "#4b534c");
   context.fillStyle = tyreGradient;
   context.strokeStyle = "#080a08";
   context.lineWidth = outlineWidth * 0.65;
-  const wheelLength = length * 0.21;
-  const wheelWidth = carWidth * 0.23;
   [-0.31, 0.31].forEach((frontBack) => {
     [-1, 1].forEach((side) => {
       const frontWheelSteer = frontBack > 0 ? currentSteeringDirection * 0.13 : 0;
@@ -895,7 +915,8 @@ function drawCar() {
         context.stroke();
       }
 
-      context.fillStyle = side < 0 ? "#6f7871" : "#303630";
+      const wheelFaceLight = clamp(0.42 + side * lightLocalY * 0.42 + lightLocalX * 0.12, 0, 1);
+      context.fillStyle = mixRgb([33, 38, 34], [119, 130, 121], wheelFaceLight);
       context.strokeStyle = "#0c0f0d";
       context.lineWidth = outlineWidth * 0.3;
       roundedRectangle(
@@ -929,17 +950,41 @@ function drawCar() {
   });
 
   // Central monocoque uses a cross-body gradient to show a raised crown and shaded flank.
-  const bodyGradient = context.createLinearGradient(0, -carWidth * 0.34, 0, carWidth * 0.36);
-  bodyGradient.addColorStop(0, "#ff8058");
+  const bodyGradient = context.createLinearGradient(
+    -lightLocalX * length * 0.34,
+    -lightLocalY * carWidth * 0.42,
+    lightLocalX * length * 0.34,
+    lightLocalY * carWidth * 0.42,
+  );
+  bodyGradient.addColorStop(0, "#6f1b19");
   bodyGradient.addColorStop(0.38, "#e34d33");
-  bodyGradient.addColorStop(0.7, "#bd3427");
-  bodyGradient.addColorStop(1, "#721d1a");
+  bodyGradient.addColorStop(0.72, "#ee6546");
+  bodyGradient.addColorStop(1, "#ffad7b");
   context.fillStyle = bodyGradient;
   context.strokeStyle = "#141714";
   context.lineWidth = outlineWidth;
   traceF1Body(length, carWidth);
   context.fill();
   context.stroke();
+
+  // A world-anchored light pool travels around the body as the car rotates beneath it.
+  context.save();
+  traceF1Body(length, carWidth);
+  context.clip();
+  const bodyLightPool = context.createRadialGradient(
+    lightLocalX * length * 0.3,
+    lightLocalY * carWidth * 0.3,
+    carWidth * 0.02,
+    lightLocalX * length * 0.18,
+    lightLocalY * carWidth * 0.18,
+    length * 0.48,
+  );
+  bodyLightPool.addColorStop(0, "rgba(255, 232, 205, 0.42)");
+  bodyLightPool.addColorStop(0.45, "rgba(255, 156, 111, 0.11)");
+  bodyLightPool.addColorStop(1, "rgba(39, 8, 10, 0.22)");
+  context.fillStyle = bodyLightPool;
+  context.fillRect(-length * 0.62, -carWidth * 0.55, length * 1.24, carWidth * 1.1);
+  context.restore();
 
   // A raised centre spine adds a second top plane with its own highlight and side face.
   context.save();
@@ -954,10 +999,15 @@ function drawCar() {
 
   context.save();
   context.translate(-bodyLift * 0.14, -bodyLift * 0.18 + steeringLean * 0.2);
-  const crownGradient = context.createLinearGradient(0, -carWidth * 0.14, 0, carWidth * 0.14);
-  crownGradient.addColorStop(0, lightAcrossBody > 0 ? "#ffb083" : "#ef6849");
+  const crownGradient = context.createLinearGradient(
+    -lightLocalX * length * 0.28,
+    -lightLocalY * carWidth * 0.18,
+    lightLocalX * length * 0.28,
+    lightLocalY * carWidth * 0.18,
+  );
+  crownGradient.addColorStop(0, "#741e1b");
   crownGradient.addColorStop(0.48, "#e34e34");
-  crownGradient.addColorStop(1, lightAcrossBody < 0 ? "#a42b23" : "#741e1b");
+  crownGradient.addColorStop(1, "#ffb083");
   context.fillStyle = crownGradient;
   context.strokeStyle = "#171917";
   context.lineWidth = outlineWidth * 0.7;
@@ -987,14 +1037,15 @@ function drawCar() {
 
   // Sculpted sidepods widen the body without hiding the suspension.
   [-1, 1].forEach((side) => {
-    const podGradient = context.createLinearGradient(0, 0, 0, side * carWidth * 0.36);
-    if (side > 0) {
-      podGradient.addColorStop(0, "#c83a29");
-      podGradient.addColorStop(1, "#641b18");
-    } else {
-      podGradient.addColorStop(0, "#d8412d");
-      podGradient.addColorStop(1, "#ff8b5f");
-    }
+    const sideLight = clamp(0.48 + side * lightLocalY * 0.46 + lightLocalX * 0.08, 0, 1);
+    const podGradient = context.createLinearGradient(
+      -lightLocalX * length * 0.16,
+      -lightLocalY * carWidth * 0.34,
+      lightLocalX * length * 0.16,
+      lightLocalY * carWidth * 0.34,
+    );
+    podGradient.addColorStop(0, mixRgb([78, 18, 17], [203, 56, 39], sideLight * 0.5));
+    podGradient.addColorStop(1, mixRgb([111, 25, 21], [255, 143, 97], sideLight));
     context.fillStyle = podGradient;
     context.strokeStyle = "#141714";
     context.lineWidth = outlineWidth * 0.72;
@@ -1143,27 +1194,24 @@ function drawCar() {
   context.textBaseline = "middle";
   context.fillText("7", length * 0.27, 0);
 
-  const highlightStrength = clamp(0.52 + lightAcrossBody * 0.28, 0.28, 0.86);
+  const litSide = lightLocalY >= 0 ? 1 : -1;
+  const highlightStrength = clamp(0.45 + Math.abs(lightLocalY) * 0.36, 0.35, 0.86);
   context.strokeStyle = `rgba(255, 218, 190, ${highlightStrength})`;
   context.lineWidth = outlineWidth * 0.42;
   context.beginPath();
-  context.moveTo(-length * 0.39, -carWidth * 0.1);
-  context.lineTo(-length * 0.16, -carWidth * 0.24);
-  context.lineTo(length * 0.15, -carWidth * 0.21);
-  context.lineTo(length * 0.42, -carWidth * 0.07);
-  context.moveTo(-length * 0.39, -carWidth * 0.1);
-  context.lineTo(-length * 0.2, -carWidth * 0.22);
-  context.moveTo(-length * 0.39, carWidth * 0.1);
-  context.lineTo(-length * 0.2, carWidth * 0.22);
+  context.moveTo(-length * 0.39, litSide * carWidth * 0.1);
+  context.lineTo(-length * 0.16, litSide * carWidth * 0.24);
+  context.lineTo(length * 0.15, litSide * carWidth * 0.21);
+  context.lineTo(length * 0.42, litSide * carWidth * 0.07);
   context.stroke();
 
   // A short moving specular stroke makes the paint react as the car changes heading.
-  const highlightPosition = clamp(lightAcrossBody * carWidth * 0.08, -carWidth * 0.075, carWidth * 0.075);
-  context.strokeStyle = `rgba(255, 239, 218, ${0.22 + Math.abs(lightAcrossBody) * 0.34})`;
+  const highlightPosition = clamp(lightLocalY * carWidth * 0.14, -carWidth * 0.12, carWidth * 0.12);
+  context.strokeStyle = `rgba(255, 239, 218, ${0.2 + Math.abs(lightAcrossBody) * 0.38})`;
   context.lineWidth = outlineWidth * 0.3;
   context.beginPath();
-  context.moveTo(-length * 0.22, -carWidth * 0.13 + highlightPosition);
-  context.quadraticCurveTo(length * 0.04, -carWidth * 0.19 + highlightPosition, length * 0.34, -carWidth * 0.055 + highlightPosition);
+  context.moveTo(-length * 0.22 + lightLocalX * length * 0.05, highlightPosition);
+  context.quadraticCurveTo(length * 0.04, highlightPosition * 1.25, length * 0.34 + lightLocalX * length * 0.04, highlightPosition * 0.4);
   context.stroke();
   context.restore();
 }
@@ -1350,6 +1398,9 @@ function publishDiagnostics() {
   stage.dataset.vehicleDepth = "multi-plane-3d";
   stage.dataset.vehicleDepthLayers = "6";
   stage.dataset.dynamicCarLighting = "true";
+  stage.dataset.worldLightAngle = WORLD_LIGHT_ANGLE.toFixed(3);
+  stage.dataset.carLightLocalX = Math.cos(WORLD_LIGHT_ANGLE - car.angle).toFixed(3);
+  stage.dataset.carLightLocalY = Math.sin(WORLD_LIGHT_ANGLE - car.angle).toFixed(3);
   stage.dataset.projectedCarShadow = "true";
   stage.dataset.wheelSidewalls = "true";
   stage.dataset.wheelSpin = Math.abs(currentSpeedRatio) > 0.008 ? "active" : "stopped";
@@ -1482,6 +1533,9 @@ window.raceDebug = {
     vehicleDepth: "multi-plane-3d",
     vehicleDepthLayers: 6,
     dynamicCarLighting: true,
+    worldLightAngle: WORLD_LIGHT_ANGLE,
+    carLightLocalX: Math.cos(WORLD_LIGHT_ANGLE - car.angle),
+    carLightLocalY: Math.sin(WORLD_LIGHT_ANGLE - car.angle),
     projectedCarShadow: true,
     wheelSidewalls: true,
     wheelSpin: Math.abs(currentSpeedRatio) > 0.008 ? "active" : "stopped",
