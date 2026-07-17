@@ -11,8 +11,10 @@ const currentMapName = document.querySelector("#currentMapName");
 const TOP_SPEED_KMH = 639;
 const SPEED_MULTIPLIER = 15.64;
 const MAX_MOTION_TRAIL_FRAMES = 6;
-const MAX_RENDER_SCALE = 2.75;
-const MAX_TRAIL_RENDER_SCALE = 1.5;
+const MAX_WORLD_TRAIL_FRAMES = 4;
+const MAX_RENDER_SCALE = 2.5;
+const MAX_TRAIL_RENDER_SCALE = 1.25;
+const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
 
 const controls = {
   up: false,
@@ -120,6 +122,8 @@ let worldHeight = 1050;
 let trackWidth = 126;
 let trackSamples = [];
 let trackLength = 0;
+let cachedTrackPath = null;
+let nearestTrackSampleIndex = 0;
 let lastFrame = performance.now();
 let elapsed = 0;
 let hasDriven = false;
@@ -136,6 +140,7 @@ let motionTrailFrames = [];
 let motionCaptureAccumulator = 0;
 let currentMapKey = "meadow";
 let renderScale = 1;
+let smoothedFps = 60;
 const demoMode = new URLSearchParams(window.location.search).get("demo");
 
 const car = {
@@ -198,6 +203,12 @@ function buildTrack() {
     const following = trackSamples[(index + 1) % trackSamples.length];
     return total + Math.hypot(following.x - point.x, following.y - point.y);
   }, 0);
+  cachedTrackPath = new Path2D();
+  trackSamples.forEach((point, index) => {
+    if (index === 0) cachedTrackPath.moveTo(point.x, point.y);
+    else cachedTrackPath.lineTo(point.x, point.y);
+  });
+  cachedTrackPath.closePath();
 }
 
 function resetCar() {
@@ -216,12 +227,13 @@ function resetCar() {
   turnSlowdownAmount = 0;
   motionTrailFrames = [];
   motionCaptureAccumulator = 0;
+  nearestTrackSampleIndex = 0;
 }
 
 function resizeCanvas() {
   const bounds = stage.getBoundingClientRect();
   const qualityCap = bounds.width < 600 ? 2.25 : MAX_RENDER_SCALE;
-  const minimumQualityScale = bounds.width < 600 ? 1.75 : 2.5;
+  const minimumQualityScale = bounds.width < 600 ? 1.75 : 2.25;
   const ratio = Math.min(
     Math.max(window.devicePixelRatio || 1, minimumQualityScale),
     qualityCap,
@@ -270,28 +282,46 @@ function selectMap(mapKey) {
   setMapMenuOpen(false);
 }
 
-function createTrackPath() {
-  const path = new Path2D();
-  trackSamples.forEach((point, index) => {
-    if (index === 0) path.moveTo(point.x, point.y);
-    else path.lineTo(point.x, point.y);
-  });
-  path.closePath();
-  return path;
+function isNearCamera(point, multiplier = 1.5) {
+  const visibleSpan = Math.max(width, height) / cameraZoom * multiplier;
+  return (
+    Math.abs(point.x - car.x) <= visibleSpan &&
+    Math.abs(point.y - car.y) <= visibleSpan
+  );
 }
 
 function getNearestTrackPoint(x, y) {
-  let nearest = trackSamples[0];
-  let shortest = Number.POSITIVE_INFINITY;
-  for (let index = 0; index < trackSamples.length; index += 1) {
-    const point = trackSamples[index];
-    const distance = Math.hypot(x - point.x, y - point.y);
-    if (distance < shortest) {
-      shortest = distance;
+  let nearest = trackSamples[nearestTrackSampleIndex] || trackSamples[0];
+  let nearestIndex = nearestTrackSampleIndex;
+  let shortestSquared = Number.POSITIVE_INFINITY;
+
+  const inspectPoint = (index) => {
+    const wrappedIndex = (index + trackSamples.length) % trackSamples.length;
+    const point = trackSamples[wrappedIndex];
+    const differenceX = x - point.x;
+    const differenceY = y - point.y;
+    const distanceSquared = differenceX * differenceX + differenceY * differenceY;
+    if (distanceSquared < shortestSquared) {
+      shortestSquared = distanceSquared;
       nearest = point;
+      nearestIndex = wrappedIndex;
+    }
+  };
+
+  // The car can only advance a few samples per frame, so search its local track section first.
+  for (let offset = -64; offset <= 64; offset += 1) {
+    inspectPoint(nearestTrackSampleIndex + offset);
+  }
+
+  // A full fallback keeps reset, resize and exceptional teleports robust.
+  if (shortestSquared > trackWidth * trackWidth) {
+    shortestSquared = Number.POSITIVE_INFINITY;
+    for (let index = 0; index < trackSamples.length; index += 1) {
+      inspectPoint(index);
     }
   }
-  return { point: nearest, distance: shortest };
+  nearestTrackSampleIndex = nearestIndex;
+  return { point: nearest, distance: Math.sqrt(shortestSquared) };
 }
 
 function drawGrass() {
@@ -379,6 +409,7 @@ function drawCurbs() {
 
   for (let index = 0; index < trackSamples.length; index += 5) {
     const point = trackSamples[index];
+    if (!isNearCamera(point, 1.55)) continue;
     context.save();
     context.translate(point.x, point.y);
     context.rotate(point.angle);
@@ -404,6 +435,7 @@ function drawRouteTirePrints() {
 
   for (let index = 0; index < trackSamples.length; index += 7) {
     const point = trackSamples[index];
+    if (!isNearCamera(point, 1.5)) continue;
     const length = trackWidth * 0.14;
     const spacing = trackWidth * 0.085;
     const cosine = Math.cos(point.angle);
@@ -468,7 +500,7 @@ function drawRoadTexture() {
 
 function drawTrack() {
   const { palette } = MAPS[currentMapKey];
-  const path = createTrackPath();
+  const path = cachedTrackPath;
   context.save();
   context.lineJoin = "round";
   context.lineCap = "round";
@@ -992,7 +1024,7 @@ function drawCar() {
 }
 
 function drawCarAfterimages() {
-  if (currentSpeedRatio < 0.08 || window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+  if (currentSpeedRatio < 0.08 || reducedMotionQuery.matches) {
     return;
   }
 
@@ -1008,13 +1040,36 @@ function drawCarAfterimages() {
     context.globalAlpha =
       (0.035 + currentSpeedRatio * 0.065) * (1 - layerProgress * 0.68);
     context.translate(-directionX * trailDistance, -directionY * trailDistance);
-    drawCar();
+    drawCarGhost();
     context.restore();
   }
 }
 
+function drawCarGhost() {
+  const length = car.length;
+  const carWidth = car.width;
+  context.save();
+  context.translate(car.x, car.y);
+  context.rotate(car.angle);
+
+  context.fillStyle = "#191c19";
+  [-1, 1].forEach((side) => {
+    roundedRectangle(-length * 0.3, side * carWidth * 0.31 - carWidth * 0.11, length * 0.2, carWidth * 0.22, carWidth * 0.04);
+    context.fill();
+    roundedRectangle(length * 0.1, side * carWidth * 0.32 - carWidth * 0.105, length * 0.18, carWidth * 0.21, carWidth * 0.04);
+    context.fill();
+  });
+  context.fillRect(-length * 0.48, -carWidth * 0.38, length * 0.15, carWidth * 0.76);
+  context.fillRect(length * 0.38, -carWidth * 0.34, length * 0.1, carWidth * 0.68);
+
+  context.fillStyle = "#d94c32";
+  traceF1Body(length, carWidth);
+  context.fill();
+  context.restore();
+}
+
 function captureWorldMotionFrame(deltaTime) {
-  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  if (reducedMotionQuery.matches) return;
   if (currentSpeedRatio < 0.04) {
     motionCaptureAccumulator = 0;
     if (currentSpeedRatio < 0.015) motionTrailFrames = [];
@@ -1026,7 +1081,7 @@ function captureWorldMotionFrame(deltaTime) {
   if (motionCaptureAccumulator < captureInterval) return;
   motionCaptureAccumulator = 0;
 
-  const frame = motionTrailFrames.length < MAX_MOTION_TRAIL_FRAMES
+  const frame = motionTrailFrames.length < MAX_WORLD_TRAIL_FRAMES
     ? document.createElement("canvas")
     : motionTrailFrames.pop();
   const trailScale = Math.min(renderScale, MAX_TRAIL_RENDER_SCALE);
@@ -1049,7 +1104,7 @@ function drawWorldAfterimages() {
   if (motionTrailFrames.length === 0 || currentSpeedRatio < 0.08) return;
   const layerCount = Math.min(
     motionTrailFrames.length,
-    Math.ceil(currentSpeedRatio * MAX_MOTION_TRAIL_FRAMES),
+    Math.ceil(currentSpeedRatio * MAX_WORLD_TRAIL_FRAMES),
   );
 
   context.save();
@@ -1150,6 +1205,8 @@ function publishDiagnostics() {
   stage.dataset.vehicleDepth = "layered-3d";
   stage.dataset.vehicleDepthLayers = "3";
   stage.dataset.renderQuality = "high";
+  stage.dataset.performanceMode = "optimized";
+  stage.dataset.fps = String(Math.round(smoothedFps));
   stage.dataset.renderScale = renderScale.toFixed(2);
   stage.dataset.imageSmoothing = context.imageSmoothingQuality;
   stage.dataset.roadTexture = "detailed";
@@ -1179,7 +1236,10 @@ function publishDiagnostics() {
 }
 
 function gameLoop(timestamp) {
-  const deltaTime = Math.min(0.033, (timestamp - lastFrame) / 1000 || 0);
+  const rawDeltaTime = (timestamp - lastFrame) / 1000 || 1 / 60;
+  const instantaneousFps = 1 / Math.max(rawDeltaTime, 1 / 240);
+  smoothedFps += (instantaneousFps - smoothedFps) * 0.08;
+  const deltaTime = Math.min(0.033, rawDeltaTime);
   lastFrame = timestamp;
   elapsed += deltaTime;
   updateDemoControls();
@@ -1270,6 +1330,8 @@ window.raceDebug = {
     vehicleDepth: "layered-3d",
     vehicleDepthLayers: 3,
     renderQuality: "high",
+    performanceMode: "optimized",
+    fps: Math.round(smoothedFps),
     renderScale,
     imageSmoothing: context.imageSmoothingQuality,
     roadTexture: "detailed",
