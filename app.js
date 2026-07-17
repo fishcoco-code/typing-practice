@@ -51,25 +51,16 @@ const fingerClassNames = {
 
 const elements = {
   accuracy: document.querySelector("#accuracy"),
-  calibration: document.querySelector("#calibration"),
-  calibrationF: document.querySelector("#calibrationF"),
-  calibrationInstruction: document.querySelector("#calibrationInstruction"),
-  calibrationJ: document.querySelector("#calibrationJ"),
-  calibrationStatus: document.querySelector("#calibrationStatus"),
   fingerName: document.querySelector("#fingerName"),
   keyboardStatus: document.querySelector("#keyboardStatus"),
   mappingHint: document.querySelector("#mappingHint"),
   mappingKey: document.querySelector("#mappingKey"),
-  nextButton: document.querySelector("#nextButton"),
   nextKey: document.querySelector("#nextKey"),
-  practiceContent: document.querySelector("#practiceContent"),
   prompt: document.querySelector("#prompt"),
-  resetButton: document.querySelector("#resetButton"),
   result: document.querySelector("#result"),
   resultText: document.querySelector("#resultText"),
   returnHint: document.querySelector("#returnHint"),
   startHint: document.querySelector("#startHint"),
-  themeButton: document.querySelector("#themeButton"),
   time: document.querySelector("#time"),
   typingArea: document.querySelector("#typingArea"),
   typingInput: document.querySelector("#typingInput"),
@@ -78,7 +69,7 @@ const elements = {
 };
 
 const keyboardKeys = new Map();
-const handFingers = Array.from(document.querySelectorAll(".finger-shape"));
+const handFingers = Array.from(document.querySelectorAll(".finger-marker"));
 let passageIndex = 0;
 let typedValue = "";
 let startedAt = null;
@@ -86,9 +77,6 @@ let timerId = null;
 let mistakes = 0;
 let totalKeystrokes = 0;
 let correctKeystrokes = 0;
-let calibrationStep = 0;
-let isCalibrating = true;
-let calibrationDelayId = null;
 let feedbackDelayId = null;
 
 function getPassage() {
@@ -279,72 +267,8 @@ function handleInput() {
 }
 
 function focusInput() {
-  if (isCalibrating || !elements.result.hidden) return;
+  if (!elements.result.hidden) return;
   elements.typingInput.focus({ preventScroll: true });
-}
-
-function setCalibrationInstruction(prefix, key) {
-  const keyElement = document.createElement("kbd");
-  keyElement.textContent = key;
-  elements.calibrationInstruction.replaceChildren(prefix, keyElement);
-}
-
-function beginCalibration() {
-  window.clearTimeout(calibrationDelayId);
-  calibrationStep = 0;
-  isCalibrating = true;
-  elements.calibration.hidden = false;
-  elements.practiceContent.hidden = true;
-  elements.calibrationF.classList.remove("done");
-  elements.calibrationJ.classList.remove("done", "target");
-  elements.calibrationF.classList.add("target");
-  elements.calibrationStatus.classList.remove("error");
-  elements.calibrationStatus.textContent = "不用看键盘，用食指触摸凸点。";
-  setCalibrationInstruction("左手食指按一下 ", "F");
-  elements.typingInput.blur();
-}
-
-function completeCalibration() {
-  isCalibrating = false;
-  elements.calibration.hidden = true;
-  elements.practiceContent.hidden = false;
-  elements.startHint.classList.remove("hidden");
-  renderPrompt();
-  renderFingerGuide();
-  focusInput();
-}
-
-function handleCalibrationKey(event) {
-  if (event.key.length !== 1 || calibrationStep > 1) return;
-  const pressedKey = event.key.toLowerCase();
-  const expectedKey = calibrationStep === 0 ? "f" : "j";
-
-  event.preventDefault();
-  if (pressedKey !== expectedKey) {
-    elements.calibrationStatus.classList.add("error");
-    elements.calibrationStatus.textContent = `现在请按 ${expectedKey.toUpperCase()}，找到键帽上的小凸点。`;
-    elements.calibration.classList.remove("shake");
-    requestAnimationFrame(() => elements.calibration.classList.add("shake"));
-    return;
-  }
-
-  elements.calibrationStatus.classList.remove("error");
-  if (calibrationStep === 0) {
-    elements.calibrationF.classList.remove("target");
-    elements.calibrationF.classList.add("done");
-    elements.calibrationJ.classList.add("target");
-    elements.calibrationStatus.textContent = "很好，左手已经归位。";
-    setCalibrationInstruction("右手食指按一下 ", "J");
-    calibrationStep = 1;
-    return;
-  }
-
-  elements.calibrationJ.classList.remove("target");
-  elements.calibrationJ.classList.add("done");
-  elements.calibrationStatus.textContent = "双手已归位，保持这个位置。";
-  setCalibrationInstruction("校准完成 ", "✓");
-  calibrationStep = 2;
-  calibrationDelayId = window.setTimeout(completeCalibration, 450);
 }
 
 function resetPractice() {
@@ -358,10 +282,12 @@ function resetPractice() {
   correctKeystrokes = 0;
   elements.typingInput.value = "";
   elements.result.hidden = true;
+  elements.startHint.classList.remove("hidden");
   keyboardKeys.forEach((keyElement) => keyElement.classList.remove("target", "wrong"));
   renderPrompt();
+  renderFingerGuide();
   updateStats();
-  beginCalibration();
+  focusInput();
 }
 
 function nextPassage() {
@@ -371,11 +297,6 @@ function nextPassage() {
 
 function setTheme(theme) {
   document.documentElement.dataset.theme = theme;
-  localStorage.setItem("typing-theme", theme);
-  elements.themeButton.setAttribute(
-    "aria-label",
-    theme === "dark" ? "切换浅色模式" : "切换深色模式",
-  );
 }
 
 function initializeTheme() {
@@ -389,16 +310,11 @@ function initializeTheme() {
 elements.typingArea.addEventListener("click", focusInput);
 elements.typingArea.addEventListener("focus", focusInput);
 elements.typingInput.addEventListener("input", handleInput);
-elements.resetButton.addEventListener("click", resetPractice);
-elements.nextButton.addEventListener("click", nextPassage);
-elements.themeButton.addEventListener("click", () => {
-  const nextTheme = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
-  setTheme(nextTheme);
-});
 
 document.addEventListener("keydown", (event) => {
-  if (isCalibrating) {
-    handleCalibrationKey(event);
+  if (event.key === "Enter") {
+    event.preventDefault();
+    if (!elements.result.hidden) nextPassage();
     return;
   }
 
