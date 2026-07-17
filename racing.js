@@ -30,8 +30,11 @@ const trackShape = [
 
 let width = 1000;
 let height = 650;
+let worldWidth = 2200;
+let worldHeight = 1050;
 let trackWidth = 126;
 let trackSamples = [];
+let trackLength = 0;
 let tireMarks = [];
 let smokeParticles = [];
 let previousRearWheels = null;
@@ -80,7 +83,7 @@ function catmullRom(previous, start, end, next, amount) {
 }
 
 function buildTrack() {
-  const points = trackShape.map(([x, y]) => ({ x: x * width, y: y * height }));
+  const points = trackShape.map(([x, y]) => ({ x: x * worldWidth, y: y * worldHeight }));
   const samples = [];
 
   for (let index = 0; index < points.length; index += 1) {
@@ -89,8 +92,8 @@ function buildTrack() {
     const end = points[(index + 1) % points.length];
     const next = points[(index + 2) % points.length];
 
-    for (let step = 0; step < 18; step += 1) {
-      samples.push(catmullRom(previous, start, end, next, step / 18));
+    for (let step = 0; step < 32; step += 1) {
+      samples.push(catmullRom(previous, start, end, next, step / 32));
     }
   }
 
@@ -99,6 +102,10 @@ function buildTrack() {
     const angle = Math.atan2(following.y - point.y, following.x - point.x);
     return { ...point, angle };
   });
+  trackLength = trackSamples.reduce((total, point, index) => {
+    const following = trackSamples[(index + 1) % trackSamples.length];
+    return total + Math.hypot(following.x - point.x, following.y - point.y);
+  }, 0);
 }
 
 function resetCar() {
@@ -120,12 +127,14 @@ function resizeCanvas() {
   const ratio = Math.min(window.devicePixelRatio || 1, 2);
   width = Math.max(320, bounds.width);
   height = Math.max(420, bounds.height);
+  worldWidth = width * 2.35;
+  worldHeight = height * 1.65;
   canvas.width = Math.round(width * ratio);
   canvas.height = Math.round(height * ratio);
   context.setTransform(ratio, 0, 0, ratio, 0, 0);
-  trackWidth = clamp(Math.min(width, height) * 0.27, 104, 174);
+  trackWidth = clamp(Math.min(width, height) * 0.33, 128, 210);
   cameraZoom = width < 600 ? 1.42 : 1.65;
-  car.length = trackWidth * 0.56;
+  car.length = trackWidth * 0.58;
   car.width = car.length * 0.51;
   buildTrack();
   tireMarks = [];
@@ -159,25 +168,25 @@ function getNearestTrackPoint(x, y) {
 
 function drawGrass() {
   context.fillStyle = "#78945e";
-  context.fillRect(-width, -height, width * 3, height * 3);
+  context.fillRect(-worldWidth, -worldHeight, worldWidth * 3, worldHeight * 3);
 
   context.save();
   context.globalAlpha = 0.16;
   context.strokeStyle = "#263d28";
   context.lineWidth = 1;
   const gap = Math.max(22, Math.min(width, height) * 0.045);
-  for (let x = -width - height; x < width * 2 + height; x += gap) {
+  for (let x = -worldWidth - worldHeight; x < worldWidth * 2 + worldHeight; x += gap) {
     context.beginPath();
-    context.moveTo(x, -height);
-    context.lineTo(x + height * 3, height * 2);
+    context.moveTo(x, -worldHeight);
+    context.lineTo(x + worldHeight * 3, worldHeight * 2);
     context.stroke();
   }
   context.restore();
 
   context.fillStyle = "rgba(31, 58, 31, 0.23)";
-  for (let index = 0; index < 44; index += 1) {
-    const x = ((index * 173) % 997) / 997 * width;
-    const y = ((index * 277) % 643) / 643 * height;
+  for (let index = 0; index < 120; index += 1) {
+    const x = ((index * 173) % 997) / 997 * worldWidth;
+    const y = ((index * 277) % 643) / 643 * worldHeight;
     context.beginPath();
     context.arc(x, y, 2 + (index % 4), 0, Math.PI * 2);
     context.fill();
@@ -344,12 +353,12 @@ function spawnSmoke(wheels) {
       y: wheel.y + (Math.random() - 0.5) * 6,
       velocityX: -car.velocityX * 0.08 + (Math.random() - 0.5) * 18,
       velocityY: -car.velocityY * 0.08 + (Math.random() - 0.5) * 18,
-      life: 2,
-      maximumLife: 2,
-      size: car.width * (0.32 + Math.random() * 0.18),
+      life: 4,
+      maximumLife: 4,
+      size: car.width * (0.42 + Math.random() * 0.2),
     });
   });
-  if (smokeParticles.length > 420) smokeParticles.splice(0, smokeParticles.length - 420);
+  if (smokeParticles.length > 520) smokeParticles.splice(0, smokeParticles.length - 520);
 }
 
 function updateParticles(deltaTime) {
@@ -359,7 +368,7 @@ function updateParticles(deltaTime) {
     particle.y += particle.velocityY * deltaTime;
     particle.velocityX *= 0.985;
     particle.velocityY *= 0.985;
-    particle.size += deltaTime * car.width * 0.4;
+    particle.size += deltaTime * car.width * 0.48;
   });
   smokeParticles = smokeParticles.filter((particle) => particle.life > 0);
 }
@@ -432,8 +441,8 @@ function updateCar(deltaTime) {
   }
 
   const margin = car.length;
-  car.x = clamp(car.x, -margin, width + margin);
-  car.y = clamp(car.y, -margin, height + margin);
+  car.x = clamp(car.x, -margin, worldWidth + margin);
+  car.y = clamp(car.y, -margin, worldHeight + margin);
 
   const wheels = getRearWheels();
   if (isDrifting) {
@@ -513,94 +522,161 @@ function roundedRectangle(x, y, rectangleWidth, rectangleHeight, radius) {
 function drawCar() {
   const length = car.length;
   const carWidth = car.width;
+  const outlineWidth = clamp(carWidth * 0.055, 2.6, 4.2);
   context.save();
   context.translate(car.x, car.y);
   context.rotate(car.angle);
 
+  // Soft ground shadow keeps the slightly tilted top view readable.
   context.save();
-  context.translate(5, 7);
-  context.fillStyle = "rgba(10, 12, 10, 0.42)";
-  roundedRectangle(-length / 2, -carWidth / 2, length, carWidth, carWidth * 0.25);
+  context.translate(carWidth * 0.11, carWidth * 0.14);
+  context.fillStyle = "rgba(10, 12, 10, 0.4)";
+  roundedRectangle(-length * 0.51, -carWidth * 0.47, length * 1.04, carWidth * 0.96, carWidth * 0.25);
   context.fill();
   context.restore();
 
+  // Four exposed wheels.
   context.fillStyle = "#151815";
-  const wheelLength = length * 0.2;
-  const wheelWidth = carWidth * 0.2;
-  [-1, 1].forEach((frontBack) => {
+  context.strokeStyle = "#080a08";
+  context.lineWidth = outlineWidth * 0.55;
+  const wheelLength = length * 0.19;
+  const wheelWidth = carWidth * 0.19;
+  [-0.3, 0.3].forEach((frontBack) => {
     [-1, 1].forEach((side) => {
       roundedRectangle(
-        frontBack * length * 0.25 - wheelLength / 2,
-        side * carWidth * 0.49 - wheelWidth / 2,
+        frontBack * length - wheelLength / 2,
+        side * carWidth * 0.5 - wheelWidth / 2,
         wheelLength,
         wheelWidth,
-        2,
+        wheelWidth * 0.3,
       );
       context.fill();
+      context.stroke();
     });
   });
 
-  context.fillStyle = "#db4d28";
+  // RX-7 FD inspired low, rounded silhouette with a long nose.
+  context.fillStyle = "#d94c32";
   context.strokeStyle = "#141714";
-  context.lineWidth = 3;
+  context.lineWidth = outlineWidth;
   context.beginPath();
-  context.moveTo(-length * 0.48, -carWidth * 0.31);
-  context.quadraticCurveTo(-length * 0.34, -carWidth * 0.5, 0, -carWidth * 0.46);
-  context.quadraticCurveTo(length * 0.38, -carWidth * 0.43, length * 0.5, -carWidth * 0.12);
-  context.lineTo(length * 0.48, carWidth * 0.28);
-  context.quadraticCurveTo(length * 0.13, carWidth * 0.5, -length * 0.42, carWidth * 0.4);
+  context.moveTo(-length * 0.5, -carWidth * 0.21);
+  context.bezierCurveTo(-length * 0.47, -carWidth * 0.4, -length * 0.28, -carWidth * 0.48, -length * 0.06, -carWidth * 0.47);
+  context.bezierCurveTo(length * 0.2, -carWidth * 0.46, length * 0.43, -carWidth * 0.36, length * 0.52, -carWidth * 0.15);
+  context.bezierCurveTo(length * 0.56, -carWidth * 0.04, length * 0.55, carWidth * 0.17, length * 0.48, carWidth * 0.28);
+  context.bezierCurveTo(length * 0.25, carWidth * 0.48, -length * 0.25, carWidth * 0.5, -length * 0.48, carWidth * 0.31);
+  context.bezierCurveTo(-length * 0.53, carWidth * 0.17, -length * 0.53, -carWidth * 0.08, -length * 0.5, -carWidth * 0.21);
   context.closePath();
   context.fill();
   context.stroke();
 
-  context.fillStyle = "#a9341d";
+  // Dark lower side panel makes the body look slightly tilted toward the viewer.
+  context.fillStyle = "#9f2e20";
   context.beginPath();
-  context.moveTo(-length * 0.44, carWidth * 0.19);
-  context.lineTo(length * 0.45, carWidth * 0.16);
-  context.lineTo(length * 0.48, carWidth * 0.31);
-  context.quadraticCurveTo(0, carWidth * 0.53, -length * 0.43, carWidth * 0.39);
+  context.moveTo(-length * 0.48, carWidth * 0.2);
+  context.bezierCurveTo(-length * 0.15, carWidth * 0.33, length * 0.22, carWidth * 0.3, length * 0.49, carWidth * 0.18);
+  context.bezierCurveTo(length * 0.48, carWidth * 0.33, length * 0.21, carWidth * 0.48, -length * 0.35, carWidth * 0.43);
+  context.bezierCurveTo(-length * 0.43, carWidth * 0.4, -length * 0.47, carWidth * 0.31, -length * 0.48, carWidth * 0.2);
   context.closePath();
   context.fill();
   context.stroke();
 
-  context.fillStyle = "#f17a4e";
+  // Rear-biased teardrop cabin.
+  context.fillStyle = "#ef704e";
   context.beginPath();
-  context.moveTo(-length * 0.2, -carWidth * 0.35);
-  context.lineTo(length * 0.15, -carWidth * 0.36);
-  context.lineTo(length * 0.29, carWidth * 0.09);
-  context.lineTo(-length * 0.23, carWidth * 0.12);
+  context.moveTo(-length * 0.3, -carWidth * 0.3);
+  context.bezierCurveTo(-length * 0.22, -carWidth * 0.4, length * 0.01, -carWidth * 0.41, length * 0.14, -carWidth * 0.29);
+  context.lineTo(length * 0.24, carWidth * 0.07);
+  context.bezierCurveTo(length * 0.05, carWidth * 0.17, -length * 0.16, carWidth * 0.18, -length * 0.34, carWidth * 0.08);
   context.closePath();
   context.fill();
   context.stroke();
 
+  // Front windshield and rear glass are separated by a clean roof bar.
   context.fillStyle = "#a7d2d1";
   context.beginPath();
-  context.moveTo(-length * 0.14, -carWidth * 0.29);
-  context.lineTo(length * 0.1, -carWidth * 0.3);
-  context.lineTo(length * 0.18, -carWidth * 0.04);
-  context.lineTo(-length * 0.17, -carWidth * 0.03);
+  context.moveTo(-length * 0.02, -carWidth * 0.32);
+  context.lineTo(length * 0.1, -carWidth * 0.27);
+  context.lineTo(length * 0.19, carWidth * 0.04);
+  context.lineTo(-length * 0.01, carWidth * 0.04);
   context.closePath();
   context.fill();
   context.stroke();
 
-  context.strokeStyle = "rgba(255, 227, 174, 0.8)";
-  context.lineWidth = 2;
+  context.fillStyle = "#74999a";
   context.beginPath();
-  context.moveTo(length * 0.25, -carWidth * 0.25);
-  context.lineTo(length * 0.4, -carWidth * 0.16);
+  context.moveTo(-length * 0.26, -carWidth * 0.25);
+  context.lineTo(-length * 0.06, -carWidth * 0.31);
+  context.lineTo(-length * 0.05, carWidth * 0.04);
+  context.lineTo(-length * 0.29, carWidth * 0.07);
+  context.closePath();
+  context.fill();
   context.stroke();
 
-  context.fillStyle = "#ffe58e";
-  [-0.19, 0.14].forEach((side) => {
-    context.beginPath();
-    context.arc(length * 0.43, carWidth * side, carWidth * 0.07, 0, Math.PI * 2);
+  // Hood creases and iconic pop-up headlamp covers.
+  context.strokeStyle = "rgba(255, 181, 139, 0.82)";
+  context.lineWidth = outlineWidth * 0.58;
+  context.beginPath();
+  context.moveTo(length * 0.15, -carWidth * 0.28);
+  context.bezierCurveTo(length * 0.3, -carWidth * 0.3, length * 0.42, -carWidth * 0.23, length * 0.48, -carWidth * 0.11);
+  context.moveTo(length * 0.18, carWidth * 0.13);
+  context.bezierCurveTo(length * 0.31, carWidth * 0.12, length * 0.43, carWidth * 0.09, length * 0.49, carWidth * 0.03);
+  context.stroke();
+
+  context.fillStyle = "#c9402c";
+  context.strokeStyle = "#171a17";
+  context.lineWidth = outlineWidth * 0.72;
+  [-0.2, 0.12].forEach((side) => {
+    roundedRectangle(length * 0.27, carWidth * side, length * 0.13, carWidth * 0.1, carWidth * 0.035);
     context.fill();
     context.stroke();
   });
 
+  // Nose lamps, rear lamps and a slim rear wing.
+  context.fillStyle = "#ffe58e";
+  context.strokeStyle = "#171a17";
+  context.lineWidth = outlineWidth * 0.6;
+  [-0.2, 0.14].forEach((side) => {
+    context.beginPath();
+    context.ellipse(length * 0.49, carWidth * side, carWidth * 0.075, carWidth * 0.045, 0, 0, Math.PI * 2);
+    context.fill();
+    context.stroke();
+  });
+
+  context.fillStyle = "#6f1818";
+  [-0.2, 0.15].forEach((side) => {
+    context.beginPath();
+    context.ellipse(-length * 0.46, carWidth * side, carWidth * 0.065, carWidth * 0.045, 0, 0, Math.PI * 2);
+    context.fill();
+    context.stroke();
+  });
+
+  context.strokeStyle = "#141714";
+  context.lineWidth = outlineWidth;
+  context.beginPath();
+  context.moveTo(-length * 0.43, -carWidth * 0.42);
+  context.lineTo(-length * 0.43, carWidth * 0.4);
+  context.stroke();
+  context.strokeStyle = "#d94c32";
+  context.lineWidth = outlineWidth * 1.1;
+  context.beginPath();
+  context.moveTo(-length * 0.46, -carWidth * 0.38);
+  context.lineTo(-length * 0.46, carWidth * 0.36);
+  context.stroke();
+
+  // Door seam, side intake and a restrained highlight.
+  context.strokeStyle = "rgba(35, 29, 25, 0.72)";
+  context.lineWidth = outlineWidth * 0.55;
+  context.beginPath();
+  context.moveTo(-length * 0.09, carWidth * 0.17);
+  context.lineTo(-length * 0.07, carWidth * 0.36);
+  context.moveTo(length * 0.05, carWidth * 0.32);
+  context.quadraticCurveTo(length * 0.16, carWidth * 0.29, length * 0.22, carWidth * 0.23);
+  context.stroke();
+
   if (isDrifting) {
     context.strokeStyle = "rgba(255, 236, 176, 0.6)";
-    context.lineWidth = 2;
+    context.lineWidth = outlineWidth * 0.7;
     [-1, 1].forEach((side) => {
       context.beginPath();
       context.moveTo(-length * 0.55, side * carWidth * 0.28);
@@ -627,6 +703,13 @@ function drawScene() {
 
 function updateDemoControls() {
   if (!demoMode) return;
+  if (demoMode === "smoke-test") {
+    controls.up = elapsed < 6;
+    controls.left = false;
+    controls.right = elapsed > 0.8 && elapsed < 6;
+    controls.drift = elapsed > 1 && elapsed < 6;
+    return;
+  }
   if (demoMode === "continuous") {
     controls.up = true;
     controls.left = false;
@@ -654,6 +737,8 @@ function publishDiagnostics() {
   stage.dataset.cameraZoom = String(cameraZoom);
   stage.dataset.carScreenX = String(Math.round(width / 2));
   stage.dataset.carScreenY = String(Math.round(height / 2));
+  stage.dataset.trackLength = String(Math.round(trackLength));
+  stage.dataset.trackWidth = String(Math.round(trackWidth));
 }
 
 function gameLoop(timestamp) {
