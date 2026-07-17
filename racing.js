@@ -27,7 +27,9 @@ const controls = {
 const MAPS = {
   meadow: {
     name: "绿野大奖赛",
-    description: "开阔草坪 · 连续高速弯",
+    description: "8弯 · 连续高速大弯",
+    bendCount: 8,
+    bendType: "高速大弯",
     pattern: "stripes",
     palette: {
       terrain: "#78945e",
@@ -42,14 +44,15 @@ const MAPS = {
       route: "rgba(18, 20, 18, 0.44)",
     },
     shape: [
-      [0.18, 0.78], [0.08, 0.53], [0.16, 0.21], [0.37, 0.12],
-      [0.55, 0.24], [0.78, 0.11], [0.91, 0.31], [0.78, 0.53],
-      [0.88, 0.79], [0.66, 0.89], [0.47, 0.72], [0.28, 0.9],
+      [0.16, 0.78], [0.08, 0.48], [0.2, 0.16], [0.48, 0.1],
+      [0.78, 0.16], [0.92, 0.46], [0.8, 0.8], [0.48, 0.9], [0.25, 0.84],
     ],
   },
   coast: {
     name: "海岸公路",
-    description: "金色海岸 · 长直道",
+    description: "6弯 · 双长直道",
+    bendCount: 6,
+    bendType: "长直道与高速弯",
     pattern: "waves",
     palette: {
       terrain: "#c5a665",
@@ -64,14 +67,15 @@ const MAPS = {
       route: "rgba(25, 43, 47, 0.42)",
     },
     shape: [
-      [0.12, 0.75], [0.08, 0.38], [0.2, 0.12], [0.48, 0.1],
-      [0.76, 0.16], [0.91, 0.39], [0.82, 0.61], [0.93, 0.83],
-      [0.62, 0.9], [0.42, 0.82], [0.25, 0.9],
+      [0.12, 0.72], [0.1, 0.28], [0.25, 0.1], [0.76, 0.1],
+      [0.91, 0.3], [0.9, 0.73], [0.75, 0.9], [0.25, 0.9],
     ],
   },
   neon: {
     name: "霓虹都市",
-    description: "夜间街区 · 技术弯道",
+    description: "18弯 · 连续S弯",
+    bendCount: 18,
+    bendType: "技术S弯",
     pattern: "grid",
     palette: {
       terrain: "#17232b",
@@ -86,14 +90,18 @@ const MAPS = {
       route: "rgba(106, 229, 240, 0.42)",
     },
     shape: [
-      [0.16, 0.8], [0.08, 0.55], [0.13, 0.2], [0.36, 0.09],
-      [0.5, 0.31], [0.67, 0.1], [0.9, 0.2], [0.82, 0.46],
-      [0.93, 0.72], [0.73, 0.9], [0.52, 0.68], [0.34, 0.92],
+      [0.12, 0.8], [0.08, 0.58], [0.19, 0.42], [0.09, 0.2],
+      [0.26, 0.08], [0.4, 0.24], [0.52, 0.08], [0.66, 0.22],
+      [0.82, 0.08], [0.93, 0.25], [0.82, 0.42], [0.93, 0.57],
+      [0.81, 0.72], [0.9, 0.88], [0.66, 0.92], [0.55, 0.72],
+      [0.42, 0.92], [0.27, 0.74],
     ],
   },
   canyon: {
     name: "沙漠峡谷",
-    description: "赤色荒漠 · 大回环",
+    description: "17弯 · 发卡回头弯",
+    bendCount: 17,
+    bendType: "连续发卡弯",
     pattern: "rocks",
     palette: {
       terrain: "#b87843",
@@ -108,11 +116,130 @@ const MAPS = {
       route: "rgba(41, 31, 25, 0.46)",
     },
     shape: [
-      [0.14, 0.72], [0.07, 0.42], [0.2, 0.14], [0.42, 0.08],
-      [0.6, 0.2], [0.78, 0.1], [0.93, 0.3], [0.83, 0.49],
-      [0.92, 0.76], [0.7, 0.92], [0.49, 0.8], [0.31, 0.93],
-      [0.22, 0.78],
+      [0.13, 0.82], [0.07, 0.63], [0.27, 0.53], [0.08, 0.4],
+      [0.28, 0.29], [0.12, 0.12], [0.42, 0.08], [0.57, 0.23],
+      [0.73, 0.08], [0.92, 0.22], [0.76, 0.38], [0.92, 0.52],
+      [0.75, 0.67], [0.9, 0.84], [0.59, 0.92], [0.43, 0.77], [0.28, 0.92],
     ],
+  },
+  alpine: {
+    name: "雪山发卡",
+    description: "14弯 · 上山发卡",
+    bendCount: 14,
+    bendType: "窄角发卡弯",
+    pattern: "stripes",
+    palette: {
+      terrain: "#aebfc2",
+      terrainLine: "#627b80",
+      terrainDot: "rgba(55, 76, 80, 0.25)",
+      roadBorder: "#23292b",
+      roadEdge: "#edf4ef",
+      road: "#485156",
+      roadLight: "rgba(225, 245, 248, 0.08)",
+      curbA: "#f4f7f3",
+      curbB: "#de5944",
+      route: "rgba(30, 40, 43, 0.44)",
+    },
+    shape: [
+      [0.1, 0.84], [0.28, 0.74], [0.1, 0.63], [0.3, 0.52],
+      [0.11, 0.4], [0.32, 0.29], [0.16, 0.12], [0.48, 0.08],
+      [0.67, 0.2], [0.87, 0.1], [0.93, 0.38], [0.76, 0.5],
+      [0.92, 0.65], [0.72, 0.77], [0.88, 0.9], [0.48, 0.92], [0.3, 0.82],
+    ],
+  },
+  harbor: {
+    name: "港湾街区",
+    description: "12弯 · 直角减速弯",
+    bendCount: 12,
+    bendType: "直角弯与减速弯",
+    pattern: "grid",
+    palette: {
+      terrain: "#356f73",
+      terrainLine: "#173d42",
+      terrainDot: "rgba(233, 190, 90, 0.3)",
+      roadBorder: "#151c1e",
+      roadEdge: "#eadba8",
+      road: "#3f484a",
+      roadLight: "rgba(127, 217, 222, 0.08)",
+      curbA: "#f1dea9",
+      curbB: "#df8d32",
+      route: "rgba(22, 37, 39, 0.46)",
+    },
+    shape: [
+      [0.12, 0.82], [0.08, 0.5], [0.2, 0.5], [0.1, 0.18],
+      [0.36, 0.1], [0.36, 0.28], [0.62, 0.1], [0.9, 0.18],
+      [0.82, 0.4], [0.93, 0.55], [0.81, 0.82], [0.57, 0.9],
+      [0.57, 0.72], [0.3, 0.9],
+    ],
+  },
+  oval: {
+    name: "极速椭圆",
+    description: "4弯 · 双高速直道",
+    bendCount: 4,
+    bendType: "椭圆高速弯",
+    pattern: "stripes",
+    palette: {
+      terrain: "#687d4f",
+      terrainLine: "#35452f",
+      terrainDot: "rgba(54, 66, 44, 0.25)",
+      roadBorder: "#1c201c",
+      roadEdge: "#ece2c7",
+      road: "#454945",
+      roadLight: "rgba(255, 244, 213, 0.06)",
+      curbA: "#f4ead2",
+      curbB: "#d94a35",
+      route: "rgba(20, 24, 20, 0.43)",
+    },
+    shape: [
+      [0.17, 0.78], [0.07, 0.5], [0.17, 0.22], [0.36, 0.12],
+      [0.72, 0.12], [0.91, 0.3], [0.93, 0.62], [0.78, 0.86], [0.36, 0.88],
+    ],
+  },
+  crossing: {
+    name: "交叉八字",
+    description: "10弯 · 交叉复合弯",
+    bendCount: 10,
+    bendType: "交叉复合弯",
+    pattern: "grid",
+    palette: {
+      terrain: "#4c3c5f",
+      terrainLine: "#251e34",
+      terrainDot: "rgba(107, 219, 211, 0.28)",
+      roadBorder: "#111015",
+      roadEdge: "#7dd7d2",
+      road: "#35343d",
+      roadLight: "rgba(232, 118, 195, 0.08)",
+      curbA: "#7de0da",
+      curbB: "#da68ae",
+      route: "rgba(21, 18, 28, 0.48)",
+    },
+    shape: [
+      [0.5, 0.5], [0.32, 0.17], [0.12, 0.22], [0.07, 0.5], [0.3, 0.82],
+      [0.5, 0.5], [0.7, 0.18], [0.92, 0.25], [0.92, 0.62], [0.7, 0.84],
+    ],
+  },
+  straight: {
+    name: "直道",
+    description: "0弯 · 纯直线加速",
+    bendCount: 0,
+    bendType: "无弯道",
+    closed: false,
+    pathType: "straight",
+    startProgress: 0.06,
+    pattern: "stripes",
+    palette: {
+      terrain: "#557250",
+      terrainLine: "#263e29",
+      terrainDot: "rgba(27, 49, 29, 0.24)",
+      roadBorder: "#171a17",
+      roadEdge: "#f2e8cf",
+      road: "#424743",
+      roadLight: "rgba(255, 255, 255, 0.06)",
+      curbA: "#f1ead9",
+      curbB: "#dd4d36",
+      route: "rgba(18, 21, 18, 0.43)",
+    },
+    shape: [[0.02, 0.5], [0.98, 0.5]],
   },
 };
 
@@ -187,30 +314,60 @@ function catmullRom(previous, start, end, next, amount) {
 }
 
 function buildTrack() {
-  const points = MAPS[currentMapKey].shape.map(([x, y]) => ({
+  const currentMap = MAPS[currentMapKey];
+  const closedTrack = currentMap.closed !== false;
+  const points = currentMap.shape.map(([x, y]) => ({
     x: x * worldWidth,
     y: y * worldHeight,
   }));
   const samples = [];
 
-  for (let index = 0; index < points.length; index += 1) {
-    const previous = points[(index - 1 + points.length) % points.length];
-    const start = points[index];
-    const end = points[(index + 1) % points.length];
-    const next = points[(index + 2) % points.length];
-
-    for (let step = 0; step < 64; step += 1) {
-      samples.push(catmullRom(previous, start, end, next, step / 64));
+  if (currentMap.pathType === "straight") {
+    const [start, end] = points;
+    const sampleCount = 384;
+    for (let step = 0; step < sampleCount; step += 1) {
+      const amount = step / (sampleCount - 1);
+      samples.push({
+        x: start.x + (end.x - start.x) * amount,
+        y: start.y + (end.y - start.y) * amount,
+      });
     }
+  } else {
+    const segmentCount = closedTrack ? points.length : points.length - 1;
+    for (let index = 0; index < segmentCount; index += 1) {
+      const previous = closedTrack
+        ? points[(index - 1 + points.length) % points.length]
+        : points[Math.max(0, index - 1)];
+      const start = points[index];
+      const end = points[(index + 1) % points.length];
+      const next = closedTrack
+        ? points[(index + 2) % points.length]
+        : points[Math.min(points.length - 1, index + 2)];
+
+      for (let step = 0; step < 48; step += 1) {
+        samples.push(catmullRom(previous, start, end, next, step / 48));
+      }
+    }
+    if (!closedTrack) samples.push(points[points.length - 1]);
   }
 
   trackSamples = samples.map((point, index) => {
-    const following = samples[(index + 1) % samples.length];
-    const angle = Math.atan2(following.y - point.y, following.x - point.x);
+    const following = samples[index + 1];
+    const previous = samples[index - 1];
+    const directionPoint = following || point;
+    const directionOrigin = following ? point : previous;
+    const angle = Math.atan2(
+      directionPoint.y - directionOrigin.y,
+      directionPoint.x - directionOrigin.x,
+    );
     return { ...point, angle };
   });
   trackLength = trackSamples.reduce((total, point, index) => {
-    const following = trackSamples[(index + 1) % trackSamples.length];
+    const following = trackSamples[index + 1];
+    if (!following) {
+      if (!closedTrack) return total;
+      return total + Math.hypot(trackSamples[0].x - point.x, trackSamples[0].y - point.y);
+    }
     return total + Math.hypot(following.x - point.x, following.y - point.y);
   }, 0);
   cachedTrackPath = new Path2D();
@@ -218,11 +375,14 @@ function buildTrack() {
     if (index === 0) cachedTrackPath.moveTo(point.x, point.y);
     else cachedTrackPath.lineTo(point.x, point.y);
   });
-  cachedTrackPath.closePath();
+  if (closedTrack) cachedTrackPath.closePath();
 }
 
 function resetCar() {
-  const start = trackSamples[0];
+  const startIndex = Math.round(
+    (trackSamples.length - 1) * (MAPS[currentMapKey].startProgress || 0),
+  );
+  const start = trackSamples[startIndex];
   car.x = start.x;
   car.y = start.y;
   car.angle = start.angle;
@@ -239,7 +399,7 @@ function resetCar() {
   turnSlowdownAmount = 0;
   motionTrailFrames = [];
   motionCaptureAccumulator = 0;
-  nearestTrackSampleIndex = 0;
+  nearestTrackSampleIndex = startIndex;
 }
 
 function resizeCanvas() {
@@ -264,7 +424,7 @@ function resizeCanvas() {
   // Double the current road width while keeping it proportional on every screen.
   trackWidth = clamp(Math.min(width, height) * 1.32, 512, 840);
   // Pull the camera back so the larger circuit and upcoming bends stay visible.
-  cameraZoom = width < 600 ? 0.96 : 1.12;
+  cameraZoom = width < 600 ? 0.78 : 0.9;
   worldTiltX = width < 600 ? 0.17 : 0.22;
   worldTiltY = width < 600 ? 0.78 : 0.7;
   car.length = clamp(Math.min(width, height) * 0.19, 94, 122);
@@ -308,15 +468,18 @@ function getNearestTrackPoint(x, y) {
   let shortestSquared = Number.POSITIVE_INFINITY;
 
   const inspectPoint = (index) => {
-    const wrappedIndex = (index + trackSamples.length) % trackSamples.length;
-    const point = trackSamples[wrappedIndex];
+    const closedTrack = MAPS[currentMapKey].closed !== false;
+    const inspectedIndex = closedTrack
+      ? (index + trackSamples.length) % trackSamples.length
+      : clamp(index, 0, trackSamples.length - 1);
+    const point = trackSamples[inspectedIndex];
     const differenceX = x - point.x;
     const differenceY = y - point.y;
     const distanceSquared = differenceX * differenceX + differenceY * differenceY;
     if (distanceSquared < shortestSquared) {
       shortestSquared = distanceSquared;
       nearest = point;
-      nearestIndex = wrappedIndex;
+      nearestIndex = inspectedIndex;
     }
   };
 
@@ -512,10 +675,11 @@ function drawRoadTexture() {
 
 function drawTrack() {
   const { palette } = MAPS[currentMapKey];
+  const closedTrack = MAPS[currentMapKey].closed !== false;
   const path = cachedTrackPath;
   context.save();
   context.lineJoin = "round";
-  context.lineCap = "round";
+  context.lineCap = closedTrack ? "round" : "butt";
 
   context.strokeStyle = palette.roadBorder;
   context.lineWidth = trackWidth + 20;
@@ -1426,8 +1590,13 @@ function publishDiagnostics() {
   stage.dataset.speedRatio = currentSpeedRatio.toFixed(3);
   stage.dataset.currentMap = currentMapKey;
   stage.dataset.currentMapName = MAPS[currentMapKey].name;
+  stage.dataset.bendCount = String(MAPS[currentMapKey].bendCount);
+  stage.dataset.bendType = MAPS[currentMapKey].bendType;
+  stage.dataset.trackClosed = String(MAPS[currentMapKey].closed !== false);
+  stage.dataset.trackPathType = MAPS[currentMapKey].pathType || "circuit";
   stage.dataset.availableMaps = String(Object.keys(MAPS).length);
   stage.dataset.cameraZoom = String(cameraZoom);
+  stage.dataset.cameraView = "wide";
   stage.dataset.worldTiltX = String(worldTiltX);
   stage.dataset.worldTiltY = String(worldTiltY);
   stage.dataset.carScreenX = String(Math.round(width / 2));
@@ -1559,7 +1728,13 @@ window.raceDebug = {
     speedRatio: currentSpeedRatio,
     currentMap: currentMapKey,
     currentMapName: MAPS[currentMapKey].name,
+    bendCount: MAPS[currentMapKey].bendCount,
+    bendType: MAPS[currentMapKey].bendType,
+    trackClosed: MAPS[currentMapKey].closed !== false,
+    trackPathType: MAPS[currentMapKey].pathType || "circuit",
     availableMaps: Object.keys(MAPS).length,
+    cameraZoom,
+    cameraView: "wide",
     trackSamples: trackSamples.length,
   }),
 };
