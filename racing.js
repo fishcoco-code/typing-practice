@@ -47,6 +47,8 @@ let onTrack = true;
 let fenceImpact = 0;
 let fenceHits = 0;
 let cameraZoom = 1.65;
+let worldTiltX = 0.22;
+let worldTiltY = 0.7;
 const demoMode = new URLSearchParams(window.location.search).get("demo");
 
 const car = {
@@ -127,13 +129,17 @@ function resizeCanvas() {
   const ratio = Math.min(window.devicePixelRatio || 1, 2);
   width = Math.max(320, bounds.width);
   height = Math.max(420, bounds.height);
-  worldWidth = width * 2.35;
-  worldHeight = height * 1.65;
+  // Double the circuit footprint while preserving the current road width.
+  worldWidth = width * 4.7;
+  worldHeight = height * 3.3;
   canvas.width = Math.round(width * ratio);
   canvas.height = Math.round(height * ratio);
   context.setTransform(ratio, 0, 0, ratio, 0, 0);
   trackWidth = clamp(Math.min(width, height) * 0.66, 256, 420);
-  cameraZoom = width < 600 ? 1.42 : 1.65;
+  // Pull the camera back so the larger circuit and upcoming bends stay visible.
+  cameraZoom = width < 600 ? 0.96 : 1.12;
+  worldTiltX = width < 600 ? 0.17 : 0.22;
+  worldTiltY = width < 600 ? 0.78 : 0.7;
   car.length = clamp(Math.min(width, height) * 0.19, 94, 122);
   car.width = car.length * 0.51;
   buildTrack();
@@ -389,14 +395,14 @@ function updateCar(deltaTime) {
   }
 
   forwardSpeed = clamp(forwardSpeed, -maximumSpeed * 0.34, maximumSpeed);
-  const steeringPower = 0.72 + Math.min(1, Math.abs(forwardSpeed) / maximumSpeed) * 2.25;
+  const steeringPower = 0.4 + Math.min(1, Math.abs(forwardSpeed) / maximumSpeed) * 1.28;
   if (Math.abs(forwardSpeed) > 4) {
     car.angle +=
       steering *
       steeringPower *
       deltaTime *
       (forwardSpeed >= 0 ? 1 : -1) *
-      (controls.drift ? 1.18 : 1);
+      (controls.drift ? 1.08 : 1);
   }
 
   isDrifting =
@@ -620,6 +626,27 @@ function drawCar() {
   context.fill();
   context.stroke();
 
+  // Raised metal roof: a separate hard-edged panel between both glass sections.
+  context.fillStyle = "#bd3928";
+  context.strokeStyle = "#141714";
+  context.lineWidth = outlineWidth * 0.82;
+  context.beginPath();
+  context.moveTo(-length * 0.13, -carWidth * 0.34);
+  context.lineTo(length * 0.035, -carWidth * 0.34);
+  context.lineTo(length * 0.075, carWidth * 0.075);
+  context.lineTo(-length * 0.14, carWidth * 0.12);
+  context.closePath();
+  context.fill();
+  context.stroke();
+
+  context.strokeStyle = "rgba(255, 174, 128, 0.78)";
+  context.lineWidth = outlineWidth * 0.42;
+  context.beginPath();
+  context.moveTo(-length * 0.08, -carWidth * 0.27);
+  context.lineTo(length * 0.005, -carWidth * 0.27);
+  context.lineTo(length * 0.025, carWidth * 0.025);
+  context.stroke();
+
   // Hood creases and iconic pop-up headlamp covers.
   context.strokeStyle = "rgba(255, 181, 139, 0.82)";
   context.lineWidth = outlineWidth * 0.58;
@@ -700,6 +727,8 @@ function drawScene() {
   context.clearRect(0, 0, width, height);
   context.save();
   context.translate(width / 2, height / 2);
+  // The oblique projection tilts the complete game world while keeping the car centred.
+  context.transform(1, -0.08, worldTiltX, worldTiltY, 0, 0);
   context.scale(cameraZoom, cameraZoom);
   context.translate(-car.x, -car.y);
   drawGrass();
@@ -744,10 +773,14 @@ function publishDiagnostics() {
   stage.dataset.fenceImpact = String(fenceImpact > 0);
   stage.dataset.fenceHits = String(fenceHits);
   stage.dataset.cameraZoom = String(cameraZoom);
+  stage.dataset.worldTiltX = String(worldTiltX);
+  stage.dataset.worldTiltY = String(worldTiltY);
   stage.dataset.carScreenX = String(Math.round(width / 2));
   stage.dataset.carScreenY = String(Math.round(height / 2));
   stage.dataset.trackLength = String(Math.round(trackLength));
   stage.dataset.trackWidth = String(Math.round(trackWidth));
+  stage.dataset.worldWidth = String(Math.round(worldWidth));
+  stage.dataset.worldHeight = String(Math.round(worldHeight));
 }
 
 function gameLoop(timestamp) {
