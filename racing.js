@@ -11,6 +11,8 @@ const currentMapName = document.querySelector("#currentMapName");
 const TOP_SPEED_KMH = 639;
 const SPEED_MULTIPLIER = 15.64;
 const MAX_MOTION_TRAIL_FRAMES = 6;
+const MAX_RENDER_SCALE = 2.75;
+const MAX_TRAIL_RENDER_SCALE = 1.5;
 
 const controls = {
   up: false,
@@ -133,6 +135,7 @@ let turnSlowdownAmount = 0;
 let motionTrailFrames = [];
 let motionCaptureAccumulator = 0;
 let currentMapKey = "meadow";
+let renderScale = 1;
 const demoMode = new URLSearchParams(window.location.search).get("demo");
 
 const car = {
@@ -217,7 +220,13 @@ function resetCar() {
 
 function resizeCanvas() {
   const bounds = stage.getBoundingClientRect();
-  const ratio = Math.min(window.devicePixelRatio || 1, 2);
+  const qualityCap = bounds.width < 600 ? 2.25 : MAX_RENDER_SCALE;
+  const minimumQualityScale = bounds.width < 600 ? 1.75 : 2.5;
+  const ratio = Math.min(
+    Math.max(window.devicePixelRatio || 1, minimumQualityScale),
+    qualityCap,
+  );
+  renderScale = ratio;
   width = Math.max(320, bounds.width);
   height = Math.max(420, bounds.height);
   // Double the complete circuit footprint again for a much longer lap.
@@ -226,6 +235,8 @@ function resizeCanvas() {
   canvas.width = Math.round(width * ratio);
   canvas.height = Math.round(height * ratio);
   context.setTransform(ratio, 0, 0, ratio, 0, 0);
+  context.imageSmoothingEnabled = true;
+  context.imageSmoothingQuality = "high";
   // Double the current road width while keeping it proportional on every screen.
   trackWidth = clamp(Math.min(width, height) * 1.32, 512, 840);
   // Pull the camera back so the larger circuit and upcoming bends stay visible.
@@ -416,6 +427,45 @@ function drawRouteTirePrints() {
   context.restore();
 }
 
+function drawRoadTexture() {
+  const { palette } = MAPS[currentMapKey];
+  const visibleSpan = Math.max(width, height) / cameraZoom * 1.45;
+  context.save();
+  context.lineCap = "round";
+
+  for (let index = 0; index < trackSamples.length; index += 2) {
+    const point = trackSamples[index];
+    if (Math.abs(point.x - car.x) > visibleSpan || Math.abs(point.y - car.y) > visibleSpan) {
+      continue;
+    }
+    const hash = Math.abs((index * 2654435761) | 0);
+    const tangentX = Math.cos(point.angle);
+    const tangentY = Math.sin(point.angle);
+    const normalX = -tangentY;
+    const normalY = tangentX;
+    const offset = ((hash % 1000) / 999 - 0.5) * trackWidth * 0.72;
+    const markLength = 3 + hash % 9;
+    const x = point.x + normalX * offset;
+    const y = point.y + normalY * offset;
+
+    context.globalAlpha = index % 4 === 0 ? 0.42 : 0.22;
+    context.strokeStyle = index % 4 === 0 ? palette.roadLight : palette.route;
+    context.lineWidth = 0.7 + hash % 2;
+    context.beginPath();
+    context.moveTo(x - tangentX * markLength, y - tangentY * markLength);
+    context.lineTo(x + tangentX * markLength, y + tangentY * markLength);
+    context.stroke();
+
+    if (hash % 3 === 0) {
+      context.fillStyle = palette.roadLight;
+      context.beginPath();
+      context.arc(x + normalX * 8, y + normalY * 8, 0.8 + hash % 2, 0, Math.PI * 2);
+      context.fill();
+    }
+  }
+  context.restore();
+}
+
 function drawTrack() {
   const { palette } = MAPS[currentMapKey];
   const path = createTrackPath();
@@ -440,6 +490,7 @@ function drawTrack() {
   context.stroke(path);
   context.restore();
 
+  drawRoadTexture();
   drawCurbs();
   drawRouteTirePrints();
 }
@@ -672,6 +723,31 @@ function drawCar() {
   context.lineTo(-length * 0.52, carWidth * 0.32);
   context.stroke();
 
+  // Raised endplates make both aerodynamic wings read as solid components.
+  context.fillStyle = "#111411";
+  context.strokeStyle = "#050705";
+  context.lineWidth = outlineWidth * 0.42;
+  [-1, 1].forEach((side) => {
+    roundedRectangle(
+      length * 0.435,
+      side * carWidth * 0.51 - carWidth * 0.035,
+      length * 0.13,
+      carWidth * 0.07,
+      carWidth * 0.018,
+    );
+    context.fill();
+    context.stroke();
+    roundedRectangle(
+      -length * 0.555,
+      side * carWidth * 0.46 - carWidth * 0.032,
+      length * 0.11,
+      carWidth * 0.064,
+      carWidth * 0.018,
+    );
+    context.fill();
+    context.stroke();
+  });
+
   // Four large exposed F1 tyres make the car substantially wider.
   const tyreGradient = context.createLinearGradient(0, -carWidth * 0.12, 0, carWidth * 0.12);
   tyreGradient.addColorStop(0, "#3c423d");
@@ -713,6 +789,21 @@ function drawCar() {
       );
       context.fill();
       context.stroke();
+
+      context.strokeStyle = "rgba(142, 153, 144, 0.58)";
+      context.lineWidth = outlineWidth * 0.2;
+      [-0.25, 0.25].forEach((groove) => {
+        context.beginPath();
+        context.moveTo(
+          frontBack * length - wheelLength * 0.34,
+          side * carWidth * 0.43 + groove * wheelWidth,
+        );
+        context.lineTo(
+          frontBack * length + wheelLength * 0.34,
+          side * carWidth * 0.43 + groove * wheelWidth,
+        );
+        context.stroke();
+      });
 
       context.fillStyle = tyreGradient;
       context.strokeStyle = "#080a08";
@@ -773,6 +864,25 @@ function drawCar() {
     context.closePath();
     context.fill();
     context.stroke();
+  });
+
+  // Fine panel seams and fasteners remain visible at the higher render scale.
+  context.strokeStyle = "rgba(73, 20, 17, 0.72)";
+  context.lineWidth = outlineWidth * 0.28;
+  context.beginPath();
+  context.moveTo(-length * 0.31, 0);
+  context.lineTo(-length * 0.16, 0);
+  context.moveTo(length * 0.16, -carWidth * 0.23);
+  context.lineTo(length * 0.16, carWidth * 0.23);
+  context.moveTo(length * 0.28, -carWidth * 0.1);
+  context.lineTo(length * 0.28, carWidth * 0.1);
+  context.stroke();
+
+  context.fillStyle = "rgba(235, 174, 139, 0.82)";
+  [-1, 1].forEach((side) => {
+    context.beginPath();
+    context.arc(-length * 0.22, side * carWidth * 0.16, carWidth * 0.014, 0, Math.PI * 2);
+    context.fill();
   });
 
   // Open cockpit, driver helmet and protective halo.
@@ -919,14 +1029,19 @@ function captureWorldMotionFrame(deltaTime) {
   const frame = motionTrailFrames.length < MAX_MOTION_TRAIL_FRAMES
     ? document.createElement("canvas")
     : motionTrailFrames.pop();
-  if (frame.width !== canvas.width || frame.height !== canvas.height) {
-    frame.width = canvas.width;
-    frame.height = canvas.height;
+  const trailScale = Math.min(renderScale, MAX_TRAIL_RENDER_SCALE);
+  const trailWidth = Math.round(width * trailScale);
+  const trailHeight = Math.round(height * trailScale);
+  if (frame.width !== trailWidth || frame.height !== trailHeight) {
+    frame.width = trailWidth;
+    frame.height = trailHeight;
   }
   const frameContext = frame.getContext("2d");
   frameContext.setTransform(1, 0, 0, 1, 0, 0);
+  frameContext.imageSmoothingEnabled = true;
+  frameContext.imageSmoothingQuality = "high";
   frameContext.clearRect(0, 0, frame.width, frame.height);
-  frameContext.drawImage(canvas, 0, 0);
+  frameContext.drawImage(canvas, 0, 0, frame.width, frame.height);
   motionTrailFrames.unshift(frame);
 }
 
@@ -945,6 +1060,30 @@ function drawWorldAfterimages() {
       (0.012 + currentSpeedRatio * 0.022) * (1 - layerProgress * 0.5);
     context.drawImage(motionTrailFrames[layer], 0, 0, width, height);
   }
+  context.restore();
+}
+
+function drawScreenLighting() {
+  context.save();
+  const vignette = context.createRadialGradient(
+    width * 0.5,
+    height * 0.46,
+    Math.min(width, height) * 0.22,
+    width * 0.5,
+    height * 0.48,
+    Math.max(width, height) * 0.72,
+  );
+  vignette.addColorStop(0, "rgba(5, 8, 6, 0)");
+  vignette.addColorStop(0.72, "rgba(5, 8, 6, 0.035)");
+  vignette.addColorStop(1, "rgba(5, 8, 6, 0.2)");
+  context.fillStyle = vignette;
+  context.fillRect(0, 0, width, height);
+
+  const light = context.createLinearGradient(0, 0, width * 0.7, height * 0.8);
+  light.addColorStop(0, "rgba(255, 244, 218, 0.055)");
+  light.addColorStop(0.48, "rgba(255, 244, 218, 0)");
+  context.fillStyle = light;
+  context.fillRect(0, 0, width, height);
   context.restore();
 }
 
@@ -974,6 +1113,7 @@ function drawScene(deltaTime) {
   drawCarAfterimages();
   drawCar();
   context.restore();
+  drawScreenLighting();
 }
 
 function updateDemoControls() {
@@ -1009,6 +1149,10 @@ function publishDiagnostics() {
   stage.dataset.vehicle = "f1";
   stage.dataset.vehicleDepth = "layered-3d";
   stage.dataset.vehicleDepthLayers = "3";
+  stage.dataset.renderQuality = "high";
+  stage.dataset.renderScale = renderScale.toFixed(2);
+  stage.dataset.imageSmoothing = context.imageSmoothingQuality;
+  stage.dataset.roadTexture = "detailed";
   stage.dataset.driftEnabled = "false";
   stage.dataset.visibleFences = "false";
   stage.dataset.topSpeedKmh = String(TOP_SPEED_KMH);
@@ -1125,6 +1269,10 @@ window.raceDebug = {
     vehicle: "f1",
     vehicleDepth: "layered-3d",
     vehicleDepthLayers: 3,
+    renderQuality: "high",
+    renderScale,
+    imageSmoothing: context.imageSmoothingQuality,
+    roadTexture: "detailed",
     driftEnabled: false,
     airWallHits,
     topSpeedKmh: TOP_SPEED_KMH,
