@@ -532,7 +532,7 @@ function updateCar(deltaTime) {
       ? "碰到空气墙"
       : turnSlowdownAmount > 0.12 && speed > 5
         ? "弯道减速"
-      : speed > 5
+        : speed > 5
           ? "行驶中"
           : "已停车";
 }
@@ -556,6 +556,24 @@ function roundedRectangle(x, y, rectangleWidth, rectangleHeight, radius) {
   context.closePath();
 }
 
+function traceF1Body(length, carWidth) {
+  context.beginPath();
+  context.moveTo(-length * 0.47, -carWidth * 0.15);
+  context.lineTo(-length * 0.3, -carWidth * 0.23);
+  context.lineTo(-length * 0.15, -carWidth * 0.32);
+  context.lineTo(length * 0.17, -carWidth * 0.28);
+  context.lineTo(length * 0.27, -carWidth * 0.12);
+  context.lineTo(length * 0.49, -carWidth * 0.055);
+  context.lineTo(length * 0.56, 0);
+  context.lineTo(length * 0.49, carWidth * 0.055);
+  context.lineTo(length * 0.27, carWidth * 0.12);
+  context.lineTo(length * 0.17, carWidth * 0.28);
+  context.lineTo(-length * 0.15, carWidth * 0.32);
+  context.lineTo(-length * 0.3, carWidth * 0.23);
+  context.lineTo(-length * 0.47, carWidth * 0.15);
+  context.closePath();
+}
+
 function drawCar() {
   const length = car.length;
   const carWidth = car.width;
@@ -564,12 +582,49 @@ function drawCar() {
   context.translate(car.x, car.y);
   context.rotate(car.angle);
 
-  // Broad ground shadow anchors the open-wheel silhouette.
+  // Layered ground shadow separates the raised chassis from the road.
   context.save();
-  context.translate(carWidth * 0.08, carWidth * 0.12);
-  context.fillStyle = "rgba(10, 12, 10, 0.38)";
-  roundedRectangle(-length * 0.54, -carWidth * 0.53, length * 1.1, carWidth * 1.06, carWidth * 0.15);
+  context.translate(carWidth * 0.11, carWidth * 0.18);
+  context.filter = `blur(${Math.max(2, carWidth * 0.055)}px)`;
+  context.fillStyle = "rgba(7, 9, 8, 0.46)";
+  context.beginPath();
+  context.ellipse(0, 0, length * 0.57, carWidth * 0.5, 0, 0, Math.PI * 2);
   context.fill();
+  context.restore();
+
+  // Dark lower layer gives the body, wings and tyres visible physical thickness.
+  context.save();
+  context.translate(0, carWidth * 0.09);
+  context.fillStyle = "#651c19";
+  context.strokeStyle = "#0b0d0b";
+  context.lineWidth = outlineWidth * 0.9;
+  traceF1Body(length, carWidth);
+  context.fill();
+  context.stroke();
+
+  context.fillStyle = "#101310";
+  roundedRectangle(length * 0.45, -carWidth * 0.53, length * 0.1, carWidth * 1.06, length * 0.025);
+  context.fill();
+  context.stroke();
+  roundedRectangle(-length * 0.54, -carWidth * 0.48, length * 0.09, carWidth * 0.96, length * 0.022);
+  context.fill();
+  context.stroke();
+
+  const depthWheelLength = length * 0.21;
+  const depthWheelWidth = carWidth * 0.23;
+  [-0.31, 0.31].forEach((frontBack) => {
+    [-1, 1].forEach((side) => {
+      roundedRectangle(
+        frontBack * length - depthWheelLength / 2,
+        side * carWidth * 0.43 - depthWheelWidth / 2,
+        depthWheelLength,
+        depthWheelWidth,
+        depthWheelWidth * 0.24,
+      );
+      context.fill();
+      context.stroke();
+    });
+  });
   context.restore();
 
   // Suspension arms sit behind the body and exposed tyres.
@@ -590,7 +645,11 @@ function drawCar() {
   });
 
   // Wide front and rear aero wings.
-  context.fillStyle = "#232623";
+  const wingGradient = context.createLinearGradient(0, -carWidth * 0.53, 0, carWidth * 0.53);
+  wingGradient.addColorStop(0, "#555b56");
+  wingGradient.addColorStop(0.42, "#252925");
+  wingGradient.addColorStop(1, "#0d100e");
+  context.fillStyle = wingGradient;
   context.strokeStyle = "#080a08";
   context.lineWidth = outlineWidth * 0.72;
   roundedRectangle(length * 0.45, -carWidth * 0.53, length * 0.1, carWidth * 1.06, length * 0.025);
@@ -604,8 +663,21 @@ function drawCar() {
   context.fillRect(length * 0.475, -carWidth * 0.46, length * 0.035, carWidth * 0.92);
   context.fillRect(-length * 0.515, -carWidth * 0.4, length * 0.028, carWidth * 0.8);
 
+  context.strokeStyle = "rgba(223, 232, 224, 0.62)";
+  context.lineWidth = outlineWidth * 0.28;
+  context.beginPath();
+  context.moveTo(length * 0.47, -carWidth * 0.47);
+  context.lineTo(length * 0.47, carWidth * 0.38);
+  context.moveTo(-length * 0.52, -carWidth * 0.41);
+  context.lineTo(-length * 0.52, carWidth * 0.32);
+  context.stroke();
+
   // Four large exposed F1 tyres make the car substantially wider.
-  context.fillStyle = "#151815";
+  const tyreGradient = context.createLinearGradient(0, -carWidth * 0.12, 0, carWidth * 0.12);
+  tyreGradient.addColorStop(0, "#3c423d");
+  tyreGradient.addColorStop(0.42, "#171a17");
+  tyreGradient.addColorStop(1, "#070907");
+  context.fillStyle = tyreGradient;
   context.strokeStyle = "#080a08";
   context.lineWidth = outlineWidth * 0.65;
   const wheelLength = length * 0.21;
@@ -628,36 +700,69 @@ function drawCar() {
       context.moveTo(frontBack * length - wheelLength * 0.22, side * carWidth * 0.43);
       context.lineTo(frontBack * length + wheelLength * 0.22, side * carWidth * 0.43);
       context.stroke();
+
+      context.fillStyle = side < 0 ? "#6f7871" : "#303630";
+      context.strokeStyle = "#0c0f0d";
+      context.lineWidth = outlineWidth * 0.3;
+      roundedRectangle(
+        frontBack * length - wheelLength * 0.22,
+        side * carWidth * 0.43 - wheelWidth * 0.11,
+        wheelLength * 0.44,
+        wheelWidth * 0.22,
+        wheelWidth * 0.08,
+      );
+      context.fill();
+      context.stroke();
+
+      context.fillStyle = tyreGradient;
       context.strokeStyle = "#080a08";
       context.lineWidth = outlineWidth * 0.65;
     });
   });
 
-  // Central monocoque with a long tapered F1 nose.
-  context.fillStyle = "#df4931";
+  // Central monocoque uses a cross-body gradient to show a raised crown and shaded flank.
+  const bodyGradient = context.createLinearGradient(0, -carWidth * 0.34, 0, carWidth * 0.36);
+  bodyGradient.addColorStop(0, "#ff8058");
+  bodyGradient.addColorStop(0.38, "#e34d33");
+  bodyGradient.addColorStop(0.7, "#bd3427");
+  bodyGradient.addColorStop(1, "#721d1a");
+  context.fillStyle = bodyGradient;
   context.strokeStyle = "#141714";
   context.lineWidth = outlineWidth;
+  traceF1Body(length, carWidth);
+  context.fill();
+  context.stroke();
+
+  // The near-side skirt is a visible side face beneath the top body plane.
+  context.fillStyle = "rgba(92, 22, 20, 0.88)";
+  context.strokeStyle = "#151715";
+  context.lineWidth = outlineWidth * 0.55;
   context.beginPath();
-  context.moveTo(-length * 0.47, -carWidth * 0.15);
-  context.lineTo(-length * 0.3, -carWidth * 0.23);
-  context.lineTo(-length * 0.15, -carWidth * 0.32);
-  context.lineTo(length * 0.17, -carWidth * 0.28);
-  context.lineTo(length * 0.27, -carWidth * 0.12);
-  context.lineTo(length * 0.49, -carWidth * 0.055);
-  context.lineTo(length * 0.56, 0);
-  context.lineTo(length * 0.49, carWidth * 0.055);
-  context.lineTo(length * 0.27, carWidth * 0.12);
+  context.moveTo(-length * 0.46, carWidth * 0.15);
+  context.lineTo(-length * 0.29, carWidth * 0.23);
+  context.lineTo(-length * 0.14, carWidth * 0.32);
   context.lineTo(length * 0.17, carWidth * 0.28);
-  context.lineTo(-length * 0.15, carWidth * 0.32);
-  context.lineTo(-length * 0.3, carWidth * 0.23);
-  context.lineTo(-length * 0.47, carWidth * 0.15);
+  context.lineTo(length * 0.27, carWidth * 0.12);
+  context.lineTo(length * 0.49, carWidth * 0.055);
+  context.lineTo(length * 0.46, carWidth * 0.13);
+  context.lineTo(length * 0.18, carWidth * 0.35);
+  context.lineTo(-length * 0.15, carWidth * 0.4);
+  context.lineTo(-length * 0.48, carWidth * 0.22);
   context.closePath();
   context.fill();
   context.stroke();
 
   // Sculpted sidepods widen the body without hiding the suspension.
   [-1, 1].forEach((side) => {
-    context.fillStyle = side > 0 ? "#a92d22" : "#f06b45";
+    const podGradient = context.createLinearGradient(0, 0, 0, side * carWidth * 0.36);
+    if (side > 0) {
+      podGradient.addColorStop(0, "#c83a29");
+      podGradient.addColorStop(1, "#641b18");
+    } else {
+      podGradient.addColorStop(0, "#d8412d");
+      podGradient.addColorStop(1, "#ff8b5f");
+    }
+    context.fillStyle = podGradient;
     context.strokeStyle = "#141714";
     context.lineWidth = outlineWidth * 0.72;
     context.beginPath();
@@ -679,7 +784,34 @@ function drawCar() {
   context.fill();
   context.stroke();
 
-  context.fillStyle = "#f1c447";
+  const cockpitGradient = context.createRadialGradient(
+    -length * 0.11,
+    -carWidth * 0.07,
+    carWidth * 0.02,
+    -length * 0.08,
+    0,
+    carWidth * 0.17,
+  );
+  cockpitGradient.addColorStop(0, "#59635c");
+  cockpitGradient.addColorStop(0.45, "#202521");
+  cockpitGradient.addColorStop(1, "#080a08");
+  context.fillStyle = cockpitGradient;
+  context.beginPath();
+  context.ellipse(-length * 0.08, 0, length * 0.145, carWidth * 0.13, 0, 0, Math.PI * 2);
+  context.fill();
+
+  const helmetGradient = context.createRadialGradient(
+    -length * 0.075,
+    -carWidth * 0.045,
+    carWidth * 0.012,
+    -length * 0.05,
+    0,
+    carWidth * 0.1,
+  );
+  helmetGradient.addColorStop(0, "#fff2a0");
+  helmetGradient.addColorStop(0.42, "#f1c447");
+  helmetGradient.addColorStop(1, "#9b6720");
+  context.fillStyle = helmetGradient;
   context.beginPath();
   context.arc(-length * 0.05, 0, carWidth * 0.09, 0, Math.PI * 2);
   context.fill();
@@ -689,6 +821,12 @@ function drawCar() {
   context.beginPath();
   context.arc(-length * 0.025, 0, carWidth * 0.045, 0, Math.PI * 2);
   context.fill();
+
+  context.strokeStyle = "rgba(226, 244, 244, 0.72)";
+  context.lineWidth = outlineWidth * 0.28;
+  context.beginPath();
+  context.arc(-length * 0.06, -carWidth * 0.005, carWidth * 0.062, Math.PI * 1.1, Math.PI * 1.75);
+  context.stroke();
 
   context.strokeStyle = "#262a27";
   context.lineWidth = outlineWidth * 0.72;
@@ -701,6 +839,18 @@ function drawCar() {
   context.stroke();
 
   // Nose stripe, number and crisp body highlights.
+  context.save();
+  context.translate(0, carWidth * 0.035);
+  context.fillStyle = "rgba(66, 17, 15, 0.56)";
+  context.beginPath();
+  context.moveTo(length * 0.14, -carWidth * 0.075);
+  context.lineTo(length * 0.48, -carWidth * 0.03);
+  context.lineTo(length * 0.48, carWidth * 0.03);
+  context.lineTo(length * 0.14, carWidth * 0.075);
+  context.closePath();
+  context.fill();
+  context.restore();
+
   context.fillStyle = "#f2e9d8";
   context.beginPath();
   context.moveTo(length * 0.14, -carWidth * 0.075);
@@ -716,9 +866,13 @@ function drawCar() {
   context.textBaseline = "middle";
   context.fillText("7", length * 0.27, 0);
 
-  context.strokeStyle = "rgba(255, 185, 139, 0.86)";
+  context.strokeStyle = "rgba(255, 206, 176, 0.9)";
   context.lineWidth = outlineWidth * 0.42;
   context.beginPath();
+  context.moveTo(-length * 0.39, -carWidth * 0.1);
+  context.lineTo(-length * 0.16, -carWidth * 0.24);
+  context.lineTo(length * 0.15, -carWidth * 0.21);
+  context.lineTo(length * 0.42, -carWidth * 0.07);
   context.moveTo(-length * 0.39, -carWidth * 0.1);
   context.lineTo(-length * 0.2, -carWidth * 0.22);
   context.moveTo(-length * 0.39, carWidth * 0.1);
@@ -853,6 +1007,8 @@ function publishDiagnostics() {
   stage.dataset.airWallImpact = String(airWallImpact > 0);
   stage.dataset.airWallHits = String(airWallHits);
   stage.dataset.vehicle = "f1";
+  stage.dataset.vehicleDepth = "layered-3d";
+  stage.dataset.vehicleDepthLayers = "3";
   stage.dataset.driftEnabled = "false";
   stage.dataset.visibleFences = "false";
   stage.dataset.topSpeedKmh = String(TOP_SPEED_KMH);
@@ -967,6 +1123,8 @@ window.raceDebug = {
     state: driveState.textContent,
     onTrack,
     vehicle: "f1",
+    vehicleDepth: "layered-3d",
+    vehicleDepthLayers: 3,
     driftEnabled: false,
     airWallHits,
     topSpeedKmh: TOP_SPEED_KMH,
