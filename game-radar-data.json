@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-19T05:18:17.543Z",
+  "updatedAt": "2026-07-19T08:33:18.022Z",
   "refreshIntervalHours": 6,
   "coverage": "Steam PC new releases",
   "sources": [
@@ -9,11 +9,34 @@
       "name": "Steam 全球商店",
       "status": "online",
       "games": 61,
-      "latencyMs": 1368,
+      "latencyMs": 457,
       "note": "新品与即将上线数据正常"
     }
   ],
   "games": [
+    {
+      "id": "steam-3834290",
+      "appId": 3834290,
+      "name": "ESTRELLAS MECANICAS - La gran chispa Tournament",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-07-18",
+      "releaseLabel": "Jul 18, 2026",
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "genre": "动作",
+      "price": "$4.99",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 74,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3834290/304d8b73869e6878df45724be53383a795c55d25/capsule_231x87.jpg?t=1784439284",
+      "storeUrl": "https://store.steampowered.com/app/3834290/ESTRELLAS_MECANICAS__La_gran_chispa_Tournament/"
+    },
     {
       "id": "steam-4530780",
       "appId": 4530780,
@@ -27,11 +50,11 @@
         "Windows"
       ],
       "genre": "休闲",
-      "price": "$3.99",
+      "price": "$2.99",
       "discount": 0,
       "reviewPercent": 0,
       "reviewCount": 0,
-      "heatScore": 75,
+      "heatScore": 74,
       "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4530780/f8f1a1a0e39ba39e2047dc144eb0fe67d7746847/capsule_231x87.jpg?t=1784433857",
       "storeUrl": "https://store.steampowered.com/app/4530780/The_Hust_Banhmi__Bnh_M_Bch_Khoa/"
     },
@@ -53,7 +76,7 @@
       "discount": 0,
       "reviewPercent": 0,
       "reviewCount": 0,
-      "heatScore": 75,
+      "heatScore": 74,
       "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4706610/1e9ac9c67e2408b6a92b028ac004ee5c5e3163fb/capsule_231x87.jpg?t=1784433614",
       "storeUrl": "https://store.steampowered.com/app/4706610/When_We_Had_Wings/"
     },
@@ -74,8 +97,8 @@
       "discount": 40,
       "reviewPercent": 0,
       "reviewCount": 0,
-      "heatScore": 75,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/915680/0cf146e8f38e0aa46c9e373b6d2a5b38f6c295ad/capsule_231x87.jpg?t=1784434511",
+      "heatScore": 74,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/915680/0cf146e8f38e0aa46c9e373b6d2a5b38f6c295ad/capsule_231x87.jpg?t=1784446018",
       "storeUrl": "https://store.steampowered.com/app/915680/Jaws_of_Hell/"
     },
     {
@@ -96,7 +119,7 @@
       "discount": 25,
       "reviewPercent": 0,
       "reviewCount": 0,
-      "heatScore": 75,
+      "heatScore": 74,
       "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4862920/1ac685b8c1b2340eb034071853e5028dbc3ec051/capsule_231x87.jpg?t=1784432305",
       "storeUrl": "https://store.steampowered.com/app/4862920/Chessferatu/"
     },
@@ -117,7 +140,7 @@
       "discount": 0,
       "reviewPercent": 0,
       "reviewCount": 0,
-      "heatScore": 75,
+      "heatScore": 74,
       "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1972360/capsule_231x87.jpg?t=1784426855",
       "storeUrl": "https://store.steampowered.com/app/1972360/Cryptr/"
     },
@@ -138,7 +161,7 @@
       "discount": 0,
       "reviewPercent": 0,
       "reviewCount": 0,
-      "heatScore": 75,
+      "heatScore": 74,
       "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4665640/bd13ab4fe1937e2e0e53e62b564e5c150c2ce4a3/capsule_231x87.jpg?t=1784419004",
       "storeUrl": "https://store.steampowered.com/app/4665640/The_Suitcase_Agents/"
     },
@@ -159,7 +182,7 @@
       "discount": 0,
       "reviewPercent": 0,
       "reviewCount": 0,
-      "heatScore": 75,
+      "heatScore": 74,
       "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4751390/1020b3b82b34298d1c8b8c0ffdf3660385ba41ed/capsule_231x87.jpg?t=1784417839",
       "storeUrl": "https://store.steampowered.com/app/4751390/the_infected_city_a_long_way_home/"
     },
@@ -180,7 +203,7 @@
       "discount": 10,
       "reviewPercent": 0,
       "reviewCount": 0,
-      "heatScore": 75,
+      "heatScore": 74,
       "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4909080/13cdf3211dbc2239e6e57c11ea67809d1eee954a/capsule_231x87.jpg?t=1784409346",
       "storeUrl": "https://store.steampowered.com/app/4909080/NOVASWARM/"
     },
@@ -201,7 +224,7 @@
       "discount": 40,
       "reviewPercent": 0,
       "reviewCount": 0,
-      "heatScore": 75,
+      "heatScore": 74,
       "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3428870/22a86f2ded505bba49a6c2b3a6f4cd07cac54f73/capsule_231x87.jpg?t=1784405810",
       "storeUrl": "https://store.steampowered.com/app/3428870/Disconnect_2/"
     },
@@ -222,7 +245,7 @@
       "discount": 20,
       "reviewPercent": 0,
       "reviewCount": 0,
-      "heatScore": 75,
+      "heatScore": 74,
       "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4303210/b19ff103218f52ffe76e4614ab6dbbfd45f8a636/capsule_231x87.jpg?t=1784389842",
       "storeUrl": "https://store.steampowered.com/app/4303210/Race_the_Planet/"
     },
@@ -244,7 +267,7 @@
       "discount": 0,
       "reviewPercent": 0,
       "reviewCount": 0,
-      "heatScore": 75,
+      "heatScore": 74,
       "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4772840/73f28f56cbb8c50724bf834aedc1ba5aa2dc2fa8/capsule_231x87.jpg?t=1784389361",
       "storeUrl": "https://store.steampowered.com/app/4772840/Deep_Reach/"
     },
@@ -265,7 +288,7 @@
       "discount": 20,
       "reviewPercent": 0,
       "reviewCount": 0,
-      "heatScore": 75,
+      "heatScore": 74,
       "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4414210/fac1228ba269dd4a4642252bfd0cffdfb03c2aa0/capsule_231x87.jpg?t=1784379496",
       "storeUrl": "https://store.steampowered.com/app/4414210/Dice_Carnival/"
     },
@@ -286,7 +309,7 @@
       "discount": 20,
       "reviewPercent": 0,
       "reviewCount": 0,
-      "heatScore": 75,
+      "heatScore": 74,
       "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4563880/3e855bba229fe487f3c9379a0d76fd35f2a04899/capsule_231x87.jpg?t=1784379334",
       "storeUrl": "https://store.steampowered.com/app/4563880/walk/"
     },
@@ -307,7 +330,7 @@
       "discount": 40,
       "reviewPercent": 0,
       "reviewCount": 0,
-      "heatScore": 75,
+      "heatScore": 74,
       "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4856670/7d20d58acc532c9d4c19ee185a2ee05478008520/capsule_231x87.jpg?t=1784379123",
       "storeUrl": "https://store.steampowered.com/app/4856670/_/"
     },
@@ -328,7 +351,7 @@
       "discount": 0,
       "reviewPercent": 0,
       "reviewCount": 0,
-      "heatScore": 75,
+      "heatScore": 74,
       "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4861740/02997e307207e415030fc95451cc094af4e01989/capsule_231x87.jpg?t=1784369456",
       "storeUrl": "https://store.steampowered.com/app/4861740/Timekeeper/"
     },
@@ -349,7 +372,7 @@
       "discount": 15,
       "reviewPercent": 0,
       "reviewCount": 0,
-      "heatScore": 75,
+      "heatScore": 74,
       "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4656180/a30c2d90aa8a864b0e74eed56b443d6019ab1569/capsule_231x87.jpg?t=1784368728",
       "storeUrl": "https://store.steampowered.com/app/4656180/Again_Faster/"
     },
@@ -370,7 +393,7 @@
       "discount": 30,
       "reviewPercent": 0,
       "reviewCount": 0,
-      "heatScore": 75,
+      "heatScore": 74,
       "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4782520/06f3ece84f7b52441c7c9873c94a4ae79fb39ca2/capsule_231x87.jpg?t=1784368442",
       "storeUrl": "https://store.steampowered.com/app/4782520/Cozy_Radiation_Cleaner/"
     },
@@ -391,7 +414,7 @@
       "discount": 0,
       "reviewPercent": 0,
       "reviewCount": 0,
-      "heatScore": 75,
+      "heatScore": 74,
       "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4277200/d3fba88f09eb6ce4e924c7fd4edaff9e0c78a83e/capsule_231x87.jpg?t=1784366006",
       "storeUrl": "https://store.steampowered.com/app/4277200/Awakeness_YALDA_Night/"
     },
@@ -412,7 +435,7 @@
       "discount": 0,
       "reviewPercent": 0,
       "reviewCount": 0,
-      "heatScore": 75,
+      "heatScore": 74,
       "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4821980/ef035ebe4d51b1a2d8b86ac0d873f6ba3146ac1f/capsule_231x87.jpg?t=1784364620",
       "storeUrl": "https://store.steampowered.com/app/4821980/The_Guest/"
     },
@@ -433,7 +456,7 @@
       "discount": 10,
       "reviewPercent": 0,
       "reviewCount": 0,
-      "heatScore": 75,
+      "heatScore": 74,
       "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/752530/de50739b0c47b708a37d051220f00b54bec332b9/capsule_231x87.jpg?t=1784362295",
       "storeUrl": "https://store.steampowered.com/app/752530/Close_Call_Extreme/"
     },
@@ -455,7 +478,7 @@
       "discount": 40,
       "reviewPercent": 0,
       "reviewCount": 0,
-      "heatScore": 75,
+      "heatScore": 74,
       "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4773130/5e64821ae82ea5eac57dbb22b2ebef78dbf8cf92/capsule_231x87.jpg?t=1784358281",
       "storeUrl": "https://store.steampowered.com/app/4773130/27_Survivors/"
     },
@@ -476,7 +499,7 @@
       "discount": 26,
       "reviewPercent": 0,
       "reviewCount": 0,
-      "heatScore": 73,
+      "heatScore": 72,
       "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1959020/d0641ff46d82cb3caed303c35eeb6ba96ec22c1a/capsule_231x87.jpg?t=1784360394",
       "storeUrl": "https://store.steampowered.com/app/1959020/ERODE/"
     },
@@ -497,7 +520,7 @@
       "discount": 30,
       "reviewPercent": 0,
       "reviewCount": 0,
-      "heatScore": 73,
+      "heatScore": 72,
       "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4868150/58d8de4510c9cf2e8793a1895b9e9caedaa368c9/capsule_231x87.jpg?t=1784384318",
       "storeUrl": "https://store.steampowered.com/app/4868150/_/"
     },
@@ -518,7 +541,7 @@
       "discount": 0,
       "reviewPercent": 0,
       "reviewCount": 0,
-      "heatScore": 73,
+      "heatScore": 72,
       "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4860480/1fa05a6f59b632949038d04c43dda0408d650dda/capsule_231x87.jpg?t=1784360936",
       "storeUrl": "https://store.steampowered.com/app/4860480/Breadwalk/"
     },
@@ -539,7 +562,7 @@
       "discount": 10,
       "reviewPercent": 0,
       "reviewCount": 0,
-      "heatScore": 73,
+      "heatScore": 72,
       "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3586450/06f7b10bcff690a2bb82020712ab740641bb0d47/capsule_231x87.jpg?t=1784343604",
       "storeUrl": "https://store.steampowered.com/app/3586450/World_Tree_Ranch_Elven_Legacy/"
     },
@@ -560,7 +583,7 @@
       "discount": 10,
       "reviewPercent": 0,
       "reviewCount": 0,
-      "heatScore": 73,
+      "heatScore": 72,
       "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4681000/af2b213e9594b389d791d60ac7d4b9a020e36d87/capsule_231x87.jpg?t=1784343360",
       "storeUrl": "https://store.steampowered.com/app/4681000/SHOWDOWN_CHALLENGE/"
     },
@@ -581,7 +604,7 @@
       "discount": 0,
       "reviewPercent": 0,
       "reviewCount": 0,
-      "heatScore": 73,
+      "heatScore": 72,
       "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4757840/d6d11196491f6d8a85fe8dae9de2e77413777a4f/capsule_231x87.jpg?t=1784342002",
       "storeUrl": "https://store.steampowered.com/app/4757840/_/"
     },
@@ -602,7 +625,7 @@
       "discount": 0,
       "reviewPercent": 0,
       "reviewCount": 0,
-      "heatScore": 73,
+      "heatScore": 72,
       "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4542640/2f68ca56e3150ea92bd4e9577e6f801811d61002/capsule_231x87.jpg?t=1784339593",
       "storeUrl": "https://store.steampowered.com/app/4542640/_/"
     },
@@ -625,7 +648,7 @@
       "discount": 0,
       "reviewPercent": 0,
       "reviewCount": 0,
-      "heatScore": 73,
+      "heatScore": 72,
       "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4824650/159a0ef355e40bdb3e0d5fe6cbb180b47342f63e/capsule_231x87.jpg?t=1784336355",
       "storeUrl": "https://store.steampowered.com/app/4824650/Jelly_Worms/"
     },
@@ -646,8 +669,8 @@
       "discount": 40,
       "reviewPercent": 0,
       "reviewCount": 0,
-      "heatScore": 73,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2965020/167f4cccb5075443c78f247354690c2f8e7a7dfa/capsule_231x87.jpg?t=1784336338",
+      "heatScore": 72,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2965020/167f4cccb5075443c78f247354690c2f8e7a7dfa/capsule_231x87.jpg?t=1784449778",
       "storeUrl": "https://store.steampowered.com/app/2965020/Cat_Climbing/"
     },
     {
@@ -668,7 +691,7 @@
       "discount": 0,
       "reviewPercent": 0,
       "reviewCount": 0,
-      "heatScore": 73,
+      "heatScore": 72,
       "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4731310/16f3bef1a728f58a23af97f9d58d5362cc47af36/capsule_231x87.jpg?t=1784335305",
       "storeUrl": "https://store.steampowered.com/app/4731310/HOOK/"
     },
@@ -691,7 +714,7 @@
       "discount": 0,
       "reviewPercent": 0,
       "reviewCount": 0,
-      "heatScore": 73,
+      "heatScore": 72,
       "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4805390/c4da481eed5f59725d4b5774cfcf757e7f37f65b/capsule_231x87.jpg?t=1784333304",
       "storeUrl": "https://store.steampowered.com/app/4805390/Knights_vs_Aliens/"
     },
@@ -712,7 +735,7 @@
       "discount": 0,
       "reviewPercent": 0,
       "reviewCount": 0,
-      "heatScore": 73,
+      "heatScore": 72,
       "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4866960/d635f97fef5f886583bf8357c6feeb9134f82652/capsule_231x87.jpg?t=1784333020",
       "storeUrl": "https://store.steampowered.com/app/4866960/Vanya_Online__Idle_MMORPG/"
     },
@@ -733,7 +756,7 @@
       "discount": 15,
       "reviewPercent": 0,
       "reviewCount": 0,
-      "heatScore": 73,
+      "heatScore": 72,
       "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4867330/412dec93ac0ef1e7c70e02b9e0b9aeba3bd8f229/capsule_231x87.jpg?t=1784332847",
       "storeUrl": "https://store.steampowered.com/app/4867330/Toy_Keeper/"
     },
@@ -754,30 +777,9 @@
       "discount": 10,
       "reviewPercent": 0,
       "reviewCount": 0,
-      "heatScore": 73,
+      "heatScore": 72,
       "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4555470/90abad8813d59d689c07b1937645b053a1a8d13b/capsule_231x87.jpg?t=1784328486",
       "storeUrl": "https://store.steampowered.com/app/4555470/Platformus/"
-    },
-    {
-      "id": "steam-4895750",
-      "appId": 4895750,
-      "name": "Nutsimilian",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-07-17",
-      "releaseLabel": "Jul 17, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "模拟",
-      "price": "$2.24",
-      "discount": 25,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 73,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4895750/681b2011060b08eca808c37638a35194d2bb70e5/capsule_231x87.jpg?t=1784327786",
-      "storeUrl": "https://store.steampowered.com/app/4895750/Nutsimilian/"
     },
     {
       "id": "steam-4750870",
@@ -1180,27 +1182,6 @@
       "storeUrl": "https://store.steampowered.com/app/4846240/Scorched_Dominion/"
     },
     {
-      "id": "steam-4591990",
-      "appId": 4591990,
-      "name": "KNOWLEDGE",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "upcoming",
-      "releaseDate": "2026-07-20",
-      "releaseLabel": "Jul 20, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "休闲",
-      "price": "价格待定",
-      "discount": 0,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 48,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4591990/8872464668a012000478b27746747ca924936904/capsule_231x87.jpg?t=1783116435",
-      "storeUrl": "https://store.steampowered.com/app/4591990/KNOWLEDGE/"
-    },
-    {
       "id": "steam-3300380",
       "appId": 3300380,
       "name": "Train Jumper",
@@ -1220,6 +1201,27 @@
       "heatScore": 48,
       "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3300380/c9675173da6dea7e660510d5695e08f9c60f87d4/capsule_231x87.jpg?t=1779630054",
       "storeUrl": "https://store.steampowered.com/app/3300380/Train_Jumper/"
+    },
+    {
+      "id": "steam-4591990",
+      "appId": 4591990,
+      "name": "KNOWLEDGE",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "upcoming",
+      "releaseDate": "2026-07-20",
+      "releaseLabel": "Jul 20, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "休闲",
+      "price": "价格待定",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 48,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4591990/8872464668a012000478b27746747ca924936904/capsule_231x87.jpg?t=1783116435",
+      "storeUrl": "https://store.steampowered.com/app/4591990/KNOWLEDGE/"
     },
     {
       "id": "steam-4925330",
