@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="向全球游戏雷达提交游戏或申请推广" />
+    <title>提交游戏 · 全球游戏雷达</title>
+    <link rel="stylesheet" href="game-radar.css?v=2" />
+  </head>
+  <body>
+    <header class="radar-header submit-header">
+      <a class="back-link" href="game-radar.html">← 返回雷达</a>
+      <a class="radar-brand" href="game-radar.html">
+        <span class="brand-signal" aria-hidden="true"><i></i></span>
+        <span><strong>全球游戏雷达</strong><small>DEVELOPER SUBMISSION</small></span>
+      </a>
+      <span></span>
+    </header>
+
+    <main class="submission-shell" id="submissionApp" data-submit-state="idle">
+      <section class="submission-intro">
+        <span class="edition-label">DEVELOPER ACCESS</span>
+        <h1>提交你的游戏</h1>
+        <p>免费进入审核队列，或选择推广套餐。提交后会打开 GitHub 确认页面，只有你再次确认才会公开发布。</p>
+      </section>
+
+      <section class="submission-layout">
+        <form class="submission-form" id="submissionForm">
+          <label>游戏名称<input id="submitName" name="name" required maxlength="120" placeholder="例如：My Indie Game" /></label>
+          <label>商店或官网链接<input id="submitUrl" name="url" type="url" required placeholder="https://..." /></label>
+          <div class="form-row">
+            <label>上线阶段
+              <select id="submitStage" name="stage">
+                <option>即将上线</option>
+                <option>已经上线</option>
+                <option>Demo 测试</option>
+              </select>
+            </label>
+            <label>需要的服务
+              <select id="submitPackage" name="package">
+                <option>免费收录 · ¥0</option>
+                <option>推荐 7 天 · ¥299</option>
+                <option>首发推广 · ¥699 起</option>
+              </select>
+            </label>
+          </div>
+          <label>联系方式<input id="submitContact" name="contact" required maxlength="160" placeholder="邮箱、微信或 Discord" /></label>
+          <label>一句话介绍<textarea id="submitIntro" name="intro" required maxlength="500" rows="5" placeholder="游戏玩法、特色和目标玩家"></textarea></label>
+          <button class="submission-button" type="submit">生成提交申请</button>
+          <p class="form-note">GitHub Issue 提交后为公开内容，请只填写可公开的商务联系方式，不要填写私人信息。</p>
+          <div class="submission-ready" id="submissionReady" hidden>
+            <strong>申请内容已生成</strong>
+            <span>请前往 GitHub 再检查一次并确认提交。</span>
+            <a id="issueLink" target="_blank" rel="noopener noreferrer">继续到 GitHub →</a>
+          </div>
+        </form>
+
+        <aside class="submission-aside">
+          <span>当前简版流程</span>
+          <ol>
+            <li><b>填写</b><small>游戏资料与联系方式</small></li>
+            <li><b>确认</b><small>在 GitHub 页面确认提交</small></li>
+            <li><b>审核</b><small>通过后进入雷达或洽谈推广</small></li>
+          </ol>
+          <p>不承诺销量或 Steam 排名。推广数据以实际点击和访问为准。</p>
+        </aside>
+      </section>
+    </main>
+
+    <script src="developer-submit.js?v=1"></script>
+  </body>
+</html>
