@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-19T08:33:18.022Z",
+  "updatedAt": "2026-07-19T13:54:03.882Z",
   "refreshIntervalHours": 6,
   "coverage": "Steam PC new releases",
   "sources": [
@@ -9,11 +9,205 @@
       "name": "Steam 全球商店",
       "status": "online",
       "games": 61,
-      "latencyMs": 457,
+      "latencyMs": 535,
       "note": "新品与即将上线数据正常"
     }
   ],
   "games": [
+    {
+      "id": "steam-2788540",
+      "appId": 2788540,
+      "name": "BraveYard 勇者之墓",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-07-19",
+      "releaseLabel": "Jul 19, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "动作",
+      "price": "$3.59",
+      "discount": 10,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 76,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2788540/0467392f679cc852c352f27314fa1aa075f083a5/capsule_231x87.jpg?t=1784468161",
+      "storeUrl": "https://store.steampowered.com/app/2788540/BraveYard/"
+    },
+    {
+      "id": "steam-4074680",
+      "appId": 4074680,
+      "name": "The DeadLine",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-07-19",
+      "releaseLabel": "Jul 19, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "策略",
+      "price": "$2.10",
+      "discount": 30,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 76,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4074680/8b28ced51a335f6d17b6e61829235272d28f4357/capsule_231x87.jpg?t=1784466335",
+      "storeUrl": "https://store.steampowered.com/app/4074680/The_DeadLine/"
+    },
+    {
+      "id": "steam-4794980",
+      "appId": 4794980,
+      "name": "Funge",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-07-19",
+      "releaseLabel": "Jul 19, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "合作",
+      "price": "$3.99",
+      "discount": 20,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 76,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4794980/88fdb873301854cbb69f18ab0bd15cb9a33694b1/capsule_231x87.jpg?t=1784463016",
+      "storeUrl": "https://store.steampowered.com/app/4794980/Funge/"
+    },
+    {
+      "id": "steam-4848950",
+      "appId": 4848950,
+      "name": "Whisker Tales",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-07-19",
+      "releaseLabel": "Jul 19, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "休闲",
+      "price": "$2.79",
+      "discount": 30,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 76,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4848950/783baf86b0891740e8a1557697af08bd57df1a79/capsule_231x87.jpg?t=1784462766",
+      "storeUrl": "https://store.steampowered.com/app/4848950/Whisker_Tales/"
+    },
+    {
+      "id": "steam-3101700",
+      "appId": 3101700,
+      "name": "Ops",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-07-19",
+      "releaseLabel": "Jul 19, 2026",
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "genre": "街机",
+      "price": "$1.99",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 76,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3101700/capsule_231x87.jpg?t=1784462696",
+      "storeUrl": "https://store.steampowered.com/app/3101700/Ops/"
+    },
+    {
+      "id": "steam-4849920",
+      "appId": 4849920,
+      "name": "Hyper Hitmans",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-07-19",
+      "releaseLabel": "Jul 19, 2026",
+      "platforms": [
+        "Windows",
+        "macOS"
+      ],
+      "genre": "动作",
+      "price": "Free",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 76,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4849920/ad46d2201bf82359e2489332894fff2bcef276b3/capsule_231x87.jpg?t=1784460590",
+      "storeUrl": "https://store.steampowered.com/app/4849920/Hyper_Hitmans/"
+    },
+    {
+      "id": "steam-4689160",
+      "appId": 4689160,
+      "name": "Fruit Snake Arena",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-07-19",
+      "releaseLabel": "Jul 19, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "休闲",
+      "price": "$17.99",
+      "discount": 40,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 76,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4689160/eaff445ef8e80994314e2e7a0f9427e4cb8c4ce4/capsule_231x87.jpg?t=1784453991",
+      "storeUrl": "https://store.steampowered.com/app/4689160/Fruit_Snake_Arena/"
+    },
+    {
+      "id": "steam-4843580",
+      "appId": 4843580,
+      "name": "Gone Exploring",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-07-19",
+      "releaseLabel": "Jul 19, 2026",
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "genre": "冒险",
+      "price": "Free",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 76,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4843580/d24a2aec99a4cfa7aec2c35973d70a173d111b5e/capsule_231x87.jpg?t=1784453973",
+      "storeUrl": "https://store.steampowered.com/app/4843580/Gone_Exploring/"
+    },
+    {
+      "id": "steam-4358430",
+      "appId": 4358430,
+      "name": "DarkRay",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-07-19",
+      "releaseLabel": "Jul 19, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "冒险",
+      "price": "$7.99",
+      "discount": 20,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 76,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4358430/577ef47c779f8add156c88c98f47613b4bf1d706/capsule_231x87.jpg?t=1784453901",
+      "storeUrl": "https://store.steampowered.com/app/4358430/DarkRay/"
+    },
     {
       "id": "steam-3834290",
       "appId": 3834290,
@@ -50,7 +244,7 @@
         "Windows"
       ],
       "genre": "休闲",
-      "price": "$2.99",
+      "price": "$1.99",
       "discount": 0,
       "reviewPercent": 0,
       "reviewCount": 0,
@@ -356,6 +550,27 @@
       "storeUrl": "https://store.steampowered.com/app/4861740/Timekeeper/"
     },
     {
+      "id": "steam-4881310",
+      "appId": 4881310,
+      "name": "0N35H07",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-07-18",
+      "releaseLabel": "Jul 18, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "动作",
+      "price": "Free",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 74,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4881310/a37f4f7261610a37341011d945f76bd3d7c8ae5e/capsule_231x87.jpg?t=1784369139",
+      "storeUrl": "https://store.steampowered.com/app/4881310/0N35H07/"
+    },
+    {
       "id": "steam-4656180",
       "appId": 4656180,
       "name": "Again. Faster!",
@@ -567,221 +782,6 @@
       "storeUrl": "https://store.steampowered.com/app/3586450/World_Tree_Ranch_Elven_Legacy/"
     },
     {
-      "id": "steam-4681000",
-      "appId": 4681000,
-      "name": "SHOWDOWN CHALLENGE",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-07-17",
-      "releaseLabel": "Jul 17, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "策略",
-      "price": "$2.69",
-      "discount": 10,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 72,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4681000/af2b213e9594b389d791d60ac7d4b9a020e36d87/capsule_231x87.jpg?t=1784343360",
-      "storeUrl": "https://store.steampowered.com/app/4681000/SHOWDOWN_CHALLENGE/"
-    },
-    {
-      "id": "steam-4757840",
-      "appId": 4757840,
-      "name": "战法道传奇",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-07-17",
-      "releaseLabel": "Jul 17, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "角色扮演",
-      "price": "Free",
-      "discount": 0,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 72,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4757840/d6d11196491f6d8a85fe8dae9de2e77413777a4f/capsule_231x87.jpg?t=1784342002",
-      "storeUrl": "https://store.steampowered.com/app/4757840/_/"
-    },
-    {
-      "id": "steam-4542640",
-      "appId": 4542640,
-      "name": "三国：谋定天下",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-07-17",
-      "releaseLabel": "Jul 17, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "策略",
-      "price": "Free",
-      "discount": 0,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 72,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4542640/2f68ca56e3150ea92bd4e9577e6f801811d61002/capsule_231x87.jpg?t=1784339593",
-      "storeUrl": "https://store.steampowered.com/app/4542640/_/"
-    },
-    {
-      "id": "steam-4824650",
-      "appId": 4824650,
-      "name": "Jelly Worms",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-07-17",
-      "releaseLabel": "Jul 17, 2026",
-      "platforms": [
-        "Windows",
-        "macOS",
-        "Linux"
-      ],
-      "genre": "免费游玩",
-      "price": "Free",
-      "discount": 0,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 72,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4824650/159a0ef355e40bdb3e0d5fe6cbb180b47342f63e/capsule_231x87.jpg?t=1784336355",
-      "storeUrl": "https://store.steampowered.com/app/4824650/Jelly_Worms/"
-    },
-    {
-      "id": "steam-2965020",
-      "appId": 2965020,
-      "name": "Cat Climbing",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-07-17",
-      "releaseLabel": "Jul 17, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "其他",
-      "price": "$3.59",
-      "discount": 40,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 72,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2965020/167f4cccb5075443c78f247354690c2f8e7a7dfa/capsule_231x87.jpg?t=1784449778",
-      "storeUrl": "https://store.steampowered.com/app/2965020/Cat_Climbing/"
-    },
-    {
-      "id": "steam-4731310",
-      "appId": 4731310,
-      "name": "HOOK",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-07-17",
-      "releaseLabel": "Jul 17, 2026",
-      "platforms": [
-        "Windows",
-        "macOS"
-      ],
-      "genre": "休闲",
-      "price": "$4.99",
-      "discount": 0,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 72,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4731310/16f3bef1a728f58a23af97f9d58d5362cc47af36/capsule_231x87.jpg?t=1784335305",
-      "storeUrl": "https://store.steampowered.com/app/4731310/HOOK/"
-    },
-    {
-      "id": "steam-4805390",
-      "appId": 4805390,
-      "name": "Knights vs Aliens",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-07-17",
-      "releaseLabel": "Jul 17, 2026",
-      "platforms": [
-        "Windows",
-        "macOS",
-        "Linux"
-      ],
-      "genre": "休闲",
-      "price": "Free",
-      "discount": 0,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 72,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4805390/c4da481eed5f59725d4b5774cfcf757e7f37f65b/capsule_231x87.jpg?t=1784333304",
-      "storeUrl": "https://store.steampowered.com/app/4805390/Knights_vs_Aliens/"
-    },
-    {
-      "id": "steam-4866960",
-      "appId": 4866960,
-      "name": "Vanya Online - Idle MMORPG",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-07-17",
-      "releaseLabel": "Jul 17, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "角色扮演",
-      "price": "Free",
-      "discount": 0,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 72,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4866960/d635f97fef5f886583bf8357c6feeb9134f82652/capsule_231x87.jpg?t=1784333020",
-      "storeUrl": "https://store.steampowered.com/app/4866960/Vanya_Online__Idle_MMORPG/"
-    },
-    {
-      "id": "steam-4867330",
-      "appId": 4867330,
-      "name": "Toy Keeper",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-07-17",
-      "releaseLabel": "Jul 17, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "冒险",
-      "price": "$4.24",
-      "discount": 15,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 72,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4867330/412dec93ac0ef1e7c70e02b9e0b9aeba3bd8f229/capsule_231x87.jpg?t=1784332847",
-      "storeUrl": "https://store.steampowered.com/app/4867330/Toy_Keeper/"
-    },
-    {
-      "id": "steam-4555470",
-      "appId": 4555470,
-      "name": "Platformus",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-07-17",
-      "releaseLabel": "Jul 17, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "动作",
-      "price": "$13.49",
-      "discount": 10,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 72,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4555470/90abad8813d59d689c07b1937645b053a1a8d13b/capsule_231x87.jpg?t=1784328486",
-      "storeUrl": "https://store.steampowered.com/app/4555470/Platformus/"
-    },
-    {
       "id": "steam-4750870",
       "appId": 4750870,
       "name": "Don’t Pop!: Splash Race",
@@ -799,7 +799,7 @@
       "reviewPercent": 0,
       "reviewCount": 0,
       "heatScore": 48,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4750870/0ebe00acd152ff9a14df5157bbb0de33c3425b7f/capsule_231x87.jpg?t=1784253084",
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4750870/0ebe00acd152ff9a14df5157bbb0de33c3425b7f/capsule_231x87.jpg?t=1784468273",
       "storeUrl": "https://store.steampowered.com/app/4750870/Dont_Pop_Splash_Race/"
     },
     {
@@ -845,27 +845,6 @@
       "storeUrl": "https://store.steampowered.com/app/4670720/GeneLoot/"
     },
     {
-      "id": "steam-4861510",
-      "appId": 4861510,
-      "name": "Sill Sticks",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "upcoming",
-      "releaseDate": "2026-07-19",
-      "releaseLabel": "Jul 19, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "休闲",
-      "price": "Free",
-      "discount": 0,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 48,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4861510/66d70847570c7829fa604f10f03c18326e2206d7/capsule_231x87.jpg?t=1784388928",
-      "storeUrl": "https://store.steampowered.com/app/4861510/Sill_Sticks/"
-    },
-    {
       "id": "steam-4894220",
       "appId": 4894220,
       "name": "Typerain",
@@ -885,6 +864,27 @@
       "heatScore": 48,
       "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4894220/d9da5b65345658b33f8d054253f6e4a0004c3bb8/capsule_231x87.jpg?t=1783472453",
       "storeUrl": "https://store.steampowered.com/app/4894220/Typerain/"
+    },
+    {
+      "id": "steam-4861510",
+      "appId": 4861510,
+      "name": "Sill Sticks",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "upcoming",
+      "releaseDate": "2026-07-19",
+      "releaseLabel": "Jul 19, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "休闲",
+      "price": "Free",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 48,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4861510/66d70847570c7829fa604f10f03c18326e2206d7/capsule_231x87.jpg?t=1784388928",
+      "storeUrl": "https://store.steampowered.com/app/4861510/Sill_Sticks/"
     },
     {
       "id": "steam-4910700",
@@ -990,27 +990,6 @@
       "heatScore": 48,
       "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4774170/405cf1edce9c7db3665bcb8f82b795de4edba325/capsule_231x87.jpg?t=1784265536",
       "storeUrl": "https://store.steampowered.com/app/4774170/Aerolicious/"
-    },
-    {
-      "id": "steam-4794980",
-      "appId": 4794980,
-      "name": "Funge",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "upcoming",
-      "releaseDate": "2026-07-19",
-      "releaseLabel": "Jul 19, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "合作",
-      "price": "价格待定",
-      "discount": 0,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 48,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4794980/88fdb873301854cbb69f18ab0bd15cb9a33694b1/capsule_231x87.jpg?t=1783689043",
-      "storeUrl": "https://store.steampowered.com/app/4794980/Funge/"
     },
     {
       "id": "steam-3825860",
@@ -1182,27 +1161,6 @@
       "storeUrl": "https://store.steampowered.com/app/4846240/Scorched_Dominion/"
     },
     {
-      "id": "steam-3300380",
-      "appId": 3300380,
-      "name": "Train Jumper",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "upcoming",
-      "releaseDate": "2026-07-20",
-      "releaseLabel": "Jul 20, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "休闲",
-      "price": "价格待定",
-      "discount": 0,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 48,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3300380/c9675173da6dea7e660510d5695e08f9c60f87d4/capsule_231x87.jpg?t=1779630054",
-      "storeUrl": "https://store.steampowered.com/app/3300380/Train_Jumper/"
-    },
-    {
       "id": "steam-4591990",
       "appId": 4591990,
       "name": "KNOWLEDGE",
@@ -1222,6 +1180,27 @@
       "heatScore": 48,
       "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4591990/8872464668a012000478b27746747ca924936904/capsule_231x87.jpg?t=1783116435",
       "storeUrl": "https://store.steampowered.com/app/4591990/KNOWLEDGE/"
+    },
+    {
+      "id": "steam-3300380",
+      "appId": 3300380,
+      "name": "Train Jumper",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "upcoming",
+      "releaseDate": "2026-07-20",
+      "releaseLabel": "Jul 20, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "休闲",
+      "price": "价格待定",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 48,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3300380/c9675173da6dea7e660510d5695e08f9c60f87d4/capsule_231x87.jpg?t=1779630054",
+      "storeUrl": "https://store.steampowered.com/app/3300380/Train_Jumper/"
     },
     {
       "id": "steam-4925330",
@@ -1306,6 +1285,29 @@
       "heatScore": 48,
       "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4920650/b49be42c786e2f3490212689970f790f0f1ff362/capsule_231x87.jpg?t=1784159267",
       "storeUrl": "https://store.steampowered.com/app/4920650/ROOM_by_ROOM/"
+    },
+    {
+      "id": "steam-4536120",
+      "appId": 4536120,
+      "name": "Beat Boxy",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "upcoming",
+      "releaseDate": "2026-07-20",
+      "releaseLabel": "Jul 20, 2026",
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "genre": "其他",
+      "price": "价格待定",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 48,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4536120/4116d1f6ac8164023b6fc78790c1f2401a2e5f5a/capsule_231x87.jpg?t=1784104983",
+      "storeUrl": "https://store.steampowered.com/app/4536120/Beat_Boxy/"
     }
   ]
 }
