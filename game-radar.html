@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="全球游戏雷达——监控新上线与即将上线的游戏" />
+    <title>全球游戏雷达 · 帅气逼人吊炸天</title>
+    <link rel="stylesheet" href="game-radar.css?v=1" />
+  </head>
+  <body>
+    <header class="radar-header">
+      <a class="back-link" href="./">← 首页</a>
+      <a class="radar-brand" href="game-radar.html" aria-label="刷新全球游戏雷达">
+        <span class="brand-signal" aria-hidden="true"><i></i></span>
+        <span><strong>全球游戏雷达</strong><small>GAME RELEASE MONITOR</small></span>
+      </a>
+      <div class="update-state" id="updateState"><i></i><span>正在读取数据</span></div>
+    </header>
+
+    <main class="radar-shell" id="radarApp" data-load-state="loading">
+      <section class="radar-hero">
+        <div>
+          <span class="edition-label">MVP · 首期覆盖 STEAM PC</span>
+          <h1>发现刚刚上线的游戏</h1>
+          <p>追踪全球商店新品、即将发售游戏与热度信号。数据每 6 小时自动更新。</p>
+        </div>
+        <div class="radar-sweep" aria-hidden="true"><i></i><b></b><span></span></div>
+      </section>
+
+      <section class="stats-grid" aria-label="游戏数据概览">
+        <article class="stat-card">
+          <span>今日上线</span>
+          <strong id="todayCount">—</strong>
+          <small>款游戏</small>
+        </article>
+        <article class="stat-card">
+          <span>近 7 天上线</span>
+          <strong id="weekCount">—</strong>
+          <small>款游戏</small>
+        </article>
+        <article class="stat-card">
+          <span>即将上线</span>
+          <strong id="upcomingCount">—</strong>
+          <small>已进入监控</small>
+        </article>
+        <article class="stat-card source-stat">
+          <span>数据源</span>
+          <strong id="sourceCount">—</strong>
+          <small id="sourceSummary">连接中</small>
+        </article>
+      </section>
+
+      <section class="monitor-grid">
+        <article class="pulse-panel">
+          <div class="panel-heading">
+            <div><span>RELEASE PULSE</span><h2>近 7 天上线脉冲</h2></div>
+            <small>按发布日期统计</small>
+          </div>
+          <div class="pulse-chart" id="pulseChart" aria-label="最近七天游戏上线数量图表"></div>
+        </article>
+
+        <aside class="source-panel">
+          <div class="panel-heading">
+            <div><span>SOURCE HEALTH</span><h2>数据源状态</h2></div>
+          </div>
+          <div id="sourceList" class="source-list"></div>
+          <p>当前最简版监控 Steam 全球 PC 新品；主机和手游数据源将在下一阶段接入。</p>
+        </aside>
+      </section>
+
+      <section class="games-section" aria-labelledby="gameListTitle">
+        <div class="list-heading">
+          <div>
+            <span>LIVE CATALOG</span>
+            <h2 id="gameListTitle">游戏监控列表</h2>
+          </div>
+          <strong id="resultCount">0 款</strong>
+        </div>
+
+        <div class="filter-bar" aria-label="筛选游戏">
+          <label class="search-field">
+            <span class="sr-only">搜索游戏</span>
+            <input id="searchInput" type="search" placeholder="搜索游戏名称" autocomplete="off" />
+          </label>
+          <div class="status-tabs" id="statusTabs" aria-label="上线状态">
+            <button type="button" data-status="all" aria-pressed="true">全部</button>
+            <button type="button" data-status="released" aria-pressed="false">已上线</button>
+            <button type="button" data-status="upcoming" aria-pressed="false">即将上线</button>
+          </div>
+          <label>
+            <span class="sr-only">平台</span>
+            <select id="platformSelect"><option value="all">全部平台</option></select>
+          </label>
+          <label>
+            <span class="sr-only">类型</span>
+            <select id="genreSelect"><option value="all">全部类型</option></select>
+          </label>
+          <label>
+            <span class="sr-only">排序</span>
+            <select id="sortSelect">
+              <option value="newest">最新发布</option>
+              <option value="heat">雷达热度</option>
+              <option value="name">名称排序</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="game-grid" id="gameGrid" aria-live="polite"></div>
+        <div class="empty-state" id="emptyState" hidden>没有找到符合条件的游戏。</div>
+        <button class="load-more" id="loadMore" type="button" hidden>显示更多</button>
+      </section>
+    </main>
+
+    <script src="game-radar.js?v=1"></script>
+  </body>
+</html>
