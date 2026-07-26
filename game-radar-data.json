@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-26T08:39:39.335Z",
+  "updatedAt": "2026-07-26T13:57:06.533Z",
   "refreshIntervalHours": 6,
   "coverage": "Steam PC new releases",
   "sources": [
@@ -9,11 +9,204 @@
       "name": "Steam 全球商店",
       "status": "online",
       "games": 61,
-      "latencyMs": 479,
+      "latencyMs": 349,
       "note": "新品与即将上线数据正常"
     }
   ],
   "games": [
+    {
+      "id": "steam-4481470",
+      "appId": 4481470,
+      "name": "星辉与神灯",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-07-26",
+      "releaseLabel": "Jul 26, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "休闲",
+      "price": "$0.99",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 76,
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4481470/fbbaf0221d587ebdf322678bd8479d4a505c8be6/capsule_231x87.jpg?t=1785071278",
+      "storeUrl": "https://store.steampowered.com/app/4481470/_/"
+    },
+    {
+      "id": "steam-4791400",
+      "appId": 4791400,
+      "name": "Clairval",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-07-26",
+      "releaseLabel": "Jul 26, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "策略",
+      "price": "$1.19",
+      "discount": 40,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 76,
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4791400/41869dce89ca3c67190e6e3b2eb8fa7a22106860/capsule_231x87.jpg?t=1785065970",
+      "storeUrl": "https://store.steampowered.com/app/4791400/Clairval/"
+    },
+    {
+      "id": "steam-4827940",
+      "appId": 4827940,
+      "name": "末世信使",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-07-26",
+      "releaseLabel": "Jul 26, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "策略",
+      "price": "$8.09",
+      "discount": 10,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 76,
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4827940/f476e835e444a4ac7e3c1f498f37338b8bea6076/capsule_231x87.jpg?t=1785064385",
+      "storeUrl": "https://store.steampowered.com/app/4827940/_/"
+    },
+    {
+      "id": "steam-4923640",
+      "appId": 4923640,
+      "name": "NOVAE: Last Light",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-07-26",
+      "releaseLabel": "Jul 26, 2026",
+      "platforms": [
+        "Windows",
+        "macOS"
+      ],
+      "genre": "合作",
+      "price": "$5.09",
+      "discount": 15,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 76,
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4923640/897a887d50db5f22fb8700040d582c63907921d9/capsule_231x87.jpg?t=1785062950",
+      "storeUrl": "https://store.steampowered.com/app/4923640/NOVAE_Last_Light/"
+    },
+    {
+      "id": "steam-3810540",
+      "appId": 3810540,
+      "name": "Clicker Ore",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-07-26",
+      "releaseLabel": "Jul 26, 2026",
+      "platforms": [
+        "Windows",
+        "macOS"
+      ],
+      "genre": "策略",
+      "price": "Free",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 76,
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3810540/44ad5e9a4ee99e60e24941c847b0812aa8224a3c/capsule_231x87.jpg?t=1785062202",
+      "storeUrl": "https://store.steampowered.com/app/3810540/Clicker_Ore/"
+    },
+    {
+      "id": "steam-4808530",
+      "appId": 4808530,
+      "name": "Oath of Steel",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-07-26",
+      "releaseLabel": "Jul 26, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "角色扮演",
+      "price": "$18.99",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 76,
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4808530/a6b5916052f2e9f8a1eb6d0a82823bbb966612cd/capsule_231x87.jpg?t=1785060667",
+      "storeUrl": "https://store.steampowered.com/app/4808530/Oath_of_Steel/"
+    },
+    {
+      "id": "steam-4543060",
+      "appId": 4543060,
+      "name": "DISPATCHED",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-07-26",
+      "releaseLabel": "Jul 26, 2026",
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "genre": "其他",
+      "price": "$5.09",
+      "discount": 15,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 76,
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4543060/10637bba9ebecd5c2118df721ab2a1801447a916/capsule_231x87.jpg?t=1785064353",
+      "storeUrl": "https://store.steampowered.com/app/4543060/DISPATCHED/"
+    },
+    {
+      "id": "steam-4895240",
+      "appId": 4895240,
+      "name": "Bunnyhoppers",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-07-26",
+      "releaseLabel": "Jul 26, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "动作",
+      "price": "$4.99",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 76,
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4895240/01108735a94ff893ce3f385d04c8e28f2e458c19/capsule_231x87.jpg?t=1785056963",
+      "storeUrl": "https://store.steampowered.com/app/4895240/Bunnyhoppers/"
+    },
+    {
+      "id": "steam-4278010",
+      "appId": 4278010,
+      "name": "The Grade 5B Case Files",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-07-26",
+      "releaseLabel": "Jul 26, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "冒险",
+      "price": "Free",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 76,
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4278010/637ec71c9710487222ce88ec73a2d7218b7a2575/capsule_231x87.jpg?t=1785054380",
+      "storeUrl": "https://store.steampowered.com/app/4278010/The_Grade_5B_Case_Files/"
+    },
     {
       "id": "steam-4409050",
       "appId": 4409050,
@@ -591,199 +784,6 @@
       "storeUrl": "https://store.steampowered.com/app/4608690/Birds/"
     },
     {
-      "id": "steam-4715900",
-      "appId": 4715900,
-      "name": "Pocket Dinos",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-07-24",
-      "releaseLabel": "Jul 24, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "模拟",
-      "price": "$7.99",
-      "discount": 0,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 72,
-      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4715900/66b3760dc05302ed7009842b39fd8e05c491ef20/capsule_231x87.jpg?t=1784974806",
-      "storeUrl": "https://store.steampowered.com/app/4715900/Pocket_Dinos/"
-    },
-    {
-      "id": "steam-4395030",
-      "appId": 4395030,
-      "name": "B-Prison Unchain",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-07-24",
-      "releaseLabel": "Jul 24, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "冒险",
-      "price": "$7.19",
-      "discount": 20,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 72,
-      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4395030/8e9d5861e83d699cf0784089f5832c1213ceeae9/capsule_231x87.jpg?t=1784942677",
-      "storeUrl": "https://store.steampowered.com/app/4395030/BPrison_Unchain/"
-    },
-    {
-      "id": "steam-3755100",
-      "appId": 3755100,
-      "name": "PorBor",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-07-24",
-      "releaseLabel": "Jul 24, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "动作",
-      "price": "$10.00",
-      "discount": 0,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 72,
-      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3755100/4153ede0b0f0bce1be104d550df5af0ed63af898/capsule_231x87.jpg?t=1785041611",
-      "storeUrl": "https://store.steampowered.com/app/3755100/PorBor/"
-    },
-    {
-      "id": "steam-4039190",
-      "appId": 4039190,
-      "name": "Curse of The Lineage",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-07-24",
-      "releaseLabel": "Jul 24, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "策略",
-      "price": "$5.00",
-      "discount": 0,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 72,
-      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4039190/33eb05caf84a6786e0e91cec650c77796b9c4020/capsule_231x87.jpg?t=1784939820",
-      "storeUrl": "https://store.steampowered.com/app/4039190/Curse_of_The_Lineage/"
-    },
-    {
-      "id": "steam-2702510",
-      "appId": 2702510,
-      "name": "Code-Black",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-07-24",
-      "releaseLabel": "Jul 24, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "其他",
-      "price": "$4.99",
-      "discount": 0,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 72,
-      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2702510/33010da1ad9cc6281a380b02fc7293c6c5854cc6/capsule_231x87.jpg?t=1784957273",
-      "storeUrl": "https://store.steampowered.com/app/2702510/CodeBlack/"
-    },
-    {
-      "id": "steam-4913930",
-      "appId": 4913930,
-      "name": "Till The Light",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-07-24",
-      "releaseLabel": "Jul 24, 2026",
-      "platforms": [
-        "Windows",
-        "Linux"
-      ],
-      "genre": "冒险",
-      "price": "$4.99",
-      "discount": 0,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 72,
-      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4913930/16560750a91e9f310a6e9fcf83aaf9bf4c3b0d11/capsule_231x87.jpg?t=1784933044",
-      "storeUrl": "https://store.steampowered.com/app/4913930/Till_The_Light/"
-    },
-    {
-      "id": "steam-4572730",
-      "appId": 4572730,
-      "name": "Box Office Mayhem: Theatre Tycoon",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-07-24",
-      "releaseLabel": "Jul 24, 2026",
-      "platforms": [
-        "Windows",
-        "Linux"
-      ],
-      "genre": "模拟",
-      "price": "$10.79",
-      "discount": 10,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 72,
-      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4572730/acaa5f891a4d6ae12b5b6b8904d6e1c002d15dde/capsule_231x87.jpg?t=1785003692",
-      "storeUrl": "https://store.steampowered.com/app/4572730/Box_Office_Mayhem_Theatre_Tycoon/"
-    },
-    {
-      "id": "steam-3132700",
-      "appId": 3132700,
-      "name": "Oceanic Rails",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-07-24",
-      "releaseLabel": "Jul 24, 2026",
-      "platforms": [
-        "Windows",
-        "macOS"
-      ],
-      "genre": "休闲",
-      "price": "$7.49",
-      "discount": 25,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 72,
-      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3132700/7e5f50e428cc4f8c5a03b8405f7f5bb4b4fc5f6d/capsule_231x87.jpg?t=1784931239",
-      "storeUrl": "https://store.steampowered.com/app/3132700/Oceanic_Rails/"
-    },
-    {
-      "id": "steam-4653890",
-      "appId": 4653890,
-      "name": "Steel Crawlers",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-07-24",
-      "releaseLabel": "Jul 24, 2026",
-      "platforms": [
-        "Windows",
-        "Linux"
-      ],
-      "genre": "动作",
-      "price": "$4.99",
-      "discount": 0,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 72,
-      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4653890/9533dbf8f7360adbb39290fd5c38eb73d8faadd2/capsule_231x87.jpg?t=1784927678",
-      "storeUrl": "https://store.steampowered.com/app/4653890/Steel_Crawlers/"
-    },
-    {
       "id": "steam-4402950",
       "appId": 4402950,
       "name": "HEXSTORM: Tears of Arcadia",
@@ -849,27 +849,6 @@
       "storeUrl": "https://store.steampowered.com/app/3496340/Welcome_to_the_Sharehouse__domestic_life_with_three_cute_girls/"
     },
     {
-      "id": "steam-3839360",
-      "appId": 3839360,
-      "name": "Tiny Birdtopia",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "upcoming",
-      "releaseDate": "2026-07-26",
-      "releaseLabel": "Jul 26, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "其他",
-      "price": "价格待定",
-      "discount": 0,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 48,
-      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3839360/b287bd9edb315b09db9d8ba92f8e9fdded0f7082/capsule_231x87.jpg?t=1784687598",
-      "storeUrl": "https://store.steampowered.com/app/3839360/Tiny_Birdtopia/"
-    },
-    {
       "id": "steam-4424080",
       "appId": 4424080,
       "name": "Bounce Forever",
@@ -887,29 +866,8 @@
       "reviewPercent": 0,
       "reviewCount": 0,
       "heatScore": 48,
-      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4424080/13af0a4079f56d57c33fc4ff3bf60d87abda3b0d/capsule_231x87.jpg?t=1785047632",
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4424080/13af0a4079f56d57c33fc4ff3bf60d87abda3b0d/capsule_231x87.jpg?t=1785060737",
       "storeUrl": "https://store.steampowered.com/app/4424080/Bounce_Forever/"
-    },
-    {
-      "id": "steam-4827940",
-      "appId": 4827940,
-      "name": "末世信使",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "upcoming",
-      "releaseDate": "2026-07-26",
-      "releaseLabel": "Jul 26, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "策略",
-      "price": "价格待定",
-      "discount": 0,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 48,
-      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4827940/f476e835e444a4ac7e3c1f498f37338b8bea6076/capsule_231x87.jpg?t=1784975950",
-      "storeUrl": "https://store.steampowered.com/app/4827940/_/"
     },
     {
       "id": "steam-4838450",
@@ -931,6 +889,27 @@
       "heatScore": 48,
       "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4838450/757dcd8311b6c71ea7ebc647c2dbfff50713e538/capsule_231x87.jpg?t=1784639488",
       "storeUrl": "https://store.steampowered.com/app/4838450/2/"
+    },
+    {
+      "id": "steam-3839360",
+      "appId": 3839360,
+      "name": "Tiny Birdtopia",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "upcoming",
+      "releaseDate": "2026-07-26",
+      "releaseLabel": "Jul 26, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "其他",
+      "price": "价格待定",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 48,
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3839360/b287bd9edb315b09db9d8ba92f8e9fdded0f7082/capsule_231x87.jpg?t=1784687598",
+      "storeUrl": "https://store.steampowered.com/app/3839360/Tiny_Birdtopia/"
     },
     {
       "id": "steam-4830090",
@@ -1254,27 +1233,6 @@
       "storeUrl": "https://store.steampowered.com/app/4865990/The_Great_Ebony_Clock/"
     },
     {
-      "id": "steam-4621540",
-      "appId": 4621540,
-      "name": "Deepcore Mining",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "upcoming",
-      "releaseDate": "2026-07-27",
-      "releaseLabel": "Jul 27, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "冒险",
-      "price": "价格待定",
-      "discount": 0,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 48,
-      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4621540/85ec5d941f9a76e6221f78dcb88e2db6e7a5efe2/capsule_231x87.jpg?t=1784538706",
-      "storeUrl": "https://store.steampowered.com/app/4621540/Deepcore_Mining/"
-    },
-    {
       "id": "steam-4432910",
       "appId": 4432910,
       "name": "Spell Knight: Abyss Cleaver",
@@ -1296,6 +1254,27 @@
       "storeUrl": "https://store.steampowered.com/app/4432910/Spell_Knight_Abyss_Cleaver/"
     },
     {
+      "id": "steam-4621540",
+      "appId": 4621540,
+      "name": "Deepcore Mining",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "upcoming",
+      "releaseDate": "2026-07-27",
+      "releaseLabel": "Jul 27, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "冒险",
+      "price": "价格待定",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 48,
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4621540/85ec5d941f9a76e6221f78dcb88e2db6e7a5efe2/capsule_231x87.jpg?t=1784538706",
+      "storeUrl": "https://store.steampowered.com/app/4621540/Deepcore_Mining/"
+    },
+    {
       "id": "steam-3713750",
       "appId": 3713750,
       "name": "Dystopicon",
@@ -1315,6 +1294,27 @@
       "heatScore": 48,
       "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3713750/163b010aed23c510f531e35ed4bbba8e3bf1dcce/capsule_231x87.jpg?t=1784797299",
       "storeUrl": "https://store.steampowered.com/app/3713750/Dystopicon/"
+    },
+    {
+      "id": "steam-4434520",
+      "appId": 4434520,
+      "name": "Office Leveling",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "upcoming",
+      "releaseDate": "2026-07-27",
+      "releaseLabel": "Jul 27, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "休闲",
+      "price": "价格待定",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 48,
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4434520/4ca7e4da7805e2eca2d971cbe0104302396064ea/capsule_231x87.jpg?t=1783949659",
+      "storeUrl": "https://store.steampowered.com/app/4434520/Office_Leveling/"
     }
   ]
 }
