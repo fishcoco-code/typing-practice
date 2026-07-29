@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-29T03:40:47.205Z",
+  "updatedAt": "2026-07-29T09:09:11.966Z",
   "refreshIntervalHours": 6,
   "coverage": "Steam PC new releases",
   "sources": [
@@ -9,11 +9,288 @@
       "name": "Steam 全球商店",
       "status": "online",
       "games": 61,
-      "latencyMs": 378,
+      "latencyMs": 484,
       "note": "新品与即将上线数据正常"
     }
   ],
   "games": [
+    {
+      "id": "steam-3938640",
+      "appId": 3938640,
+      "name": "Ugoku Sushi Bar",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-07-29",
+      "releaseLabel": "Jul 29, 2026",
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "genre": "休闲",
+      "price": "$9.52",
+      "discount": 47,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 76,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3938640/e42641b60dc3ab18a76a1488c2d51ddf5880fc55/capsule_231x87.jpg?t=1785315977",
+      "storeUrl": "https://store.steampowered.com/app/3938640/Ugoku_Sushi_Bar/"
+    },
+    {
+      "id": "steam-4911580",
+      "appId": 4911580,
+      "name": "Turbo Era Boss",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-07-29",
+      "releaseLabel": "Jul 29, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "模拟",
+      "price": "$11.24",
+      "discount": 25,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 76,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4911580/69358c431ff54b217e09d40fcc42a81c46d82100/capsule_231x87.jpg?t=1785315429",
+      "storeUrl": "https://store.steampowered.com/app/4911580/Turbo_Era_Boss/"
+    },
+    {
+      "id": "steam-4924470",
+      "appId": 4924470,
+      "name": "Let Me Graduate",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-07-29",
+      "releaseLabel": "Jul 29, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "休闲",
+      "price": "$0.99",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 76,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4924470/135d1b42186cf7cf279482d465f6cfe1e7a576f5/capsule_231x87.jpg?t=1785315323",
+      "storeUrl": "https://store.steampowered.com/app/4924470/Let_Me_Graduate/"
+    },
+    {
+      "id": "steam-4489000",
+      "appId": 4489000,
+      "name": "Cat Hits the Deck",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-07-29",
+      "releaseLabel": "Jul 29, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "其他",
+      "price": "$3.75",
+      "discount": 25,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 76,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4489000/184bc4190035fc13fa3d79e0f0d747b77255d483/capsule_231x87.jpg?t=1785314692",
+      "storeUrl": "https://store.steampowered.com/app/4489000/Cat_Hits_the_Deck/"
+    },
+    {
+      "id": "steam-4164270",
+      "appId": 4164270,
+      "name": "Setan! Survive the Demonic Horde",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-07-29",
+      "releaseLabel": "Jul 29, 2026",
+      "platforms": [
+        "Windows",
+        "Linux"
+      ],
+      "genre": "动作",
+      "price": "$4.99",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 76,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4164270/4c30e0737a1b84f479f204b0171e3d0c63d82371/capsule_231x87.jpg?t=1785310842",
+      "storeUrl": "https://store.steampowered.com/app/4164270/Setan_Survive_the_Demonic_Horde/"
+    },
+    {
+      "id": "steam-4906540",
+      "appId": 4906540,
+      "name": "Mega Minesweeper",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-07-29",
+      "releaseLabel": "Jul 29, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "休闲",
+      "price": "$3.49",
+      "discount": 30,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 76,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4906540/e12104b0bad98649da1ccbfc3c64daa0d902b21b/capsule_231x87.jpg?t=1785310381",
+      "storeUrl": "https://store.steampowered.com/app/4906540/Mega_Minesweeper/"
+    },
+    {
+      "id": "steam-4912720",
+      "appId": 4912720,
+      "name": "Type Fighters",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-07-29",
+      "releaseLabel": "Jul 29, 2026",
+      "platforms": [
+        "Windows",
+        "macOS"
+      ],
+      "genre": "动作",
+      "price": "$4.49",
+      "discount": 10,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 76,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4912720/ea35416131306a076953cc58d0160e837c080dfa/capsule_231x87.jpg?t=1785310266",
+      "storeUrl": "https://store.steampowered.com/app/4912720/Type_Fighters/"
+    },
+    {
+      "id": "steam-4945600",
+      "appId": 4945600,
+      "name": "Let's Farm Together",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-07-29",
+      "releaseLabel": "Jul 29, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "模拟",
+      "price": "$0.59",
+      "discount": 40,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 76,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4945600/0d0e8b677593ff420230a6c396886ed1c10629c1/capsule_231x87.jpg?t=1785308957",
+      "storeUrl": "https://store.steampowered.com/app/4945600/Lets_Farm_Together/"
+    },
+    {
+      "id": "steam-2976110",
+      "appId": 2976110,
+      "name": "Separated",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-07-29",
+      "releaseLabel": "Jul 29, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "其他",
+      "price": "$8.99",
+      "discount": 10,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 76,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2976110/7d43646959dd8db6400cd317ba2a749e850739eb/capsule_231x87.jpg?t=1785308881",
+      "storeUrl": "https://store.steampowered.com/app/2976110/Separated/"
+    },
+    {
+      "id": "steam-4643910",
+      "appId": 4643910,
+      "name": "Minimalist Circuit",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-07-29",
+      "releaseLabel": "Jul 29, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "休闲",
+      "price": "$0.59",
+      "discount": 40,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 76,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4643910/840d524c89203da0fb0b1ca96e3fcf28088cc9bd/capsule_231x87.jpg?t=1785308713",
+      "storeUrl": "https://store.steampowered.com/app/4643910/Minimalist_Circuit/"
+    },
+    {
+      "id": "steam-4941330",
+      "appId": 4941330,
+      "name": "Nibble Quest",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-07-28",
+      "releaseLabel": "Jul 28, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "冒险",
+      "price": "$4.99",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 74,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4941330/b3f439dd3c08b393b8815b2c260c73c9e178f617/capsule_231x87.jpg?t=1785306626",
+      "storeUrl": "https://store.steampowered.com/app/4941330/Nibble_Quest/"
+    },
+    {
+      "id": "steam-4599710",
+      "appId": 4599710,
+      "name": "IDLE_DIRECTIVE",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-07-28",
+      "releaseLabel": "Jul 28, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "模拟",
+      "price": "$4.49",
+      "discount": 10,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 74,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4599710/b48b7e92ae2c4472677febfc86b64db84b31ef08/capsule_231x87.jpg?t=1785302657",
+      "storeUrl": "https://store.steampowered.com/app/4599710/IDLE_DIRECTIVE/"
+    },
+    {
+      "id": "steam-4910280",
+      "appId": 4910280,
+      "name": "WALLOP",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-07-28",
+      "releaseLabel": "Jul 28, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "动作",
+      "price": "$5.00",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 74,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4910280/2348e65d6cc1034a8430bbdb2b02957fcd2161e2/capsule_231x87.jpg?t=1785301014",
+      "storeUrl": "https://store.steampowered.com/app/4910280/WALLOP/"
+    },
     {
       "id": "steam-4872330",
       "appId": 4872330,
@@ -31,8 +308,8 @@
       "discount": 20,
       "reviewPercent": 0,
       "reviewCount": 0,
-      "heatScore": 75,
-      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4872330/c4ae2b9edd48726e29d2220409d93f8618f073ea/capsule_231x87.jpg?t=1785293971",
+      "heatScore": 74,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4872330/c4ae2b9edd48726e29d2220409d93f8618f073ea/capsule_231x87.jpg?t=1785293971",
       "storeUrl": "https://store.steampowered.com/app/4872330/Hotel_The_Memory/"
     },
     {
@@ -52,8 +329,8 @@
       "discount": 10,
       "reviewPercent": 0,
       "reviewCount": 0,
-      "heatScore": 75,
-      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2939790/f8719d05ebd1fd28a1a4f032e3ea4a46b9ab9a27/capsule_231x87.jpg?t=1785292835",
+      "heatScore": 74,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2939790/f8719d05ebd1fd28a1a4f032e3ea4a46b9ab9a27/capsule_231x87.jpg?t=1785292835",
       "storeUrl": "https://store.steampowered.com/app/2939790/Lunarium/"
     },
     {
@@ -73,8 +350,8 @@
       "discount": 15,
       "reviewPercent": 0,
       "reviewCount": 0,
-      "heatScore": 75,
-      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3920780/f4797a4d9f9ec8f0d676fcdfc647ab1b22b622a2/capsule_231x87.jpg?t=1785290461",
+      "heatScore": 74,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3920780/f4797a4d9f9ec8f0d676fcdfc647ab1b22b622a2/capsule_231x87.jpg?t=1785290461",
       "storeUrl": "https://store.steampowered.com/app/3920780/Last_Spaceship/"
     },
     {
@@ -94,8 +371,8 @@
       "discount": 30,
       "reviewPercent": 0,
       "reviewCount": 0,
-      "heatScore": 75,
-      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3846300/2915629d5b3aeafeecb4552f0b80c40befa77e10/capsule_231x87.jpg?t=1785290342",
+      "heatScore": 74,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3846300/2915629d5b3aeafeecb4552f0b80c40befa77e10/capsule_231x87.jpg?t=1785290342",
       "storeUrl": "https://store.steampowered.com/app/3846300/MandarinMastermind/"
     },
     {
@@ -115,8 +392,8 @@
       "discount": 0,
       "reviewPercent": 0,
       "reviewCount": 0,
-      "heatScore": 75,
-      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4605460/decbfc51c1e2c142e9df17dc988e192e97c3dd37/capsule_231x87.jpg?t=1785290341",
+      "heatScore": 74,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4605460/decbfc51c1e2c142e9df17dc988e192e97c3dd37/capsule_231x87.jpg?t=1785290341",
       "storeUrl": "https://store.steampowered.com/app/4605460/Earth_Online/"
     },
     {
@@ -136,8 +413,8 @@
       "discount": 0,
       "reviewPercent": 0,
       "reviewCount": 0,
-      "heatScore": 75,
-      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4939980/ba8269f54ff500c262808334d8393d2bad2ba0a3/capsule_231x87.jpg?t=1785290142",
+      "heatScore": 74,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4939980/ba8269f54ff500c262808334d8393d2bad2ba0a3/capsule_231x87.jpg?t=1785290142",
       "storeUrl": "https://store.steampowered.com/app/4939980/Rung_of_Y/"
     },
     {
@@ -157,8 +434,8 @@
       "discount": 0,
       "reviewPercent": 0,
       "reviewCount": 0,
-      "heatScore": 75,
-      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4916170/4d718bde88461b326ef4b95469efd46300e21fc9/capsule_231x87.jpg?t=1785290138",
+      "heatScore": 74,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4916170/4d718bde88461b326ef4b95469efd46300e21fc9/capsule_231x87.jpg?t=1785290138",
       "storeUrl": "https://store.steampowered.com/app/4916170/Weft_of_Y/"
     },
     {
@@ -178,8 +455,8 @@
       "discount": 25,
       "reviewPercent": 0,
       "reviewCount": 0,
-      "heatScore": 75,
-      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2338670/ad9dcf3bf11964813de29087d19113c2bb42495a/capsule_231x87.jpg?t=1785287848",
+      "heatScore": 74,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2338670/ad9dcf3bf11964813de29087d19113c2bb42495a/capsule_231x87.jpg?t=1785287848",
       "storeUrl": "https://store.steampowered.com/app/2338670/Fast_Forward/"
     },
     {
@@ -199,8 +476,8 @@
       "discount": 40,
       "reviewPercent": 0,
       "reviewCount": 0,
-      "heatScore": 75,
-      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4857340/3a320a1feb4a6a664b8110297a2c333214128bc2/capsule_231x87.jpg?t=1785287340",
+      "heatScore": 74,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4857340/3a320a1feb4a6a664b8110297a2c333214128bc2/capsule_231x87.jpg?t=1785287340",
       "storeUrl": "https://store.steampowered.com/app/4857340/Florida_Man_Court/"
     },
     {
@@ -220,8 +497,8 @@
       "discount": 0,
       "reviewPercent": 0,
       "reviewCount": 0,
-      "heatScore": 75,
-      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4922970/ce089fd33cab9ad29258f0f7d060ec5c7624b350/capsule_231x87.jpg?t=1785286542",
+      "heatScore": 74,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4922970/ce089fd33cab9ad29258f0f7d060ec5c7624b350/capsule_231x87.jpg?t=1785286542",
       "storeUrl": "https://store.steampowered.com/app/4922970/_/"
     },
     {
@@ -241,8 +518,8 @@
       "discount": 15,
       "reviewPercent": 0,
       "reviewCount": 0,
-      "heatScore": 75,
-      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4785040/1934b74b87aebde865eecfe2185b9125817c4b82/capsule_231x87.jpg?t=1785285363",
+      "heatScore": 74,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4785040/1934b74b87aebde865eecfe2185b9125817c4b82/capsule_231x87.jpg?t=1785285363",
       "storeUrl": "https://store.steampowered.com/app/4785040/Mutant_Scavenger/"
     },
     {
@@ -262,8 +539,8 @@
       "discount": 0,
       "reviewPercent": 0,
       "reviewCount": 0,
-      "heatScore": 75,
-      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4388560/6a5105590e5a0630af7b50982cfc82c52194d37f/capsule_231x87.jpg?t=1785280069",
+      "heatScore": 74,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4388560/6a5105590e5a0630af7b50982cfc82c52194d37f/capsule_231x87.jpg?t=1785280069",
       "storeUrl": "https://store.steampowered.com/app/4388560/Fill_the_Fridge/"
     },
     {
@@ -283,8 +560,8 @@
       "discount": 15,
       "reviewPercent": 0,
       "reviewCount": 0,
-      "heatScore": 75,
-      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4547440/0692bab77a1f6ac450c6be3c86649207827ac29d/capsule_231x87.jpg?t=1785273985",
+      "heatScore": 74,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4547440/0692bab77a1f6ac450c6be3c86649207827ac29d/capsule_231x87.jpg?t=1785273985",
       "storeUrl": "https://store.steampowered.com/app/4547440/A_Knight_of_Lothen/"
     },
     {
@@ -306,8 +583,8 @@
       "discount": 20,
       "reviewPercent": 0,
       "reviewCount": 0,
-      "heatScore": 75,
-      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4171910/16e265603e900dfaf6916fb1aec6de81db62793a/capsule_231x87.jpg?t=1785273282",
+      "heatScore": 74,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4171910/16e265603e900dfaf6916fb1aec6de81db62793a/capsule_231x87.jpg?t=1785273282",
       "storeUrl": "https://store.steampowered.com/app/4171910/Spellsy/"
     },
     {
@@ -328,8 +605,8 @@
       "discount": 10,
       "reviewPercent": 0,
       "reviewCount": 0,
-      "heatScore": 75,
-      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3334360/1acf60656d40e1016f528d92aa132c34844c181d/capsule_231x87.jpg?t=1785268849",
+      "heatScore": 74,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3334360/1acf60656d40e1016f528d92aa132c34844c181d/capsule_231x87.jpg?t=1785268849",
       "storeUrl": "https://store.steampowered.com/app/3334360/Proton__Electron/"
     },
     {
@@ -349,8 +626,8 @@
       "discount": 25,
       "reviewPercent": 0,
       "reviewCount": 0,
-      "heatScore": 75,
-      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3968160/c0dc5287c772540270b7c22df4f8b269d0020155/capsule_231x87.jpg?t=1785267972",
+      "heatScore": 74,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3968160/c0dc5287c772540270b7c22df4f8b269d0020155/capsule_231x87.jpg?t=1785267972",
       "storeUrl": "https://store.steampowered.com/app/3968160/Island_Beekeeper/"
     },
     {
@@ -371,8 +648,8 @@
       "discount": 0,
       "reviewPercent": 0,
       "reviewCount": 0,
-      "heatScore": 75,
-      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4878610/3f48722d2eb1bec79e9476fd3525e7375d28ada4/capsule_231x87.jpg?t=1785267860",
+      "heatScore": 74,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4878610/3f48722d2eb1bec79e9476fd3525e7375d28ada4/capsule_231x87.jpg?t=1785267860",
       "storeUrl": "https://store.steampowered.com/app/4878610/Snugfang/"
     },
     {
@@ -392,8 +669,8 @@
       "discount": 20,
       "reviewPercent": 0,
       "reviewCount": 0,
-      "heatScore": 75,
-      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2527550/2de713721ac72ffa686a9b9adeeb8781e3972619/capsule_231x87.jpg?t=1785264239",
+      "heatScore": 74,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2527550/2de713721ac72ffa686a9b9adeeb8781e3972619/capsule_231x87.jpg?t=1785264239",
       "storeUrl": "https://store.steampowered.com/app/2527550/Roll_The_Bones/"
     },
     {
@@ -413,8 +690,8 @@
       "discount": 0,
       "reviewPercent": 0,
       "reviewCount": 0,
-      "heatScore": 75,
-      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4808240/718d6ff613b76ee1de62706bb2d11d330a4b5312/capsule_231x87.jpg?t=1785262655",
+      "heatScore": 74,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4808240/718d6ff613b76ee1de62706bb2d11d330a4b5312/capsule_231x87.jpg?t=1785262655",
       "storeUrl": "https://store.steampowered.com/app/4808240/Spectrum_Defense/"
     },
     {
@@ -434,8 +711,8 @@
       "discount": 25,
       "reviewPercent": 0,
       "reviewCount": 0,
-      "heatScore": 75,
-      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4632530/6551c3c8f3495ea2d4e088e9af4cfbea313b509c/capsule_231x87.jpg?t=1785262227",
+      "heatScore": 74,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4632530/6551c3c8f3495ea2d4e088e9af4cfbea313b509c/capsule_231x87.jpg?t=1785262227",
       "storeUrl": "https://store.steampowered.com/app/4632530/Dog_of_Wisdom/"
     },
     {
@@ -456,8 +733,8 @@
       "discount": 10,
       "reviewPercent": 0,
       "reviewCount": 0,
-      "heatScore": 75,
-      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4530240/45a9a4087eef6f9e5dba8ce5b668471a51bbc4b6/capsule_231x87.jpg?t=1785261598",
+      "heatScore": 74,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4530240/45a9a4087eef6f9e5dba8ce5b668471a51bbc4b6/capsule_231x87.jpg?t=1785261598",
       "storeUrl": "https://store.steampowered.com/app/4530240/Dissolution_of_the_Silent_Union/"
     },
     {
@@ -477,8 +754,8 @@
       "discount": 15,
       "reviewPercent": 0,
       "reviewCount": 0,
-      "heatScore": 75,
-      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4524940/41f205c07c9a352dbc78046e01fdbf6a8fc91902/capsule_231x87.jpg?t=1785261246",
+      "heatScore": 74,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4524940/41f205c07c9a352dbc78046e01fdbf6a8fc91902/capsule_231x87.jpg?t=1785261246",
       "storeUrl": "https://store.steampowered.com/app/4524940/Rush_Hour_Relay/"
     },
     {
@@ -498,336 +775,14 @@
       "discount": 25,
       "reviewPercent": 0,
       "reviewCount": 0,
-      "heatScore": 75,
-      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4476430/054952718808c0c67f442758927960a46ce44bfd/capsule_231x87.jpg?t=1785260372",
+      "heatScore": 74,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4476430/054952718808c0c67f442758927960a46ce44bfd/capsule_231x87.jpg?t=1785260372",
       "storeUrl": "https://store.steampowered.com/app/4476430/Net_Gains/"
     },
     {
-      "id": "steam-4920880",
-      "appId": 4920880,
-      "name": "Caramellia",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-07-28",
-      "releaseLabel": "Jul 28, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "冒险",
-      "price": "$12.74",
-      "discount": 15,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 75,
-      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4920880/a07cb8d1853602f898521a62d14672fec222fbdb/capsule_231x87.jpg?t=1785260266",
-      "storeUrl": "https://store.steampowered.com/app/4920880/Caramellia/"
-    },
-    {
-      "id": "steam-4886760",
-      "appId": 4886760,
-      "name": "Bull&Bear Crypto Trading Simulator",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-07-28",
-      "releaseLabel": "Jul 28, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "休闲",
-      "price": "$7.99",
-      "discount": 20,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 75,
-      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4886760/f6baabaaf963d77aff6a4ebef691accd74137a70/capsule_231x87.jpg?t=1785259623",
-      "storeUrl": "https://store.steampowered.com/app/4886760/BullBear_Crypto_Trading_Simulator/"
-    },
-    {
-      "id": "steam-4586620",
-      "appId": 4586620,
-      "name": "Invasion Protocol",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-07-28",
-      "releaseLabel": "Jul 28, 2026",
-      "platforms": [
-        "Windows",
-        "macOS",
-        "Linux"
-      ],
-      "genre": "动作",
-      "price": "$5.99",
-      "discount": 40,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 75,
-      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4586620/2871d9c8fa4382322f5712c864e39413bac4ce32/capsule_231x87.jpg?t=1785258648",
-      "storeUrl": "https://store.steampowered.com/app/4586620/Invasion_Protocol/"
-    },
-    {
-      "id": "steam-3136320",
-      "appId": 3136320,
-      "name": "My Infamous Dungeon",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-07-28",
-      "releaseLabel": "Jul 28, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "策略",
-      "price": "$11.99",
-      "discount": 20,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 75,
-      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3136320/f12c3e7734fd6170d9ef93804b194f5a23bcc09e/capsule_231x87.jpg?t=1785258831",
-      "storeUrl": "https://store.steampowered.com/app/3136320/My_Infamous_Dungeon/"
-    },
-    {
-      "id": "steam-4253240",
-      "appId": 4253240,
-      "name": "Nulla Via",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-07-28",
-      "releaseLabel": "Jul 28, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "其他",
-      "price": "$10.19",
-      "discount": 15,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 75,
-      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4253240/1348c8161365ec2c4965434f16613267e037649f/capsule_231x87.jpg?t=1785258293",
-      "storeUrl": "https://store.steampowered.com/app/4253240/Nulla_Via/"
-    },
-    {
-      "id": "steam-4794650",
-      "appId": 4794650,
-      "name": "Bloodwright",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-07-28",
-      "releaseLabel": "Jul 28, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "角色扮演",
-      "price": "$8.49",
-      "discount": 15,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 75,
-      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4794650/d0132d1a9bcba9485dd1cfccf2ad0d92fd61e3b7/capsule_231x87.jpg?t=1785258210",
-      "storeUrl": "https://store.steampowered.com/app/4794650/Bloodwright/"
-    },
-    {
-      "id": "steam-4323200",
-      "appId": 4323200,
-      "name": "Where We Used to Play",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-07-28",
-      "releaseLabel": "Jul 28, 2026",
-      "platforms": [
-        "Windows",
-        "Linux"
-      ],
-      "genre": "其他",
-      "price": "$4.49",
-      "discount": 10,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 75,
-      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4323200/4d7c5018d31d36fe4d2dd63a5a45c0be90564135/capsule_231x87.jpg?t=1785258116",
-      "storeUrl": "https://store.steampowered.com/app/4323200/Where_We_Used_to_Play/"
-    },
-    {
-      "id": "steam-4682440",
-      "appId": 4682440,
-      "name": "Aquasim",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-07-28",
-      "releaseLabel": "Jul 28, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "模拟",
-      "price": "$3.59",
-      "discount": 10,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 75,
-      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4682440/b13acb909ef55938a891359f4e7393f73b9e865e/capsule_231x87.jpg?t=1785258098",
-      "storeUrl": "https://store.steampowered.com/app/4682440/Aquasim/"
-    },
-    {
-      "id": "steam-4078110",
-      "appId": 4078110,
-      "name": "Suncraft",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-07-28",
-      "releaseLabel": "Jul 28, 2026",
-      "platforms": [
-        "Windows",
-        "macOS",
-        "Linux"
-      ],
-      "genre": "冒险",
-      "price": "$5.94",
-      "discount": 15,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 75,
-      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4078110/c0101a581b26b76c55acaf0435b936ef88b6f617/capsule_231x87.jpg?t=1785258069",
-      "storeUrl": "https://store.steampowered.com/app/4078110/Suncraft/"
-    },
-    {
-      "id": "steam-3490220",
-      "appId": 3490220,
-      "name": "My Lil Afterlife",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-07-28",
-      "releaseLabel": "Jul 28, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "模拟",
-      "price": "$3.59",
-      "discount": 10,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 75,
-      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3490220/3ecd882e10f2d9decedb4da92bab6ef7282a6647/capsule_231x87.jpg?t=1785258038",
-      "storeUrl": "https://store.steampowered.com/app/3490220/My_Lil_Afterlife/"
-    },
-    {
-      "id": "steam-1492070",
-      "appId": 1492070,
-      "name": "Sker Ritual",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-07-28",
-      "releaseLabel": "Jul 28, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "冒险",
-      "price": "$19.99",
-      "discount": 0,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 75,
-      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1492070/1e25b8656ab9ed661c6f6a7a1dc2e78f290263fa/capsule_231x87.jpg?t=1785260623",
-      "storeUrl": "https://store.steampowered.com/app/1492070/Sker_Ritual/"
-    },
-    {
-      "id": "steam-3497800",
-      "appId": 3497800,
-      "name": "Bonehold",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-07-28",
-      "releaseLabel": "Jul 28, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "其他",
-      "price": "$8.99",
-      "discount": 10,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 75,
-      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3497800/ca7789f87ab4c27fa93c36ddfe8cc940d3593832/capsule_231x87.jpg?t=1785259777",
-      "storeUrl": "https://store.steampowered.com/app/3497800/Bonehold/"
-    },
-    {
-      "id": "steam-4790370",
-      "appId": 4790370,
-      "name": "Hopsy the Frog",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-07-28",
-      "releaseLabel": "Jul 28, 2026",
-      "platforms": [
-        "Windows",
-        "Linux"
-      ],
-      "genre": "其他",
-      "price": "$8.99",
-      "discount": 10,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 75,
-      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4790370/6d5d62677a3ee0dc7101c9d37c19bde1dfd70b8c/capsule_231x87.jpg?t=1785257845",
-      "storeUrl": "https://store.steampowered.com/app/4790370/Hopsy_the_Frog/"
-    },
-    {
-      "id": "steam-4944180",
-      "appId": 4944180,
-      "name": "Orbital Hell",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "upcoming",
-      "releaseDate": "2026-07-28",
-      "releaseLabel": "Jul 28, 2026",
-      "platforms": [
-        "Windows",
-        "Linux"
-      ],
-      "genre": "动作",
-      "price": "价格待定",
-      "discount": 0,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 48,
-      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4944180/5c9e82846406bf018af8ee1cd94fb9ea29e7988a/capsule_231x87.jpg?t=1784061179",
-      "storeUrl": "https://store.steampowered.com/app/4944180/Orbital_Hell/"
-    },
-    {
-      "id": "steam-4599710",
-      "appId": 4599710,
-      "name": "IDLE_DIRECTIVE",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "upcoming",
-      "releaseDate": "2026-07-28",
-      "releaseLabel": "Jul 28, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "模拟",
-      "price": "价格待定",
-      "discount": 0,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 48,
-      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4599710/b48b7e92ae2c4472677febfc86b64db84b31ef08/capsule_231x87.jpg?t=1781710591",
-      "storeUrl": "https://store.steampowered.com/app/4599710/IDLE_DIRECTIVE/"
-    },
-    {
-      "id": "steam-2976110",
-      "appId": 2976110,
-      "name": "Separated",
+      "id": "steam-4711170",
+      "appId": 4711170,
+      "name": "Miriam's Potion Journal",
       "source": "Steam",
       "sourceRegion": "全球商店",
       "status": "upcoming",
@@ -836,81 +791,14 @@
       "platforms": [
         "Windows"
       ],
-      "genre": "其他",
+      "genre": "合作",
       "price": "价格待定",
       "discount": 0,
       "reviewPercent": 0,
       "reviewCount": 0,
       "heatScore": 48,
-      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2976110/7d43646959dd8db6400cd317ba2a749e850739eb/capsule_231x87.jpg?t=1784661689",
-      "storeUrl": "https://store.steampowered.com/app/2976110/Separated/"
-    },
-    {
-      "id": "steam-4042840",
-      "appId": 4042840,
-      "name": "Vquarium",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "upcoming",
-      "releaseDate": "2026-07-29",
-      "releaseLabel": "Jul 29, 2026",
-      "platforms": [
-        "Windows",
-        "macOS",
-        "Linux"
-      ],
-      "genre": "其他",
-      "price": "价格待定",
-      "discount": 0,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 48,
-      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4042840/e4cb9740a55df5bb093b67031fff8560720326de/capsule_231x87.jpg?t=1784128265",
-      "storeUrl": "https://store.steampowered.com/app/4042840/Vquarium/"
-    },
-    {
-      "id": "steam-3938640",
-      "appId": 3938640,
-      "name": "Ugoku Sushi Bar",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "upcoming",
-      "releaseDate": "2026-07-29",
-      "releaseLabel": "Jul 29, 2026",
-      "platforms": [
-        "Windows",
-        "macOS",
-        "Linux"
-      ],
-      "genre": "休闲",
-      "price": "价格待定",
-      "discount": 0,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 48,
-      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3938640/e42641b60dc3ab18a76a1488c2d51ddf5880fc55/capsule_231x87.jpg?t=1785291182",
-      "storeUrl": "https://store.steampowered.com/app/3938640/Ugoku_Sushi_Bar/"
-    },
-    {
-      "id": "steam-4924470",
-      "appId": 4924470,
-      "name": "Let Me Graduate",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "upcoming",
-      "releaseDate": "2026-07-29",
-      "releaseLabel": "Jul 29, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "休闲",
-      "price": "价格待定",
-      "discount": 0,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 48,
-      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4924470/135d1b42186cf7cf279482d465f6cfe1e7a576f5/capsule_231x87.jpg?t=1785162136",
-      "storeUrl": "https://store.steampowered.com/app/4924470/Let_Me_Graduate/"
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4711170/d1db5b6c3fbe26cc800083abcc0dab71033c6086/capsule_231x87.jpg?t=1785138837",
+      "storeUrl": "https://store.steampowered.com/app/4711170/Miriams_Potion_Journal/"
     },
     {
       "id": "steam-4433730",
@@ -930,7 +818,7 @@
       "reviewPercent": 0,
       "reviewCount": 0,
       "heatScore": 48,
-      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4433730/750342f7e4922c335160521f4bf0f8cfbcf46666/capsule_231x87.jpg?t=1785151896",
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4433730/750342f7e4922c335160521f4bf0f8cfbcf46666/capsule_231x87.jpg?t=1785304438",
       "storeUrl": "https://store.steampowered.com/app/4433730/DEBRISVERSE/"
     },
     {
@@ -953,50 +841,8 @@
       "reviewPercent": 0,
       "reviewCount": 0,
       "heatScore": 48,
-      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4314770/5691a449d010030d269094e3ef450ba8f9e34ca3/capsule_231x87.jpg?t=1785250106",
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4314770/5691a449d010030d269094e3ef450ba8f9e34ca3/capsule_231x87.jpg?t=1785250106",
       "storeUrl": "https://store.steampowered.com/app/4314770/SnekromancY/"
-    },
-    {
-      "id": "steam-4711170",
-      "appId": 4711170,
-      "name": "Miriam's Potion Journal",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "upcoming",
-      "releaseDate": "2026-07-29",
-      "releaseLabel": "Jul 29, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "合作",
-      "price": "价格待定",
-      "discount": 0,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 48,
-      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4711170/d1db5b6c3fbe26cc800083abcc0dab71033c6086/capsule_231x87.jpg?t=1785138837",
-      "storeUrl": "https://store.steampowered.com/app/4711170/Miriams_Potion_Journal/"
-    },
-    {
-      "id": "steam-4617230",
-      "appId": 4617230,
-      "name": "Retail Rivals",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "upcoming",
-      "releaseDate": "2026-07-29",
-      "releaseLabel": "Jul 29, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "模拟",
-      "price": "价格待定",
-      "discount": 0,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 48,
-      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4617230/1426a1deee22f429860f868573edda4abe1749e7/capsule_231x87.jpg?t=1785273133",
-      "storeUrl": "https://store.steampowered.com/app/4617230/Retail_Rivals/"
     },
     {
       "id": "steam-3248110",
@@ -1016,7 +862,7 @@
       "reviewPercent": 0,
       "reviewCount": 0,
       "heatScore": 48,
-      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3248110/6c9c62af83af550cd355cb28dec3a50e9ee64543/capsule_231x87.jpg?t=1785121948",
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3248110/6c9c62af83af550cd355cb28dec3a50e9ee64543/capsule_231x87.jpg?t=1785121948",
       "storeUrl": "https://store.steampowered.com/app/3248110/PhiloDeka/"
     },
     {
@@ -1037,8 +883,29 @@
       "reviewPercent": 0,
       "reviewCount": 0,
       "heatScore": 48,
-      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4146260/b1ed5a33f4a6c17e29f451715402a54c4b43bb2c/capsule_231x87.jpg?t=1783453502",
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4146260/b1ed5a33f4a6c17e29f451715402a54c4b43bb2c/capsule_231x87.jpg?t=1783453502",
       "storeUrl": "https://store.steampowered.com/app/4146260/Monslice/"
+    },
+    {
+      "id": "steam-4617230",
+      "appId": 4617230,
+      "name": "Retail Rivals",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "upcoming",
+      "releaseDate": "2026-07-29",
+      "releaseLabel": "Jul 29, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "模拟",
+      "price": "价格待定",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 48,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4617230/1426a1deee22f429860f868573edda4abe1749e7/capsule_231x87.jpg?t=1785273133",
+      "storeUrl": "https://store.steampowered.com/app/4617230/Retail_Rivals/"
     },
     {
       "id": "steam-4258410",
@@ -1058,7 +925,7 @@
       "reviewPercent": 0,
       "reviewCount": 0,
       "heatScore": 48,
-      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4258410/08cd493dc53d574a60b01aaab7935d0367f92789/capsule_231x87.jpg?t=1783323335",
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4258410/08cd493dc53d574a60b01aaab7935d0367f92789/capsule_231x87.jpg?t=1783323335",
       "storeUrl": "https://store.steampowered.com/app/4258410/Kassei__Road_Cycling_Next_Season/"
     },
     {
@@ -1079,50 +946,8 @@
       "reviewPercent": 0,
       "reviewCount": 0,
       "heatScore": 48,
-      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2895680/675ee5ab63fe170273b30bd5520e74c551da010d/capsule_231x87.jpg?t=1785232308",
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2895680/675ee5ab63fe170273b30bd5520e74c551da010d/capsule_231x87.jpg?t=1785232308",
       "storeUrl": "https://store.steampowered.com/app/2895680/Below_Rusted_Gods/"
-    },
-    {
-      "id": "steam-4502420",
-      "appId": 4502420,
-      "name": "Sneaky Tail",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "upcoming",
-      "releaseDate": "2026-07-29",
-      "releaseLabel": "Jul 29, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "冒险",
-      "price": "价格待定",
-      "discount": 0,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 48,
-      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4502420/36b5de3302ef2d2dec28c0ad2dbf6d42548d2c2e/capsule_231x87.jpg?t=1785180100",
-      "storeUrl": "https://store.steampowered.com/app/4502420/Sneaky_Tail/"
-    },
-    {
-      "id": "steam-4065740",
-      "appId": 4065740,
-      "name": "Express Rider Simulator",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "upcoming",
-      "releaseDate": "2026-07-29",
-      "releaseLabel": "Jul 29, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "模拟",
-      "price": "价格待定",
-      "discount": 0,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 48,
-      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4065740/7265bbd0f383abf75de3f2b6921f19e29cd13eee/capsule_231x87.jpg?t=1785163670",
-      "storeUrl": "https://store.steampowered.com/app/4065740/Express_Rider_Simulator/"
     },
     {
       "id": "steam-3837850",
@@ -1142,8 +967,50 @@
       "reviewPercent": 0,
       "reviewCount": 0,
       "heatScore": 48,
-      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3837850/6e9b8102fa6f30e6f6b963fa6a034f8e0ad7800f/capsule_231x87.jpg?t=1784706975",
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3837850/6e9b8102fa6f30e6f6b963fa6a034f8e0ad7800f/capsule_231x87.jpg?t=1784706975",
       "storeUrl": "https://store.steampowered.com/app/3837850/SEA_WAR_NAVAL_SUPREMACY/"
+    },
+    {
+      "id": "steam-4065740",
+      "appId": 4065740,
+      "name": "Express Rider Simulator",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "upcoming",
+      "releaseDate": "2026-07-29",
+      "releaseLabel": "Jul 29, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "模拟",
+      "price": "价格待定",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 48,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4065740/7265bbd0f383abf75de3f2b6921f19e29cd13eee/capsule_231x87.jpg?t=1785163670",
+      "storeUrl": "https://store.steampowered.com/app/4065740/Express_Rider_Simulator/"
+    },
+    {
+      "id": "steam-4502420",
+      "appId": 4502420,
+      "name": "Sneaky Tail",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "upcoming",
+      "releaseDate": "2026-07-29",
+      "releaseLabel": "Jul 29, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "冒险",
+      "price": "价格待定",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 48,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4502420/36b5de3302ef2d2dec28c0ad2dbf6d42548d2c2e/capsule_231x87.jpg?t=1785180100",
+      "storeUrl": "https://store.steampowered.com/app/4502420/Sneaky_Tail/"
     },
     {
       "id": "steam-4968440",
@@ -1163,7 +1030,7 @@
       "reviewPercent": 0,
       "reviewCount": 0,
       "heatScore": 48,
-      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4968440/a5adaad6f07caec6d7d92114038629f35f8f5dd5/capsule_231x87.jpg?t=1785139173",
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4968440/a5adaad6f07caec6d7d92114038629f35f8f5dd5/capsule_231x87.jpg?t=1785139173",
       "storeUrl": "https://store.steampowered.com/app/4968440/BAFF_D/"
     },
     {
@@ -1184,7 +1051,7 @@
       "reviewPercent": 0,
       "reviewCount": 0,
       "heatScore": 48,
-      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4768190/c41dcb9fbed23f2b1c9fa44f5ad696516dd2f14e/capsule_231x87.jpg?t=1784239807",
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4768190/c41dcb9fbed23f2b1c9fa44f5ad696516dd2f14e/capsule_231x87.jpg?t=1784239807",
       "storeUrl": "https://store.steampowered.com/app/4768190/Iron_Offensive_Helmet_Cam_Extraction_Shooter/"
     },
     {
@@ -1205,50 +1072,8 @@
       "reviewPercent": 0,
       "reviewCount": 0,
       "heatScore": 48,
-      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4127360/6b1d4b7fac8497ba448af80900f8ee7c676f3c3d/capsule_231x87.jpg?t=1785251948",
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4127360/6b1d4b7fac8497ba448af80900f8ee7c676f3c3d/capsule_231x87.jpg?t=1785251948",
       "storeUrl": "https://store.steampowered.com/app/4127360/Case_Solved_The_London_Files/"
-    },
-    {
-      "id": "steam-4608380",
-      "appId": 4608380,
-      "name": "Joy Malignant",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "upcoming",
-      "releaseDate": "2026-07-29",
-      "releaseLabel": "Jul 29, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "角色扮演",
-      "price": "价格待定",
-      "discount": 0,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 48,
-      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4608380/e228537bd86fc4c9570aa01b6477ffe044587ce2/capsule_231x87.jpg?t=1784708448",
-      "storeUrl": "https://store.steampowered.com/app/4608380/Joy_Malignant/"
-    },
-    {
-      "id": "steam-3934250",
-      "appId": 3934250,
-      "name": "Village in the Shade",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "upcoming",
-      "releaseDate": "2026-07-29",
-      "releaseLabel": "Jul 29, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "冒险",
-      "price": "价格待定",
-      "discount": 0,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 48,
-      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3934250/a03486bb27b51182e98216260f6d9705177d61ef/capsule_231x87.jpg?t=1785273942",
-      "storeUrl": "https://store.steampowered.com/app/3934250/Village_in_the_Shade/"
     },
     {
       "id": "steam-3997240",
@@ -1268,7 +1093,7 @@
       "reviewPercent": 0,
       "reviewCount": 0,
       "heatScore": 48,
-      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3997240/5098b219c65ee791e61565eb91be3dad08019c71/capsule_231x87.jpg?t=1784151979",
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3997240/5098b219c65ee791e61565eb91be3dad08019c71/capsule_231x87.jpg?t=1784151979",
       "storeUrl": "https://store.steampowered.com/app/3997240/Osta/"
     },
     {
@@ -1289,7 +1114,7 @@
       "reviewPercent": 0,
       "reviewCount": 0,
       "heatScore": 48,
-      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4251710/fe8c465643b8c7ed91d0af048ea9583e01b9acc2/capsule_231x87.jpg?t=1784537603",
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4251710/fe8c465643b8c7ed91d0af048ea9583e01b9acc2/capsule_231x87.jpg?t=1784537603",
       "storeUrl": "https://store.steampowered.com/app/4251710/EXSTETRA/"
     },
     {
@@ -1312,8 +1137,176 @@
       "reviewPercent": 0,
       "reviewCount": 0,
       "heatScore": 48,
-      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4252700/f4480894ed4495215df317b9d880ce591536961a/capsule_231x87.jpg?t=1785249303",
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4252700/f4480894ed4495215df317b9d880ce591536961a/capsule_231x87.jpg?t=1785249303",
       "storeUrl": "https://store.steampowered.com/app/4252700/Archon_Soul/"
+    },
+    {
+      "id": "steam-4304520",
+      "appId": 4304520,
+      "name": "《比特尔特岛：与她们共度的日常》",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "upcoming",
+      "releaseDate": "2026-07-29",
+      "releaseLabel": "Jul 29, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "休闲",
+      "price": "价格待定",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 48,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4304520/10bd4bb685366ff99faadfbfb23b7ad85ecb68b1/capsule_231x87.jpg?t=1785122032",
+      "storeUrl": "https://store.steampowered.com/app/4304520/_/"
+    },
+    {
+      "id": "steam-4738830",
+      "appId": 4738830,
+      "name": "Cricket Management 26",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "upcoming",
+      "releaseDate": "2026-07-29",
+      "releaseLabel": "Jul 29, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "模拟",
+      "price": "价格待定",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 48,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4738830/edcbfc1b01e9ad3e2055df5158c26ad42c7b7a04/capsule_231x87.jpg?t=1783436864",
+      "storeUrl": "https://store.steampowered.com/app/4738830/Cricket_Management_26/"
+    },
+    {
+      "id": "steam-4608380",
+      "appId": 4608380,
+      "name": "Joy Malignant",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "upcoming",
+      "releaseDate": "2026-07-29",
+      "releaseLabel": "Jul 29, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "角色扮演",
+      "price": "价格待定",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 48,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4608380/e228537bd86fc4c9570aa01b6477ffe044587ce2/capsule_231x87.jpg?t=1784708448",
+      "storeUrl": "https://store.steampowered.com/app/4608380/Joy_Malignant/"
+    },
+    {
+      "id": "steam-4754740",
+      "appId": 4754740,
+      "name": "Market Chain 98",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "upcoming",
+      "releaseDate": "2026-07-29",
+      "releaseLabel": "Jul 29, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "策略",
+      "price": "价格待定",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 48,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4754740/30487c4134ba88f0e2a0f4d53adaa636911070b1/capsule_231x87.jpg?t=1784312112",
+      "storeUrl": "https://store.steampowered.com/app/4754740/Market_Chain_98/"
+    },
+    {
+      "id": "steam-3907380",
+      "appId": 3907380,
+      "name": "The Prince of Tennis Doki Doki Survival ~eternal passion! Tie break ♡ game~",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "upcoming",
+      "releaseDate": "2026-07-29",
+      "releaseLabel": "Jul 29, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "冒险",
+      "price": "$49.99",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 48,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3907380/22e9fa2e6f2187d0cf4dfd2164370505a0d198e1/capsule_231x87.jpg?t=1783678949",
+      "storeUrl": "https://store.steampowered.com/app/3907380/The_Prince_of_Tennis_Doki_Doki_Survival_eternal_passion_Tie_break__game/"
+    },
+    {
+      "id": "steam-3907350",
+      "appId": 3907350,
+      "name": "The Prince of Tennis Sweet School Festival ~♡-40 and more...~",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "upcoming",
+      "releaseDate": "2026-07-29",
+      "releaseLabel": "Jul 29, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "冒险",
+      "price": "$49.99",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 48,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3907350/fc9bbca6d49e676e9f8f06217e47df772645a127/capsule_231x87.jpg?t=1783678892",
+      "storeUrl": "https://store.steampowered.com/app/3907350/The_Prince_of_Tennis_Sweet_School_Festival_40_and_more/"
+    },
+    {
+      "id": "steam-3642010",
+      "appId": 3642010,
+      "name": "Truck-kun is Supporting Me from Another World?!",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "upcoming",
+      "releaseDate": "2026-07-29",
+      "releaseLabel": "Jul 29, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "街机",
+      "price": "价格待定",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 48,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3642010/9bea7b2e951e8e4da432ea0d8798d875427fbc61/capsule_231x87.jpg?t=1785273190",
+      "storeUrl": "https://store.steampowered.com/app/3642010/Truckkun_is_Supporting_Me_from_Another_World/"
+    },
+    {
+      "id": "steam-3934250",
+      "appId": 3934250,
+      "name": "Village in the Shade",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "upcoming",
+      "releaseDate": "2026-07-29",
+      "releaseLabel": "Jul 29, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "冒险",
+      "price": "价格待定",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 48,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3934250/a03486bb27b51182e98216260f6d9705177d61ef/capsule_231x87.jpg?t=1785273942",
+      "storeUrl": "https://store.steampowered.com/app/3934250/Village_in_the_Shade/"
     }
   ]
 }
