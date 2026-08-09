@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-08-08T18:58:38.268Z",
+  "updatedAt": "2026-08-09T02:28:54.659Z",
   "refreshIntervalHours": 6,
   "coverage": "Steam PC new releases",
   "sources": [
@@ -9,11 +9,53 @@
       "name": "Steam 全球商店",
       "status": "online",
       "games": 61,
-      "latencyMs": 284,
+      "latencyMs": 318,
       "note": "新品与即将上线数据正常"
     }
   ],
   "games": [
+    {
+      "id": "steam-4980680",
+      "appId": 4980680,
+      "name": "BLUE SHIP",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-08-08",
+      "releaseLabel": "Aug 8, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "动作",
+      "price": "$1.69",
+      "discount": 15,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 75,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4980680/bb32b902269d31197f95ceabb674e2ab4ea3a660/capsule_231x87.jpg?t=1786234872",
+      "storeUrl": "https://store.steampowered.com/app/4980680/BLUE_SHIP/"
+    },
+    {
+      "id": "steam-4968810",
+      "appId": 4968810,
+      "name": "Velocrash",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-08-08",
+      "releaseLabel": "Aug 8, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "竞速",
+      "price": "$5.94",
+      "discount": 15,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 75,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4968810/2bb2430c3a5a83a37235db37e4cab6ef5581c3d4/capsule_231x87.jpg?t=1786226556",
+      "storeUrl": "https://store.steampowered.com/app/4968810/Velocrash/"
+    },
     {
       "id": "steam-2682270",
       "appId": 2682270,
@@ -376,7 +418,7 @@
       "reviewPercent": 0,
       "reviewCount": 0,
       "heatScore": 73,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4838500/2feb45e461b1681a632504a78e4cf24248d327be/capsule_231x87.jpg?t=1786201557",
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4838500/2feb45e461b1681a632504a78e4cf24248d327be/capsule_231x87.jpg?t=1786225196",
       "storeUrl": "https://store.steampowered.com/app/4838500/_/"
     },
     {
@@ -709,7 +751,7 @@
         "Windows"
       ],
       "genre": "冒险",
-      "price": "$1.49",
+      "price": "$0.74",
       "discount": 25,
       "reviewPercent": 0,
       "reviewCount": 0,
@@ -739,48 +781,6 @@
       "heatScore": 73,
       "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4810540/467b5174f64e536281c4bbc9921b013b16305428/capsule_231x87.jpg?t=1786134473",
       "storeUrl": "https://store.steampowered.com/app/4810540/The_Princes_Keeper/"
-    },
-    {
-      "id": "steam-4706880",
-      "appId": 4706880,
-      "name": "Grizzy and the Lemmings - Crazy Party",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-08-07",
-      "releaseLabel": "Aug 7, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "PvP",
-      "price": "$39.99",
-      "discount": 0,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 73,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4706880/cff180dfe8f5b41f54cd6bb7458174b4f619c543/capsule_231x87.jpg?t=1786134436",
-      "storeUrl": "https://store.steampowered.com/app/4706880/Grizzy_and_the_Lemmings__Crazy_Party/"
-    },
-    {
-      "id": "steam-4251090",
-      "appId": 4251090,
-      "name": "Keep It Contained",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-08-07",
-      "releaseLabel": "Aug 7, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "休闲",
-      "price": "$5.39",
-      "discount": 10,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 73,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4251090/fa59979bbf211e481138609d206007ee1c57efcb/capsule_231x87.jpg?t=1786138565",
-      "storeUrl": "https://store.steampowered.com/app/4251090/Keep_It_Contained/"
     },
     {
       "id": "steam-4326430",
@@ -933,27 +933,6 @@
       "storeUrl": "https://store.steampowered.com/app/4875270/ASCENDexe/"
     },
     {
-      "id": "steam-4920100",
-      "appId": 4920100,
-      "name": "The Wraith Train: Illusory Domain",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "upcoming",
-      "releaseDate": "2026-08-09",
-      "releaseLabel": "Aug 9, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "冒险",
-      "price": "价格待定",
-      "discount": 0,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 48,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4920100/a198a1b347c46ad5dee634fcc812751cb4f5e367/capsule_231x87.jpg?t=1785992700",
-      "storeUrl": "https://store.steampowered.com/app/4920100/The_Wraith_Train_Illusory_Domain/"
-    },
-    {
       "id": "steam-3340780",
       "appId": 3340780,
       "name": "Kungfu Card",
@@ -973,6 +952,27 @@
       "heatScore": 48,
       "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3340780/e16c506a1fde3e3185eaae3ef047ad9427b00013/capsule_231x87.jpg?t=1786083911",
       "storeUrl": "https://store.steampowered.com/app/3340780/Kungfu_Card/"
+    },
+    {
+      "id": "steam-4920100",
+      "appId": 4920100,
+      "name": "The Wraith Train: Illusory Domain",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "upcoming",
+      "releaseDate": "2026-08-09",
+      "releaseLabel": "Aug 9, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "冒险",
+      "price": "价格待定",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 48,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4920100/a198a1b347c46ad5dee634fcc812751cb4f5e367/capsule_231x87.jpg?t=1785992700",
+      "storeUrl": "https://store.steampowered.com/app/4920100/The_Wraith_Train_Illusory_Domain/"
     },
     {
       "id": "steam-5019060",
@@ -1126,27 +1126,6 @@
       "storeUrl": "https://store.steampowered.com/app/4190000/Bit_Breaker/"
     },
     {
-      "id": "steam-4851510",
-      "appId": 4851510,
-      "name": "The Black Lily Blooms in Her Eyes",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "upcoming",
-      "releaseDate": "2026-08-10",
-      "releaseLabel": "Aug 10, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "冒险",
-      "price": "Free",
-      "discount": 0,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 48,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4851510/ad4b9eac578428013b7a91d6c1ec1900c97448bb/capsule_231x87.jpg?t=1786189979",
-      "storeUrl": "https://store.steampowered.com/app/4851510/The_Black_Lily_Blooms_in_Her_Eyes/"
-    },
-    {
       "id": "steam-4259690",
       "appId": 4259690,
       "name": "Ajnabee - The Unknown",
@@ -1168,9 +1147,9 @@
       "storeUrl": "https://store.steampowered.com/app/4259690/Ajnabee__The_Unknown/"
     },
     {
-      "id": "steam-4061800",
-      "appId": 4061800,
-      "name": "A Game About Penguins",
+      "id": "steam-4851510",
+      "appId": 4851510,
+      "name": "The Black Lily Blooms in Her Eyes",
       "source": "Steam",
       "sourceRegion": "全球商店",
       "status": "upcoming",
@@ -1180,13 +1159,13 @@
         "Windows"
       ],
       "genre": "冒险",
-      "price": "价格待定",
+      "price": "Free",
       "discount": 0,
       "reviewPercent": 0,
       "reviewCount": 0,
       "heatScore": 48,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4061800/d6d42eae43f82ad8c94c4530ef30eb330db9bc7f/capsule_231x87.jpg?t=1785139936",
-      "storeUrl": "https://store.steampowered.com/app/4061800/A_Game_About_Penguins/"
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4851510/ad4b9eac578428013b7a91d6c1ec1900c97448bb/capsule_231x87.jpg?t=1786189979",
+      "storeUrl": "https://store.steampowered.com/app/4851510/The_Black_Lily_Blooms_in_Her_Eyes/"
     },
     {
       "id": "steam-4289340",
@@ -1208,6 +1187,27 @@
       "heatScore": 48,
       "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4289340/b80e4295fa85ced4155085022b9fef9da74c992d/capsule_231x87.jpg?t=1784833707",
       "storeUrl": "https://store.steampowered.com/app/4289340/UNHUMAN/"
+    },
+    {
+      "id": "steam-4061800",
+      "appId": 4061800,
+      "name": "A Game About Penguins",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "upcoming",
+      "releaseDate": "2026-08-10",
+      "releaseLabel": "Aug 10, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "冒险",
+      "price": "价格待定",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 48,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4061800/d6d42eae43f82ad8c94c4530ef30eb330db9bc7f/capsule_231x87.jpg?t=1785139936",
+      "storeUrl": "https://store.steampowered.com/app/4061800/A_Game_About_Penguins/"
     },
     {
       "id": "steam-4102050",
