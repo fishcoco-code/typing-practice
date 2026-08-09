@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-08-09T07:16:31.442Z",
+  "updatedAt": "2026-08-09T13:15:38.609Z",
   "refreshIntervalHours": 6,
   "coverage": "Steam PC new releases",
   "sources": [
@@ -9,11 +9,163 @@
       "name": "Steam 全球商店",
       "status": "online",
       "games": 61,
-      "latencyMs": 472,
+      "latencyMs": 349,
       "note": "新品与即将上线数据正常"
     }
   ],
   "games": [
+    {
+      "id": "steam-4091470",
+      "appId": 4091470,
+      "name": "Void Miner",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-08-09",
+      "releaseLabel": "Aug 9, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "模拟",
+      "price": "$4.99",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 76,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4091470/1b2f59060ca3067b0961ae581f6fab09ea15973d/capsule_231x87.jpg?t=1786275921",
+      "storeUrl": "https://store.steampowered.com/app/4091470/Void_Miner/"
+    },
+    {
+      "id": "steam-3791630",
+      "appId": 3791630,
+      "name": "Samurai beat demons",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-08-09",
+      "releaseLabel": "Aug 9, 2026",
+      "platforms": [
+        "Windows",
+        "macOS"
+      ],
+      "genre": "休闲",
+      "price": "$4.99",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 76,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3791630/da3eccae8ea270159bd3c5a34b6b1851ae013e0d/capsule_231x87.jpg?t=1786273116",
+      "storeUrl": "https://store.steampowered.com/app/3791630/Samurai_beat_demons/"
+    },
+    {
+      "id": "steam-798680",
+      "appId": 798680,
+      "name": "Animosity",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-08-09",
+      "releaseLabel": "Aug 9, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "PvP",
+      "price": "$6.99",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 76,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/798680/7f7ace10b51ff9bd75c8a02ad37b7b2f93662787/capsule_231x87.jpg?t=1786266440",
+      "storeUrl": "https://store.steampowered.com/app/798680/Animosity/"
+    },
+    {
+      "id": "steam-3182950",
+      "appId": 3182950,
+      "name": "Matchstick: Cosmic Flame",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-08-09",
+      "releaseLabel": "Aug 9, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "其他",
+      "price": "$7.99",
+      "discount": 20,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 76,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3182950/87ccc550699d1031f1bd3bc58918f59a11c1becc/capsule_231x87.jpg?t=1786266174",
+      "storeUrl": "https://store.steampowered.com/app/3182950/Matchstick_Cosmic_Flame/"
+    },
+    {
+      "id": "steam-4462950",
+      "appId": 4462950,
+      "name": "The War Machine",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-08-09",
+      "releaseLabel": "Aug 9, 2026",
+      "platforms": [
+        "Windows",
+        "Linux"
+      ],
+      "genre": "其他",
+      "price": "Free",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 76,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4462950/29a3bec9ca9492185a378b73a45d673b185060f4/capsule_231x87.jpg?t=1786265488",
+      "storeUrl": "https://store.steampowered.com/app/4462950/The_War_Machine/"
+    },
+    {
+      "id": "steam-4596230",
+      "appId": 4596230,
+      "name": "Flavors of Spain",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-08-09",
+      "releaseLabel": "Aug 9, 2026",
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "genre": "策略",
+      "price": "Free",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 76,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4596230/d06578172ecb8c62aff528df1a1fc82bf285afb7/capsule_231x87.jpg?t=1786265755",
+      "storeUrl": "https://store.steampowered.com/app/4596230/Flavors_of_Spain/"
+    },
+    {
+      "id": "steam-1650820",
+      "appId": 1650820,
+      "name": "Graveyard Shift",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-08-09",
+      "releaseLabel": "Aug 9, 2026",
+      "platforms": [
+        "Windows",
+        "macOS"
+      ],
+      "genre": "策略",
+      "price": "Free",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 76,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1650820/capsule_231x87.jpg?t=1786259784",
+      "storeUrl": "https://store.steampowered.com/app/1650820/Graveyard_Shift/"
+    },
     {
       "id": "steam-4261850",
       "appId": 4261850,
@@ -312,7 +464,7 @@
       "reviewPercent": 0,
       "reviewCount": 0,
       "heatScore": 74,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4961730/3b80d49a9830b18e0b6b1256acd6f2777af90960/capsule_231x87.jpg?t=1786175899",
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4961730/e527631217dade28aa7c9812972b9324a1b33ca4/capsule_231x87.jpg?t=1786275639",
       "storeUrl": "https://store.steampowered.com/app/4961730/Accident_Investigator_Simulator_Black_Box/"
     },
     {
@@ -397,7 +549,7 @@
       "reviewPercent": 0,
       "reviewCount": 0,
       "heatScore": 74,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4823670/a007ce6cc36a666d7f32e4f5eb15b427b9f9dbba/capsule_231x87.jpg?t=1786172458",
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4823670/a007ce6cc36a666d7f32e4f5eb15b427b9f9dbba/capsule_231x87.jpg?t=1786273396",
       "storeUrl": "https://store.steampowered.com/app/4823670/A_Nibble_Tale/"
     },
     {
@@ -628,157 +780,8 @@
       "reviewPercent": 0,
       "reviewCount": 0,
       "heatScore": 72,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4685470/7ba36b3777102373be60866525d6efe91f5c868a/capsule_231x87.jpg?t=1786201693",
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4685470/7ba36b3777102373be60866525d6efe91f5c868a/capsule_231x87.jpg?t=1786280064",
       "storeUrl": "https://store.steampowered.com/app/4685470/Tailbreak/"
-    },
-    {
-      "id": "steam-4855290",
-      "appId": 4855290,
-      "name": "Marine",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-08-07",
-      "releaseLabel": "Aug 7, 2026",
-      "platforms": [
-        "Windows",
-        "Linux"
-      ],
-      "genre": "策略",
-      "price": "$5.99",
-      "discount": 0,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 72,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4855290/45a188e488f908d6dbbb69d3454e460dee79b229/capsule_231x87.jpg?t=1786144588",
-      "storeUrl": "https://store.steampowered.com/app/4855290/Marine/"
-    },
-    {
-      "id": "steam-4983940",
-      "appId": 4983940,
-      "name": "Terra Physics & Money",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-08-07",
-      "releaseLabel": "Aug 7, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "策略",
-      "price": "$5.39",
-      "discount": 10,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 72,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4983940/2e9f9cc3c9a1a759bf0303e9f3a641369b364df3/capsule_231x87.jpg?t=1786143841",
-      "storeUrl": "https://store.steampowered.com/app/4983940/Terra_Physics__Money/"
-    },
-    {
-      "id": "steam-4991980",
-      "appId": 4991980,
-      "name": "Cape Warrior",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-08-07",
-      "releaseLabel": "Aug 7, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "冒险",
-      "price": "$1.79",
-      "discount": 40,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 72,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4991980/0ea6f36bad43d29019a7d3ec44e7efc20dd2af8a/capsule_231x87.jpg?t=1786143275",
-      "storeUrl": "https://store.steampowered.com/app/4991980/Cape_Warrior/"
-    },
-    {
-      "id": "steam-4516900",
-      "appId": 4516900,
-      "name": "Smile Protocol",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-08-07",
-      "releaseLabel": "Aug 7, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "动作",
-      "price": "$5.09",
-      "discount": 15,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 72,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4516900/5419729fc89daaac667bebecfd73972e35c23b1c/capsule_231x87.jpg?t=1786155170",
-      "storeUrl": "https://store.steampowered.com/app/4516900/Smile_Protocol/"
-    },
-    {
-      "id": "steam-4697020",
-      "appId": 4697020,
-      "name": "Sluggy Nom Nom",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-08-07",
-      "releaseLabel": "Aug 7, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "休闲",
-      "price": "$0.99",
-      "discount": 0,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 72,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4697020/5e3c0a9c2130e732a05b64bc74fe626ea672ba05/capsule_231x87.jpg?t=1786141618",
-      "storeUrl": "https://store.steampowered.com/app/4697020/Sluggy_Nom_Nom/"
-    },
-    {
-      "id": "steam-3644170",
-      "appId": 3644170,
-      "name": "Shirohebi and The Tower of Mercy",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-08-07",
-      "releaseLabel": "Aug 7, 2026",
-      "platforms": [
-        "Windows",
-        "Linux"
-      ],
-      "genre": "角色扮演",
-      "price": "$8.99",
-      "discount": 10,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 72,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3644170/267c34063b021c2efe20b3dd683ebcefcadc1952/capsule_231x87.jpg?t=1786135739",
-      "storeUrl": "https://store.steampowered.com/app/3644170/Shirohebi_and_The_Tower_of_Mercy/"
-    },
-    {
-      "id": "steam-3995840",
-      "appId": 3995840,
-      "name": "FerryMan",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-08-07",
-      "releaseLabel": "Aug 7, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "冒险",
-      "price": "$0.74",
-      "discount": 25,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 72,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3995840/50444a4e1afcf7def64be6dd3e6b257e1c69056c/capsule_231x87.jpg?t=1786135025",
-      "storeUrl": "https://store.steampowered.com/app/3995840/FerryMan/"
     },
     {
       "id": "steam-4326430",
@@ -845,28 +848,6 @@
       "storeUrl": "https://store.steampowered.com/app/4911480/Playworlds/"
     },
     {
-      "id": "steam-3791630",
-      "appId": 3791630,
-      "name": "Samurai beat demons",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "upcoming",
-      "releaseDate": "2026-08-09",
-      "releaseLabel": "Aug 9, 2026",
-      "platforms": [
-        "Windows",
-        "macOS"
-      ],
-      "genre": "休闲",
-      "price": "价格待定",
-      "discount": 0,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 48,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3791630/da3eccae8ea270159bd3c5a34b6b1851ae013e0d/capsule_231x87.jpg?t=1785222478",
-      "storeUrl": "https://store.steampowered.com/app/3791630/Samurai_beat_demons/"
-    },
-    {
       "id": "steam-4537400",
       "appId": 4537400,
       "name": "Paper2Galgame",
@@ -931,27 +912,6 @@
       "storeUrl": "https://store.steampowered.com/app/4875270/ASCENDexe/"
     },
     {
-      "id": "steam-4920100",
-      "appId": 4920100,
-      "name": "The Wraith Train: Illusory Domain",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "upcoming",
-      "releaseDate": "2026-08-09",
-      "releaseLabel": "Aug 9, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "冒险",
-      "price": "价格待定",
-      "discount": 0,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 48,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4920100/a198a1b347c46ad5dee634fcc812751cb4f5e367/capsule_231x87.jpg?t=1785992700",
-      "storeUrl": "https://store.steampowered.com/app/4920100/The_Wraith_Train_Illusory_Domain/"
-    },
-    {
       "id": "steam-3340780",
       "appId": 3340780,
       "name": "Kungfu Card",
@@ -971,6 +931,27 @@
       "heatScore": 48,
       "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3340780/e16c506a1fde3e3185eaae3ef047ad9427b00013/capsule_231x87.jpg?t=1786083911",
       "storeUrl": "https://store.steampowered.com/app/3340780/Kungfu_Card/"
+    },
+    {
+      "id": "steam-4920100",
+      "appId": 4920100,
+      "name": "The Wraith Train: Illusory Domain",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "upcoming",
+      "releaseDate": "2026-08-09",
+      "releaseLabel": "Aug 9, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "冒险",
+      "price": "价格待定",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 48,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4920100/a198a1b347c46ad5dee634fcc812751cb4f5e367/capsule_231x87.jpg?t=1785992700",
+      "storeUrl": "https://store.steampowered.com/app/4920100/The_Wraith_Train_Illusory_Domain/"
     },
     {
       "id": "steam-5019060",
@@ -1124,27 +1105,6 @@
       "storeUrl": "https://store.steampowered.com/app/4190000/Bit_Breaker/"
     },
     {
-      "id": "steam-4851510",
-      "appId": 4851510,
-      "name": "The Black Lily Blooms in Her Eyes",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "upcoming",
-      "releaseDate": "2026-08-10",
-      "releaseLabel": "Aug 10, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "冒险",
-      "price": "Free",
-      "discount": 0,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 48,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4851510/ad4b9eac578428013b7a91d6c1ec1900c97448bb/capsule_231x87.jpg?t=1786189979",
-      "storeUrl": "https://store.steampowered.com/app/4851510/The_Black_Lily_Blooms_in_Her_Eyes/"
-    },
-    {
       "id": "steam-4259690",
       "appId": 4259690,
       "name": "Ajnabee - The Unknown",
@@ -1164,6 +1124,27 @@
       "heatScore": 48,
       "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4259690/fc0f01e5c7d2d9c82b0105e3e944b4f5470413b9/capsule_231x87.jpg?t=1785934594",
       "storeUrl": "https://store.steampowered.com/app/4259690/Ajnabee__The_Unknown/"
+    },
+    {
+      "id": "steam-4851510",
+      "appId": 4851510,
+      "name": "The Black Lily Blooms in Her Eyes",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "upcoming",
+      "releaseDate": "2026-08-10",
+      "releaseLabel": "Aug 10, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "冒险",
+      "price": "Free",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 48,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4851510/ad4b9eac578428013b7a91d6c1ec1900c97448bb/capsule_231x87.jpg?t=1786264304",
+      "storeUrl": "https://store.steampowered.com/app/4851510/The_Black_Lily_Blooms_in_Her_Eyes/"
     },
     {
       "id": "steam-4289340",
@@ -1204,7 +1185,7 @@
       "reviewPercent": 0,
       "reviewCount": 0,
       "heatScore": 48,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4061800/d6d42eae43f82ad8c94c4530ef30eb330db9bc7f/capsule_231x87.jpg?t=1785139936",
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4061800/d6d42eae43f82ad8c94c4530ef30eb330db9bc7f/capsule_231x87.jpg?t=1786281033",
       "storeUrl": "https://store.steampowered.com/app/4061800/A_Game_About_Penguins/"
     },
     {
@@ -1313,6 +1294,27 @@
       "heatScore": 48,
       "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4363230/f4ab4fef3063ceca130fbc1aa658f66c78d921e0/capsule_231x87.jpg?t=1784109017",
       "storeUrl": "https://store.steampowered.com/app/4363230/Rampallians/"
+    },
+    {
+      "id": "steam-4443340",
+      "appId": 4443340,
+      "name": "Michi-Suji Puzzle: Michi Connect",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "upcoming",
+      "releaseDate": "2026-08-10",
+      "releaseLabel": "Aug 10, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "休闲",
+      "price": "价格待定",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 48,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4443340/22938c2edd27a461012ac875bafe6ad8e05ab7ae/capsule_231x87.jpg?t=1786199997",
+      "storeUrl": "https://store.steampowered.com/app/4443340/MichiSuji_Puzzle_Michi_Connect/"
     }
   ]
 }
