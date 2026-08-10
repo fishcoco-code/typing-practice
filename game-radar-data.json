@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-08-09T19:01:15.379Z",
+  "updatedAt": "2026-08-10T02:34:45.755Z",
   "refreshIntervalHours": 6,
   "coverage": "Steam PC new releases",
   "sources": [
@@ -9,11 +9,180 @@
       "name": "Steam 全球商店",
       "status": "online",
       "games": 61,
-      "latencyMs": 693,
+      "latencyMs": 326,
       "note": "新品与即将上线数据正常"
     }
   ],
   "games": [
+    {
+      "id": "steam-3340780",
+      "appId": 3340780,
+      "name": "Kungfu Card",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-08-09",
+      "releaseLabel": "Aug 9, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "策略",
+      "price": "$4.49",
+      "discount": 10,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 75,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3340780/e16c506a1fde3e3185eaae3ef047ad9427b00013/capsule_231x87.jpg?t=1786327973",
+      "storeUrl": "https://store.steampowered.com/app/3340780/Kungfu_Card/"
+    },
+    {
+      "id": "steam-4675230",
+      "appId": 4675230,
+      "name": "MUGI",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-08-09",
+      "releaseLabel": "Aug 9, 2026",
+      "platforms": [
+        "Windows",
+        "Linux"
+      ],
+      "genre": "动作",
+      "price": "$7.99",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 75,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4675230/5ef2dc29a0df8343779fa2457c0dba9d3fd0fd83/capsule_231x87.jpg?t=1786318327",
+      "storeUrl": "https://store.steampowered.com/app/4675230/MUGI/"
+    },
+    {
+      "id": "steam-4735660",
+      "appId": 4735660,
+      "name": "Cyber Spartan",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-08-09",
+      "releaseLabel": "Aug 9, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "动作",
+      "price": "$14.99",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 75,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4735660/6271069ae5018494a162352fcc6f4a16e8ba9182/capsule_231x87.jpg?t=1786316193",
+      "storeUrl": "https://store.steampowered.com/app/4735660/Cyber_Spartan/"
+    },
+    {
+      "id": "steam-4739690",
+      "appId": 4739690,
+      "name": "Immortal Generals",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-08-09",
+      "releaseLabel": "Aug 9, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "策略",
+      "price": "$7.99",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 75,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4739690/69fc0b3b5ce25b96ef78769eaf2ed8b51d38e47a/capsule_231x87.jpg?t=1786315816",
+      "storeUrl": "https://store.steampowered.com/app/4739690/Immortal_Generals/"
+    },
+    {
+      "id": "steam-4990600",
+      "appId": 4990600,
+      "name": "Blackforest",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-08-09",
+      "releaseLabel": "Aug 9, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "冒险",
+      "price": "$7.19",
+      "discount": 10,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 75,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4990600/6a0feb5506aff6fac084ea84cf4373581fd44f48/capsule_231x87.jpg?t=1786315395",
+      "storeUrl": "https://store.steampowered.com/app/4990600/Blackforest/"
+    },
+    {
+      "id": "steam-4914110",
+      "appId": 4914110,
+      "name": "Case of 1980",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-08-09",
+      "releaseLabel": "Aug 9, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "冒险",
+      "price": "$3.49",
+      "discount": 30,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 75,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4914110/c0e128ef2b442fc36a58b7d9fb1591da24a142da/capsule_231x87.jpg?t=1786314599",
+      "storeUrl": "https://store.steampowered.com/app/4914110/Case_of_1980/"
+    },
+    {
+      "id": "steam-4418470",
+      "appId": 4418470,
+      "name": "CHEATED",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-08-09",
+      "releaseLabel": "Aug 9, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "PvP",
+      "price": "$3.09",
+      "discount": 38,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 75,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4418470/da10ab474bfd6319d94b087ab7463a2bffc2166e/capsule_231x87.jpg?t=1786309767",
+      "storeUrl": "https://store.steampowered.com/app/4418470/CHEATED/"
+    },
+    {
+      "id": "steam-4102050",
+      "appId": 4102050,
+      "name": "The Dungeon Of Horror",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-08-09",
+      "releaseLabel": "Aug 9, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "角色扮演",
+      "price": "$13.49",
+      "discount": 10,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 75,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4102050/efac0a3d8ee31297cf3af8a711d648c7b7b58b29/capsule_231x87.jpg?t=1786302078",
+      "storeUrl": "https://store.steampowered.com/app/4102050/The_Dungeon_Of_Horror/"
+    },
     {
       "id": "steam-4101700",
       "appId": 4101700,
@@ -618,259 +787,6 @@
       "storeUrl": "https://store.steampowered.com/app/4961730/Accident_Investigator_Simulator_Black_Box/"
     },
     {
-      "id": "steam-4966740",
-      "appId": 4966740,
-      "name": "日本地図 都市パズル",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-08-08",
-      "releaseLabel": "Aug 8, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "休闲",
-      "price": "$8.99",
-      "discount": 0,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 73,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4966740/14475647e53289a842579a26701eed96177dac06/capsule_231x87.jpg?t=1786174583",
-      "storeUrl": "https://store.steampowered.com/app/4966740/_/"
-    },
-    {
-      "id": "steam-4160340",
-      "appId": 4160340,
-      "name": "MISCHIEF MANDARIN",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-08-08",
-      "releaseLabel": "Aug 8, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "冒险",
-      "price": "$7.64",
-      "discount": 15,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 73,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4160340/6c52361ed2ad976cb249ff027d0857095061a741/capsule_231x87.jpg?t=1786173751",
-      "storeUrl": "https://store.steampowered.com/app/4160340/MISCHIEF_MANDARIN/"
-    },
-    {
-      "id": "steam-1465260",
-      "appId": 1465260,
-      "name": "Cyberpunk SFX",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-08-08",
-      "releaseLabel": "Aug 8, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "冒险",
-      "price": "$1.49",
-      "discount": 85,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 73,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1465260/458f495161a5a61e9773502d0863e10fbce7eb1a/capsule_231x87.jpg?t=1786173817",
-      "storeUrl": "https://store.steampowered.com/app/1465260/Cyberpunk_SFX/"
-    },
-    {
-      "id": "steam-4823670",
-      "appId": 4823670,
-      "name": "A Nibble Tale",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-08-08",
-      "releaseLabel": "Aug 8, 2026",
-      "platforms": [
-        "Windows",
-        "macOS"
-      ],
-      "genre": "动作",
-      "price": "$4.99",
-      "discount": 0,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 73,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4823670/2804b96e95b5cdc002de886af798a1c43e528cb0/capsule_231x87.jpg?t=1786288349",
-      "storeUrl": "https://store.steampowered.com/app/4823670/A_Nibble_Tale/"
-    },
-    {
-      "id": "steam-3389490",
-      "appId": 3389490,
-      "name": "Penguin Quest",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-08-07",
-      "releaseLabel": "Aug 7, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "冒险",
-      "price": "$2.24",
-      "discount": 25,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 71,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3389490/7c5fbed114e68e4597c34f1154ff98d5cd70124e/capsule_231x87.jpg?t=1786170204",
-      "storeUrl": "https://store.steampowered.com/app/3389490/Penguin_Quest/"
-    },
-    {
-      "id": "steam-4838500",
-      "appId": 4838500,
-      "name": "天亮之后",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-08-07",
-      "releaseLabel": "Aug 7, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "其他",
-      "price": "$5.09",
-      "discount": 15,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 71,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4838500/2feb45e461b1681a632504a78e4cf24248d327be/capsule_231x87.jpg?t=1786281718",
-      "storeUrl": "https://store.steampowered.com/app/4838500/_/"
-    },
-    {
-      "id": "steam-4875150",
-      "appId": 4875150,
-      "name": "World Climate Lab",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-08-07",
-      "releaseLabel": "Aug 7, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "模拟",
-      "price": "$15.99",
-      "discount": 0,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 71,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4875150/f11179b349f788e2e0f4f5cf553bc6097da52cbd/capsule_231x87.jpg?t=1786163624",
-      "storeUrl": "https://store.steampowered.com/app/4875150/World_Climate_Lab/"
-    },
-    {
-      "id": "steam-4960190",
-      "appId": 4960190,
-      "name": "Comet Dudes",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-08-07",
-      "releaseLabel": "Aug 7, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "动作",
-      "price": "Free",
-      "discount": 0,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 71,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4960190/1eb62b2eba93d60c4a1c657fe743a4964eff2e5b/capsule_231x87.jpg?t=1786158076",
-      "storeUrl": "https://store.steampowered.com/app/4960190/Comet_Dudes/"
-    },
-    {
-      "id": "steam-3971290",
-      "appId": 3971290,
-      "name": "The Money Pit",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "upcoming",
-      "releaseDate": "2026-08-09",
-      "releaseLabel": "Aug 9, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "PvP",
-      "price": "价格待定",
-      "discount": 0,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 48,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3971290/080fd7ac310d2cb2d93a9c744afa0e704bacebcb/capsule_231x87.jpg?t=1785932783",
-      "storeUrl": "https://store.steampowered.com/app/3971290/The_Money_Pit/"
-    },
-    {
-      "id": "steam-4875270",
-      "appId": 4875270,
-      "name": "ASCEND.exe",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "upcoming",
-      "releaseDate": "2026-08-09",
-      "releaseLabel": "Aug 9, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "动作",
-      "price": "价格待定",
-      "discount": 0,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 48,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4875270/4af259357bedb21fa639d26ad9acc2250569f915/capsule_231x87.jpg?t=1784289511",
-      "storeUrl": "https://store.steampowered.com/app/4875270/ASCENDexe/"
-    },
-    {
-      "id": "steam-4920100",
-      "appId": 4920100,
-      "name": "The Wraith Train: Illusory Domain",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "upcoming",
-      "releaseDate": "2026-08-09",
-      "releaseLabel": "Aug 9, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "冒险",
-      "price": "价格待定",
-      "discount": 0,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 48,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4920100/a198a1b347c46ad5dee634fcc812751cb4f5e367/capsule_231x87.jpg?t=1785992700",
-      "storeUrl": "https://store.steampowered.com/app/4920100/The_Wraith_Train_Illusory_Domain/"
-    },
-    {
-      "id": "steam-3340780",
-      "appId": 3340780,
-      "name": "Kungfu Card",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "upcoming",
-      "releaseDate": "2026-08-09",
-      "releaseLabel": "Aug 9, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "策略",
-      "price": "价格待定",
-      "discount": 0,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 48,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3340780/e16c506a1fde3e3185eaae3ef047ad9427b00013/capsule_231x87.jpg?t=1786285220",
-      "storeUrl": "https://store.steampowered.com/app/3340780/Kungfu_Card/"
-    },
-    {
       "id": "steam-5019060",
       "appId": 5019060,
       "name": "Twenty One Points",
@@ -1018,7 +934,7 @@
       "reviewPercent": 0,
       "reviewCount": 0,
       "heatScore": 48,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4190000/28598f9beb1ea9226aaf68f85f5b581242fe1aaf/capsule_231x87.jpg?t=1785278359",
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4190000/28598f9beb1ea9226aaf68f85f5b581242fe1aaf/capsule_231x87.jpg?t=1786306202",
       "storeUrl": "https://store.steampowered.com/app/4190000/Bit_Breaker/"
     },
     {
@@ -1083,27 +999,6 @@
       "heatScore": 48,
       "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4289340/b80e4295fa85ced4155085022b9fef9da74c992d/capsule_231x87.jpg?t=1784833707",
       "storeUrl": "https://store.steampowered.com/app/4289340/UNHUMAN/"
-    },
-    {
-      "id": "steam-4102050",
-      "appId": 4102050,
-      "name": "The Dungeon Of Horror",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "upcoming",
-      "releaseDate": "2026-08-10",
-      "releaseLabel": "Aug 10, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "角色扮演",
-      "price": "价格待定",
-      "discount": 0,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 48,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4102050/efac0a3d8ee31297cf3af8a711d648c7b7b58b29/capsule_231x87.jpg?t=1785316341",
-      "storeUrl": "https://store.steampowered.com/app/4102050/The_Dungeon_Of_Horror/"
     },
     {
       "id": "steam-4457410",
@@ -1316,6 +1211,114 @@
       "heatScore": 48,
       "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4247730/ebce04a174c3c666479f7eb24fc49a7af68ff199/capsule_231x87.jpg?t=1785963734",
       "storeUrl": "https://store.steampowered.com/app/4247730/BookStore_Simulator/"
+    },
+    {
+      "id": "steam-4539910",
+      "appId": 4539910,
+      "name": "PhotoBricks",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "upcoming",
+      "releaseDate": "2026-08-10",
+      "releaseLabel": "Aug 10, 2026",
+      "platforms": [
+        "Windows",
+        "Linux"
+      ],
+      "genre": "休闲",
+      "price": "价格待定",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 48,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4539910/25018b5b10947ebb1c0c46947af527c2b739905a/capsule_231x87.jpg?t=1786277210",
+      "storeUrl": "https://store.steampowered.com/app/4539910/PhotoBricks/"
+    },
+    {
+      "id": "steam-4988340",
+      "appId": 4988340,
+      "name": "Realmbound Frontier",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "upcoming",
+      "releaseDate": "2026-08-10",
+      "releaseLabel": "Aug 10, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "策略",
+      "price": "价格待定",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 48,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4988340/4e79b2e90df22c40f9d5898e2589f3023d67f9a7/capsule_231x87.jpg?t=1786129039",
+      "storeUrl": "https://store.steampowered.com/app/4988340/Realmbound_Frontier/"
+    },
+    {
+      "id": "steam-4480320",
+      "appId": 4480320,
+      "name": "H3LLV3TE",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "upcoming",
+      "releaseDate": "2026-08-10",
+      "releaseLabel": "Aug 10, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "冒险",
+      "price": "价格待定",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 48,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4480320/c676908d304441d9aee3ff3304e5047a9afc3724/capsule_231x87.jpg?t=1785451708",
+      "storeUrl": "https://store.steampowered.com/app/4480320/H3LLV3TE/"
+    },
+    {
+      "id": "steam-1067360",
+      "appId": 1067360,
+      "name": "Pax Autocratica",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "upcoming",
+      "releaseDate": "2026-08-10",
+      "releaseLabel": "Aug 10, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "生存",
+      "price": "价格待定",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 48,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1067360/84425c82428a91fe38e283efbc6a7afedb1d0332/capsule_231x87.jpg?t=1786283279",
+      "storeUrl": "https://store.steampowered.com/app/1067360/Pax_Autocratica/"
+    },
+    {
+      "id": "steam-4458840",
+      "appId": 4458840,
+      "name": "T.W.I.R.L.",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "upcoming",
+      "releaseDate": "2026-08-10",
+      "releaseLabel": "Aug 10, 2026",
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "genre": "其他",
+      "price": "价格待定",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 48,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4458840/6968ef4f959c7a5b981c395b9d11a5c29050e4d4/capsule_231x87.jpg?t=1785715746",
+      "storeUrl": "https://store.steampowered.com/app/4458840/TWIRL/"
     }
   ]
 }
