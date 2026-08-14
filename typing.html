@@ -5,10 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="帅气逼人吊炸天 · 打字与指法练习" />
     <title>打字 · 帅气逼人吊炸天</title>
-    <link rel="stylesheet" href="styles.css?v=6" />
+    <link rel="stylesheet" href="styles.css?v=7" />
   </head>
   <body>
     <a class="home-link" href="./" aria-label="返回首页">← <span>首页</span></a>
+    <button class="keyboard-toggle" id="keyboardToggle" type="button" aria-controls="keyboardPanel" aria-expanded="true">
+      <span aria-hidden="true">⌨</span>
+      <b id="keyboardToggleText">隐藏键盘</b>
+    </button>
     <main class="focus-shell">
       <section class="practice-card" id="practiceCard" aria-label="打字练习区域">
         <div class="hidden-metrics" hidden>
@@ -27,7 +31,7 @@
           </div>
         </div>
 
-        <div class="keyboard-panel">
+        <div class="keyboard-panel" id="keyboardPanel">
           <div class="finger-guide" aria-live="polite">
             <span class="next-key" id="nextKey">S</span>
             <div class="guide-copy">
@@ -75,6 +79,6 @@
 
     <textarea id="typingInput" class="typing-input" aria-hidden="true" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false"></textarea>
     <script src="passages.js?v=3"></script>
-    <script src="app.js?v=5"></script>
+    <script src="app.js?v=6"></script>
   </body>
 </html>

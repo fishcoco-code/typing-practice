@@ -53,6 +53,9 @@ const elements = {
   accuracy: document.querySelector("#accuracy"),
   fingerName: document.querySelector("#fingerName"),
   keyboardStatus: document.querySelector("#keyboardStatus"),
+  keyboardPanel: document.querySelector("#keyboardPanel"),
+  keyboardToggle: document.querySelector("#keyboardToggle"),
+  keyboardToggleText: document.querySelector("#keyboardToggleText"),
   mappingHint: document.querySelector("#mappingHint"),
   mappingKey: document.querySelector("#mappingKey"),
   nextKey: document.querySelector("#nextKey"),
@@ -310,22 +313,41 @@ function initializeTheme() {
   setTheme(savedTheme || preferredTheme);
 }
 
+function setKeyboardVisible(visible, persist = false) {
+  elements.keyboardPanel.hidden = !visible;
+  elements.keyboardToggle.setAttribute("aria-expanded", String(visible));
+  elements.keyboardToggleText.textContent = visible ? "隐藏键盘" : "显示键盘";
+  elements.keyboardToggle.title = visible ? "隐藏下方键盘和手指提示" : "显示下方键盘和手指提示";
+
+  if (persist) localStorage.setItem("typing-keyboard-visible", String(visible));
+}
+
+function initializeKeyboardVisibility() {
+  const savedVisibility = localStorage.getItem("typing-keyboard-visible");
+  setKeyboardVisible(savedVisibility !== "false");
+}
+
 elements.typingArea.addEventListener("click", focusInput);
 elements.typingArea.addEventListener("focus", focusInput);
 elements.typingInput.addEventListener("input", handleInput);
+elements.keyboardToggle.addEventListener("click", () => {
+  setKeyboardVisible(elements.keyboardPanel.hidden, true);
+});
 
 document.addEventListener("keydown", (event) => {
+  const isButton = event.target instanceof HTMLButtonElement;
   if (event.key === "Enter") {
+    if (isButton) return;
     event.preventDefault();
     if (!elements.result.hidden) nextPassage();
     return;
   }
 
-  const isButton = event.target instanceof HTMLButtonElement;
   if (!isButton && event.key.length === 1) focusInput();
   if (event.key === "Escape") resetPractice();
 });
 
 initializeTheme();
+initializeKeyboardVisibility();
 createKeyboard();
 resetPractice();
