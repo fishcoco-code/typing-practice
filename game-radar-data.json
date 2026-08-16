@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-08-16T06:59:34.265Z",
+  "updatedAt": "2026-08-16T13:00:56.449Z",
   "refreshIntervalHours": 6,
   "coverage": "Steam PC new releases",
   "sources": [
@@ -9,11 +9,225 @@
       "name": "Steam 全球商店",
       "status": "online",
       "games": 61,
-      "latencyMs": 280,
+      "latencyMs": 513,
       "note": "新品与即将上线数据正常"
     }
   ],
   "games": [
+    {
+      "id": "steam-4855430",
+      "appId": 4855430,
+      "name": "Mahjong Encyclopedia",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-08-16",
+      "releaseLabel": "Aug 16, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "休闲",
+      "price": "Free",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 76,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4855430/740f951ee06d7c560e044d1a0c60b6ca1e0a494e/capsule_231x87.jpg?t=1786883244",
+      "storeUrl": "https://store.steampowered.com/app/4855430/Mahjong_Encyclopedia/"
+    },
+    {
+      "id": "steam-4625810",
+      "appId": 4625810,
+      "name": "Internet Survivor Survivors",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-08-16",
+      "releaseLabel": "Aug 16, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "其他",
+      "price": "$12.74",
+      "discount": 15,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 76,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4625810/32985081ed99e143a208ff5b3f3079bd48012f44/capsule_231x87.jpg?t=1786878059",
+      "storeUrl": "https://store.steampowered.com/app/4625810/Internet_Survivor_Survivors/"
+    },
+    {
+      "id": "steam-4831310",
+      "appId": 4831310,
+      "name": "Karma Kingdom",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-08-16",
+      "releaseLabel": "Aug 16, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "角色扮演",
+      "price": "Free",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 76,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4831310/47f2d63e4193b64f72821636374a223bf7d85d70/capsule_231x87.jpg?t=1786877623",
+      "storeUrl": "https://store.steampowered.com/app/4831310/Karma_Kingdom/"
+    },
+    {
+      "id": "steam-4868070",
+      "appId": 4868070,
+      "name": "Nocturne Hollow",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-08-16",
+      "releaseLabel": "Aug 16, 2026",
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "genre": "冒险",
+      "price": "$9.99",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 76,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4868070/ea094251518b1d3e34dbc2564ddad884d730c88d/capsule_231x87.jpg?t=1786874596",
+      "storeUrl": "https://store.steampowered.com/app/4868070/Nocturne_Hollow/"
+    },
+    {
+      "id": "steam-4939310",
+      "appId": 4939310,
+      "name": "Plonkers - totally bonkers plinko",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-08-16",
+      "releaseLabel": "Aug 16, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "休闲",
+      "price": "$6.99",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 76,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4939310/8bcc20a8649423a695591cd9a5703b15c311842e/capsule_231x87.jpg?t=1786872755",
+      "storeUrl": "https://store.steampowered.com/app/4939310/Plonkers__totally_bonkers_plinko/"
+    },
+    {
+      "id": "steam-3269340",
+      "appId": 3269340,
+      "name": "Horus: Desert Survivor",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-08-16",
+      "releaseLabel": "Aug 16, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "街机",
+      "price": "Free",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 76,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3269340/4b9ceb52f75575265e2f4358343f47ee9e916a35/capsule_231x87.jpg?t=1786872196",
+      "storeUrl": "https://store.steampowered.com/app/3269340/Horus_Desert_Survivor/"
+    },
+    {
+      "id": "steam-3756930",
+      "appId": 3756930,
+      "name": "Sweet Clockwork",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-08-16",
+      "releaseLabel": "Aug 16, 2026",
+      "platforms": [
+        "Windows",
+        "macOS"
+      ],
+      "genre": "冒险",
+      "price": "$12.59",
+      "discount": 10,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 76,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3756930/4f71e33087601f27aa7a5dec4ad8662061c380a0/capsule_231x87.jpg?t=1786870862",
+      "storeUrl": "https://store.steampowered.com/app/3756930/Sweet_Clockwork/"
+    },
+    {
+      "id": "steam-4370970",
+      "appId": 4370970,
+      "name": "KuKu's Cinema",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-08-16",
+      "releaseLabel": "Aug 16, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "休闲",
+      "price": "Free",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 76,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4370970/4f61019e93ad1cdc72c292d7e4a1b4a0fb75d6f0/capsule_231x87.jpg?t=1786869813",
+      "storeUrl": "https://store.steampowered.com/app/4370970/KuKus_Cinema/"
+    },
+    {
+      "id": "steam-4881490",
+      "appId": 4881490,
+      "name": "FinSim",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-08-16",
+      "releaseLabel": "Aug 16, 2026",
+      "platforms": [
+        "Windows",
+        "macOS"
+      ],
+      "genre": "模拟",
+      "price": "$6.99",
+      "discount": 30,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 76,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4881490/0351d5edc5c60fc9f206263c337577915eb41024/capsule_231x87.jpg?t=1786869732",
+      "storeUrl": "https://store.steampowered.com/app/4881490/FinSim/"
+    },
+    {
+      "id": "steam-3824090",
+      "appId": 3824090,
+      "name": "Peganomics",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-08-16",
+      "releaseLabel": "Aug 16, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "策略",
+      "price": "$2.09",
+      "discount": 30,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 76,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3824090/28ad7e151ac43216b686acd19fb67d692526415b/capsule_231x87.jpg?t=1786866709",
+      "storeUrl": "https://store.steampowered.com/app/3824090/Peganomics/"
+    },
     {
       "id": "steam-4765580",
       "appId": 4765580,
@@ -116,7 +330,7 @@
       "reviewPercent": 0,
       "reviewCount": 0,
       "heatScore": 74,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4883890/fc287a80bad562ee5ad9f7502a9dedf828728607/capsule_231x87.jpg?t=1786842413",
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4883890/fc287a80bad562ee5ad9f7502a9dedf828728607/capsule_231x87.jpg?t=1786873697",
       "storeUrl": "https://store.steampowered.com/app/4883890/Octo_Armada/"
     },
     {
@@ -565,215 +779,25 @@
       "storeUrl": "https://store.steampowered.com/app/4943700/Fungi_Simulator/"
     },
     {
-      "id": "steam-4593660",
-      "appId": 4593660,
-      "name": "Totally Normal Meat Co.",
+      "id": "steam-4880670",
+      "appId": 4880670,
+      "name": "PuruPuru: Pull It Along",
       "source": "Steam",
       "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-08-15",
-      "releaseLabel": "Aug 15, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "策略",
-      "price": "Free",
-      "discount": 0,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 74,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4593660/dffec04b94f6770fac47bc586c4f957b3b1f6a62/capsule_231x87.jpg?t=1786793182",
-      "storeUrl": "https://store.steampowered.com/app/4593660/Totally_Normal_Meat_Co/"
-    },
-    {
-      "id": "steam-4930200",
-      "appId": 4930200,
-      "name": "Mutant Tide",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-08-15",
-      "releaseLabel": "Aug 15, 2026",
+      "status": "upcoming",
+      "releaseDate": "2026-08-16",
+      "releaseLabel": "Aug 16, 2026",
       "platforms": [
         "Windows"
       ],
       "genre": "动作",
-      "price": "$4.24",
-      "discount": 15,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 74,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4930200/7185a2cd5bd11cde9704da71c792267f127f5618/capsule_231x87.jpg?t=1786792651",
-      "storeUrl": "https://store.steampowered.com/app/4930200/Mutant_Tide/"
-    },
-    {
-      "id": "steam-2825810",
-      "appId": 2825810,
-      "name": "PhotoGuessr",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-08-15",
-      "releaseLabel": "Aug 15, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "休闲",
-      "price": "$3.99",
+      "price": "价格待定",
       "discount": 0,
       "reviewPercent": 0,
       "reviewCount": 0,
-      "heatScore": 74,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2825810/f26f34c6bf71955e4bb6eeea8fd15d5d66b3355d/capsule_231x87.jpg?t=1786791981",
-      "storeUrl": "https://store.steampowered.com/app/2825810/PhotoGuessr/"
-    },
-    {
-      "id": "steam-4987740",
-      "appId": 4987740,
-      "name": "The Fabricator",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-08-15",
-      "releaseLabel": "Aug 15, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "休闲",
-      "price": "$8.99",
-      "discount": 10,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 74,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4987740/74ee1e059189c91a810193a2ce4958fdc115ea4b/capsule_231x87.jpg?t=1786787875",
-      "storeUrl": "https://store.steampowered.com/app/4987740/The_Fabricator/"
-    },
-    {
-      "id": "steam-4595820",
-      "appId": 4595820,
-      "name": "Keyboard Warrior: Type to Destroy",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-08-15",
-      "releaseLabel": "Aug 15, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "休闲",
-      "price": "$1.59",
-      "discount": 20,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 74,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4595820/0cf9e082dfc3405a7f0e11293575d28099da4b1d/capsule_231x87.jpg?t=1786785136",
-      "storeUrl": "https://store.steampowered.com/app/4595820/Keyboard_Warrior_Type_to_Destroy/"
-    },
-    {
-      "id": "steam-4737040",
-      "appId": 4737040,
-      "name": "Dream Defender",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-08-15",
-      "releaseLabel": "Aug 15, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "冒险",
-      "price": "$7.99",
-      "discount": 0,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 74,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4737040/f6e282e590dc71b06ab50dbca2fb46d49fee80d7/capsule_231x87.jpg?t=1786784785",
-      "storeUrl": "https://store.steampowered.com/app/4737040/Dream_Defender/"
-    },
-    {
-      "id": "steam-4958640",
-      "appId": 4958640,
-      "name": "Ruthless Returns",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-08-15",
-      "releaseLabel": "Aug 15, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "策略",
-      "price": "Free",
-      "discount": 0,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 74,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4958640/c12ed6e302686673f022fdcab2ce343b976a69b1/capsule_231x87.jpg?t=1786781816",
-      "storeUrl": "https://store.steampowered.com/app/4958640/Ruthless_Returns/"
-    },
-    {
-      "id": "steam-4957620",
-      "appId": 4957620,
-      "name": "Thermal Runaway",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-08-15",
-      "releaseLabel": "Aug 15, 2026",
-      "platforms": [
-        "Windows",
-        "macOS"
-      ],
-      "genre": "休闲",
-      "price": "$4.49",
-      "discount": 10,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 74,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4957620/b8137f3b775447b1e9dc47addc4b86c0336c39fb/capsule_231x87.jpg?t=1786780060",
-      "storeUrl": "https://store.steampowered.com/app/4957620/Thermal_Runaway/"
-    },
-    {
-      "id": "steam-3248200",
-      "appId": 3248200,
-      "name": "Witchpop",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-08-15",
-      "releaseLabel": "Aug 15, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "休闲",
-      "price": "$8.50",
-      "discount": 0,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 74,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3248200/3195dd921ea513bb0164378f1022c4ebb7f00499/capsule_231x87.jpg?t=1786778628",
-      "storeUrl": "https://store.steampowered.com/app/3248200/Witchpop/"
-    },
-    {
-      "id": "steam-4579440",
-      "appId": 4579440,
-      "name": "Escape War",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-08-15",
-      "releaseLabel": "Aug 15, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "动作",
-      "price": "$0.99",
-      "discount": 0,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 74,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4579440/01f0d907344a300a58e942c0794034d15e684dd9/capsule_231x87.jpg?t=1786778571",
-      "storeUrl": "https://store.steampowered.com/app/4579440/Escape_War/"
+      "heatScore": 48,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4880670/1e0a6e94af7aea5f2073addcb50633b523ae5c3a/capsule_231x87.jpg?t=1786723305",
+      "storeUrl": "https://store.steampowered.com/app/4880670/PuruPuru_Pull_It_Along/"
     },
     {
       "id": "steam-4981470",
@@ -797,48 +821,6 @@
       "storeUrl": "https://store.steampowered.com/app/4981470/Asobutsuri/"
     },
     {
-      "id": "steam-4880670",
-      "appId": 4880670,
-      "name": "PuruPuru: Pull It Along",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "upcoming",
-      "releaseDate": "2026-08-16",
-      "releaseLabel": "Aug 16, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "动作",
-      "price": "价格待定",
-      "discount": 0,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 48,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4880670/1e0a6e94af7aea5f2073addcb50633b523ae5c3a/capsule_231x87.jpg?t=1786723305",
-      "storeUrl": "https://store.steampowered.com/app/4880670/PuruPuru_Pull_It_Along/"
-    },
-    {
-      "id": "steam-4625810",
-      "appId": 4625810,
-      "name": "Internet Survivor Survivors",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "upcoming",
-      "releaseDate": "2026-08-16",
-      "releaseLabel": "Aug 16, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "其他",
-      "price": "价格待定",
-      "discount": 0,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 48,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4625810/32985081ed99e143a208ff5b3f3079bd48012f44/capsule_231x87.jpg?t=1786767040",
-      "storeUrl": "https://store.steampowered.com/app/4625810/Internet_Survivor_Survivors/"
-    },
-    {
       "id": "steam-4968140",
       "appId": 4968140,
       "name": "Lunch Break Dodgeball",
@@ -858,6 +840,27 @@
       "heatScore": 48,
       "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4968140/6004377701d77ec951fed3b6e38417c92b4beae8/capsule_231x87.jpg?t=1786684154",
       "storeUrl": "https://store.steampowered.com/app/4968140/Lunch_Break_Dodgeball/"
+    },
+    {
+      "id": "steam-4831290",
+      "appId": 4831290,
+      "name": "Crown&Sword",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "upcoming",
+      "releaseDate": "2026-08-16",
+      "releaseLabel": "Aug 16, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "休闲",
+      "price": "价格待定",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 48,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4831290/1c9e6b0a0476f73e699160de908beabf3b2b6286/capsule_231x87.jpg?t=1786870809",
+      "storeUrl": "https://store.steampowered.com/app/4831290/CrownSword/"
     },
     {
       "id": "steam-4143360",
@@ -1138,28 +1141,6 @@
       "storeUrl": "https://store.steampowered.com/app/5019600/Battle_Of_Plans/"
     },
     {
-      "id": "steam-4881490",
-      "appId": 4881490,
-      "name": "FinSim",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "upcoming",
-      "releaseDate": "2026-08-16",
-      "releaseLabel": "Aug 16, 2026",
-      "platforms": [
-        "Windows",
-        "macOS"
-      ],
-      "genre": "模拟",
-      "price": "价格待定",
-      "discount": 0,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 48,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4881490/0351d5edc5c60fc9f206263c337577915eb41024/capsule_231x87.jpg?t=1786523565",
-      "storeUrl": "https://store.steampowered.com/app/4881490/FinSim/"
-    },
-    {
       "id": "steam-3732030",
       "appId": 3732030,
       "name": "Palianytsia",
@@ -1306,6 +1287,27 @@
       "heatScore": 48,
       "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4845230/cbf718167af3a2113383226e09f099b43f1a0da1/capsule_231x87.jpg?t=1786234825",
       "storeUrl": "https://store.steampowered.com/app/4845230/Spinebreaker/"
+    },
+    {
+      "id": "steam-3878380",
+      "appId": 3878380,
+      "name": "Lugal: Bronze Age Survival Game",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "upcoming",
+      "releaseDate": "2026-08-17",
+      "releaseLabel": "Aug 17, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "生存",
+      "price": "价格待定",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 48,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3878380/56f5f66cf74a0698802537600842c58e7976203a/capsule_231x87.jpg?t=1786547208",
+      "storeUrl": "https://store.steampowered.com/app/3878380/Lugal_Bronze_Age_Survival_Game/"
     }
   ]
 }
