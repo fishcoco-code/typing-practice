@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-08-23T13:02:10.951Z",
+  "updatedAt": "2026-08-23T18:48:45.439Z",
   "refreshIntervalHours": 6,
   "coverage": "Steam PC new releases",
   "sources": [
@@ -9,11 +9,95 @@
       "name": "Steam 全球商店",
       "status": "online",
       "games": 61,
-      "latencyMs": 739,
+      "latencyMs": 333,
       "note": "新品与即将上线数据正常"
     }
   ],
   "games": [
+    {
+      "id": "steam-4989590",
+      "appId": 4989590,
+      "name": "Doggo on Strike",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-08-23",
+      "releaseLabel": "Aug 23, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "休闲",
+      "price": "$2.99",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 75,
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4989590/6f979e880305f1149a68eb5eddd08dc1c222d2f6/capsule_231x87.jpg?t=1787503758",
+      "storeUrl": "https://store.steampowered.com/app/4989590/Doggo_on_Strike/"
+    },
+    {
+      "id": "steam-4951300",
+      "appId": 4951300,
+      "name": "Truth Universally Acknowledged - Silver Heart",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-08-23",
+      "releaseLabel": "Aug 23, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "休闲",
+      "price": "$5.39",
+      "discount": 10,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 75,
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4951300/e508a5fa49632bab9fbc1a7e080eb1265dc5ce4a/capsule_231x87.jpg?t=1787496454",
+      "storeUrl": "https://store.steampowered.com/app/4951300/Truth_Universally_Acknowledged__Silver_Heart/"
+    },
+    {
+      "id": "steam-5043720",
+      "appId": 5043720,
+      "name": "Sudoku Mania",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-08-23",
+      "releaseLabel": "Aug 23, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "休闲",
+      "price": "$5.99",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 75,
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5043720/c6ae4e3214377610129b412f13343a07e72e62df/capsule_231x87.jpg?t=1787491183",
+      "storeUrl": "https://store.steampowered.com/app/5043720/Sudoku_Mania/"
+    },
+    {
+      "id": "steam-4538030",
+      "appId": 4538030,
+      "name": "Cybersquare Madness",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-08-23",
+      "releaseLabel": "Aug 23, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "策略",
+      "price": "$5.39",
+      "discount": 10,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 75,
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4538030/578613b4b9eaf95350c92f053dd51d5922ec6b4c/capsule_231x87.jpg?t=1787490226",
+      "storeUrl": "https://store.steampowered.com/app/4538030/Cybersquare_Madness/"
+    },
     {
       "id": "steam-3919690",
       "appId": 3919690,
@@ -31,8 +115,8 @@
       "discount": 35,
       "reviewPercent": 0,
       "reviewCount": 0,
-      "heatScore": 76,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3919690/550e73695b41ed8e8d24a4fa678d0d43a4b299df/capsule_231x87.jpg?t=1787489195",
+      "heatScore": 75,
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3919690/550e73695b41ed8e8d24a4fa678d0d43a4b299df/capsule_231x87.jpg?t=1787489195",
       "storeUrl": "https://store.steampowered.com/app/3919690/OPEN_FOR_BUSINESS_Game__Movie_Store_Simulator/"
     },
     {
@@ -52,8 +136,8 @@
       "discount": 0,
       "reviewPercent": 0,
       "reviewCount": 0,
-      "heatScore": 76,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4886460/b8516ae5f5cb3bca01c9449c294a26f3467a0de6/capsule_231x87.jpg?t=1787486375",
+      "heatScore": 75,
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4886460/b8516ae5f5cb3bca01c9449c294a26f3467a0de6/capsule_231x87.jpg?t=1787486375",
       "storeUrl": "https://store.steampowered.com/app/4886460/Breachline/"
     },
     {
@@ -73,8 +157,8 @@
       "discount": 80,
       "reviewPercent": 0,
       "reviewCount": 0,
-      "heatScore": 76,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4478680/f759416fcad006bba5692ee3f1608f3937e4e4e4/capsule_231x87.jpg?t=1787482862",
+      "heatScore": 75,
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4478680/f759416fcad006bba5692ee3f1608f3937e4e4e4/capsule_231x87.jpg?t=1787482862",
       "storeUrl": "https://store.steampowered.com/app/4478680/The_Long_Drive_Badland/"
     },
     {
@@ -94,8 +178,8 @@
       "discount": 20,
       "reviewPercent": 0,
       "reviewCount": 0,
-      "heatScore": 76,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4922330/a58a3f1d37950fff7b37859d4b02f2df32717782/capsule_231x87.jpg?t=1787483451",
+      "heatScore": 75,
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4922330/a58a3f1d37950fff7b37859d4b02f2df32717782/capsule_231x87.jpg?t=1787483451",
       "storeUrl": "https://store.steampowered.com/app/4922330/Casino_Legends/"
     },
     {
@@ -115,8 +199,8 @@
       "discount": 10,
       "reviewPercent": 0,
       "reviewCount": 0,
-      "heatScore": 76,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3295430/68979c8c248af62ac20d1b1c18584cf03a370b2a/capsule_231x87.jpg?t=1787472323",
+      "heatScore": 75,
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3295430/68979c8c248af62ac20d1b1c18584cf03a370b2a/capsule_231x87.jpg?t=1787472323",
       "storeUrl": "https://store.steampowered.com/app/3295430/Type_Ride/"
     },
     {
@@ -136,8 +220,8 @@
       "discount": 40,
       "reviewPercent": 0,
       "reviewCount": 0,
-      "heatScore": 76,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4354550/297902e3f7b1075e0b8be7118bf2a18de33cafa0/capsule_231x87.jpg?t=1787470014",
+      "heatScore": 75,
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4354550/297902e3f7b1075e0b8be7118bf2a18de33cafa0/capsule_231x87.jpg?t=1787470014",
       "storeUrl": "https://store.steampowered.com/app/4354550/GwenBlade_Witcheresque/"
     },
     {
@@ -157,8 +241,8 @@
       "discount": 0,
       "reviewPercent": 0,
       "reviewCount": 0,
-      "heatScore": 76,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4927900/61ee49755fa09efbd346570e0f9149f9566ba9ff/capsule_231x87.jpg?t=1787468993",
+      "heatScore": 75,
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4927900/61ee49755fa09efbd346570e0f9149f9566ba9ff/capsule_231x87.jpg?t=1787468993",
       "storeUrl": "https://store.steampowered.com/app/4927900/The_Keepers_Path/"
     },
     {
@@ -178,8 +262,8 @@
       "discount": 10,
       "reviewPercent": 0,
       "reviewCount": 0,
-      "heatScore": 74,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5015810/dd530b8e8b67b64a96656ed76b09450f6622ff72/capsule_231x87.jpg?t=1787460169",
+      "heatScore": 73,
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5015810/dd530b8e8b67b64a96656ed76b09450f6622ff72/capsule_231x87.jpg?t=1787460169",
       "storeUrl": "https://store.steampowered.com/app/5015810/Kjihacheol/"
     },
     {
@@ -199,8 +283,8 @@
       "discount": 0,
       "reviewPercent": 0,
       "reviewCount": 0,
-      "heatScore": 74,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4959140/41f39c4f4f48e08fc440941b9271bceb34f1a88f/capsule_231x87.jpg?t=1787453932",
+      "heatScore": 73,
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4959140/41f39c4f4f48e08fc440941b9271bceb34f1a88f/capsule_231x87.jpg?t=1787453932",
       "storeUrl": "https://store.steampowered.com/app/4959140/Seletos_in_Puzzle_Land/"
     },
     {
@@ -220,8 +304,8 @@
       "discount": 0,
       "reviewPercent": 0,
       "reviewCount": 0,
-      "heatScore": 74,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4699380/5aea4fd6978aed94c49e1caa23239296ce8a771f/capsule_231x87.jpg?t=1787452982",
+      "heatScore": 73,
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4699380/5aea4fd6978aed94c49e1caa23239296ce8a771f/capsule_231x87.jpg?t=1787452982",
       "storeUrl": "https://store.steampowered.com/app/4699380/Trailkeeper/"
     },
     {
@@ -242,8 +326,8 @@
       "discount": 0,
       "reviewPercent": 0,
       "reviewCount": 0,
-      "heatScore": 74,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3859880/7c2f410e7baf176c54a01a925fc22a12586c3a21/capsule_231x87.jpg?t=1787451746",
+      "heatScore": 73,
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3859880/7c2f410e7baf176c54a01a925fc22a12586c3a21/capsule_231x87.jpg?t=1787451746",
       "storeUrl": "https://store.steampowered.com/app/3859880/CRAWLER/"
     },
     {
@@ -263,8 +347,8 @@
       "discount": 0,
       "reviewPercent": 0,
       "reviewCount": 0,
-      "heatScore": 74,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4929990/798619f164f1cfaafecb56e695f277c8b0570523/capsule_231x87.jpg?t=1787449824",
+      "heatScore": 73,
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4929990/798619f164f1cfaafecb56e695f277c8b0570523/capsule_231x87.jpg?t=1787449824",
       "storeUrl": "https://store.steampowered.com/app/4929990/_/"
     },
     {
@@ -284,8 +368,8 @@
       "discount": 15,
       "reviewPercent": 0,
       "reviewCount": 0,
-      "heatScore": 74,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4706280/58962f0b494e4bd8fd888ac1453608b9bce37ec9/capsule_231x87.jpg?t=1787445064",
+      "heatScore": 73,
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4706280/58962f0b494e4bd8fd888ac1453608b9bce37ec9/capsule_231x87.jpg?t=1787445064",
       "storeUrl": "https://store.steampowered.com/app/4706280/Oro_Cade/"
     },
     {
@@ -305,8 +389,8 @@
       "discount": 20,
       "reviewPercent": 0,
       "reviewCount": 0,
-      "heatScore": 74,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4996950/d2912edb1dc8ec46608dc6b31964da6b324e13e8/capsule_231x87.jpg?t=1787441895",
+      "heatScore": 73,
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4996950/d2912edb1dc8ec46608dc6b31964da6b324e13e8/capsule_231x87.jpg?t=1787441895",
       "storeUrl": "https://store.steampowered.com/app/4996950/Deadline/"
     },
     {
@@ -327,8 +411,8 @@
       "discount": 0,
       "reviewPercent": 0,
       "reviewCount": 0,
-      "heatScore": 74,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4959960/8e1ac495ded6f6f910e1d72b7f373be99e9dd56a/capsule_231x87.jpg?t=1787440336",
+      "heatScore": 73,
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4959960/8e1ac495ded6f6f910e1d72b7f373be99e9dd56a/capsule_231x87.jpg?t=1787440336",
       "storeUrl": "https://store.steampowered.com/app/4959960/Zone_Sweeper/"
     },
     {
@@ -348,8 +432,8 @@
       "discount": 0,
       "reviewPercent": 0,
       "reviewCount": 0,
-      "heatScore": 74,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4984900/1228d8cef5b1bf2b878aa99683c2445c3b030fbc/capsule_231x87.jpg?t=1787439702",
+      "heatScore": 73,
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4984900/1228d8cef5b1bf2b878aa99683c2445c3b030fbc/capsule_231x87.jpg?t=1787439702",
       "storeUrl": "https://store.steampowered.com/app/4984900/Word_Cubes/"
     },
     {
@@ -369,8 +453,8 @@
       "discount": 0,
       "reviewPercent": 0,
       "reviewCount": 0,
-      "heatScore": 74,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3349560/a54efda5b6de359aa1683c58f99bdb119935f8a7/capsule_231x87.jpg?t=1787438498",
+      "heatScore": 73,
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3349560/a54efda5b6de359aa1683c58f99bdb119935f8a7/capsule_231x87.jpg?t=1787438498",
       "storeUrl": "https://store.steampowered.com/app/3349560/Princess_of_Frozen_Flowers/"
     },
     {
@@ -390,8 +474,8 @@
       "discount": 15,
       "reviewPercent": 0,
       "reviewCount": 0,
-      "heatScore": 74,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4870060/3077207b8a094c2d9c708a2fc2444bd823041cdf/capsule_231x87.jpg?t=1787436426",
+      "heatScore": 73,
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4870060/3077207b8a094c2d9c708a2fc2444bd823041cdf/capsule_231x87.jpg?t=1787436426",
       "storeUrl": "https://store.steampowered.com/app/4870060/Garden_Defence/"
     },
     {
@@ -411,8 +495,8 @@
       "discount": 15,
       "reviewPercent": 0,
       "reviewCount": 0,
-      "heatScore": 74,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4915450/b87e7c771dd62d766995d3a0b3414f60b682fc79/capsule_231x87.jpg?t=1787435645",
+      "heatScore": 73,
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4915450/b87e7c771dd62d766995d3a0b3414f60b682fc79/capsule_231x87.jpg?t=1787435645",
       "storeUrl": "https://store.steampowered.com/app/4915450/Grim_Reach_Idle/"
     },
     {
@@ -432,8 +516,8 @@
       "discount": 15,
       "reviewPercent": 0,
       "reviewCount": 0,
-      "heatScore": 74,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4795830/9b1c55a62619563e87428731bd2fecc6616d79cb/capsule_231x87.jpg?t=1787431273",
+      "heatScore": 73,
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4795830/9b1c55a62619563e87428731bd2fecc6616d79cb/capsule_231x87.jpg?t=1787431273",
       "storeUrl": "https://store.steampowered.com/app/4795830/Master_Foot/"
     },
     {
@@ -453,8 +537,8 @@
       "discount": 0,
       "reviewPercent": 0,
       "reviewCount": 0,
-      "heatScore": 74,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3395860/490cecfd1d802f9293e9fa84bd80d24a6fb392ec/capsule_231x87.jpg?t=1787426350",
+      "heatScore": 73,
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3395860/490cecfd1d802f9293e9fa84bd80d24a6fb392ec/capsule_231x87.jpg?t=1787501372",
       "storeUrl": "https://store.steampowered.com/app/3395860/Endless_Descent/"
     },
     {
@@ -474,8 +558,8 @@
       "discount": 40,
       "reviewPercent": 0,
       "reviewCount": 0,
-      "heatScore": 74,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4839100/a6482c6b669a4a457a52562fd5a7e4007dbdfeef/capsule_231x87.jpg?t=1787426277",
+      "heatScore": 73,
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4839100/a6482c6b669a4a457a52562fd5a7e4007dbdfeef/capsule_231x87.jpg?t=1787426277",
       "storeUrl": "https://store.steampowered.com/app/4839100/agiori/"
     },
     {
@@ -495,8 +579,8 @@
       "discount": 0,
       "reviewPercent": 0,
       "reviewCount": 0,
-      "heatScore": 74,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5010500/b4df3bad5c498c4427e9ad8445b127c071263cb3/capsule_231x87.jpg?t=1787431326",
+      "heatScore": 73,
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5010500/b4df3bad5c498c4427e9ad8445b127c071263cb3/capsule_231x87.jpg?t=1787431326",
       "storeUrl": "https://store.steampowered.com/app/5010500/QWER_YUIO_ASDF_HJKL/"
     },
     {
@@ -516,8 +600,8 @@
       "discount": 0,
       "reviewPercent": 0,
       "reviewCount": 0,
-      "heatScore": 74,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4765200/21dc89d0afb85275592533fb08e54c0160e41b5a/capsule_231x87.jpg?t=1787412797",
+      "heatScore": 73,
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4765200/21dc89d0afb85275592533fb08e54c0160e41b5a/capsule_231x87.jpg?t=1787412797",
       "storeUrl": "https://store.steampowered.com/app/4765200/Kritzel_Krieg/"
     },
     {
@@ -537,8 +621,8 @@
       "discount": 40,
       "reviewPercent": 0,
       "reviewCount": 0,
-      "heatScore": 74,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4961740/d3e8fff60d8abb2b88fdf8b6432a24894ef622b7/capsule_231x87.jpg?t=1787410476",
+      "heatScore": 73,
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4961740/d3e8fff60d8abb2b88fdf8b6432a24894ef622b7/capsule_231x87.jpg?t=1787410476",
       "storeUrl": "https://store.steampowered.com/app/4961740/Puzzles_Flowers/"
     },
     {
@@ -558,8 +642,8 @@
       "discount": 0,
       "reviewPercent": 0,
       "reviewCount": 0,
-      "heatScore": 74,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4577190/da98a961d4ae72b0f7e36aa531ea5269f3027e0b/capsule_231x87.jpg?t=1787410415",
+      "heatScore": 73,
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4577190/da98a961d4ae72b0f7e36aa531ea5269f3027e0b/capsule_231x87.jpg?t=1787410415",
       "storeUrl": "https://store.steampowered.com/app/4577190/Astro_Hop_Moon/"
     },
     {
@@ -579,8 +663,8 @@
       "discount": 0,
       "reviewPercent": 0,
       "reviewCount": 0,
-      "heatScore": 74,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4577200/3dc6c31a9bbc7cd333b9de2c7072795916d0317c/capsule_231x87.jpg?t=1787410373",
+      "heatScore": 73,
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4577200/3dc6c31a9bbc7cd333b9de2c7072795916d0317c/capsule_231x87.jpg?t=1787410373",
       "storeUrl": "https://store.steampowered.com/app/4577200/Astro_Hop_Mars/"
     },
     {
@@ -600,8 +684,8 @@
       "discount": 0,
       "reviewPercent": 0,
       "reviewCount": 0,
-      "heatScore": 74,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4315690/d73680e56260be073a107dd8325601f3d15b93ef/capsule_231x87.jpg?t=1787409491",
+      "heatScore": 73,
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4315690/d73680e56260be073a107dd8325601f3d15b93ef/capsule_231x87.jpg?t=1787409491",
       "storeUrl": "https://store.steampowered.com/app/4315690/Ashes_of_Kardoria/"
     },
     {
@@ -621,8 +705,8 @@
       "discount": 10,
       "reviewPercent": 0,
       "reviewCount": 0,
-      "heatScore": 74,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5050070/d53ded7c698db812e5049af99848566e07b23fe7/capsule_231x87.jpg?t=1787397575",
+      "heatScore": 73,
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5050070/d53ded7c698db812e5049af99848566e07b23fe7/capsule_231x87.jpg?t=1787397575",
       "storeUrl": "https://store.steampowered.com/app/5050070/The_Escape_From_Dungeon_Keep/"
     },
     {
@@ -642,8 +726,8 @@
       "discount": 20,
       "reviewPercent": 0,
       "reviewCount": 0,
-      "heatScore": 74,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5010210/5c16290509d0763e869442a00cb776c2ad94a099/capsule_231x87.jpg?t=1787397105",
+      "heatScore": 73,
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5010210/5c16290509d0763e869442a00cb776c2ad94a099/capsule_231x87.jpg?t=1787397105",
       "storeUrl": "https://store.steampowered.com/app/5010210/Strait_of_Hormuz_Mini_Arcade/"
     },
     {
@@ -665,8 +749,8 @@
       "discount": 20,
       "reviewPercent": 0,
       "reviewCount": 0,
-      "heatScore": 74,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4592430/bc66cfc82d00eb061f05840d8f665aa9e5dd4b89/capsule_231x87.jpg?t=1787444914",
+      "heatScore": 73,
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4592430/bc66cfc82d00eb061f05840d8f665aa9e5dd4b89/capsule_231x87.jpg?t=1787444914",
       "storeUrl": "https://store.steampowered.com/app/4592430/DEEP_DIVER/"
     },
     {
@@ -686,158 +770,9 @@
       "discount": 10,
       "reviewPercent": 0,
       "reviewCount": 0,
-      "heatScore": 74,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4653120/b784fc6bb8ac04707a45ea738334ed0338a50f4d/capsule_231x87.jpg?t=1787394700",
+      "heatScore": 73,
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4653120/b784fc6bb8ac04707a45ea738334ed0338a50f4d/capsule_231x87.jpg?t=1787394700",
       "storeUrl": "https://store.steampowered.com/app/4653120/Touhou_Desktop_Pet/"
-    },
-    {
-      "id": "steam-2947300",
-      "appId": 2947300,
-      "name": "The Down Below",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-08-22",
-      "releaseLabel": "Aug 22, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "动作",
-      "price": "$1.99",
-      "discount": 0,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 74,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2947300/6cfb437f86e45c66e24cf64fcf343de17742b9d5/capsule_231x87.jpg?t=1787386312",
-      "storeUrl": "https://store.steampowered.com/app/2947300/The_Down_Below/"
-    },
-    {
-      "id": "steam-5007540",
-      "appId": 5007540,
-      "name": "Desktop Pal",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-08-22",
-      "releaseLabel": "Aug 22, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "休闲",
-      "price": "$2.80",
-      "discount": 20,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 74,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5007540/241b20e2176829808c8121c30715ef6d721841cc/capsule_231x87.jpg?t=1787385991",
-      "storeUrl": "https://store.steampowered.com/app/5007540/Desktop_Pal/"
-    },
-    {
-      "id": "steam-5002080",
-      "appId": 5002080,
-      "name": "KurunMania: Spiral Drop",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-08-21",
-      "releaseLabel": "Aug 21, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "休闲",
-      "price": "$2.54",
-      "discount": 15,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 72,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5002080/d9dae332dc8e3714dc13a1cc825f10805d6b7e0e/capsule_231x87.jpg?t=1787370291",
-      "storeUrl": "https://store.steampowered.com/app/5002080/KurunMania_Spiral_Drop/"
-    },
-    {
-      "id": "steam-4832290",
-      "appId": 4832290,
-      "name": "Mado Marks",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-08-21",
-      "releaseLabel": "Aug 21, 2026",
-      "platforms": [
-        "Windows",
-        "macOS",
-        "Linux"
-      ],
-      "genre": "冒险",
-      "price": "$2.39",
-      "discount": 20,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 72,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4832290/c148ca70a8a32287ba3877e2ecf79730308e9547/capsule_231x87.jpg?t=1787368837",
-      "storeUrl": "https://store.steampowered.com/app/4832290/Mado_Marks/"
-    },
-    {
-      "id": "steam-5069100",
-      "appId": 5069100,
-      "name": "Dice Chemist",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "upcoming",
-      "releaseDate": "2026-08-23",
-      "releaseLabel": "Aug 23, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "策略",
-      "price": "价格待定",
-      "discount": 0,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 48,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5069100/b0b7298bc1a24d326186c22a2f4dd8f8d7783cf6/capsule_231x87.jpg?t=1787323340",
-      "storeUrl": "https://store.steampowered.com/app/5069100/Dice_Chemist/"
-    },
-    {
-      "id": "steam-4937120",
-      "appId": 4937120,
-      "name": "スマートフォン",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "upcoming",
-      "releaseDate": "2026-08-23",
-      "releaseLabel": "Aug 23, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "冒险",
-      "price": "价格待定",
-      "discount": 0,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 48,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4937120/239e7af26543c20d9479a8594dc55fbe264ac399/capsule_231x87.jpg?t=1787021539",
-      "storeUrl": "https://store.steampowered.com/app/4937120/_/"
-    },
-    {
-      "id": "steam-4587970",
-      "appId": 4587970,
-      "name": "桌面塔罗 Desktop Tarot",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "upcoming",
-      "releaseDate": "2026-08-23",
-      "releaseLabel": "Aug 23, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "休闲",
-      "price": "价格待定",
-      "discount": 0,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 48,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4587970/693b262b06e734985862193278075b1bb2a0b868/capsule_231x87.jpg?t=1787045291",
-      "storeUrl": "https://store.steampowered.com/app/4587970/_Desktop_Tarot/"
     },
     {
       "id": "steam-4986740",
@@ -857,7 +792,7 @@
       "reviewPercent": 0,
       "reviewCount": 0,
       "heatScore": 48,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4986740/ac13226372e09c243c8383db703ffd7e824068b9/capsule_231x87.jpg?t=1787157598",
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4986740/ac13226372e09c243c8383db703ffd7e824068b9/capsule_231x87.jpg?t=1787157598",
       "storeUrl": "https://store.steampowered.com/app/4986740/AFTERLIGHT_The_Apartment/"
     },
     {
@@ -878,7 +813,7 @@
       "reviewPercent": 0,
       "reviewCount": 0,
       "heatScore": 48,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4919760/6c804fae34ef4fad69beba913fbfc10dd8c37287/capsule_231x87.jpg?t=1787184617",
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4919760/6c804fae34ef4fad69beba913fbfc10dd8c37287/capsule_231x87.jpg?t=1787184617",
       "storeUrl": "https://store.steampowered.com/app/4919760/Ink_Rush/"
     },
     {
@@ -899,7 +834,7 @@
       "reviewPercent": 0,
       "reviewCount": 0,
       "heatScore": 48,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4747380/d4c141d1f08ec4d7a7c48549308fbb3b7911f256/capsule_231x87.jpg?t=1786389108",
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4747380/d4c141d1f08ec4d7a7c48549308fbb3b7911f256/capsule_231x87.jpg?t=1786389108",
       "storeUrl": "https://store.steampowered.com/app/4747380/The_Library_on_the_Lake/"
     },
     {
@@ -920,7 +855,7 @@
       "reviewPercent": 0,
       "reviewCount": 0,
       "heatScore": 48,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4743290/90cd1334d723d5a158a6ba78781702d82ab05cef/capsule_231x87.jpg?t=1786229107",
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4743290/90cd1334d723d5a158a6ba78781702d82ab05cef/capsule_231x87.jpg?t=1786229107",
       "storeUrl": "https://store.steampowered.com/app/4743290/The_Odyssey_Simulator/"
     },
     {
@@ -941,7 +876,7 @@
       "reviewPercent": 0,
       "reviewCount": 0,
       "heatScore": 48,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4972160/50392431b25c917a9ef8b186a726c2de1295d475/capsule_231x87.jpg?t=1786393626",
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4972160/50392431b25c917a9ef8b186a726c2de1295d475/capsule_231x87.jpg?t=1786393626",
       "storeUrl": "https://store.steampowered.com/app/4972160/_Git/"
     },
     {
@@ -962,7 +897,7 @@
       "reviewPercent": 0,
       "reviewCount": 0,
       "heatScore": 48,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3196850/32e24bdecb8c24f5f7cbf13a0212ae79497e5d04/capsule_231x87.jpg?t=1784297689",
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3196850/32e24bdecb8c24f5f7cbf13a0212ae79497e5d04/capsule_231x87.jpg?t=1784297689",
       "storeUrl": "https://store.steampowered.com/app/3196850/Travellin_Cats_in_USA/"
     },
     {
@@ -983,7 +918,7 @@
       "reviewPercent": 0,
       "reviewCount": 0,
       "heatScore": 48,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4866520/68de601b909d76e6002b2c8840558d8f82b0164d/capsule_231x87.jpg?t=1782366304",
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4866520/68de601b909d76e6002b2c8840558d8f82b0164d/capsule_231x87.jpg?t=1782366304",
       "storeUrl": "https://store.steampowered.com/app/4866520/Finish_The_Dishes/"
     },
     {
@@ -1005,7 +940,7 @@
       "reviewPercent": 0,
       "reviewCount": 0,
       "heatScore": 48,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4833990/8610c930b7000a013b55ab84ce08d57ca8235603/capsule_231x87.jpg?t=1787324764",
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4833990/8610c930b7000a013b55ab84ce08d57ca8235603/capsule_231x87.jpg?t=1787324764",
       "storeUrl": "https://store.steampowered.com/app/4833990/Prospector_Peril/"
     },
     {
@@ -1026,7 +961,7 @@
       "reviewPercent": 0,
       "reviewCount": 0,
       "heatScore": 48,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4645360/6cc47a13551a26c418d8ce8b59e562d3b93199a7/capsule_231x87.jpg?t=1786540399",
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4645360/6cc47a13551a26c418d8ce8b59e562d3b93199a7/capsule_231x87.jpg?t=1786540399",
       "storeUrl": "https://store.steampowered.com/app/4645360/Titanic_Escape_Simulator/"
     },
     {
@@ -1047,7 +982,7 @@
       "reviewPercent": 0,
       "reviewCount": 0,
       "heatScore": 48,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4986900/dd7ec5f636aebb88c9768509eae1e1d903a47c65/capsule_231x87.jpg?t=1786395484",
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4986900/dd7ec5f636aebb88c9768509eae1e1d903a47c65/capsule_231x87.jpg?t=1786395484",
       "storeUrl": "https://store.steampowered.com/app/4986900/Metroidvania/"
     },
     {
@@ -1068,7 +1003,7 @@
       "reviewPercent": 0,
       "reviewCount": 0,
       "heatScore": 48,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4932620/5467a9749318344a9a828a98e32b3e83b5fc7405/capsule_231x87.jpg?t=1787324030",
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4932620/5467a9749318344a9a828a98e32b3e83b5fc7405/capsule_231x87.jpg?t=1787324030",
       "storeUrl": "https://store.steampowered.com/app/4932620/Idle_Demon_Lord/"
     },
     {
@@ -1089,7 +1024,7 @@
       "reviewPercent": 0,
       "reviewCount": 0,
       "heatScore": 48,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4928820/cc4a09fe85b25049bd6b8de1f5529ad4929ad8c7/capsule_231x87.jpg?t=1787381848",
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4928820/cc4a09fe85b25049bd6b8de1f5529ad4929ad8c7/capsule_231x87.jpg?t=1787381848",
       "storeUrl": "https://store.steampowered.com/app/4928820/Shelve_the_Potions/"
     },
     {
@@ -1112,7 +1047,7 @@
       "reviewPercent": 0,
       "reviewCount": 0,
       "heatScore": 48,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4195110/134bf8acbbdc7b63f644e363de353ddc948ebfbb/capsule_231x87.jpg?t=1787090492",
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4195110/134bf8acbbdc7b63f644e363de353ddc948ebfbb/capsule_231x87.jpg?t=1787090492",
       "storeUrl": "https://store.steampowered.com/app/4195110/Ultrapool/"
     },
     {
@@ -1134,7 +1069,7 @@
       "reviewPercent": 0,
       "reviewCount": 0,
       "heatScore": 48,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3491690/3ab8c82d3baf1d748c73110599eadf9248f3a2f3/capsule_231x87.jpg?t=1787279468",
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3491690/3ab8c82d3baf1d748c73110599eadf9248f3a2f3/capsule_231x87.jpg?t=1787279468",
       "storeUrl": "https://store.steampowered.com/app/3491690/lovebyteexe/"
     },
     {
@@ -1155,29 +1090,8 @@
       "reviewPercent": 0,
       "reviewCount": 0,
       "heatScore": 48,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5081400/282dfe1348dc8e0d9d2b8874743d7acc2bda77ca/capsule_231x87.jpg?t=1787142397",
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5081400/282dfe1348dc8e0d9d2b8874743d7acc2bda77ca/capsule_231x87.jpg?t=1787142397",
       "storeUrl": "https://store.steampowered.com/app/5081400/HOSHIKUI/"
-    },
-    {
-      "id": "steam-5085070",
-      "appId": 5085070,
-      "name": "Reverb",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "upcoming",
-      "releaseDate": "2026-08-24",
-      "releaseLabel": "Aug 24, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "合作",
-      "price": "价格待定",
-      "discount": 0,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 48,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5085070/1e2c357917f11f3439d46acf7f62d7942179e86d/capsule_231x87.jpg?t=1787231620",
-      "storeUrl": "https://store.steampowered.com/app/5085070/Reverb/"
     },
     {
       "id": "steam-4341610",
@@ -1197,8 +1111,29 @@
       "reviewPercent": 0,
       "reviewCount": 0,
       "heatScore": 48,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4341610/f1e86035b9e9be57eb8a07a9c12efb6ffdc3f884/capsule_231x87.jpg?t=1787156624",
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4341610/f1e86035b9e9be57eb8a07a9c12efb6ffdc3f884/capsule_231x87.jpg?t=1787156624",
       "storeUrl": "https://store.steampowered.com/app/4341610/No_Final_Run/"
+    },
+    {
+      "id": "steam-5085070",
+      "appId": 5085070,
+      "name": "Reverb",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "upcoming",
+      "releaseDate": "2026-08-24",
+      "releaseLabel": "Aug 24, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "合作",
+      "price": "价格待定",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 48,
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5085070/1e2c357917f11f3439d46acf7f62d7942179e86d/capsule_231x87.jpg?t=1787231620",
+      "storeUrl": "https://store.steampowered.com/app/5085070/Reverb/"
     },
     {
       "id": "steam-5046030",
@@ -1219,29 +1154,8 @@
       "reviewPercent": 0,
       "reviewCount": 0,
       "heatScore": 48,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5046030/574cbaa809525af0ffe7e3767827a858163c0f0d/capsule_231x87.jpg?t=1786519381",
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5046030/574cbaa809525af0ffe7e3767827a858163c0f0d/capsule_231x87.jpg?t=1786519381",
       "storeUrl": "https://store.steampowered.com/app/5046030/Neon_Cadence/"
-    },
-    {
-      "id": "steam-3646000",
-      "appId": 3646000,
-      "name": "Mouspionage",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "upcoming",
-      "releaseDate": "2026-08-24",
-      "releaseLabel": "Aug 24, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "策略",
-      "price": "价格待定",
-      "discount": 0,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 48,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3646000/a36b709e602bca35c247ff846ecfd3164a5408a8/capsule_231x87.jpg?t=1786548200",
-      "storeUrl": "https://store.steampowered.com/app/3646000/Mouspionage/"
     },
     {
       "id": "steam-4823350",
@@ -1261,7 +1175,7 @@
       "reviewPercent": 0,
       "reviewCount": 0,
       "heatScore": 48,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4823350/b047a4a9d0bcbf74ceda196ae460142afe22efda/capsule_231x87.jpg?t=1787243246",
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4823350/b047a4a9d0bcbf74ceda196ae460142afe22efda/capsule_231x87.jpg?t=1787243246",
       "storeUrl": "https://store.steampowered.com/app/4823350/Tridan/"
     },
     {
@@ -1282,8 +1196,29 @@
       "reviewPercent": 0,
       "reviewCount": 0,
       "heatScore": 48,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3457720/2946e4b7a93c1f9f6f28db751b1e7ec089f31192/capsule_231x87.jpg?t=1787292605",
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3457720/2946e4b7a93c1f9f6f28db751b1e7ec089f31192/capsule_231x87.jpg?t=1787292605",
       "storeUrl": "https://store.steampowered.com/app/3457720/Incremental_Orbits/"
+    },
+    {
+      "id": "steam-3646000",
+      "appId": 3646000,
+      "name": "Mouspionage",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "upcoming",
+      "releaseDate": "2026-08-24",
+      "releaseLabel": "Aug 24, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "策略",
+      "price": "价格待定",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 48,
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3646000/a36b709e602bca35c247ff846ecfd3164a5408a8/capsule_231x87.jpg?t=1786548200",
+      "storeUrl": "https://store.steampowered.com/app/3646000/Mouspionage/"
     },
     {
       "id": "steam-4858820",
@@ -1305,8 +1240,71 @@
       "reviewPercent": 0,
       "reviewCount": 0,
       "heatScore": 48,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4858820/e0a147f54e65b81115a46c61a100b9ac1afce1df/capsule_231x87.jpg?t=1787119046",
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4858820/e0a147f54e65b81115a46c61a100b9ac1afce1df/capsule_231x87.jpg?t=1787119046",
       "storeUrl": "https://store.steampowered.com/app/4858820/Mythic_Battle/"
+    },
+    {
+      "id": "steam-3985330",
+      "appId": 3985330,
+      "name": "BURNED HORIZONS",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "upcoming",
+      "releaseDate": "2026-08-24",
+      "releaseLabel": "Aug 24, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "策略",
+      "price": "价格待定",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 48,
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3985330/f8f733cf963af75bb17ebeec29348a6d18e6aa93/capsule_231x87.jpg?t=1786807293",
+      "storeUrl": "https://store.steampowered.com/app/3985330/BURNED_HORIZONS/"
+    },
+    {
+      "id": "steam-4486870",
+      "appId": 4486870,
+      "name": "FEED THE AI",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "upcoming",
+      "releaseDate": "2026-08-24",
+      "releaseLabel": "Aug 24, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "休闲",
+      "price": "价格待定",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 48,
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4486870/a43c8fc4ca7aad2b8e03b6a37bc6cabe40949adb/capsule_231x87.jpg?t=1787503880",
+      "storeUrl": "https://store.steampowered.com/app/4486870/FEED_THE_AI/"
+    },
+    {
+      "id": "steam-5089380",
+      "appId": 5089380,
+      "name": "LIGHTBLADE",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "upcoming",
+      "releaseDate": "2026-08-24",
+      "releaseLabel": "Aug 24, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "动作",
+      "price": "价格待定",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 48,
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5089380/6ecadf6274e0dc1431f8a586e4d57197f3d8d75c/capsule_231x87.jpg?t=1786949481",
+      "storeUrl": "https://store.steampowered.com/app/5089380/LIGHTBLADE/"
     }
   ]
 }
