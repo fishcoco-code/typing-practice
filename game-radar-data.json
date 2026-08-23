@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-08-22T18:49:03.291Z",
+  "updatedAt": "2026-08-23T01:59:51.686Z",
   "refreshIntervalHours": 6,
   "coverage": "Steam PC new releases",
   "sources": [
@@ -9,11 +9,243 @@
       "name": "Steam 全球商店",
       "status": "online",
       "games": 61,
-      "latencyMs": 261,
+      "latencyMs": 293,
       "note": "新品与即将上线数据正常"
     }
   ],
   "games": [
+    {
+      "id": "steam-4929990",
+      "appId": 4929990,
+      "name": "敵国工場への潜入",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-08-22",
+      "releaseLabel": "Aug 22, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "动作",
+      "price": "Free",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 75,
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4929990/798619f164f1cfaafecb56e695f277c8b0570523/capsule_231x87.jpg?t=1787449824",
+      "storeUrl": "https://store.steampowered.com/app/4929990/_/"
+    },
+    {
+      "id": "steam-4706280",
+      "appId": 4706280,
+      "name": "Oro Cade",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-08-22",
+      "releaseLabel": "Aug 22, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "休闲",
+      "price": "$3.39",
+      "discount": 15,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 75,
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4706280/58962f0b494e4bd8fd888ac1453608b9bce37ec9/capsule_231x87.jpg?t=1787445064",
+      "storeUrl": "https://store.steampowered.com/app/4706280/Oro_Cade/"
+    },
+    {
+      "id": "steam-4996950",
+      "appId": 4996950,
+      "name": "Deadline",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-08-22",
+      "releaseLabel": "Aug 22, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "PvP",
+      "price": "$5.59",
+      "discount": 20,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 75,
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4996950/d2912edb1dc8ec46608dc6b31964da6b324e13e8/capsule_231x87.jpg?t=1787441895",
+      "storeUrl": "https://store.steampowered.com/app/4996950/Deadline/"
+    },
+    {
+      "id": "steam-4959960",
+      "appId": 4959960,
+      "name": "Zone Sweeper",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-08-22",
+      "releaseLabel": "Aug 22, 2026",
+      "platforms": [
+        "Windows",
+        "macOS"
+      ],
+      "genre": "角色扮演",
+      "price": "Free",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 75,
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4959960/8e1ac495ded6f6f910e1d72b7f373be99e9dd56a/capsule_231x87.jpg?t=1787440336",
+      "storeUrl": "https://store.steampowered.com/app/4959960/Zone_Sweeper/"
+    },
+    {
+      "id": "steam-4984900",
+      "appId": 4984900,
+      "name": "Word Cubes",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-08-22",
+      "releaseLabel": "Aug 22, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "休闲",
+      "price": "$4.99",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 75,
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4984900/1228d8cef5b1bf2b878aa99683c2445c3b030fbc/capsule_231x87.jpg?t=1787439702",
+      "storeUrl": "https://store.steampowered.com/app/4984900/Word_Cubes/"
+    },
+    {
+      "id": "steam-3349560",
+      "appId": 3349560,
+      "name": "Princess of Frozen Flowers",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-08-22",
+      "releaseLabel": "Aug 22, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "其他",
+      "price": "Free",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 75,
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3349560/a54efda5b6de359aa1683c58f99bdb119935f8a7/capsule_231x87.jpg?t=1787438498",
+      "storeUrl": "https://store.steampowered.com/app/3349560/Princess_of_Frozen_Flowers/"
+    },
+    {
+      "id": "steam-4870060",
+      "appId": 4870060,
+      "name": "Garden Defence",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-08-22",
+      "releaseLabel": "Aug 22, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "策略",
+      "price": "$4.25",
+      "discount": 15,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 75,
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4870060/3077207b8a094c2d9c708a2fc2444bd823041cdf/capsule_231x87.jpg?t=1787436426",
+      "storeUrl": "https://store.steampowered.com/app/4870060/Garden_Defence/"
+    },
+    {
+      "id": "steam-4915450",
+      "appId": 4915450,
+      "name": "Grim Reach Idle",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-08-22",
+      "releaseLabel": "Aug 22, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "角色扮演",
+      "price": "$4.24",
+      "discount": 15,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 75,
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4915450/b87e7c771dd62d766995d3a0b3414f60b682fc79/capsule_231x87.jpg?t=1787435645",
+      "storeUrl": "https://store.steampowered.com/app/4915450/Grim_Reach_Idle/"
+    },
+    {
+      "id": "steam-4795830",
+      "appId": 4795830,
+      "name": "Master Foot",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-08-22",
+      "releaseLabel": "Aug 22, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "合作",
+      "price": "$8.49",
+      "discount": 15,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 75,
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4795830/9b1c55a62619563e87428731bd2fecc6616d79cb/capsule_231x87.jpg?t=1787431273",
+      "storeUrl": "https://store.steampowered.com/app/4795830/Master_Foot/"
+    },
+    {
+      "id": "steam-3395860",
+      "appId": 3395860,
+      "name": "Endless Descent",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-08-22",
+      "releaseLabel": "Aug 22, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "其他",
+      "price": "$15.00",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 75,
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3395860/490cecfd1d802f9293e9fa84bd80d24a6fb392ec/capsule_231x87.jpg?t=1787426350",
+      "storeUrl": "https://store.steampowered.com/app/3395860/Endless_Descent/"
+    },
+    {
+      "id": "steam-4839100",
+      "appId": 4839100,
+      "name": "agiori",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-08-22",
+      "releaseLabel": "Aug 22, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "动作",
+      "price": "$2.39",
+      "discount": 40,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 75,
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4839100/a6482c6b669a4a457a52562fd5a7e4007dbdfeef/capsule_231x87.jpg?t=1787426277",
+      "storeUrl": "https://store.steampowered.com/app/4839100/agiori/"
+    },
     {
       "id": "steam-5010500",
       "appId": 5010500,
@@ -32,7 +264,7 @@
       "reviewPercent": 0,
       "reviewCount": 0,
       "heatScore": 75,
-      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5010500/b4df3bad5c498c4427e9ad8445b127c071263cb3/capsule_231x87.jpg?t=1787415551",
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5010500/b4df3bad5c498c4427e9ad8445b127c071263cb3/capsule_231x87.jpg?t=1787431326",
       "storeUrl": "https://store.steampowered.com/app/5010500/QWER_YUIO_ASDF_HJKL/"
     },
     {
@@ -202,7 +434,7 @@
       "reviewPercent": 0,
       "reviewCount": 0,
       "heatScore": 75,
-      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4592430/bc66cfc82d00eb061f05840d8f665aa9e5dd4b89/capsule_231x87.jpg?t=1787406140",
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4592430/bc66cfc82d00eb061f05840d8f665aa9e5dd4b89/capsule_231x87.jpg?t=1787444914",
       "storeUrl": "https://store.steampowered.com/app/4592430/DEEP_DIVER/"
     },
     {
@@ -547,236 +779,25 @@
       "storeUrl": "https://store.steampowered.com/app/5009540/Ashfire_Keep/"
     },
     {
-      "id": "steam-4637580",
-      "appId": 4637580,
-      "name": "Sky Runway",
+      "id": "steam-5069100",
+      "appId": 5069100,
+      "name": "Dice Chemist",
       "source": "Steam",
       "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-08-21",
-      "releaseLabel": "Aug 21, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "动作",
-      "price": "$5.99",
-      "discount": 40,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 73,
-      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4637580/97268ad94fbe2dc324fd1d388f694eb7300a10fb/capsule_231x87.jpg?t=1787367697",
-      "storeUrl": "https://store.steampowered.com/app/4637580/Sky_Runway/"
-    },
-    {
-      "id": "steam-4973340",
-      "appId": 4973340,
-      "name": "Neko Rogue",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-08-21",
-      "releaseLabel": "Aug 21, 2026",
+      "status": "upcoming",
+      "releaseDate": "2026-08-23",
+      "releaseLabel": "Aug 23, 2026",
       "platforms": [
         "Windows"
       ],
       "genre": "策略",
-      "price": "$9.74",
-      "discount": 25,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 73,
-      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4973340/1cc0fb3d4ad5cb3cc13f0eff6485bd1bbb4e5dc4/capsule_231x87.jpg?t=1787358761",
-      "storeUrl": "https://store.steampowered.com/app/4973340/Neko_Rogue/"
-    },
-    {
-      "id": "steam-4989300",
-      "appId": 4989300,
-      "name": "Realms Of Wands",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-08-21",
-      "releaseLabel": "Aug 21, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "角色扮演",
-      "price": "$12.59",
-      "discount": 10,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 73,
-      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4989300/b98acd2174a97cc2fca4e6e086bd6dc238bbfbdc/capsule_231x87.jpg?t=1787354972",
-      "storeUrl": "https://store.steampowered.com/app/4989300/Realms_Of_Wands/"
-    },
-    {
-      "id": "steam-4836860",
-      "appId": 4836860,
-      "name": "Beguiled Egress",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-08-21",
-      "releaseLabel": "Aug 21, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "其他",
-      "price": "$2.99",
+      "price": "价格待定",
       "discount": 0,
       "reviewPercent": 0,
       "reviewCount": 0,
-      "heatScore": 73,
-      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4836860/0aa91a07e2a9f3d3cd2886f9d9b31dff59e887e2/capsule_231x87.jpg?t=1787352691",
-      "storeUrl": "https://store.steampowered.com/app/4836860/Beguiled_Egress/"
-    },
-    {
-      "id": "steam-4964280",
-      "appId": 4964280,
-      "name": "E-Rally: The Linear Function Racer",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-08-21",
-      "releaseLabel": "Aug 21, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "竞速",
-      "price": "$4.00",
-      "discount": 0,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 73,
-      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4964280/1e5eb45e5b2e8345d2b7ee057ab0f89c1fb48f86/capsule_231x87.jpg?t=1787352276",
-      "storeUrl": "https://store.steampowered.com/app/4964280/ERally_The_Linear_Function_Racer/"
-    },
-    {
-      "id": "steam-4502700",
-      "appId": 4502700,
-      "name": "Empire Eleven 2026",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-08-21",
-      "releaseLabel": "Aug 21, 2026",
-      "platforms": [
-        "Windows",
-        "macOS"
-      ],
-      "genre": "模拟",
-      "price": "$9.99",
-      "discount": 0,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 73,
-      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4502700/a13726939fdc084527f9f242c67c17a3a13e4690/capsule_231x87.jpg?t=1787405665",
-      "storeUrl": "https://store.steampowered.com/app/4502700/Empire_Eleven_2026/"
-    },
-    {
-      "id": "steam-3504270",
-      "appId": 3504270,
-      "name": "Pavlov Shack",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-08-21",
-      "releaseLabel": "Aug 21, 2026",
-      "platforms": [
-        "VR"
-      ],
-      "genre": "动作",
-      "price": "$19.99",
-      "discount": 0,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 73,
-      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3504270/6ecf636d16d08343ad7fd1b8662f9f8174cbbfe3/capsule_231x87.jpg?t=1787352893",
-      "storeUrl": "https://store.steampowered.com/app/3504270/Pavlov_Shack/"
-    },
-    {
-      "id": "steam-4359910",
-      "appId": 4359910,
-      "name": "Card Maker Simulator",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-08-21",
-      "releaseLabel": "Aug 21, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "模拟",
-      "price": "$7.19",
-      "discount": 10,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 73,
-      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4359910/0b27d623060bdcba359fa13bfde1d8703e1adb4c/capsule_231x87.jpg?t=1787351087",
-      "storeUrl": "https://store.steampowered.com/app/4359910/Card_Maker_Simulator/"
-    },
-    {
-      "id": "steam-4725140",
-      "appId": 4725140,
-      "name": "System Grid Crusher",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-08-21",
-      "releaseLabel": "Aug 21, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "动作",
-      "price": "$2.99",
-      "discount": 0,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 73,
-      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4725140/7934d30bfec826672e86d771704423b021cbc1ef/capsule_231x87.jpg?t=1787349974",
-      "storeUrl": "https://store.steampowered.com/app/4725140/System_Grid_Crusher/"
-    },
-    {
-      "id": "steam-3277860",
-      "appId": 3277860,
-      "name": "Solacinity",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-08-21",
-      "releaseLabel": "Aug 21, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "冒险",
-      "price": "$4.99",
-      "discount": 0,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 73,
-      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3277860/16314e81fc58694ac33f1b344dc645e2af1a8601/capsule_231x87.jpg?t=1787349506",
-      "storeUrl": "https://store.steampowered.com/app/3277860/Solacinity/"
-    },
-    {
-      "id": "steam-4741750",
-      "appId": 4741750,
-      "name": "Chickzilla",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-08-21",
-      "releaseLabel": "Aug 21, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "动作",
-      "price": "$1.79",
-      "discount": 40,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 73,
-      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4741750/91708c97d917b2a18e788f82e26ca65d61ba5913/capsule_231x87.jpg?t=1787348013",
-      "storeUrl": "https://store.steampowered.com/app/4741750/Chickzilla/"
+      "heatScore": 48,
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5069100/b0b7298bc1a24d326186c22a2f4dd8f8d7783cf6/capsule_231x87.jpg?t=1787323340",
+      "storeUrl": "https://store.steampowered.com/app/5069100/Dice_Chemist/"
     },
     {
       "id": "steam-4937120",
@@ -798,27 +819,6 @@
       "heatScore": 48,
       "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4937120/239e7af26543c20d9479a8594dc55fbe264ac399/capsule_231x87.jpg?t=1787021539",
       "storeUrl": "https://store.steampowered.com/app/4937120/_/"
-    },
-    {
-      "id": "steam-5069100",
-      "appId": 5069100,
-      "name": "Dice Chemist",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "upcoming",
-      "releaseDate": "2026-08-23",
-      "releaseLabel": "Aug 23, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "策略",
-      "price": "价格待定",
-      "discount": 0,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 48,
-      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5069100/b0b7298bc1a24d326186c22a2f4dd8f8d7783cf6/capsule_231x87.jpg?t=1787323340",
-      "storeUrl": "https://store.steampowered.com/app/5069100/Dice_Chemist/"
     },
     {
       "id": "steam-4587970",
@@ -1204,27 +1204,6 @@
       "storeUrl": "https://store.steampowered.com/app/5081400/HOSHIKUI/"
     },
     {
-      "id": "steam-5085070",
-      "appId": 5085070,
-      "name": "Reverb",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "upcoming",
-      "releaseDate": "2026-08-24",
-      "releaseLabel": "Aug 24, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "合作",
-      "price": "价格待定",
-      "discount": 0,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 48,
-      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5085070/1e2c357917f11f3439d46acf7f62d7942179e86d/capsule_231x87.jpg?t=1787231620",
-      "storeUrl": "https://store.steampowered.com/app/5085070/Reverb/"
-    },
-    {
       "id": "steam-4341610",
       "appId": 4341610,
       "name": "No Final Run",
@@ -1244,6 +1223,27 @@
       "heatScore": 48,
       "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4341610/f1e86035b9e9be57eb8a07a9c12efb6ffdc3f884/capsule_231x87.jpg?t=1787156624",
       "storeUrl": "https://store.steampowered.com/app/4341610/No_Final_Run/"
+    },
+    {
+      "id": "steam-5085070",
+      "appId": 5085070,
+      "name": "Reverb",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "upcoming",
+      "releaseDate": "2026-08-24",
+      "releaseLabel": "Aug 24, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "合作",
+      "price": "价格待定",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 48,
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5085070/1e2c357917f11f3439d46acf7f62d7942179e86d/capsule_231x87.jpg?t=1787231620",
+      "storeUrl": "https://store.steampowered.com/app/5085070/Reverb/"
     },
     {
       "id": "steam-5046030",
@@ -1268,27 +1268,6 @@
       "storeUrl": "https://store.steampowered.com/app/5046030/Neon_Cadence/"
     },
     {
-      "id": "steam-3457720",
-      "appId": 3457720,
-      "name": "Incremental Orbits",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "upcoming",
-      "releaseDate": "2026-08-24",
-      "releaseLabel": "Aug 24, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "休闲",
-      "price": "价格待定",
-      "discount": 0,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 48,
-      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3457720/2946e4b7a93c1f9f6f28db751b1e7ec089f31192/capsule_231x87.jpg?t=1787292605",
-      "storeUrl": "https://store.steampowered.com/app/3457720/Incremental_Orbits/"
-    },
-    {
       "id": "steam-3646000",
       "appId": 3646000,
       "name": "Mouspionage",
@@ -1308,6 +1287,27 @@
       "heatScore": 48,
       "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3646000/a36b709e602bca35c247ff846ecfd3164a5408a8/capsule_231x87.jpg?t=1786548200",
       "storeUrl": "https://store.steampowered.com/app/3646000/Mouspionage/"
+    },
+    {
+      "id": "steam-4823350",
+      "appId": 4823350,
+      "name": "Tridan",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "upcoming",
+      "releaseDate": "2026-08-24",
+      "releaseLabel": "Aug 24, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "休闲",
+      "price": "价格待定",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 48,
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4823350/b047a4a9d0bcbf74ceda196ae460142afe22efda/capsule_231x87.jpg?t=1787243246",
+      "storeUrl": "https://store.steampowered.com/app/4823350/Tridan/"
     }
   ]
 }
