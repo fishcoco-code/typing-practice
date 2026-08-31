@@ -1,0 +1,9 @@
+Asset: City Kit (Industrial)
+Creator: Kenney
+Source: https://kenney.nl/assets/city-kit-industrial
+License: CC0 1.0 Universal
+Commercial use: Allowed
+Modification: Allowed
+Attribution: Not required
+
+The source archive states that the included assets are licensed under CC0.

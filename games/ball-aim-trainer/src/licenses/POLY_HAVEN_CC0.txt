@@ -1,0 +1,14 @@
+Assets: Industrial Sunset 02 Pure Sky, Hangar Concrete Floor, Standing Chalkboard 01
+Creator: Poly Haven contributors
+Sources:
+- https://polyhaven.com/a/industrial_sunset_02_puresky
+- https://polyhaven.com/a/hangar_concrete_floor
+- https://polyhaven.com/a/standing_chalkboard_01
+Collection pages selected by the user:
+- https://polyhaven.com/hdris/pure-skies
+- https://polyhaven.com/textures/concrete
+- https://polyhaven.com/models/decor-art
+License: CC0 1.0 Universal
+Commercial use: Allowed
+Modification: Allowed
+Attribution: Not required

@@ -1,0 +1,9 @@
+Asset: Ultimate Modular Men Pack
+Creator: Quaternius
+Source: https://quaternius.com/packs/ultimatemodularcharacters.html
+License: CC0 1.0 Universal
+Commercial use: Allowed
+Modification: Allowed
+Attribution: Not required
+
+Imported models used by this project: Swat, Worker, and Casual Hoodie.

@@ -3,10 +3,27 @@ extends Node3D
 enum GameState { READY, COUNTDOWN, PLAYING, RESULTS }
 
 const TARGET_SCENE := preload("res://scenes/target.tscn")
-const ARMS_SCENE := preload("res://assets/viewmodel/fps-rifle-hands/rifle.glb")
-const RIFLE_SCENE := preload("res://assets/weapons/quaternius/Rifle.fbx")
-const PISTOL_SCENE := preload("res://assets/weapons/quaternius/Pistol.fbx")
-const SNIPER_SCENE := preload("res://assets/weapons/quaternius/SniperRifle.fbx")
+const ARMS_SCENE := preload("res://assets/viewmodel/wrad-arms/arms.glb")
+const RIFLE_SCENE := preload("res://assets/weapons/styloo/ak47.glb")
+const PISTOL_SCENE := preload("res://assets/weapons/styloo/pew.glb")
+const SNIPER_SCENE := preload("res://assets/weapons/styloo/awp.glb")
+const AMMO_BOX_SCENE := preload("res://assets/weapons/styloo/ammobox_low.glb")
+const INDUSTRIAL_BUILDING_A := preload("res://assets/environment/kenney-industrial/building-a.glb")
+const INDUSTRIAL_BUILDING_D := preload("res://assets/environment/kenney-industrial/building-d.glb")
+const INDUSTRIAL_BUILDING_H := preload("res://assets/environment/kenney-industrial/building-h.glb")
+const INDUSTRIAL_BUILDING_M := preload("res://assets/environment/kenney-industrial/building-m.glb")
+const INDUSTRIAL_BUILDING_Q := preload("res://assets/environment/kenney-industrial/building-q.glb")
+const SHIPPING_CONTAINER_A := preload("res://assets/environment/kenney-industrial/shipping-container-a.glb")
+const SHIPPING_CONTAINER_B := preload("res://assets/environment/kenney-industrial/shipping-container-b.glb")
+const INDUSTRIAL_TANK := preload("res://assets/environment/kenney-industrial/detail-tank-large.glb")
+const WATER_TOWER := preload("res://assets/environment/kenney-industrial/water-tower.glb")
+const WINDMILL := preload("res://assets/environment/kenney-industrial/windmill-low.glb")
+const SOLAR_PANELS := preload("res://assets/environment/kenney-industrial/solar-panel-landscape-group.glb")
+const CHALKBOARD_SCENE := preload("res://assets/environment/polyhaven/standing_chalkboard_01/standing_chalkboard_01_1k.gltf")
+const INDUSTRIAL_SKY := preload("res://assets/environment/polyhaven/industrial_sunset_02_puresky_1k.hdr")
+const CONCRETE_ALBEDO := preload("res://assets/environment/polyhaven/hangar_concrete_floor_diff_1k.jpg")
+const CONCRETE_NORMAL := preload("res://assets/environment/polyhaven/hangar_concrete_floor_nor_gl_1k.jpg")
+const CONCRETE_ROUGHNESS := preload("res://assets/environment/polyhaven/hangar_concrete_floor_rough_1k.jpg")
 const RIFLE_AUDIO := preload("res://assets/audio/weapons/rifle_fire.wav")
 const PISTOL_AUDIO := preload("res://assets/audio/weapons/pistol_fire.wav")
 const SNIPER_AUDIO := preload("res://assets/audio/weapons/sniper_fire.wav")
@@ -25,8 +42,8 @@ const DEFAULT_BALL_DISTANCE := 30.0
 const DEFAULT_BALL_DIAMETER := 1.0
 const DEFAULT_ROUND_DURATION := 60.0
 const DEFAULT_RED_DOT_SIZE := 8.0
-const WEAPON_BASE_POSITION := Vector3(0.27, -0.21, -0.42)
-const WEAPON_BASE_ROTATION := Vector3(deg_to_rad(-2.0), 0.0, deg_to_rad(-1.0))
+const WEAPON_BASE_POSITION := Vector3(0.23, -0.20, -0.36)
+const WEAPON_BASE_ROTATION := Vector3(deg_to_rad(-2.0), deg_to_rad(-1.5), deg_to_rad(-1.0))
 const STANDING_HEIGHT := 1.8
 const CROUCH_HEIGHT := 1.2
 const STANDING_CAMERA_HEIGHT := 1.65
@@ -243,44 +260,112 @@ func _create_world() -> void:
 	var world_environment := WorldEnvironment.new()
 	world_environment.name = "WorldEnvironment"
 	var environment := Environment.new()
-	environment.background_mode = Environment.BG_COLOR
-	environment.background_color = Color("f1f3f5")
-	environment.background_energy_multiplier = 0.7
-	environment.ambient_light_source = Environment.AMBIENT_SOURCE_COLOR
-	environment.ambient_light_color = Color("eef2f4")
-	environment.ambient_light_energy = 0.48
-	environment.reflected_light_source = Environment.REFLECTION_SOURCE_BG
+	var panorama_material := PanoramaSkyMaterial.new()
+	panorama_material.panorama = INDUSTRIAL_SKY
+	var sky := Sky.new()
+	sky.sky_material = panorama_material
+	environment.sky = sky
+	environment.sky_rotation = Vector3(0.0, deg_to_rad(180.0), 0.0)
+	environment.background_mode = Environment.BG_SKY
+	environment.background_energy_multiplier = 0.48
+	environment.ambient_light_source = Environment.AMBIENT_SOURCE_SKY
+	environment.ambient_light_energy = 0.46
+	environment.reflected_light_source = Environment.REFLECTION_SOURCE_SKY
 	environment.tonemap_mode = Environment.TONE_MAPPER_FILMIC
+	environment.fog_enabled = false
 	world_environment.environment = environment
 	add_child(world_environment)
 
 	var room := Node3D.new()
-	room.name = "开放式白色训练场"
+	room.name = "工业射击训练场"
 	add_child(room)
-	_add_room_box(room, "大型白色地板", Vector3(120.0, 0.25, 120.0), Vector3(0.0, -0.125, -30.0), Color("e7eaec"), true)
-	for z in [-6.0, -18.0, -30.0, -42.0, -54.0]:
-		_add_room_box(room, "左侧方柱", Vector3(2.4, 5.2, 2.4), Vector3(-18.0, 2.6, z), Color("f8f9fa"), true)
-		_add_room_box(room, "右侧方柱", Vector3(2.4, 5.2, 2.4), Vector3(18.0, 2.6, z - 4.0), Color("f4f6f7"), true)
-	for x in [-12.0, 0.0, 12.0]:
-		_add_room_box(room, "远端方柱", Vector3(2.8, 7.0, 2.8), Vector3(x, 3.5, -62.0), Color("ffffff"), true)
-	for z in range(-80, 31, 10):
-		_add_room_box(room, "地面横向标线", Vector3(120.0, 0.012, 0.025), Vector3(0.0, 0.012, float(z)), Color("d7dcdf"))
+	_add_concrete_floor(room)
+
+	var building_scenes: Array[PackedScene] = [INDUSTRIAL_BUILDING_A, INDUSTRIAL_BUILDING_D, INDUSTRIAL_BUILDING_H, INDUSTRIAL_BUILDING_M, INDUSTRIAL_BUILDING_Q]
+	var building_layout := [
+		[Vector3(-27.0, 0.0, -8.0), 90.0, 5.2], [Vector3(27.0, 0.0, -13.0), -90.0, 4.8],
+		[Vector3(-29.0, 0.0, -31.0), 90.0, 5.4], [Vector3(29.0, 0.0, -37.0), -90.0, 5.0],
+		[Vector3(-28.0, 0.0, -58.0), 90.0, 5.3], [Vector3(28.0, 0.0, -61.0), -90.0, 5.1],
+		[Vector3(-15.0, 0.0, -76.0), 180.0, 5.4], [Vector3(15.0, 0.0, -76.0), 180.0, 5.4],
+	]
+	for index in range(building_layout.size()):
+		var entry: Array = building_layout[index]
+		_add_environment_model(room, "工业建筑%02d" % (index + 1), building_scenes[index % building_scenes.size()], entry[0], entry[1], entry[2])
+		_add_world_collision_box(room, "工业建筑碰撞%02d" % (index + 1), Vector3(9.0, 9.0, 9.0), entry[0] + Vector3(0, 4.5, 0))
+
+	_add_environment_model(room, "左侧集装箱", SHIPPING_CONTAINER_A, Vector3(-17.0, 0.0, -20.0), 6.0, 3.0)
+	_add_environment_model(room, "右侧集装箱", SHIPPING_CONTAINER_B, Vector3(18.0, 0.0, -45.0), -8.0, 3.0)
+	_add_world_collision_box(room, "左侧集装箱碰撞", Vector3(4.2, 3.9, 9.1), Vector3(-17.0, 1.95, -20.0))
+	_add_world_collision_box(room, "右侧集装箱碰撞", Vector3(4.2, 3.9, 9.1), Vector3(18.0, 1.95, -45.0))
+	_add_environment_model(room, "工业储罐", INDUSTRIAL_TANK, Vector3(-21.0, 0.0, -48.0), 0.0, 4.5)
+	_add_environment_model(room, "水塔", WATER_TOWER, Vector3(22.0, 0.0, -66.0), 0.0, 5.8)
+	_add_environment_model(room, "风力机", WINDMILL, Vector3(-24.0, 0.0, -68.0), 18.0, 6.5)
+	_add_environment_model(room, "太阳能板", SOLAR_PANELS, Vector3(18.0, 0.0, -7.0), -18.0, 3.6)
+	_add_environment_model(room, "训练说明牌", CHALKBOARD_SCENE, Vector3(-12.5, 0.0, -5.8), 22.0, 1.15)
+	for index in range(5):
+		_add_environment_model(room, "弹药箱%02d" % (index + 1), AMMO_BOX_SCENE, Vector3(-14.0 + index * 7.0, 0.18, -63.0), 12.0 * index, 1.3)
+
+	for z in range(-70, 1, 10):
+		_add_room_box(room, "训练区警示线", Vector3(34.0, 0.018, 0.10), Vector3(0.0, 0.018, float(z)), Color("e5a72f"))
 
 	var key_light := DirectionalLight3D.new()
 	key_light.name = "KeyLight"
-	key_light.rotation_degrees = Vector3(-52.0, -28.0, 0.0)
-	key_light.light_color = Color("fffdf8")
-	key_light.light_energy = 0.8
+	key_light.rotation_degrees = Vector3(-38.0, -48.0, 0.0)
+	key_light.light_color = Color("ffd5a2")
+	key_light.light_energy = 0.68
 	key_light.shadow_enabled = true
 	key_light.directional_shadow_max_distance = 90.0
 	room.add_child(key_light)
 	var fill_light := OmniLight3D.new()
 	fill_light.name = "FillLight"
-	fill_light.position = Vector3(-5.0, 8.5, -18.0)
-	fill_light.light_color = Color("e8f2ff")
-	fill_light.light_energy = 1.4
+	fill_light.position = Vector3(-8.0, 10.0, -24.0)
+	fill_light.light_color = Color("b9d3e8")
+	fill_light.light_energy = 0.85
 	fill_light.omni_range = 55.0
 	room.add_child(fill_light)
+
+
+func _add_concrete_floor(parent: Node3D) -> void:
+	var floor_mesh := MeshInstance3D.new()
+	floor_mesh.name = "机库混凝土地面"
+	var mesh := PlaneMesh.new()
+	mesh.size = Vector2(120.0, 120.0)
+	mesh.subdivide_width = 1
+	mesh.subdivide_depth = 1
+	var material := StandardMaterial3D.new()
+	material.albedo_texture = CONCRETE_ALBEDO
+	material.normal_enabled = true
+	material.normal_texture = CONCRETE_NORMAL
+	material.roughness_texture = CONCRETE_ROUGHNESS
+	material.roughness = 0.92
+	material.uv1_scale = Vector3(18.0, 18.0, 18.0)
+	mesh.material = material
+	floor_mesh.mesh = mesh
+	floor_mesh.position = Vector3(0.0, 0.0, -30.0)
+	parent.add_child(floor_mesh)
+	_add_world_collision_box(parent, "地面碰撞", Vector3(120.0, 0.25, 120.0), Vector3(0.0, -0.125, -30.0))
+
+
+func _add_environment_model(parent: Node3D, node_name: String, packed_scene: PackedScene, model_position: Vector3, rotation_y_degrees: float, model_scale: float) -> Node3D:
+	var model := packed_scene.instantiate() as Node3D
+	model.name = node_name
+	model.position = model_position
+	model.rotation_degrees.y = rotation_y_degrees
+	model.scale = Vector3.ONE * model_scale
+	parent.add_child(model)
+	return model
+
+
+func _add_world_collision_box(parent: Node3D, node_name: String, box_size: Vector3, box_position: Vector3) -> void:
+	var static_body := StaticBody3D.new()
+	static_body.name = node_name
+	static_body.position = box_position
+	var collision_shape := CollisionShape3D.new()
+	var box_shape := BoxShape3D.new()
+	box_shape.size = box_size
+	collision_shape.shape = box_shape
+	static_body.add_child(collision_shape)
+	parent.add_child(static_body)
 
 
 func _add_room_box(parent: Node3D, node_name: String, box_size: Vector3, box_position: Vector3, color: Color, collidable: bool = false) -> void:
@@ -343,23 +428,13 @@ func _create_player() -> void:
 	camera.add_child(weapon_pivot)
 	var arms_root := ARMS_SCENE.instantiate()
 	arms_root.name = "FPSArms"
-	arms_root.scale = Vector3.ONE * 0.022
+	arms_root.position = Vector3(0.08, -0.045, -0.20)
+	arms_root.rotation_degrees = Vector3(0.0, 180.0, 0.0)
+	arms_root.scale = Vector3.ONE * 0.038
 	weapon_pivot.add_child(arms_root)
-	var bundled_gun := arms_root.get_node_or_null("Armature/Skeleton3D/Gun") as MeshInstance3D
-	if bundled_gun:
-		bundled_gun.visible = false
-	var skeleton := arms_root.get_node_or_null("Armature/Skeleton3D") as Skeleton3D
-	if skeleton:
-		var skin_material := StandardMaterial3D.new()
-		skin_material.albedo_color = Color("c98f68")
-		skin_material.roughness = 0.92
-		for hand_name in ["Hand1", "Hand2"]:
-			var hand := skeleton.get_node_or_null(hand_name) as MeshInstance3D
-			if hand:
-				hand.material_override = skin_material
-	_create_weapon_model("rifle", RIFLE_SCENE, Vector3(0.16, -0.18, -0.25), Vector3(-180.0, 0.0, 0.0), 0.045)
-	_create_weapon_model("pistol", PISTOL_SCENE, Vector3(0.13, -0.11, -0.18), Vector3(0.0, -90.0, 0.0), 0.025)
-	_create_weapon_model("sniper", SNIPER_SCENE, Vector3(0.13, -0.10, -0.29), Vector3(-180.0, 0.0, 0.0), 0.035)
+	_create_weapon_model("rifle", RIFLE_SCENE, Vector3(0.12, -0.04, -0.24), Vector3(0.0, 90.0, 0.0), 1.0)
+	_create_weapon_model("pistol", PISTOL_SCENE, Vector3(0.12, -0.03, -0.22), Vector3(0.0, 90.0, 0.0), 1.65)
+	_create_weapon_model("sniper", SNIPER_SCENE, Vector3(0.12, -0.05, -0.25), Vector3(0.0, 90.0, 0.0), 0.72)
 	arms_animation_player = arms_root.get_node_or_null("AnimationPlayer") as AnimationPlayer
 	muzzle_flash = MeshInstance3D.new()
 	muzzle_flash.name = "MuzzleFlash"
@@ -409,27 +484,14 @@ func _create_weapon_model(weapon_id: String, packed_scene: PackedScene, model_po
 	model.rotation_degrees = model_rotation_degrees
 	model.scale = Vector3.ONE * model_scale
 	weapon_pivot.add_child(model)
-	var weapon_colors := {"rifle": Color("263b32"), "pistol": Color("202328"), "sniper": Color("30343b")}
-	_apply_weapon_material(model, weapon_colors.get(weapon_id, Color("2d3338")))
 	weapon_models[weapon_id] = model
-
-
-func _apply_weapon_material(node: Node, color: Color) -> void:
-	if node is MeshInstance3D:
-		var material := StandardMaterial3D.new()
-		material.albedo_color = color
-		material.metallic = 0.42
-		material.roughness = 0.38
-		(node as MeshInstance3D).material_override = material
-	for child in node.get_children():
-		_apply_weapon_material(child, color)
 
 
 func _weapon_muzzle_position(weapon_id: String) -> Vector3:
 	match weapon_id:
-		"pistol": return Vector3(0.40, -0.39, -0.72)
-		"sniper": return Vector3(0.31, -0.21, -0.88)
-		_: return Vector3(0.31, -0.27, -0.80)
+		"pistol": return Vector3(0.12, -0.03, -0.48)
+		"sniper": return Vector3(0.12, -0.05, -1.08)
+		_: return Vector3(0.12, -0.04, -0.91)
 
 
 func _create_spawn_slots() -> void:
@@ -548,7 +610,7 @@ func _create_ui() -> void:
 	chinese_theme.default_font = CHINESE_FONT
 	ui_root.theme = chinese_theme
 	canvas.add_child(ui_root)
-	timer_label = _add_hud_label(ui_root, Vector2(28, 22), Vector2(260, 48), 30, Color("252b31"))
+	timer_label = _add_hud_label(ui_root, Vector2(28, 22), Vector2(260, 48), 30, Color.WHITE)
 	var stats_box := VBoxContainer.new()
 	stats_box.add_theme_constant_override("separation", -4)
 	ui_root.add_child(stats_box)
@@ -558,15 +620,15 @@ func _create_ui() -> void:
 	stats_box.offset_right = -28.0
 	stats_box.offset_top = 22.0
 	stats_box.offset_bottom = 100.0
-	score_label = _make_label(30, Color("252b31"))
+	score_label = _make_label(30, Color.WHITE)
 	score_label.custom_minimum_size = Vector2(292, 48)
 	score_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
 	stats_box.add_child(score_label)
-	accuracy_label = _make_label(18, Color("5b626a"))
+	accuracy_label = _make_label(18, Color("e0e5e8"))
 	accuracy_label.custom_minimum_size = Vector2(292, 34)
 	accuracy_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
 	stats_box.add_child(accuracy_label)
-	combo_label = _add_hud_label(ui_root, Vector2(-130, 24), Vector2(260, 42), 24, Color("d92f3d"))
+	combo_label = _add_hud_label(ui_root, Vector2(-130, 24), Vector2(260, 42), 24, Color("ffd23f"))
 	combo_label.anchor_left = 0.5
 	combo_label.anchor_right = 0.5
 	combo_label.offset_left = -130.0
@@ -574,14 +636,14 @@ func _create_ui() -> void:
 	combo_label.offset_top = 24.0
 	combo_label.offset_bottom = 66.0
 	combo_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	weapon_label = _add_hud_label(ui_root, Vector2.ZERO, Vector2(360, 46), 22, Color("252b31"))
+	weapon_label = _add_hud_label(ui_root, Vector2.ZERO, Vector2(360, 46), 22, Color.WHITE)
 	weapon_label.set_anchors_preset(Control.PRESET_BOTTOM_LEFT)
 	weapon_label.offset_left = 28.0
 	weapon_label.offset_right = 500.0
 	weapon_label.offset_top = -66.0
 	weapon_label.offset_bottom = -20.0
 	weapon_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_LEFT
-	countdown_label = _add_hud_label(ui_root, Vector2(-160, -90), Vector2(320, 180), 100, Color("d92f3d"))
+	countdown_label = _add_hud_label(ui_root, Vector2(-160, -90), Vector2(320, 180), 100, Color("ffd23f"))
 	countdown_label.anchor_left = 0.5
 	countdown_label.anchor_right = 0.5
 	countdown_label.anchor_top = 0.5
@@ -620,10 +682,10 @@ func _create_start_panel(ui_root: Control) -> void:
 	box.add_theme_constant_override("separation", 10)
 	start_panel.add_child(box)
 	var title := _make_label(38, Color.WHITE)
-	title.text = "第一人称射击训练场"
+	title.text = "工业射击训练场"
 	title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	box.add_child(title)
-	settings_summary_label = _make_label(15, Color("ff8b72"))
+	settings_summary_label = _make_label(15, Color("ffd23f"))
 	settings_summary_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	box.add_child(settings_summary_label)
 	var instructions := _make_label(15, Color("c3cad3"))
@@ -651,7 +713,7 @@ func _create_start_panel(ui_root: Control) -> void:
 	start_button.pressed.connect(_start_round)
 	box.add_child(start_button)
 	var controls := _make_label(13, Color("89939f"))
-	controls.text = "WASD 移动 · CTRL/C 蹲下 · 1步枪 2手枪 3狙击枪 · 右键开镜 · R重开"
+	controls.text = "WASD 移动 · CTRL/C 蹲下 · 1突击步枪 2手枪 3狙击枪 · 右键开镜 · R重开"
 	controls.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	box.add_child(controls)
 
@@ -676,8 +738,8 @@ func _create_result_panel(ui_root: Control) -> void:
 	var edit_button := _make_secondary_button("调整训练参数")
 	edit_button.pressed.connect(_show_settings)
 	box.add_child(edit_button)
-	var license_note := _make_label(11, Color("76818d"))
-	license_note.text = "Godot 4.7.2 · 武器、手臂与枪声音效均为 CC0 素材"
+	var license_note := _make_label(11, Color("89939f"))
+	license_note.text = "Godot 4.7.2 · 场景、人物、武器、天空与纹理均使用 CC0 素材"
 	license_note.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	box.add_child(license_note)
 
@@ -696,7 +758,7 @@ func _add_setting_row(grid: GridContainer, key: String, label_text: String, mini
 	slider.custom_minimum_size = Vector2(330, 38)
 	slider.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	grid.add_child(slider)
-	var value_label := _make_label(15, Color("ff8b72"))
+	var value_label := _make_label(15, Color("ffd23f"))
 	value_label.custom_minimum_size = Vector2(110, 38)
 	value_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
 	value_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
@@ -989,7 +1051,7 @@ func _switch_weapon(weapon_id: String) -> void:
 func _update_weapon_label() -> void:
 	if not weapon_label:
 		return
-	var names := {"rifle": "1  M4A1 风格步枪｜自动", "pistol": "2  格洛克风格手枪｜点射", "sniper": "3  AWP 风格狙击枪｜拉栓·三倍镜"}
+	var names := {"rifle": "1  突击步枪｜自动", "pistol": "2  格洛克风格手枪｜点射", "sniper": "3  AWP 风格狙击枪｜拉栓·三倍镜"}
 	weapon_label.text = names.get(current_weapon, "")
 
 
@@ -1127,9 +1189,9 @@ func _make_label(font_size: int, color: Color) -> Label:
 	var label := Label.new()
 	label.add_theme_font_size_override("font_size", font_size)
 	label.add_theme_color_override("font_color", color)
-	label.add_theme_color_override("font_shadow_color", Color(0, 0, 0, 0.24))
-	label.add_theme_constant_override("shadow_offset_x", 1)
-	label.add_theme_constant_override("shadow_offset_y", 1)
+	label.add_theme_color_override("font_shadow_color", Color(0, 0, 0, 0.72))
+	label.add_theme_constant_override("shadow_offset_x", 2)
+	label.add_theme_constant_override("shadow_offset_y", 2)
 	return label
 
 
@@ -1140,12 +1202,12 @@ func _make_button(text: String) -> Button:
 	button.add_theme_font_size_override("font_size", 18)
 	button.add_theme_color_override("font_color", Color.WHITE)
 	var normal := StyleBoxFlat.new()
-	normal.bg_color = Color("d92f3d")
+	normal.bg_color = Color("d98d20")
 	normal.set_corner_radius_all(8)
 	var hover := normal.duplicate() as StyleBoxFlat
-	hover.bg_color = Color("f04350")
+	hover.bg_color = Color("f0aa35")
 	var pressed := normal.duplicate() as StyleBoxFlat
-	pressed.bg_color = Color("ab202d")
+	pressed.bg_color = Color("ad6913")
 	button.add_theme_stylebox_override("normal", normal)
 	button.add_theme_stylebox_override("hover", hover)
 	button.add_theme_stylebox_override("pressed", pressed)
@@ -1161,7 +1223,7 @@ func _make_secondary_button(text: String) -> Button:
 	button.add_theme_color_override("font_color", Color("dce3ea"))
 	var style := StyleBoxFlat.new()
 	style.bg_color = Color("303943")
-	style.border_color = Color("65717e")
+	style.border_color = Color("7c858b")
 	style.set_border_width_all(1)
 	style.set_corner_radius_all(8)
 	button.add_theme_stylebox_override("normal", style)
@@ -1180,7 +1242,7 @@ func _create_center_panel(parent: Control, panel_size: Vector2) -> PanelContaine
 	panel.mouse_filter = Control.MOUSE_FILTER_STOP
 	var style := StyleBoxFlat.new()
 	style.bg_color = Color(0.075, 0.09, 0.105, 0.965)
-	style.border_color = Color(0.85, 0.19, 0.24, 0.85)
+	style.border_color = Color("d98d20")
 	style.set_border_width_all(1)
 	style.set_corner_radius_all(16)
 	style.content_margin_left = 28

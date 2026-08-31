@@ -1,0 +1,9 @@
+Asset: Guns Asset Pack
+Creator: Styloo
+Source: https://styloo.itch.io/guns-asset-pack
+License: CC0 1.0 Universal
+Commercial use: Allowed
+Modification: Allowed
+Attribution: Not required
+
+Imported models used by this project: ak47, pew (pistol), awp, and ammobox_low.

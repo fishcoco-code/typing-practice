@@ -1,0 +1,9 @@
+Asset: WRAD Arms
+Creator: wriks
+Source: https://wriks.itch.io/wrad-arms
+License: CC0 1.0 Universal
+Commercial use: Allowed
+Modification: Allowed
+Attribution: Not required
+
+Imported model used by this project: rigged first-person arms with the pale arm texture.
