@@ -52,6 +52,13 @@ func _run() -> void:
 	_check(game.weapon_models["rifle"].scale.is_equal_approx(rifle_base_scale * 1.42), "固定射球模式应放大枪身")
 	_check(game.targets[0].target_mode == "ball", "固定射球模式应使用球体目标")
 	_check(game.targets[0].target_color.is_equal_approx(Color("ffd21f")), "训练小球应为黄色")
+	var ball_rows: Dictionary = {}
+	var balls_share_one_plane := true
+	for spawn_position in game.spawn_positions:
+		ball_rows[spawn_position.y] = true
+		balls_share_one_plane = balls_share_one_plane and is_equal_approx(spawn_position.z, -game.ball_distance)
+	_check(ball_rows.size() == 3, "黄色小球应平铺为三行")
+	_check(balls_share_one_plane, "黄色小球应位于同一距离平面")
 	var ball_target: AimTarget = game.targets[0]
 	ball_target.show_at(game.spawn_positions[ball_target.spawn_slot], ball_target.spawn_slot, false)
 	_check(ball_target.register_weapon_hit("body", "rifle"), "黄色小球应命中一枪后消失")

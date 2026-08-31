@@ -579,9 +579,15 @@ func _create_spawn_slots() -> void:
 
 
 func _rebuild_spawn_positions() -> void:
+	var ball_row_heights := [0.15, 3.25, 6.35]
 	for index in range(spawn_offsets.size()):
 		var offset := spawn_offsets[index]
-		var world_position := Vector3(offset.x, 0.0, -ball_distance + offset.z)
+		var world_position: Vector3
+		if _is_ball_mode():
+			var row := index / 4
+			world_position = Vector3(offset.x, ball_row_heights[row], -ball_distance)
+		else:
+			world_position = Vector3(offset.x, 0.0, -ball_distance + offset.z)
 		spawn_positions[index] = world_position
 		if index < spawn_markers.size():
 			spawn_markers[index].position = world_position
@@ -882,11 +888,12 @@ func _apply_training_mode(save: bool = true) -> void:
 		var humanoid_color: Color = TARGET_COLORS[target.target_id % TARGET_COLORS.size()]
 		if target.target_mode != training_mode:
 			target.configure_mode(training_mode, humanoid_color)
+	_rebuild_spawn_positions()
 	if setting_name_labels.has("ball_diameter"):
 		(setting_name_labels["ball_diameter"] as Label).text = "小球大小" if ball_mode else "人物大小"
 	if instructions_label:
 		instructions_label.text = (
-			"固定站位 · 9 个黄色小球 · 命中即刷新"
+			"固定站位 · 黄色小球多行平铺 · 命中即刷新"
 			if ball_mode
 			else "CS 风格移动 · 9 个人形靶 · 12 个随机刷新点"
 		)
