@@ -51,6 +51,8 @@ func show_at(world_position: Vector3, slot: int, animate: bool = true) -> void:
 	is_active = true
 	visible = true
 	rotation = Vector3.ZERO
+	_visual_root.position = Vector3.ZERO
+	_visual_root.rotation = Vector3.ZERO
 	_visual_root.scale = Vector3.ONE
 	_set_hit_areas_enabled(true)
 	scale = Vector3.ONE * target_scale
@@ -92,6 +94,8 @@ func disable_immediately() -> void:
 	rotation = Vector3.ZERO
 	scale = Vector3.ONE * target_scale
 	if _visual_root:
+		_visual_root.position = Vector3.ZERO
+		_visual_root.rotation = Vector3.ZERO
 		_visual_root.scale = Vector3.ONE
 
 
@@ -101,7 +105,8 @@ func _create_character() -> void:
 	var character_scenes: Array[PackedScene] = [SWAT_SCENE, WORKER_SCENE, HOODIE_SCENE]
 	_character = character_scenes[target_id % character_scenes.size()].instantiate() as Node3D
 	_character.name = ["特警", "工业工人", "连帽训练员"][target_id % 3]
-	_character.rotation_degrees.y = 180.0
+	# Quaternius 人物默认面向 +Z；靶场玩家位于它们的 +Z 方向。
+	_character.rotation_degrees.y = 0.0
 	_visual_root.add_child(_character)
 	_animation_player = _find_animation_player(_character)
 	_apply_yellow_outline(_character)
@@ -192,16 +197,14 @@ func _play_idle() -> void:
 
 func _play_fall() -> void:
 	_kill_tween()
-	var death_name := _find_animation_name("Death")
-	if _animation_player and death_name != StringName():
-		_animation_player.play(death_name)
+	# 素材自带的 Death 动画包含过强的根骨位移，会让人物钻入地面。
+	# 以脚底为轴做向后倒地，保持身体完整可见，刷新时由 show_at 复位。
+	if _animation_player:
+		_animation_player.stop()
 	_visual_tween = create_tween()
-	_visual_tween.set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
-	var fall_direction := -1.0 if target_id % 2 == 0 else 1.0
-	_visual_tween.tween_property(self, "rotation:z", deg_to_rad(70.0) * fall_direction, 0.42)
-	_visual_tween.parallel().tween_property(self, "position:y", global_position.y + 0.06, 0.42)
-	_visual_tween.tween_interval(0.07)
-	_visual_tween.tween_callback(func() -> void: visible = false)
+	_visual_tween.set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_IN)
+	_visual_tween.tween_property(_visual_root, "rotation:x", deg_to_rad(-84.0), 0.42)
+	_visual_tween.parallel().tween_property(_visual_root, "position", Vector3(0.0, 0.025, -0.18), 0.42)
 
 
 func _find_animation_name(suffix: String) -> StringName:

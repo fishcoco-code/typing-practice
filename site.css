@@ -9,6 +9,8 @@
   --green-soft: #e6f3ec;
   --orange: #e65f35;
   --orange-soft: #fff0e9;
+  --yellow: #d49428;
+  --yellow-soft: #fff6df;
   --shadow: 0 24px 70px rgba(23, 34, 28, 0.1);
 }
 
@@ -105,7 +107,7 @@ a {
 
 .module-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 22px;
 }
 
@@ -138,6 +140,10 @@ a {
 
 .radar-module:hover {
   border-color: color-mix(in srgb, #3f9fa8 50%, var(--line));
+}
+
+.aim-module:hover {
+  border-color: color-mix(in srgb, var(--yellow) 55%, var(--line));
 }
 
 .module-topline {
@@ -177,6 +183,11 @@ a {
 .module-status.radar-live {
   background: #e7f4f4;
   color: #287d84;
+}
+
+.module-status.aim-live {
+  background: var(--yellow-soft);
+  color: var(--yellow);
 }
 
 .module-status.live i,
@@ -341,6 +352,162 @@ a {
 .radar-bars span:nth-child(3) { height: 42%; }
 .radar-bars span:nth-child(4) { height: 90%; }
 .radar-bars span:nth-child(5) { height: 58%; }
+
+.aim-visual {
+  position: relative;
+  height: 136px;
+  overflow: hidden;
+  margin: 28px 0 30px;
+  border-radius: 18px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.25), transparent 48%),
+    linear-gradient(180deg, #77a9ce 0 53%, #363d3b 53% 100%);
+}
+
+.aim-visual::before {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 47%;
+  background:
+    linear-gradient(12deg, transparent 48%, rgba(236, 184, 65, 0.55) 49% 50%, transparent 51%) 0 0 / 86px 34px,
+    linear-gradient(-12deg, transparent 48%, rgba(236, 184, 65, 0.3) 49% 50%, transparent 51%) 16px 0 / 86px 34px;
+  content: "";
+}
+
+.aim-building {
+  position: absolute;
+  bottom: 47%;
+  width: 58px;
+  height: 31px;
+  border: 2px solid #303b3e;
+  background: #e9ece9;
+  box-shadow: inset 0 -8px 0 #cad1ce;
+}
+
+.aim-building::before {
+  position: absolute;
+  top: -15px;
+  width: 12px;
+  height: 15px;
+  background: #d6dedb;
+  box-shadow: 17px -6px 0 #d6dedb;
+  content: "";
+}
+
+.building-left { left: 17px; }
+.building-right { right: 19px; width: 72px; }
+.building-left::before { left: 8px; }
+.building-right::before { right: 18px; }
+
+.aim-target {
+  position: absolute;
+  z-index: 2;
+  bottom: 40px;
+  width: 11px;
+  height: 28px;
+  border: 2px solid #f5c64c;
+  border-radius: 6px 6px 3px 3px;
+  background: #233038;
+  box-shadow: 0 0 8px rgba(245, 198, 76, 0.34);
+}
+
+.aim-target::before {
+  position: absolute;
+  top: -8px;
+  left: 0;
+  width: 7px;
+  height: 7px;
+  border: 2px solid #f5c64c;
+  border-radius: 50%;
+  background: #233038;
+  content: "";
+}
+
+.aim-target i::before,
+.aim-target i::after {
+  position: absolute;
+  bottom: -9px;
+  width: 2px;
+  height: 10px;
+  background: #f5c64c;
+  content: "";
+}
+
+.aim-target i::before { left: 1px; transform: rotate(8deg); }
+.aim-target i::after { right: 1px; transform: rotate(-8deg); }
+.target-left { left: 32%; transform: scale(0.82); }
+.target-center { left: 49%; bottom: 46px; }
+.target-right { right: 31%; transform: scale(0.72); }
+
+.aim-crosshair {
+  position: absolute;
+  z-index: 4;
+  top: 48%;
+  left: 50%;
+  width: 28px;
+  height: 28px;
+  border: 1px solid rgba(255, 255, 255, 0.66);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.aim-crosshair::before,
+.aim-crosshair::after {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.72);
+  content: "";
+}
+
+.aim-crosshair::before { top: 13px; left: -7px; width: 40px; height: 1px; }
+.aim-crosshair::after { top: -7px; left: 13px; width: 1px; height: 40px; }
+.aim-crosshair i { position: absolute; top: 10px; left: 10px; width: 6px; height: 6px; border-radius: 50%; background: #e33f32; box-shadow: 0 0 8px rgba(227, 63, 50, 0.65); }
+
+.aim-rifle {
+  position: absolute;
+  z-index: 5;
+  right: 19px;
+  bottom: 15px;
+  width: 98px;
+  height: 15px;
+  border-radius: 4px 2px 2px 5px;
+  background: #202825;
+  box-shadow: inset 34px 0 0 #9a562f, 0 5px 10px rgba(0, 0, 0, 0.28);
+  transform: rotate(-12deg);
+}
+
+.aim-rifle::before {
+  position: absolute;
+  top: 5px;
+  left: -34px;
+  width: 38px;
+  height: 5px;
+  border-radius: 3px;
+  background: #202825;
+  content: "";
+}
+
+.aim-rifle i {
+  position: absolute;
+  right: 18px;
+  bottom: -19px;
+  width: 11px;
+  height: 23px;
+  border-radius: 2px 2px 6px 6px;
+  background: #232b28;
+  transform: rotate(16deg);
+}
+
+.aim-rifle b {
+  position: absolute;
+  top: -6px;
+  left: 37px;
+  width: 33px;
+  height: 6px;
+  border-radius: 3px;
+  background: #303a36;
+}
 
 .module-copy {
   display: flex;
@@ -565,10 +732,6 @@ a {
 @media (min-width: 761px) and (max-width: 1000px) {
   .module-grid {
     grid-template-columns: 1fr 1fr;
-  }
-
-  .radar-module {
-    grid-column: 1 / -1;
   }
 }
 

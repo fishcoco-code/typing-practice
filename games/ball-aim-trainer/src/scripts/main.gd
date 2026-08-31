@@ -432,6 +432,8 @@ func _create_player() -> void:
 	arms_root.rotation_degrees = Vector3(0.0, 180.0, 0.0)
 	arms_root.scale = Vector3.ONE * 0.038
 	weapon_pivot.add_child(arms_root)
+	_apply_tactical_glove_material(arms_root)
+	_create_tactical_sleeves()
 	_create_weapon_model("rifle", RIFLE_SCENE, Vector3(0.12, -0.04, -0.24), Vector3(0.0, 90.0, 0.0), 1.0)
 	_create_weapon_model("pistol", PISTOL_SCENE, Vector3(0.12, -0.03, -0.22), Vector3(0.0, 90.0, 0.0), 1.65)
 	_create_weapon_model("sniper", SNIPER_SCENE, Vector3(0.12, -0.05, -0.25), Vector3(0.0, 90.0, 0.0), 0.72)
@@ -475,6 +477,50 @@ func _create_player() -> void:
 		spark.position = Vector3(cos(spark.rotation.z), sin(spark.rotation.z), 0.0) * 0.065
 		muzzle_sparks.add_child(spark)
 	_switch_weapon("rifle")
+
+
+func _create_tactical_sleeves() -> void:
+	var sleeve_material := StandardMaterial3D.new()
+	sleeve_material.resource_name = "深蓝战术布料"
+	sleeve_material.albedo_color = Color("26394a")
+	sleeve_material.roughness = 0.94
+	sleeve_material.metallic = 0.0
+	_add_sleeve_segment("左战术袖", Vector3(-0.11, -0.43, -0.01), Vector3(-0.015, -0.12, -0.36), 0.105, 0.072, sleeve_material)
+	_add_sleeve_segment("右战术袖", Vector3(0.34, -0.42, -0.01), Vector3(0.205, -0.105, -0.35), 0.11, 0.07, sleeve_material)
+
+	var cuff_material := sleeve_material.duplicate() as StandardMaterial3D
+	cuff_material.resource_name = "黑色战术袖口"
+	cuff_material.albedo_color = Color("0b1117")
+	_add_sleeve_segment("左袖口", Vector3(-0.027, -0.145, -0.333), Vector3(-0.006, -0.09, -0.395), 0.076, 0.064, cuff_material)
+	_add_sleeve_segment("右袖口", Vector3(0.225, -0.147, -0.315), Vector3(0.195, -0.087, -0.382), 0.076, 0.062, cuff_material)
+
+
+func _apply_tactical_glove_material(node: Node) -> void:
+	if node is MeshInstance3D:
+		var glove_material := StandardMaterial3D.new()
+		glove_material.resource_name = "黑色战术手套"
+		glove_material.albedo_color = Color("111820")
+		glove_material.roughness = 0.88
+		(node as MeshInstance3D).material_override = glove_material
+	for child in node.get_children():
+		_apply_tactical_glove_material(child)
+
+
+func _add_sleeve_segment(segment_name: String, from_position: Vector3, to_position: Vector3, shoulder_radius: float, wrist_radius: float, material: Material) -> void:
+	var direction := to_position - from_position
+	var sleeve := MeshInstance3D.new()
+	sleeve.name = segment_name
+	var sleeve_mesh := CylinderMesh.new()
+	sleeve_mesh.height = direction.length()
+	sleeve_mesh.bottom_radius = shoulder_radius
+	sleeve_mesh.top_radius = wrist_radius
+	sleeve_mesh.radial_segments = 16
+	sleeve_mesh.rings = 3
+	sleeve_mesh.material = material
+	sleeve.mesh = sleeve_mesh
+	sleeve.position = (from_position + to_position) * 0.5
+	sleeve.quaternion = Quaternion(Vector3.UP, direction.normalized())
+	weapon_pivot.add_child(sleeve)
 
 
 func _create_weapon_model(weapon_id: String, packed_scene: PackedScene, model_position: Vector3, model_rotation_degrees: Vector3, model_scale: float) -> void:
@@ -584,8 +630,9 @@ func _create_audio() -> void:
 	hit_audio.stream = _make_tone(760.0, 1380.0, 0.075, 0.34)
 	add_child(hit_audio)
 	break_audio = AudioStreamPlayer.new()
-	break_audio.name = "BreakAudio"
-	break_audio.stream = _make_break_sound()
+	break_audio.name = "倒地重音"
+	break_audio.stream = _make_body_fall_sound()
+	break_audio.volume_db = 1.5
 	break_audio.max_polyphony = 6
 	add_child(break_audio)
 	miss_audio = AudioStreamPlayer.new()
@@ -1276,9 +1323,9 @@ func _make_tone(start_frequency: float, end_frequency: float, duration: float, v
 	return stream
 
 
-func _make_break_sound() -> AudioStreamWAV:
-	var mix_rate := 22050
-	var duration := 0.19
+func _make_body_fall_sound() -> AudioStreamWAV:
+	var mix_rate := 44100
+	var duration := 0.24
 	var sample_count := int(duration * mix_rate)
 	var audio_data := PackedByteArray()
 	audio_data.resize(sample_count * 2)
@@ -1287,11 +1334,11 @@ func _make_break_sound() -> AudioStreamWAV:
 	for index in range(sample_count):
 		var time := float(index) / float(mix_rate)
 		var progress := time / duration
-		var envelope := pow(1.0 - progress, 3.2)
+		var envelope := pow(1.0 - progress, 4.2)
 		var noise := sound_rng.randf_range(-1.0, 1.0)
-		var brittle_tones := sin(TAU * 2350.0 * time) * 0.28 + sin(TAU * 3610.0 * time) * 0.16
-		var crack := 1.0 if index % 331 < 5 else 0.0
-		var value := (noise * 0.46 + brittle_tones + crack * noise * 0.34) * envelope
+		var low_thump := sin(TAU * 74.0 * time) * 0.62 + sin(TAU * 118.0 * time) * 0.22
+		var cloth_impact := noise * 0.16 * pow(1.0 - progress, 7.0)
+		var value := (low_thump + cloth_impact) * envelope
 		var sample := int(clampf(value, -1.0, 1.0) * 32767.0)
 		audio_data[index * 2] = sample & 0xff
 		audio_data[index * 2 + 1] = (sample >> 8) & 0xff
