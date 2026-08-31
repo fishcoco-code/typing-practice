@@ -42,6 +42,8 @@ func _run() -> void:
 	_check(is_equal_approx(game.time_remaining, 30.0), "一局时长应控制计时器")
 	game._on_setting_changed("red_dot_size", 14.0)
 	_check(is_equal_approx(game.red_dot.dot_diameter, 14.0), "红点大小设置应立即生效")
+	game._on_setting_changed("mouse_sensitivity_multiplier", 2.2)
+	_check(is_equal_approx(game.mouse_sensitivity_multiplier, 2.2), "鼠标灵敏度设置应立即生效")
 	game._reset_settings()
 
 	var rifle_base_scale: Vector3 = game.weapon_base_scales["rifle"]
@@ -52,6 +54,13 @@ func _run() -> void:
 	_check(game.weapon_models["rifle"].scale.is_equal_approx(rifle_base_scale * 1.42), "固定射球模式应放大枪身")
 	_check(game.targets[0].target_mode == "ball", "固定射球模式应使用球体目标")
 	_check(game.targets[0].target_color.is_equal_approx(Color("ffd21f")), "训练小球应为黄色")
+	_check(is_equal_approx(game.setting_sliders["ball_distance"].min_value, 10.0), "小球距离下限应为 10 米")
+	_check(is_equal_approx(game.setting_sliders["ball_diameter"].min_value, 0.30), "小球最小尺寸应扩大到 0.30")
+	_check(is_equal_approx(game.setting_sliders["ball_diameter"].max_value, 2.00), "小球最大尺寸应扩大到 2.00")
+	game._on_setting_changed("ball_distance", 10.0)
+	_check(is_equal_approx(game.spawn_positions[0].z, -10.0), "小球应支持距离玩家 10 米")
+	game._on_setting_changed("ball_diameter", 0.30)
+	_check(is_equal_approx(game.targets[0].target_scale, 0.30), "小球应支持更小尺寸")
 	var ball_rows: Dictionary = {}
 	var ball_columns: Dictionary = {}
 	var balls_share_one_plane := true
@@ -67,6 +76,8 @@ func _run() -> void:
 	game._set_training_mode("humanoid", false)
 	_check(game.arms_container.visible, "人物移动模式应恢复手臂")
 	_check(game.weapon_models["rifle"].scale.is_equal_approx(rifle_base_scale), "人物移动模式应恢复枪身大小")
+	_check(is_equal_approx(game._active_target_distance(), 30.0), "人物模式应保留自己的距离设置")
+	_check(is_equal_approx(game._active_target_size(), 1.0), "人物模式应保留自己的目标大小")
 
 	var shots_before_fire: int = game.shots
 	game._switch_weapon("rifle")
@@ -85,6 +96,18 @@ func _run() -> void:
 
 	game.round_serial += 1
 	game.state = 2
+	var paused_time: float = game.time_remaining
+	game._set_live_settings_open(true)
+	_check(game.settings_open and game.live_settings_panel.visible, "游玩中按 Esc 应能打开实时设置")
+	game._process(0.5)
+	_check(is_equal_approx(game.time_remaining, paused_time), "实时设置打开时应暂停对局计时")
+	game._on_setting_changed("mouse_sensitivity_multiplier", 1.8)
+	_check(is_equal_approx(game.mouse_sensitivity_multiplier, 1.8), "实时设置应能修改灵敏度")
+	var current_round_duration: float = game.current_round_duration
+	game._on_setting_changed("round_duration", 90.0)
+	_check(is_equal_approx(game.current_round_duration, current_round_duration), "局内修改时长应从下一局生效")
+	game._set_live_settings_open(false)
+	_check(not game.settings_open and not game.live_settings_panel.visible, "关闭实时设置应返回当前对局")
 	game._switch_weapon("sniper")
 	game._set_scope(true)
 	_check(game.scope_active and is_equal_approx(game.camera.fov, 24.0), "狙击枪应开启三倍镜")

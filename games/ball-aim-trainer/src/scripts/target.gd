@@ -56,7 +56,7 @@ func configure_mode(mode: String, humanoid_color: Color = Color("34495e")) -> vo
 
 
 func set_target_scale(value: float) -> void:
-	target_scale = clampf(value, 0.55, 1.55)
+	target_scale = clampf(value, 0.30, 2.00) if target_mode == MODE_BALL else clampf(value, 0.55, 1.55)
 	if is_active:
 		scale = Vector3.ONE * target_scale
 
