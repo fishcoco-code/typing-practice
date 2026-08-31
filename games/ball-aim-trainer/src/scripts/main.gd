@@ -31,6 +31,10 @@ const BOLT_AUDIO := preload("res://assets/audio/weapons/bolt_action.wav")
 const CHINESE_FONT := preload("res://assets/fonts/NotoSansSC.ttf")
 const FRAGMENT_SCRIPT := preload("res://scripts/target_fragment.gd")
 const SCOPE_OVERLAY_SCRIPT := preload("res://scripts/scope_overlay.gd")
+const MODE_HUMANOID := "humanoid"
+const MODE_BALL := "ball"
+const BALL_TARGET_COLOR := Color("ffd21f")
+const BALL_WEAPON_SCALE_MULTIPLIER := 1.42
 const ACTIVE_TARGET_COUNT := 9
 const SPAWN_SLOT_COUNT := 12
 const RESPAWN_DELAY := 0.55
@@ -70,10 +74,12 @@ var player_yaw: Node3D
 var player_pitch: Node3D
 var camera: Camera3D
 var weapon_pivot: Node3D
+var arms_container: Node3D
 var muzzle_flash: MeshInstance3D
 var muzzle_sparks: Node3D
 var arms_animation_player: AnimationPlayer
 var weapon_models: Dictionary = {}
+var weapon_base_scales: Dictionary = {}
 var weapon_audio_players: Dictionary = {}
 var bolt_audio: AudioStreamPlayer
 var spawn_offsets: Array[Vector3] = []
@@ -88,6 +94,7 @@ var ball_distance := DEFAULT_BALL_DISTANCE
 var ball_diameter := DEFAULT_BALL_DIAMETER
 var round_duration := DEFAULT_ROUND_DURATION
 var red_dot_size := DEFAULT_RED_DOT_SIZE
+var training_mode := MODE_HUMANOID
 
 var time_remaining := DEFAULT_ROUND_DURATION
 var score := 0
@@ -126,7 +133,11 @@ var start_audio: AudioStreamPlayer
 var break_audio: AudioStreamPlayer
 var setting_value_labels: Dictionary = {}
 var setting_sliders: Dictionary = {}
+var setting_name_labels: Dictionary = {}
+var mode_buttons: Dictionary = {}
 var settings_summary_label: Label
+var instructions_label: Label
+var controls_label: Label
 var scope_overlay: Control
 
 
@@ -140,6 +151,7 @@ func _ready() -> void:
 	_create_fragment_pool()
 	_create_audio()
 	_create_ui()
+	_apply_training_mode(false)
 	_apply_settings(false)
 	_prepare_ready_state()
 
@@ -162,7 +174,7 @@ func _physics_process(delta: float) -> void:
 	if not player_body:
 		return
 	var input_vector := Vector2.ZERO
-	if state == GameState.PLAYING:
+	if state == GameState.PLAYING and not _is_ball_mode():
 		input_vector = _get_movement_input()
 		is_crouching = Input.is_key_pressed(KEY_CTRL) or Input.is_key_pressed(KEY_C)
 	else:
@@ -188,6 +200,8 @@ func _physics_process(delta: float) -> void:
 
 
 func _get_movement_input() -> Vector2:
+	if _is_ball_mode():
+		return Vector2.ZERO
 	var result := Vector2.ZERO
 	if Input.is_key_pressed(KEY_A): result.x -= 1.0
 	if Input.is_key_pressed(KEY_D): result.x += 1.0
@@ -426,12 +440,15 @@ func _create_player() -> void:
 	weapon_pivot.position = WEAPON_BASE_POSITION
 	weapon_pivot.rotation = WEAPON_BASE_ROTATION
 	camera.add_child(weapon_pivot)
+	arms_container = Node3D.new()
+	arms_container.name = "ArmsContainer"
+	weapon_pivot.add_child(arms_container)
 	var arms_root := ARMS_SCENE.instantiate()
 	arms_root.name = "FPSArms"
 	arms_root.position = Vector3(0.08, -0.045, -0.20)
 	arms_root.rotation_degrees = Vector3(0.0, 180.0, 0.0)
 	arms_root.scale = Vector3.ONE * 0.038
-	weapon_pivot.add_child(arms_root)
+	arms_container.add_child(arms_root)
 	_apply_tactical_glove_material(arms_root)
 	_create_tactical_sleeves()
 	_create_weapon_model("rifle", RIFLE_SCENE, Vector3(0.12, -0.04, -0.24), Vector3(0.0, 90.0, 0.0), 1.0)
@@ -520,7 +537,7 @@ func _add_sleeve_segment(segment_name: String, from_position: Vector3, to_positi
 	sleeve.mesh = sleeve_mesh
 	sleeve.position = (from_position + to_position) * 0.5
 	sleeve.quaternion = Quaternion(Vector3.UP, direction.normalized())
-	weapon_pivot.add_child(sleeve)
+	arms_container.add_child(sleeve)
 
 
 func _create_weapon_model(weapon_id: String, packed_scene: PackedScene, model_position: Vector3, model_rotation_degrees: Vector3, model_scale: float) -> void:
@@ -531,6 +548,7 @@ func _create_weapon_model(weapon_id: String, packed_scene: PackedScene, model_po
 	model.scale = Vector3.ONE * model_scale
 	weapon_pivot.add_child(model)
 	weapon_models[weapon_id] = model
+	weapon_base_scales[weapon_id] = model.scale
 
 
 func _weapon_muzzle_position(weapon_id: String) -> Vector3:
@@ -580,7 +598,7 @@ func _create_targets() -> void:
 		var target := TARGET_SCENE.instantiate() as AimTarget
 		target.name = "Target%02d" % (index + 1)
 		target_root.add_child(target)
-		target.setup(index, TARGET_COLORS[index % TARGET_COLORS.size()])
+		target.setup(index, TARGET_COLORS[index % TARGET_COLORS.size()], training_mode)
 		targets.append(target)
 
 
@@ -724,9 +742,9 @@ func _add_hud_label(parent: Control, position_value: Vector2, size_value: Vector
 
 
 func _create_start_panel(ui_root: Control) -> void:
-	start_panel = _create_center_panel(ui_root, Vector2(660, 650))
+	start_panel = _create_center_panel(ui_root, Vector2(660, 704))
 	var box := VBoxContainer.new()
-	box.add_theme_constant_override("separation", 10)
+	box.add_theme_constant_override("separation", 8)
 	start_panel.add_child(box)
 	var title := _make_label(38, Color.WHITE)
 	title.text = "工业射击训练场"
@@ -735,10 +753,27 @@ func _create_start_panel(ui_root: Control) -> void:
 	settings_summary_label = _make_label(15, Color("ffd23f"))
 	settings_summary_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	box.add_child(settings_summary_label)
-	var instructions := _make_label(15, Color("c3cad3"))
-	instructions.text = "CS 风格移动 · 9 个人形靶 · 12 个随机刷新点"
-	instructions.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	box.add_child(instructions)
+	instructions_label = _make_label(15, Color("c3cad3"))
+	instructions_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	box.add_child(instructions_label)
+	var mode_row := HBoxContainer.new()
+	mode_row.add_theme_constant_override("separation", 10)
+	box.add_child(mode_row)
+	var mode_title := _make_label(16, Color("dfe5eb"))
+	mode_title.text = "训练模式"
+	mode_title.custom_minimum_size = Vector2(112, 44)
+	mode_title.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	mode_row.add_child(mode_title)
+	var mode_group := ButtonGroup.new()
+	mode_group.allow_unpress = false
+	var humanoid_button := _make_mode_button("人物移动", mode_group)
+	humanoid_button.pressed.connect(func() -> void: _set_training_mode(MODE_HUMANOID))
+	mode_row.add_child(humanoid_button)
+	mode_buttons[MODE_HUMANOID] = humanoid_button
+	var ball_button := _make_mode_button("固定射球", mode_group)
+	ball_button.pressed.connect(func() -> void: _set_training_mode(MODE_BALL))
+	mode_row.add_child(ball_button)
+	mode_buttons[MODE_BALL] = ball_button
 	box.add_child(HSeparator.new())
 	var settings_title := _make_label(18, Color.WHITE)
 	settings_title.text = "训练参数（对局开始后锁定）"
@@ -759,10 +794,10 @@ func _create_start_panel(ui_root: Control) -> void:
 	var start_button := _make_button("开始训练")
 	start_button.pressed.connect(_start_round)
 	box.add_child(start_button)
-	var controls := _make_label(13, Color("89939f"))
-	controls.text = "WASD 移动 · CTRL/C 蹲下 · 1突击步枪 2手枪 3狙击枪 · 右键开镜 · R重开"
-	controls.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	box.add_child(controls)
+	controls_label = _make_label(13, Color("89939f"))
+	controls_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	controls_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	box.add_child(controls_label)
 
 
 func _create_result_panel(ui_root: Control) -> void:
@@ -797,6 +832,7 @@ func _add_setting_row(grid: GridContainer, key: String, label_text: String, mini
 	label.custom_minimum_size = Vector2(112, 38)
 	label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	grid.add_child(label)
+	setting_name_labels[key] = label
 	var slider := HSlider.new()
 	slider.min_value = minimum
 	slider.max_value = maximum
@@ -824,6 +860,53 @@ func _on_setting_changed(key: String, value: float) -> void:
 	_apply_settings(true)
 
 
+func _set_training_mode(mode: String, save: bool = true) -> void:
+	if mode not in [MODE_HUMANOID, MODE_BALL]:
+		return
+	training_mode = mode
+	_apply_training_mode(save)
+	_reset_player()
+	if state == GameState.READY and not spawn_positions.is_empty():
+		_place_initial_targets()
+
+
+func _apply_training_mode(save: bool = true) -> void:
+	var ball_mode := _is_ball_mode()
+	if arms_container:
+		arms_container.visible = not ball_mode
+	for weapon_id in weapon_models:
+		var model := weapon_models[weapon_id] as Node3D
+		var base_scale := weapon_base_scales.get(weapon_id, Vector3.ONE) as Vector3
+		model.scale = base_scale * (BALL_WEAPON_SCALE_MULTIPLIER if ball_mode else 1.0)
+	for target in targets:
+		var humanoid_color: Color = TARGET_COLORS[target.target_id % TARGET_COLORS.size()]
+		if target.target_mode != training_mode:
+			target.configure_mode(training_mode, humanoid_color)
+	if setting_name_labels.has("ball_diameter"):
+		(setting_name_labels["ball_diameter"] as Label).text = "小球大小" if ball_mode else "人物大小"
+	if instructions_label:
+		instructions_label.text = (
+			"固定站位 · 9 个黄色小球 · 命中即刷新"
+			if ball_mode
+			else "CS 风格移动 · 9 个人形靶 · 12 个随机刷新点"
+		)
+	if controls_label:
+		controls_label.text = (
+			"鼠标瞄准 · 人物位置锁定 · 1突击步枪 2手枪 3狙击枪 · 右键开镜 · R重开"
+			if ball_mode
+			else "WASD 移动 · CTRL/C 蹲下 · 1突击步枪 2手枪 3狙击枪 · 右键开镜 · R重开"
+		)
+	for mode_id in mode_buttons:
+		(mode_buttons[mode_id] as Button).set_pressed_no_signal(mode_id == training_mode)
+	_update_setting_readouts()
+	if save:
+		_save_settings()
+
+
+func _is_ball_mode() -> bool:
+	return training_mode == MODE_BALL
+
+
 func _apply_settings(save: bool = true) -> void:
 	_rebuild_spawn_positions()
 	for target in targets:
@@ -841,7 +924,8 @@ func _update_setting_readouts() -> void:
 		setting_value_labels["round_duration"].text = "%d 秒" % int(round_duration)
 		setting_value_labels["red_dot_size"].text = "%d 像素" % int(red_dot_size)
 	if settings_summary_label:
-		settings_summary_label.text = "%d 秒 · 距离 %.1f 米 · 人物 %.2f 倍 · 红点 %d 像素" % [int(round_duration), ball_distance, ball_diameter, int(red_dot_size)]
+		var target_name := "小球" if _is_ball_mode() else "人物"
+		settings_summary_label.text = "%d 秒 · 距离 %.1f 米 · %s %.2f 倍 · 红点 %d 像素" % [int(round_duration), ball_distance, target_name, ball_diameter, int(red_dot_size)]
 
 
 func _update_red_dot() -> void:
@@ -873,15 +957,18 @@ func _load_settings() -> void:
 	ball_diameter = clampf(float(config.get_value("training", "ball_diameter", DEFAULT_BALL_DIAMETER)), 0.55, 1.55)
 	round_duration = clampf(float(config.get_value("training", "round_duration", DEFAULT_ROUND_DURATION)), 15.0, 180.0)
 	red_dot_size = clampf(float(config.get_value("training", "red_dot_size", DEFAULT_RED_DOT_SIZE)), 4.0, 20.0)
+	var saved_mode := str(config.get_value("training", "training_mode", MODE_HUMANOID))
+	training_mode = saved_mode if saved_mode in [MODE_HUMANOID, MODE_BALL] else MODE_HUMANOID
 
 
 func _save_settings() -> void:
 	var config := ConfigFile.new()
-	config.set_value("training", "version", 2)
+	config.set_value("training", "version", 3)
 	config.set_value("training", "ball_distance", ball_distance)
 	config.set_value("training", "ball_diameter", ball_diameter)
 	config.set_value("training", "round_duration", round_duration)
 	config.set_value("training", "red_dot_size", red_dot_size)
+	config.set_value("training", "training_mode", training_mode)
 	config.save(SETTINGS_PATH)
 
 
@@ -1164,6 +1251,8 @@ func _register_target_hit(target: AimTarget, hit_zone: String, killed: bool, hit
 	if not killed:
 		_update_hud()
 		return
+	if _is_ball_mode():
+		_spawn_target_fragments(hit_position, BALL_TARGET_COLOR, hit_direction)
 	score += 100
 	var old_slot := target.spawn_slot
 	occupied_slots.erase(old_slot)
@@ -1203,18 +1292,20 @@ func _finish_round() -> void:
 		target.disable_immediately()
 	var accuracy := 0.0 if shots == 0 else float(hits) / float(shots) * 100.0
 	var average_reaction := 0 if hits == 0 else total_reaction_ms / hits
+	var mode_name := "固定射球" if _is_ball_mode() else "人物移动"
+	var target_name := "小球" if _is_ball_mode() else "人物"
 	result_stats_label.text = (
 		"得分  %06d\n\n" % score
 		+ "命中  %d / %d     命中率  %.1f%%\n" % [hits, shots, accuracy]
 		+ "最佳连中  x%d\n平均反应  %d 毫秒     最快  %d 毫秒\n\n" % [best_combo, average_reaction, best_reaction_ms]
-		+ "本局参数\n距离 %.1f 米 · 人物 %.2f 倍 · %d 秒 · 红点 %d 像素" % [ball_distance, ball_diameter, int(round_duration), int(red_dot_size)]
+		+ "本局参数｜%s\n距离 %.1f 米 · %s %.2f 倍 · %d 秒 · 红点 %d 像素" % [mode_name, ball_distance, target_name, ball_diameter, int(round_duration), int(red_dot_size)]
 	)
 	result_panel.visible = true
 
 
 func _update_hud() -> void:
 	var accuracy := 0.0 if shots == 0 else float(hits) / float(shots) * 100.0
-	var movement_status := "稳定" if current_move_spread <= 0.01 else "移动散布 %.1f°" % current_move_spread
+	var movement_status := "固定站位" if _is_ball_mode() else ("稳定" if current_move_spread <= 0.01 else "移动散布 %.1f°" % current_move_spread)
 	if is_crouching:
 		movement_status += "｜蹲下"
 	timer_label.text = "时间  %02d" % int(ceil(time_remaining))
@@ -1278,6 +1369,22 @@ func _make_secondary_button(text: String) -> Button:
 	hover.bg_color = Color("414c57")
 	button.add_theme_stylebox_override("hover", hover)
 	button.add_theme_stylebox_override("focus", hover)
+	return button
+
+
+func _make_mode_button(text: String, group: ButtonGroup) -> Button:
+	var button := _make_secondary_button(text)
+	button.toggle_mode = true
+	button.button_group = group
+	button.custom_minimum_size = Vector2(0, 44)
+	button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	var selected := StyleBoxFlat.new()
+	selected.bg_color = Color("b8791f")
+	selected.border_color = Color("ffd23f")
+	selected.set_border_width_all(2)
+	selected.set_corner_radius_all(8)
+	button.add_theme_stylebox_override("pressed", selected)
+	button.add_theme_stylebox_override("hover_pressed", selected)
 	return button
 
 

@@ -13,6 +13,7 @@ func _run() -> void:
 	root.add_child(game)
 	await process_frame
 	game.sound_enabled = false
+	game._set_training_mode("humanoid", false)
 
 	_check(game.spawn_positions.size() == 12, "应存在 12 个刷新点")
 	_check(game.targets.size() == 9, "应同时存在 9 个人形靶")
@@ -42,6 +43,21 @@ func _run() -> void:
 	game._on_setting_changed("red_dot_size", 14.0)
 	_check(is_equal_approx(game.red_dot.dot_diameter, 14.0), "红点大小设置应立即生效")
 	game._reset_settings()
+
+	var rifle_base_scale: Vector3 = game.weapon_base_scales["rifle"]
+	game._set_training_mode("ball", false)
+	_check(game._is_ball_mode(), "应能切换到固定射球模式")
+	_check(not game.arms_container.visible, "固定射球模式应隐藏手臂")
+	_check(game._get_movement_input() == Vector2.ZERO, "固定射球模式应锁定人物移动")
+	_check(game.weapon_models["rifle"].scale.is_equal_approx(rifle_base_scale * 1.42), "固定射球模式应放大枪身")
+	_check(game.targets[0].target_mode == "ball", "固定射球模式应使用球体目标")
+	_check(game.targets[0].target_color.is_equal_approx(Color("ffd21f")), "训练小球应为黄色")
+	var ball_target: AimTarget = game.targets[0]
+	ball_target.show_at(game.spawn_positions[ball_target.spawn_slot], ball_target.spawn_slot, false)
+	_check(ball_target.register_weapon_hit("body", "rifle"), "黄色小球应命中一枪后消失")
+	game._set_training_mode("humanoid", false)
+	_check(game.arms_container.visible, "人物移动模式应恢复手臂")
+	_check(game.weapon_models["rifle"].scale.is_equal_approx(rifle_base_scale), "人物移动模式应恢复枪身大小")
 
 	var shots_before_fire: int = game.shots
 	game._switch_weapon("rifle")
