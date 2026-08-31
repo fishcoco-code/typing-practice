@@ -46,6 +46,7 @@ const BASE_TARGET_SIZE := 1.0
 const SETTINGS_PATH := "user://ball_aim_settings.cfg"
 const DEFAULT_BALL_DISTANCE := 30.0
 const DEFAULT_BALL_DIAMETER := 1.0
+const DEFAULT_BALL_HIT_GOAL := 50
 const DEFAULT_ROUND_DURATION := 60.0
 const DEFAULT_RED_DOT_SIZE := 8.0
 const WEAPON_BASE_POSITION := Vector3(0.23, -0.20, -0.36)
@@ -96,6 +97,7 @@ var ball_distance := DEFAULT_BALL_DISTANCE
 var ball_diameter := DEFAULT_BALL_DIAMETER
 var humanoid_distance := DEFAULT_BALL_DISTANCE
 var humanoid_target_size := DEFAULT_BALL_DIAMETER
+var ball_hit_goal := DEFAULT_BALL_HIT_GOAL
 var round_duration := DEFAULT_ROUND_DURATION
 var red_dot_size := DEFAULT_RED_DOT_SIZE
 var mouse_sensitivity_multiplier := 1.0
@@ -103,6 +105,8 @@ var training_mode := MODE_HUMANOID
 
 var time_remaining := DEFAULT_ROUND_DURATION
 var current_round_duration := DEFAULT_ROUND_DURATION
+var elapsed_time := 0.0
+var ball_targets_hit := 0
 var score := 0
 var shots := 0
 var hits := 0
@@ -149,6 +153,8 @@ var mode_buttons: Dictionary = {}
 var settings_summary_label: Label
 var instructions_label: Label
 var controls_label: Label
+var live_settings_note_label: Label
+var live_settings_footer_label: Label
 var scope_overlay: Control
 
 
@@ -177,9 +183,12 @@ func _process(delta: float) -> void:
 	fire_cooldown = maxf(0.0, fire_cooldown - delta)
 	if trigger_held and current_weapon == "rifle" and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED and fire_cooldown <= 0.0:
 		_shoot()
-	time_remaining = maxf(0.0, time_remaining - delta)
+	if _is_ball_mode():
+		elapsed_time += delta
+	else:
+		time_remaining = maxf(0.0, time_remaining - delta)
 	_update_hud()
-	if time_remaining <= 0.0:
+	if not _is_ball_mode() and time_remaining <= 0.0:
 		_finish_round()
 
 
@@ -661,7 +670,7 @@ func _create_audio() -> void:
 		var player := AudioStreamPlayer.new()
 		player.name = weapon_id + "_开火声"
 		player.stream = {"rifle": RIFLE_AUDIO, "pistol": PISTOL_AUDIO, "sniper": SNIPER_AUDIO}[weapon_id]
-		player.volume_db = 5.0
+		player.volume_db = {"rifle": 8.0, "pistol": 0.0, "sniper": 5.0}[weapon_id]
 		player.max_polyphony = 8
 		add_child(player)
 		weapon_audio_players[weapon_id] = player
@@ -814,8 +823,8 @@ func _create_start_panel(ui_root: Control) -> void:
 	_add_setting_row(grid, "mouse_sensitivity_multiplier", "鼠标灵敏度", 0.3, 3.0, 0.1, mouse_sensitivity_multiplier)
 	_add_setting_row(grid, "ball_distance", "目标距离", 20.0, 50.0, 1.0, _active_target_distance())
 	_add_setting_row(grid, "ball_diameter", "人物大小", 0.55, 1.55, 0.05, _active_target_size())
-	_add_setting_row(grid, "round_duration", "一局时长", 15.0, 180.0, 15.0, round_duration)
-	_add_setting_row(grid, "red_dot_size", "红点大小", 4.0, 20.0, 1.0, red_dot_size)
+	_add_setting_row(grid, "round_limit", "一局时长", 15.0, 180.0, 15.0, _active_round_limit())
+	_add_setting_row(grid, "red_dot_size", "红点大小", 1.0, 20.0, 1.0, red_dot_size)
 	var reset_button := _make_secondary_button("恢复默认参数")
 	reset_button.custom_minimum_size.y = 42
 	reset_button.pressed.connect(_reset_settings)
@@ -865,10 +874,9 @@ func _create_live_settings_panel(ui_root: Control) -> void:
 	title.text = "实时设置"
 	title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	box.add_child(title)
-	var note := _make_label(14, Color("c3cad3"))
-	note.text = "当前对局已暂停；距离、大小、灵敏度和红点立即生效"
-	note.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	box.add_child(note)
+	live_settings_note_label = _make_label(14, Color("c3cad3"))
+	live_settings_note_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	box.add_child(live_settings_note_label)
 	var grid := GridContainer.new()
 	grid.columns = 3
 	grid.add_theme_constant_override("h_separation", 16)
@@ -877,15 +885,14 @@ func _create_live_settings_panel(ui_root: Control) -> void:
 	_add_setting_row(grid, "mouse_sensitivity_multiplier", "鼠标灵敏度", 0.3, 3.0, 0.1, mouse_sensitivity_multiplier, true)
 	_add_setting_row(grid, "ball_distance", "目标距离", 20.0, 50.0, 1.0, _active_target_distance(), true)
 	_add_setting_row(grid, "ball_diameter", "目标大小", 0.55, 1.55, 0.05, _active_target_size(), true)
-	_add_setting_row(grid, "round_duration", "一局时长（下局）", 15.0, 180.0, 15.0, round_duration, true)
-	_add_setting_row(grid, "red_dot_size", "红点大小", 4.0, 20.0, 1.0, red_dot_size, true)
+	_add_setting_row(grid, "round_limit", "一局时长（下局）", 15.0, 180.0, 15.0, _active_round_limit(), true)
+	_add_setting_row(grid, "red_dot_size", "红点大小", 1.0, 20.0, 1.0, red_dot_size, true)
 	var continue_button := _make_button("保存并继续训练")
 	continue_button.pressed.connect(func() -> void: _set_live_settings_open(false))
 	box.add_child(continue_button)
-	var shortcut_note := _make_label(13, Color("89939f"))
-	shortcut_note.text = "再次按 Esc 也可返回游戏 · 一局时长从下一局开始生效"
-	shortcut_note.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	box.add_child(shortcut_note)
+	live_settings_footer_label = _make_label(13, Color("89939f"))
+	live_settings_footer_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	box.add_child(live_settings_footer_label)
 
 
 func _add_setting_row(grid: GridContainer, key: String, label_text: String, minimum: float, maximum: float, step: float, value: float, is_live: bool = false) -> void:
@@ -929,9 +936,13 @@ func _on_setting_changed(key: String, value: float) -> void:
 		"ball_diameter":
 			if _is_ball_mode(): ball_diameter = value
 			else: humanoid_target_size = value
-		"round_duration": round_duration = value
+		"round_limit":
+			if _is_ball_mode(): ball_hit_goal = int(value)
+			else: round_duration = value
 		"red_dot_size": red_dot_size = value
 	_apply_settings(true)
+	if state == GameState.PLAYING and _is_ball_mode() and ball_targets_hit >= ball_hit_goal:
+		_finish_round()
 
 
 func _set_training_mode(mode: String, save: bool = true) -> void:
@@ -960,6 +971,7 @@ func _apply_training_mode(save: bool = true) -> void:
 	_rebuild_spawn_positions()
 	_update_setting_constraints()
 	_set_setting_name("ball_diameter", "小球大小" if ball_mode else "人物大小")
+	_set_setting_name("round_limit", "小球上限" if ball_mode else "一局时长")
 	if instructions_label:
 		instructions_label.text = (
 			"固定站位 · 黄色小球纵向靶面平铺 · 命中即刷新"
@@ -971,6 +983,18 @@ func _apply_training_mode(save: bool = true) -> void:
 			"鼠标瞄准 · 人物位置锁定 · 1/2/3切枪 · Esc实时设置 · R重开"
 			if ball_mode
 			else "WASD 移动 · CTRL/C 蹲下 · 1/2/3切枪 · Esc实时设置 · R重开"
+		)
+	if live_settings_note_label:
+		live_settings_note_label.text = (
+			"当前对局已暂停；目标上限、距离、大小、灵敏度和红点立即生效"
+			if ball_mode
+			else "当前对局已暂停；距离、大小、灵敏度和红点立即生效"
+		)
+	if live_settings_footer_label:
+		live_settings_footer_label.text = (
+			"再次按 Esc 返回游戏 · 正计时达到小球上限后自动结束"
+			if ball_mode
+			else "再次按 Esc 返回游戏 · 一局时长从下一局开始生效"
 		)
 	for mode_id in mode_buttons:
 		(mode_buttons[mode_id] as Button).set_pressed_no_signal(mode_id == training_mode)
@@ -991,6 +1015,10 @@ func _active_target_size() -> float:
 	return ball_diameter if _is_ball_mode() else humanoid_target_size
 
 
+func _active_round_limit() -> float:
+	return float(ball_hit_goal) if _is_ball_mode() else round_duration
+
+
 func _apply_settings(save: bool = true) -> void:
 	_rebuild_spawn_positions()
 	for target in targets:
@@ -1006,11 +1034,14 @@ func _update_setting_readouts() -> void:
 	_set_setting_value_text("mouse_sensitivity_multiplier", "%.1f×" % mouse_sensitivity_multiplier)
 	_set_setting_value_text("ball_distance", "%.1f m" % _active_target_distance())
 	_set_setting_value_text("ball_diameter", "%.2f m" % _active_target_size())
-	_set_setting_value_text("round_duration", "%d 秒" % int(round_duration))
+	_set_setting_value_text("round_limit", "%d 个" % ball_hit_goal if _is_ball_mode() else "%d 秒" % int(round_duration))
 	_set_setting_value_text("red_dot_size", "%d 像素" % int(red_dot_size))
 	if settings_summary_label:
 		var target_name := "小球" if _is_ball_mode() else "人物"
-		settings_summary_label.text = "%d 秒 · 距离 %.1f 米 · %s %.2f 倍 · 灵敏度 %.1f×" % [int(round_duration), _active_target_distance(), target_name, _active_target_size(), mouse_sensitivity_multiplier]
+		if _is_ball_mode():
+			settings_summary_label.text = "正计时 · 目标 %d 个 · 距离 %.1f 米 · %s %.2f 倍 · 灵敏度 %.1f×" % [ball_hit_goal, _active_target_distance(), target_name, _active_target_size(), mouse_sensitivity_multiplier]
+		else:
+			settings_summary_label.text = "%d 秒 · 距离 %.1f 米 · %s %.2f 倍 · 灵敏度 %.1f×" % [int(round_duration), _active_target_distance(), target_name, _active_target_size(), mouse_sensitivity_multiplier]
 
 
 func _set_setting_value_text(key: String, text_value: String) -> void:
@@ -1032,7 +1063,7 @@ func _sync_setting_controls() -> void:
 		"mouse_sensitivity_multiplier": mouse_sensitivity_multiplier,
 		"ball_distance": _active_target_distance(),
 		"ball_diameter": _active_target_size(),
-		"round_duration": round_duration,
+		"round_limit": _active_round_limit(),
 		"red_dot_size": red_dot_size,
 	}
 	for key in values:
@@ -1057,6 +1088,11 @@ func _update_setting_constraints() -> void:
 		if store.has("ball_diameter"):
 			(store["ball_diameter"] as HSlider).min_value = size_minimum
 			(store["ball_diameter"] as HSlider).max_value = size_maximum
+		if store.has("round_limit"):
+			var limit_slider := store["round_limit"] as HSlider
+			limit_slider.min_value = 10.0 if _is_ball_mode() else 15.0
+			limit_slider.max_value = 400.0 if _is_ball_mode() else 180.0
+			limit_slider.step = 10.0 if _is_ball_mode() else 15.0
 	_sync_setting_controls()
 
 
@@ -1071,6 +1107,7 @@ func _reset_settings() -> void:
 	ball_diameter = DEFAULT_BALL_DIAMETER
 	humanoid_distance = DEFAULT_BALL_DISTANCE
 	humanoid_target_size = DEFAULT_BALL_DIAMETER
+	ball_hit_goal = DEFAULT_BALL_HIT_GOAL
 	round_duration = DEFAULT_ROUND_DURATION
 	red_dot_size = DEFAULT_RED_DOT_SIZE
 	mouse_sensitivity_multiplier = 1.0
@@ -1097,7 +1134,8 @@ func _load_settings() -> void:
 		ball_diameter = clampf(float(config.get_value("training", "ball_diameter", DEFAULT_BALL_DIAMETER)), 0.30, 2.00)
 		humanoid_target_size = clampf(float(config.get_value("training", "humanoid_target_size", DEFAULT_BALL_DIAMETER)), 0.55, 1.55)
 	round_duration = clampf(float(config.get_value("training", "round_duration", DEFAULT_ROUND_DURATION)), 15.0, 180.0)
-	red_dot_size = clampf(float(config.get_value("training", "red_dot_size", DEFAULT_RED_DOT_SIZE)), 4.0, 20.0)
+	ball_hit_goal = clampi(int(config.get_value("training", "ball_hit_goal", DEFAULT_BALL_HIT_GOAL)), 10, 400)
+	red_dot_size = clampf(float(config.get_value("training", "red_dot_size", DEFAULT_RED_DOT_SIZE)), 1.0, 20.0)
 	mouse_sensitivity_multiplier = clampf(float(config.get_value("training", "mouse_sensitivity_multiplier", 1.0)), 0.3, 3.0)
 	var saved_mode := str(config.get_value("training", "training_mode", MODE_HUMANOID))
 	training_mode = saved_mode if saved_mode in [MODE_HUMANOID, MODE_BALL] else MODE_HUMANOID
@@ -1105,11 +1143,12 @@ func _load_settings() -> void:
 
 func _save_settings() -> void:
 	var config := ConfigFile.new()
-	config.set_value("training", "version", 4)
+	config.set_value("training", "version", 5)
 	config.set_value("training", "ball_distance", ball_distance)
 	config.set_value("training", "humanoid_distance", humanoid_distance)
 	config.set_value("training", "ball_diameter", ball_diameter)
 	config.set_value("training", "humanoid_target_size", humanoid_target_size)
+	config.set_value("training", "ball_hit_goal", ball_hit_goal)
 	config.set_value("training", "round_duration", round_duration)
 	config.set_value("training", "red_dot_size", red_dot_size)
 	config.set_value("training", "mouse_sensitivity_multiplier", mouse_sensitivity_multiplier)
@@ -1219,6 +1258,8 @@ func _start_round() -> void:
 func _reset_stats() -> void:
 	current_round_duration = round_duration
 	time_remaining = current_round_duration
+	elapsed_time = 0.0
+	ball_targets_hit = 0
 	score = 0
 	shots = 0
 	hits = 0
@@ -1431,7 +1472,12 @@ func _register_target_hit(target: AimTarget, hit_zone: String, killed: bool, hit
 		return
 	if _is_ball_mode():
 		_spawn_target_fragments(hit_position, BALL_TARGET_COLOR, hit_direction)
+		ball_targets_hit += 1
 	score += 100
+	if _is_ball_mode() and ball_targets_hit >= ball_hit_goal:
+		_update_hud()
+		_finish_round()
+		return
 	var old_slot := target.spawn_slot
 	occupied_slots.erase(old_slot)
 	var candidates: Array[int] = []
@@ -1475,12 +1521,21 @@ func _finish_round() -> void:
 	var average_reaction := 0 if hits == 0 else total_reaction_ms / hits
 	var mode_name := "固定射球" if _is_ball_mode() else "人物移动"
 	var target_name := "小球" if _is_ball_mode() else "人物"
-	result_stats_label.text = (
-		"得分  %06d\n\n" % score
-		+ "命中  %d / %d     命中率  %.1f%%\n" % [hits, shots, accuracy]
-		+ "最佳连中  x%d\n平均反应  %d 毫秒     最快  %d 毫秒\n\n" % [best_combo, average_reaction, best_reaction_ms]
-		+ "本局参数｜%s\n距离 %.1f 米 · %s %.2f 倍 · %d 秒 · 灵敏度 %.1f×" % [mode_name, _active_target_distance(), target_name, _active_target_size(), int(current_round_duration), mouse_sensitivity_multiplier]
-	)
+	if _is_ball_mode():
+		result_stats_label.text = (
+			"目标完成  %d / %d\n\n" % [ball_targets_hit, ball_hit_goal]
+			+ "用时  %s     得分  %06d\n" % [_format_elapsed_time(elapsed_time), score]
+			+ "命中  %d / %d     命中率  %.1f%%\n" % [hits, shots, accuracy]
+			+ "最佳连中  x%d\n平均反应  %d 毫秒     最快  %d 毫秒\n\n" % [best_combo, average_reaction, best_reaction_ms]
+			+ "本局参数｜%s·正计时\n距离 %.1f 米 · %s %.2f 倍 · 灵敏度 %.1f×" % [mode_name, _active_target_distance(), target_name, _active_target_size(), mouse_sensitivity_multiplier]
+		)
+	else:
+		result_stats_label.text = (
+			"得分  %06d\n\n" % score
+			+ "命中  %d / %d     命中率  %.1f%%\n" % [hits, shots, accuracy]
+			+ "最佳连中  x%d\n平均反应  %d 毫秒     最快  %d 毫秒\n\n" % [best_combo, average_reaction, best_reaction_ms]
+			+ "本局参数｜%s\n距离 %.1f 米 · %s %.2f 倍 · %d 秒 · 灵敏度 %.1f×" % [mode_name, _active_target_distance(), target_name, _active_target_size(), int(current_round_duration), mouse_sensitivity_multiplier]
+		)
 	result_panel.visible = true
 
 
@@ -1489,11 +1544,23 @@ func _update_hud() -> void:
 	var movement_status := "固定站位" if _is_ball_mode() else ("稳定" if current_move_spread <= 0.01 else "移动散布 %.1f°" % current_move_spread)
 	if is_crouching:
 		movement_status += "｜蹲下"
-	timer_label.text = "时间  %02d" % int(ceil(time_remaining))
+	timer_label.text = "正计时  %s" % _format_elapsed_time(elapsed_time) if _is_ball_mode() else "时间  %02d" % int(ceil(time_remaining))
 	score_label.text = "得分  %06d" % score
-	accuracy_label.text = "命中 %d/%d  命中率 %.1f%%  %s" % [hits, shots, accuracy, movement_status]
+	accuracy_label.text = (
+		"小球 %d/%d  命中率 %.1f%%  %s" % [ball_targets_hit, ball_hit_goal, accuracy, movement_status]
+		if _is_ball_mode()
+		else "命中 %d/%d  命中率 %.1f%%  %s" % [hits, shots, accuracy, movement_status]
+	)
 	combo_label.text = "连续命中  x%d" % combo
 	combo_label.visible = state == GameState.PLAYING and combo >= 2
+
+
+func _format_elapsed_time(seconds_value: float) -> String:
+	var total_centiseconds := int(floor(maxf(0.0, seconds_value) * 100.0))
+	var minutes := total_centiseconds / 6000
+	var seconds := (total_centiseconds / 100) % 60
+	var centiseconds := total_centiseconds % 100
+	return "%02d:%02d.%02d" % [minutes, seconds, centiseconds]
 
 
 func _shuffle_with_rng(values: Array[int]) -> void:
