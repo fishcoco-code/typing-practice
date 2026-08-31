@@ -1,0 +1,16 @@
+Low Poly FPS Rifle and Hands
+
+Author: Robin Lamb
+Source: https://opengameart.org/content/low-poly-fps-rifle-and-hands
+Original publication date: 2022-09-30
+
+License: Creative Commons Zero (CC0 1.0 Universal)
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Commercial use and modification are permitted. Attribution is not required.
+
+Included file:
+- rifle.glb
+
+Only the first-person hand meshes, rig, and fire animation are used. The bundled
+rifle mesh is hidden and replaced by the separately licensed M4A1 model.

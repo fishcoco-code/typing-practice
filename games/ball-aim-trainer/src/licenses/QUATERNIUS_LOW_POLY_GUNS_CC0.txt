@@ -1,0 +1,13 @@
+Low Poly Animated Guns
+Author: Quaternius
+Source: https://opengameart.org/content/low-poly-animated-guns
+Files used: Rifle.fbx, Pistol.fbx, SniperRifle.fbx
+License: Creative Commons Zero (CC0 1.0)
+License URL: https://creativecommons.org/publicdomain/zero/1.0/
+Commercial use: allowed
+Modification: allowed
+Attribution: not required
+
+The in-game labels “M4A1 风格”, “格洛克风格” and “AWP 风格” describe
+gameplay references only. The included meshes are the generic CC0 models above
+and are not extracted from Counter-Strike or any other commercial game.

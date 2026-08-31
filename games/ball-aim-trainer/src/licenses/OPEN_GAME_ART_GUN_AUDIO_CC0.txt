@@ -1,0 +1,19 @@
+Gunshot Sounds
+Author: Tabasco
+Source: https://opengameart.org/content/gunshot-sounds
+Original files used: sks.wav, cz.wav, mosin.wav
+Edits: shortened, faded, amplified, converted to mono 22050 Hz WAV
+License: Creative Commons Zero (CC0 1.0)
+Commercial use: allowed
+Modification: allowed
+Attribution: not required
+
+Gun reload sounds
+Author: SpringySpringo
+Source: https://opengameart.org/content/gun-reload-sounds
+Original file used: shotguncock.wav
+Edits: amplified and converted to mono 22050 Hz WAV
+License: Creative Commons Zero (CC0 1.0)
+Commercial use: allowed
+Modification: allowed
+Attribution: not required

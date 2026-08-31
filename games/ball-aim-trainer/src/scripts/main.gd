@@ -3,85 +3,203 @@ extends Node3D
 enum GameState { READY, COUNTDOWN, PLAYING, RESULTS }
 
 const TARGET_SCENE := preload("res://scenes/target.tscn")
+const ARMS_SCENE := preload("res://assets/viewmodel/fps-rifle-hands/rifle.glb")
+const RIFLE_SCENE := preload("res://assets/weapons/quaternius/Rifle.fbx")
+const PISTOL_SCENE := preload("res://assets/weapons/quaternius/Pistol.fbx")
+const SNIPER_SCENE := preload("res://assets/weapons/quaternius/SniperRifle.fbx")
+const RIFLE_AUDIO := preload("res://assets/audio/weapons/rifle_fire.wav")
+const PISTOL_AUDIO := preload("res://assets/audio/weapons/pistol_fire.wav")
+const SNIPER_AUDIO := preload("res://assets/audio/weapons/sniper_fire.wav")
+const BOLT_AUDIO := preload("res://assets/audio/weapons/bolt_action.wav")
+const CHINESE_FONT := preload("res://assets/fonts/NotoSansSC.ttf")
+const FRAGMENT_SCRIPT := preload("res://scripts/target_fragment.gd")
+const SCOPE_OVERLAY_SCRIPT := preload("res://scripts/scope_overlay.gd")
 const ACTIVE_TARGET_COUNT := 9
 const SPAWN_SLOT_COUNT := 12
-const ROUND_DURATION := 60.0
-const RESPAWN_DELAY := 0.18
+const RESPAWN_DELAY := 0.55
 const MOUSE_SENSITIVITY := 0.0022
-const MAX_YAW := deg_to_rad(58.0)
-const MAX_PITCH := deg_to_rad(36.0)
+const MAX_PITCH := deg_to_rad(72.0)
+const BASE_TARGET_SIZE := 1.0
+const SETTINGS_PATH := "user://ball_aim_settings.cfg"
+const DEFAULT_BALL_DISTANCE := 30.0
+const DEFAULT_BALL_DIAMETER := 1.0
+const DEFAULT_ROUND_DURATION := 60.0
+const DEFAULT_RED_DOT_SIZE := 8.0
+const WEAPON_BASE_POSITION := Vector3(0.27, -0.21, -0.42)
+const WEAPON_BASE_ROTATION := Vector3(deg_to_rad(-2.0), 0.0, deg_to_rad(-1.0))
+const STANDING_HEIGHT := 1.8
+const CROUCH_HEIGHT := 1.2
+const STANDING_CAMERA_HEIGHT := 1.65
+const CROUCH_CAMERA_HEIGHT := 1.05
+const PLAYER_RADIUS := 0.35
+const WALK_SPEED := 5.3
+const CROUCH_SPEED := 2.35
+const MOVE_ACCELERATION := 18.0
+const COUNTER_STRAFE_DECELERATION := 30.0
+const MAX_MOVE_SPREAD_DEGREES := 3.2
+const FRAGMENT_POOL_SIZE := 72
 
 const TARGET_COLORS := [
-	Color("ff5b35"),
-	Color("ff7a32"),
-	Color("ff4d6d"),
-	Color("ff6f3c"),
-	Color("ff3f55"),
-	Color("ff8f36"),
-	Color("ff6542"),
-	Color("ff4a3d"),
-	Color("ff784f"),
+	Color("ff5b35"), Color("ff7a32"), Color("ff315f"),
+	Color("ff6f3c"), Color("ff204e"), Color("ff8f36"),
+	Color("ff6542"), Color("ff3a31"), Color("ff784f"),
 ]
 
 var state: GameState = GameState.READY
+var player_body: CharacterBody3D
+var player_collision: CollisionShape3D
+var player_capsule: CapsuleShape3D
 var player_yaw: Node3D
 var player_pitch: Node3D
 var camera: Camera3D
+var weapon_pivot: Node3D
+var muzzle_flash: MeshInstance3D
+var muzzle_sparks: Node3D
+var arms_animation_player: AnimationPlayer
+var weapon_models: Dictionary = {}
+var weapon_audio_players: Dictionary = {}
+var bolt_audio: AudioStreamPlayer
+var spawn_offsets: Array[Vector3] = []
 var spawn_positions: Array[Vector3] = []
+var spawn_markers: Array[Marker3D] = []
 var targets: Array[AimTarget] = []
 var occupied_slots: Dictionary = {}
 var rng := RandomNumberGenerator.new()
-var round_serial: int = 0
+var round_serial := 0
 
-var time_remaining: float = ROUND_DURATION
-var score: int = 0
-var shots: int = 0
-var hits: int = 0
-var combo: int = 0
-var best_combo: int = 0
-var total_reaction_ms: int = 0
-var best_reaction_ms: int = 0
+var ball_distance := DEFAULT_BALL_DISTANCE
+var ball_diameter := DEFAULT_BALL_DIAMETER
+var round_duration := DEFAULT_ROUND_DURATION
+var red_dot_size := DEFAULT_RED_DOT_SIZE
+
+var time_remaining := DEFAULT_ROUND_DURATION
+var score := 0
+var shots := 0
+var hits := 0
+var combo := 0
+var best_combo := 0
+var total_reaction_ms := 0
+var best_reaction_ms := 0
+var weapon_sway := Vector2.ZERO
+var weapon_recoil := 0.0
+var fire_cooldown := 0.0
+var trigger_held := false
+var current_weapon := "rifle"
+var sniper_bolting := false
+var scope_active := false
+var is_crouching := false
+var current_camera_height := STANDING_CAMERA_HEIGHT
+var current_move_spread := 0.0
+var fragment_pool: Array[TargetFragment] = []
+var sound_enabled := true
 
 var timer_label: Label
 var score_label: Label
 var accuracy_label: Label
 var combo_label: Label
+var weapon_label: Label
 var countdown_label: Label
 var start_panel: PanelContainer
 var result_panel: PanelContainer
 var result_stats_label: Label
-var start_button: Button
-var retry_button: Button
-var crosshair: Control
+var red_dot: RedDot
 var hit_audio: AudioStreamPlayer
 var miss_audio: AudioStreamPlayer
 var start_audio: AudioStreamPlayer
+var break_audio: AudioStreamPlayer
+var setting_value_labels: Dictionary = {}
+var setting_sliders: Dictionary = {}
+var settings_summary_label: Label
+var scope_overlay: Control
 
 
 func _ready() -> void:
 	rng.randomize()
+	_load_settings()
 	_create_world()
 	_create_player()
 	_create_spawn_slots()
 	_create_targets()
+	_create_fragment_pool()
 	_create_audio()
 	_create_ui()
+	_apply_settings(false)
 	_prepare_ready_state()
 
 
 func _process(delta: float) -> void:
+	_update_weapon(delta)
+	_update_fragments(delta)
 	if state != GameState.PLAYING:
 		return
-
+	fire_cooldown = maxf(0.0, fire_cooldown - delta)
+	if trigger_held and current_weapon == "rifle" and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED and fire_cooldown <= 0.0:
+		_shoot()
 	time_remaining = maxf(0.0, time_remaining - delta)
 	_update_hud()
 	if time_remaining <= 0.0:
 		_finish_round()
 
 
+func _physics_process(delta: float) -> void:
+	if not player_body:
+		return
+	var input_vector := Vector2.ZERO
+	if state == GameState.PLAYING:
+		input_vector = _get_movement_input()
+		is_crouching = Input.is_key_pressed(KEY_CTRL) or Input.is_key_pressed(KEY_C)
+	else:
+		is_crouching = false
+	var move_speed := CROUCH_SPEED if is_crouching else WALK_SPEED
+	var forward := -player_yaw.global_basis.z
+	var right := player_yaw.global_basis.x
+	forward.y = 0.0
+	right.y = 0.0
+	var desired_direction := (right.normalized() * input_vector.x + forward.normalized() * input_vector.y).normalized()
+	var desired_velocity := desired_direction * move_speed
+	var acceleration := MOVE_ACCELERATION if desired_direction != Vector3.ZERO else COUNTER_STRAFE_DECELERATION
+	player_body.velocity.x = move_toward(player_body.velocity.x, desired_velocity.x, acceleration * delta)
+	player_body.velocity.z = move_toward(player_body.velocity.z, desired_velocity.z, acceleration * delta)
+	if not player_body.is_on_floor():
+		player_body.velocity.y -= 18.0 * delta
+	else:
+		player_body.velocity.y = -0.5
+	player_body.move_and_slide()
+	_update_crouch(delta)
+	var horizontal_speed := Vector2(player_body.velocity.x, player_body.velocity.z).length()
+	current_move_spread = _movement_spread_degrees(horizontal_speed, is_crouching)
+
+
+func _get_movement_input() -> Vector2:
+	var result := Vector2.ZERO
+	if Input.is_key_pressed(KEY_A): result.x -= 1.0
+	if Input.is_key_pressed(KEY_D): result.x += 1.0
+	if Input.is_key_pressed(KEY_W): result.y += 1.0
+	if Input.is_key_pressed(KEY_S): result.y -= 1.0
+	return result.normalized()
+
+
+func _update_crouch(delta: float) -> void:
+	var target_height := CROUCH_HEIGHT if is_crouching else STANDING_HEIGHT
+	var target_camera_height := CROUCH_CAMERA_HEIGHT if is_crouching else STANDING_CAMERA_HEIGHT
+	player_capsule.height = move_toward(player_capsule.height, target_height, delta * 4.8)
+	player_collision.position.y = player_capsule.height * 0.5
+	current_camera_height = move_toward(current_camera_height, target_camera_height, delta * 3.8)
+	player_yaw.position.y = current_camera_height
+
+
+func _movement_spread_degrees(horizontal_speed: float, crouching: bool) -> float:
+	if horizontal_speed < 0.12:
+		return 0.0
+	var speed_ratio := clampf(horizontal_speed / WALK_SPEED, 0.0, 1.0)
+	var crouch_multiplier := 0.58 if crouching else 1.0
+	return MAX_MOVE_SPREAD_DEGREES * speed_ratio * crouch_multiplier
+
+
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventKey and event.pressed and not event.echo:
 		if event.keycode == KEY_ESCAPE:
+			trigger_held = false
 			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 			get_viewport().set_input_as_handled()
 			return
@@ -89,27 +207,35 @@ func _unhandled_input(event: InputEvent) -> void:
 			_start_round()
 			get_viewport().set_input_as_handled()
 			return
+		if event.keycode in [KEY_1, KEY_2, KEY_3]:
+			var weapon_ids := {KEY_1: "rifle", KEY_2: "pistol", KEY_3: "sniper"}
+			_switch_weapon(weapon_ids[event.keycode])
+			get_viewport().set_input_as_handled()
+			return
 
 	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
-		player_yaw.rotation.y = clampf(
-			player_yaw.rotation.y - event.relative.x * MOUSE_SENSITIVITY,
-			-MAX_YAW,
-			MAX_YAW
-		)
-		player_pitch.rotation.x = clampf(
-			player_pitch.rotation.x - event.relative.y * MOUSE_SENSITIVITY,
-			-MAX_PITCH,
-			MAX_PITCH
-		)
+		player_yaw.rotation.y -= event.relative.x * MOUSE_SENSITIVITY
+		player_pitch.rotation.x = clampf(player_pitch.rotation.x - event.relative.y * MOUSE_SENSITIVITY, -MAX_PITCH, MAX_PITCH)
+		weapon_sway = (weapon_sway + Vector2(event.relative.x, event.relative.y) * 0.00055).limit_length(0.035)
 		get_viewport().set_input_as_handled()
 		return
 
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if state == GameState.PLAYING:
-			if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED:
+			if event.pressed and Input.mouse_mode != Input.MOUSE_MODE_CAPTURED:
 				Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+				trigger_held = false
 			else:
-				_shoot()
+				trigger_held = event.pressed
+				if event.pressed and fire_cooldown <= 0.0:
+					_shoot()
+			get_viewport().set_input_as_handled()
+		return
+
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT:
+		if state == GameState.PLAYING and current_weapon == "sniper":
+			if event.pressed:
+				_set_scope(not scope_active)
 			get_viewport().set_input_as_handled()
 
 
@@ -118,70 +244,230 @@ func _create_world() -> void:
 	world_environment.name = "WorldEnvironment"
 	var environment := Environment.new()
 	environment.background_mode = Environment.BG_COLOR
-	environment.background_color = Color("070b17")
-	environment.background_energy_multiplier = 0.8
+	environment.background_color = Color("f1f3f5")
+	environment.background_energy_multiplier = 0.7
 	environment.ambient_light_source = Environment.AMBIENT_SOURCE_COLOR
-	environment.ambient_light_color = Color("25345d")
-	environment.ambient_light_energy = 0.45
+	environment.ambient_light_color = Color("eef2f4")
+	environment.ambient_light_energy = 0.48
+	environment.reflected_light_source = Environment.REFLECTION_SOURCE_BG
 	environment.tonemap_mode = Environment.TONE_MAPPER_FILMIC
 	world_environment.environment = environment
 	add_child(world_environment)
 
+	var room := Node3D.new()
+	room.name = "开放式白色训练场"
+	add_child(room)
+	_add_room_box(room, "大型白色地板", Vector3(120.0, 0.25, 120.0), Vector3(0.0, -0.125, -30.0), Color("e7eaec"), true)
+	for z in [-6.0, -18.0, -30.0, -42.0, -54.0]:
+		_add_room_box(room, "左侧方柱", Vector3(2.4, 5.2, 2.4), Vector3(-18.0, 2.6, z), Color("f8f9fa"), true)
+		_add_room_box(room, "右侧方柱", Vector3(2.4, 5.2, 2.4), Vector3(18.0, 2.6, z - 4.0), Color("f4f6f7"), true)
+	for x in [-12.0, 0.0, 12.0]:
+		_add_room_box(room, "远端方柱", Vector3(2.8, 7.0, 2.8), Vector3(x, 3.5, -62.0), Color("ffffff"), true)
+	for z in range(-80, 31, 10):
+		_add_room_box(room, "地面横向标线", Vector3(120.0, 0.012, 0.025), Vector3(0.0, 0.012, float(z)), Color("d7dcdf"))
+
+	var key_light := DirectionalLight3D.new()
+	key_light.name = "KeyLight"
+	key_light.rotation_degrees = Vector3(-52.0, -28.0, 0.0)
+	key_light.light_color = Color("fffdf8")
+	key_light.light_energy = 0.8
+	key_light.shadow_enabled = true
+	key_light.directional_shadow_max_distance = 90.0
+	room.add_child(key_light)
+	var fill_light := OmniLight3D.new()
+	fill_light.name = "FillLight"
+	fill_light.position = Vector3(-5.0, 8.5, -18.0)
+	fill_light.light_color = Color("e8f2ff")
+	fill_light.light_energy = 1.4
+	fill_light.omni_range = 55.0
+	room.add_child(fill_light)
+
+
+func _add_room_box(parent: Node3D, node_name: String, box_size: Vector3, box_position: Vector3, color: Color, collidable: bool = false) -> void:
+	var mesh_instance := MeshInstance3D.new()
+	mesh_instance.name = node_name
+	var mesh := BoxMesh.new()
+	mesh.size = box_size
+	var material := StandardMaterial3D.new()
+	material.albedo_color = color
+	material.roughness = 0.88
+	mesh.material = material
+	mesh_instance.mesh = mesh
+	mesh_instance.position = box_position
+	parent.add_child(mesh_instance)
+	if collidable:
+		var static_body := StaticBody3D.new()
+		static_body.name = node_name + "Collision"
+		static_body.position = box_position
+		var collision_shape := CollisionShape3D.new()
+		var box_shape := BoxShape3D.new()
+		box_shape.size = box_size
+		collision_shape.shape = box_shape
+		static_body.add_child(collision_shape)
+		parent.add_child(static_body)
+
 
 func _create_player() -> void:
+	player_body = CharacterBody3D.new()
+	player_body.name = "PlayerBody"
+	player_body.floor_snap_length = 0.25
+	player_body.safe_margin = 0.04
+	add_child(player_body)
+	player_collision = CollisionShape3D.new()
+	player_collision.name = "PlayerCollision"
+	player_capsule = CapsuleShape3D.new()
+	player_capsule.radius = PLAYER_RADIUS
+	player_capsule.height = STANDING_HEIGHT
+	player_collision.shape = player_capsule
+	player_collision.position.y = STANDING_HEIGHT * 0.5
+	player_body.add_child(player_collision)
 	player_yaw = Node3D.new()
 	player_yaw.name = "PlayerYaw"
-	add_child(player_yaw)
-
+	player_yaw.position.y = STANDING_CAMERA_HEIGHT
+	player_body.add_child(player_yaw)
 	player_pitch = Node3D.new()
 	player_pitch.name = "PlayerPitch"
 	player_yaw.add_child(player_pitch)
-
 	camera = Camera3D.new()
 	camera.name = "Camera3D"
 	camera.current = true
 	camera.fov = 72.0
-	camera.near = 0.05
-	camera.far = 40.0
+	camera.near = 0.025
+	camera.far = 80.0
 	player_pitch.add_child(camera)
+
+	weapon_pivot = Node3D.new()
+	weapon_pivot.name = "WeaponPivot"
+	weapon_pivot.position = WEAPON_BASE_POSITION
+	weapon_pivot.rotation = WEAPON_BASE_ROTATION
+	camera.add_child(weapon_pivot)
+	var arms_root := ARMS_SCENE.instantiate()
+	arms_root.name = "FPSArms"
+	arms_root.scale = Vector3.ONE * 0.022
+	weapon_pivot.add_child(arms_root)
+	var bundled_gun := arms_root.get_node_or_null("Armature/Skeleton3D/Gun") as MeshInstance3D
+	if bundled_gun:
+		bundled_gun.visible = false
+	var skeleton := arms_root.get_node_or_null("Armature/Skeleton3D") as Skeleton3D
+	if skeleton:
+		var skin_material := StandardMaterial3D.new()
+		skin_material.albedo_color = Color("c98f68")
+		skin_material.roughness = 0.92
+		for hand_name in ["Hand1", "Hand2"]:
+			var hand := skeleton.get_node_or_null(hand_name) as MeshInstance3D
+			if hand:
+				hand.material_override = skin_material
+	_create_weapon_model("rifle", RIFLE_SCENE, Vector3(0.16, -0.18, -0.25), Vector3(-180.0, 0.0, 0.0), 0.045)
+	_create_weapon_model("pistol", PISTOL_SCENE, Vector3(0.13, -0.11, -0.18), Vector3(0.0, -90.0, 0.0), 0.025)
+	_create_weapon_model("sniper", SNIPER_SCENE, Vector3(0.13, -0.10, -0.29), Vector3(-180.0, 0.0, 0.0), 0.035)
+	arms_animation_player = arms_root.get_node_or_null("AnimationPlayer") as AnimationPlayer
+	muzzle_flash = MeshInstance3D.new()
+	muzzle_flash.name = "MuzzleFlash"
+	var flash_mesh := SphereMesh.new()
+	flash_mesh.radius = 0.065
+	flash_mesh.height = 0.18
+	flash_mesh.radial_segments = 8
+	flash_mesh.rings = 4
+	var flash_material := StandardMaterial3D.new()
+	flash_material.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+	flash_material.albedo_color = Color("ffdd75")
+	flash_material.emission_enabled = true
+	flash_material.emission = Color("ff7a24")
+	flash_material.emission_energy_multiplier = 3.0
+	flash_mesh.material = flash_material
+	muzzle_flash.mesh = flash_mesh
+	muzzle_flash.position = _weapon_muzzle_position(current_weapon)
+	muzzle_flash.visible = false
+	weapon_pivot.add_child(muzzle_flash)
+	muzzle_sparks = Node3D.new()
+	muzzle_sparks.name = "MuzzleSparks"
+	muzzle_sparks.position = muzzle_flash.position
+	muzzle_sparks.visible = false
+	weapon_pivot.add_child(muzzle_sparks)
+	for index in range(6):
+		var spark := MeshInstance3D.new()
+		var spark_mesh := BoxMesh.new()
+		spark_mesh.size = Vector3(0.012, 0.13, 0.012)
+		var spark_material := StandardMaterial3D.new()
+		spark_material.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+		spark_material.albedo_color = Color("ffd45f")
+		spark_material.emission_enabled = true
+		spark_material.emission = Color("ff7a1a")
+		spark_material.emission_energy_multiplier = 4.0
+		spark_mesh.material = spark_material
+		spark.mesh = spark_mesh
+		spark.rotation.z = TAU * float(index) / 6.0
+		spark.position = Vector3(cos(spark.rotation.z), sin(spark.rotation.z), 0.0) * 0.065
+		muzzle_sparks.add_child(spark)
+	_switch_weapon("rifle")
+
+
+func _create_weapon_model(weapon_id: String, packed_scene: PackedScene, model_position: Vector3, model_rotation_degrees: Vector3, model_scale: float) -> void:
+	var model := packed_scene.instantiate() as Node3D
+	model.name = weapon_id
+	model.position = model_position
+	model.rotation_degrees = model_rotation_degrees
+	model.scale = Vector3.ONE * model_scale
+	weapon_pivot.add_child(model)
+	var weapon_colors := {"rifle": Color("263b32"), "pistol": Color("202328"), "sniper": Color("30343b")}
+	_apply_weapon_material(model, weapon_colors.get(weapon_id, Color("2d3338")))
+	weapon_models[weapon_id] = model
+
+
+func _apply_weapon_material(node: Node, color: Color) -> void:
+	if node is MeshInstance3D:
+		var material := StandardMaterial3D.new()
+		material.albedo_color = color
+		material.metallic = 0.42
+		material.roughness = 0.38
+		(node as MeshInstance3D).material_override = material
+	for child in node.get_children():
+		_apply_weapon_material(child, color)
+
+
+func _weapon_muzzle_position(weapon_id: String) -> Vector3:
+	match weapon_id:
+		"pistol": return Vector3(0.40, -0.39, -0.72)
+		"sniper": return Vector3(0.31, -0.21, -0.88)
+		_: return Vector3(0.31, -0.27, -0.80)
 
 
 func _create_spawn_slots() -> void:
 	var slots_root := Node3D.new()
 	slots_root.name = "SpawnPoints"
 	add_child(slots_root)
-
-	var yaw_angles := [-42.0, -14.0, 14.0, 42.0]
-	var pitch_angles := [22.0, 0.0, -22.0]
+	var x_offsets := [-9.0, -3.0, 3.0, 9.0]
+	var depth_offsets := [-3.0, 0.0, 3.0]
 	var slot_index := 0
-
-	for pitch_degrees in pitch_angles:
-		for yaw_degrees in yaw_angles:
-			var yaw_radians := deg_to_rad(yaw_degrees)
-			var pitch_radians := deg_to_rad(pitch_degrees)
-			var radius := 9.2 + float((slot_index * 7) % 4) * 0.55
-			var direction := Vector3(
-				sin(yaw_radians) * cos(pitch_radians),
-				sin(pitch_radians),
-				-cos(yaw_radians) * cos(pitch_radians)
-			).normalized()
-			var world_position := direction * radius
-
+	for depth_offset in depth_offsets:
+		for x_offset in x_offsets:
+			spawn_offsets.append(Vector3(x_offset, 0.0, depth_offset))
 			var marker := Marker3D.new()
 			marker.name = "SpawnPoint%02d" % (slot_index + 1)
-			marker.position = world_position
 			slots_root.add_child(marker)
-			spawn_positions.append(world_position)
+			spawn_markers.append(marker)
+			spawn_positions.append(Vector3.ZERO)
 			slot_index += 1
-
+	_rebuild_spawn_positions()
 	assert(spawn_positions.size() == SPAWN_SLOT_COUNT)
+
+
+func _rebuild_spawn_positions() -> void:
+	for index in range(spawn_offsets.size()):
+		var offset := spawn_offsets[index]
+		var world_position := Vector3(offset.x, 0.0, -ball_distance + offset.z)
+		spawn_positions[index] = world_position
+		if index < spawn_markers.size():
+			spawn_markers[index].position = world_position
+	for target in targets:
+		if target.spawn_slot >= 0 and target.spawn_slot < spawn_positions.size():
+			target.global_position = spawn_positions[target.spawn_slot]
 
 
 func _create_targets() -> void:
 	var target_root := Node3D.new()
 	target_root.name = "Targets"
 	add_child(target_root)
-
 	for index in range(ACTIVE_TARGET_COUNT):
 		var target := TARGET_SCENE.instantiate() as AimTarget
 		target.name = "Target%02d" % (index + 1)
@@ -190,17 +476,60 @@ func _create_targets() -> void:
 		targets.append(target)
 
 
+func _create_fragment_pool() -> void:
+	var fragment_root := Node3D.new()
+	fragment_root.name = "TargetFragments"
+	add_child(fragment_root)
+	for index in range(FRAGMENT_POOL_SIZE):
+		var fragment := FRAGMENT_SCRIPT.new() as TargetFragment
+		fragment.name = "Fragment%02d" % (index + 1)
+		fragment_root.add_child(fragment)
+		fragment.configure()
+		fragment_pool.append(fragment)
+
+
+func _update_fragments(delta: float) -> void:
+	for fragment in fragment_pool:
+		fragment.update_fragment(delta)
+
+
+func _spawn_target_fragments(origin: Vector3, color: Color, hit_direction: Vector3) -> void:
+	var spawned := 0
+	for fragment in fragment_pool:
+		if not fragment.visible:
+			fragment.launch(origin, color, hit_direction, rng)
+			spawned += 1
+			if spawned >= 9:
+				break
+
+
 func _create_audio() -> void:
+	for weapon_id in ["rifle", "pistol", "sniper"]:
+		var player := AudioStreamPlayer.new()
+		player.name = weapon_id + "_开火声"
+		player.stream = {"rifle": RIFLE_AUDIO, "pistol": PISTOL_AUDIO, "sniper": SNIPER_AUDIO}[weapon_id]
+		player.volume_db = 5.0
+		player.max_polyphony = 8
+		add_child(player)
+		weapon_audio_players[weapon_id] = player
+	bolt_audio = AudioStreamPlayer.new()
+	bolt_audio.name = "狙击枪拉栓声"
+	bolt_audio.stream = BOLT_AUDIO
+	bolt_audio.volume_db = 3.0
+	add_child(bolt_audio)
 	hit_audio = AudioStreamPlayer.new()
 	hit_audio.name = "HitAudio"
 	hit_audio.stream = _make_tone(760.0, 1380.0, 0.075, 0.34)
 	add_child(hit_audio)
-
+	break_audio = AudioStreamPlayer.new()
+	break_audio.name = "BreakAudio"
+	break_audio.stream = _make_break_sound()
+	break_audio.max_polyphony = 6
+	add_child(break_audio)
 	miss_audio = AudioStreamPlayer.new()
 	miss_audio.name = "MissAudio"
 	miss_audio.stream = _make_tone(210.0, 145.0, 0.055, 0.16)
 	add_child(miss_audio)
-
 	start_audio = AudioStreamPlayer.new()
 	start_audio.name = "StartAudio"
 	start_audio.stream = _make_tone(440.0, 660.0, 0.11, 0.24)
@@ -211,112 +540,240 @@ func _create_ui() -> void:
 	var canvas := CanvasLayer.new()
 	canvas.name = "UI"
 	add_child(canvas)
-
 	var ui_root := Control.new()
 	ui_root.name = "UIRoot"
 	ui_root.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	ui_root.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	var chinese_theme := Theme.new()
+	chinese_theme.default_font = CHINESE_FONT
+	ui_root.theme = chinese_theme
 	canvas.add_child(ui_root)
-
-	timer_label = _make_label(30, Color("f5f7ff"))
-	timer_label.position = Vector2(28, 22)
-	timer_label.size = Vector2(260, 48)
-	ui_root.add_child(timer_label)
-
-	score_label = _make_label(30, Color("f5f7ff"))
+	timer_label = _add_hud_label(ui_root, Vector2(28, 22), Vector2(260, 48), 30, Color("252b31"))
+	var stats_box := VBoxContainer.new()
+	stats_box.add_theme_constant_override("separation", -4)
+	ui_root.add_child(stats_box)
+	stats_box.anchor_left = 1.0
+	stats_box.anchor_right = 1.0
+	stats_box.offset_left = -320.0
+	stats_box.offset_right = -28.0
+	stats_box.offset_top = 22.0
+	stats_box.offset_bottom = 100.0
+	score_label = _make_label(30, Color("252b31"))
+	score_label.custom_minimum_size = Vector2(292, 48)
 	score_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
-	score_label.set_anchors_preset(Control.PRESET_TOP_RIGHT)
-	score_label.position = Vector2(-320, 22)
-	score_label.size = Vector2(292, 48)
-	ui_root.add_child(score_label)
-
-	accuracy_label = _make_label(18, Color("9daccc"))
+	stats_box.add_child(score_label)
+	accuracy_label = _make_label(18, Color("5b626a"))
+	accuracy_label.custom_minimum_size = Vector2(292, 34)
 	accuracy_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
-	accuracy_label.set_anchors_preset(Control.PRESET_TOP_RIGHT)
-	accuracy_label.position = Vector2(-320, 66)
-	accuracy_label.size = Vector2(292, 34)
-	ui_root.add_child(accuracy_label)
-
-	combo_label = _make_label(24, Color("ff7955"))
+	stats_box.add_child(accuracy_label)
+	combo_label = _add_hud_label(ui_root, Vector2(-130, 24), Vector2(260, 42), 24, Color("d92f3d"))
+	combo_label.anchor_left = 0.5
+	combo_label.anchor_right = 0.5
+	combo_label.offset_left = -130.0
+	combo_label.offset_right = 130.0
+	combo_label.offset_top = 24.0
+	combo_label.offset_bottom = 66.0
 	combo_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	combo_label.set_anchors_preset(Control.PRESET_CENTER_TOP)
-	combo_label.position = Vector2(-130, 24)
-	combo_label.size = Vector2(260, 42)
-	ui_root.add_child(combo_label)
-
-	countdown_label = _make_label(100, Color("ffffff"))
+	weapon_label = _add_hud_label(ui_root, Vector2.ZERO, Vector2(360, 46), 22, Color("252b31"))
+	weapon_label.set_anchors_preset(Control.PRESET_BOTTOM_LEFT)
+	weapon_label.offset_left = 28.0
+	weapon_label.offset_right = 500.0
+	weapon_label.offset_top = -66.0
+	weapon_label.offset_bottom = -20.0
+	weapon_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_LEFT
+	countdown_label = _add_hud_label(ui_root, Vector2(-160, -90), Vector2(320, 180), 100, Color("d92f3d"))
+	countdown_label.anchor_left = 0.5
+	countdown_label.anchor_right = 0.5
+	countdown_label.anchor_top = 0.5
+	countdown_label.anchor_bottom = 0.5
+	countdown_label.offset_left = -160.0
+	countdown_label.offset_right = 160.0
+	countdown_label.offset_top = -90.0
+	countdown_label.offset_bottom = 90.0
 	countdown_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	countdown_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
-	countdown_label.set_anchors_preset(Control.PRESET_CENTER)
-	countdown_label.position = Vector2(-160, -90)
-	countdown_label.size = Vector2(320, 180)
-	ui_root.add_child(countdown_label)
+	red_dot = RedDot.new()
+	red_dot.name = "RedDot"
+	red_dot.set_anchors_preset(Control.PRESET_CENTER)
+	red_dot.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	ui_root.add_child(red_dot)
+	scope_overlay = SCOPE_OVERLAY_SCRIPT.new()
+	scope_overlay.name = "三倍瞄准镜"
+	scope_overlay.visible = false
+	ui_root.add_child(scope_overlay)
+	_update_red_dot()
+	_create_start_panel(ui_root)
+	_create_result_panel(ui_root)
 
-	crosshair = Control.new()
-	crosshair.name = "Crosshair"
-	crosshair.set_anchors_preset(Control.PRESET_CENTER)
-	crosshair.position = Vector2(-12, -12)
-	crosshair.size = Vector2(24, 24)
-	crosshair.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	ui_root.add_child(crosshair)
-	_add_crosshair_bar(crosshair, Vector2(10, 0), Vector2(4, 8))
-	_add_crosshair_bar(crosshair, Vector2(10, 16), Vector2(4, 8))
-	_add_crosshair_bar(crosshair, Vector2(0, 10), Vector2(8, 4))
-	_add_crosshair_bar(crosshair, Vector2(16, 10), Vector2(8, 4))
-	var crosshair_dot := ColorRect.new()
-	crosshair_dot.color = Color("fff2e8")
-	crosshair_dot.position = Vector2(10, 10)
-	crosshair_dot.size = Vector2(4, 4)
-	crosshair.add_child(crosshair_dot)
 
-	start_panel = _create_center_panel(ui_root, Vector2(520, 360))
-	var start_box := VBoxContainer.new()
-	start_box.add_theme_constant_override("separation", 14)
-	start_panel.add_child(start_box)
-	_add_spacer(start_box, 10)
-	var title := _make_label(42, Color("ffffff"))
-	title.text = "BALL AIM"
+func _add_hud_label(parent: Control, position_value: Vector2, size_value: Vector2, font_size: int, color: Color) -> Label:
+	var label := _make_label(font_size, color)
+	label.position = position_value
+	label.size = size_value
+	parent.add_child(label)
+	return label
+
+
+func _create_start_panel(ui_root: Control) -> void:
+	start_panel = _create_center_panel(ui_root, Vector2(660, 650))
+	var box := VBoxContainer.new()
+	box.add_theme_constant_override("separation", 10)
+	start_panel.add_child(box)
+	var title := _make_label(38, Color.WHITE)
+	title.text = "第一人称射击训练场"
 	title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	start_box.add_child(title)
-	var subtitle := _make_label(18, Color("ff7a55"))
-	subtitle.text = "60 SECOND DRILL  ·  9 TARGETS  ·  12 SPAWN POINTS"
-	subtitle.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	start_box.add_child(subtitle)
-	var instructions := _make_label(18, Color("aeb9d4"))
-	instructions.text = "Aim with the mouse and click to shoot.\nTargets always move to a free random position."
+	box.add_child(title)
+	settings_summary_label = _make_label(15, Color("ff8b72"))
+	settings_summary_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	box.add_child(settings_summary_label)
+	var instructions := _make_label(15, Color("c3cad3"))
+	instructions.text = "CS 风格移动 · 9 个人形靶 · 12 个随机刷新点"
 	instructions.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	instructions.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	instructions.custom_minimum_size = Vector2(450, 70)
-	start_box.add_child(instructions)
-	start_button = _make_button("START DRILL")
+	box.add_child(instructions)
+	box.add_child(HSeparator.new())
+	var settings_title := _make_label(18, Color.WHITE)
+	settings_title.text = "训练参数（对局开始后锁定）"
+	box.add_child(settings_title)
+	var grid := GridContainer.new()
+	grid.columns = 3
+	grid.add_theme_constant_override("h_separation", 16)
+	grid.add_theme_constant_override("v_separation", 10)
+	box.add_child(grid)
+	_add_setting_row(grid, "ball_distance", "目标距离", 20.0, 50.0, 1.0, ball_distance)
+	_add_setting_row(grid, "ball_diameter", "人物大小", 0.55, 1.55, 0.05, ball_diameter)
+	_add_setting_row(grid, "round_duration", "一局时长", 15.0, 180.0, 15.0, round_duration)
+	_add_setting_row(grid, "red_dot_size", "红点大小", 4.0, 20.0, 1.0, red_dot_size)
+	var reset_button := _make_secondary_button("恢复默认参数")
+	reset_button.custom_minimum_size.y = 42
+	reset_button.pressed.connect(_reset_settings)
+	box.add_child(reset_button)
+	var start_button := _make_button("开始训练")
 	start_button.pressed.connect(_start_round)
-	start_box.add_child(start_button)
-	var controls := _make_label(14, Color("7785a6"))
-	controls.text = "LEFT CLICK  SHOOT     ·     ESC  RELEASE MOUSE     ·     R  RESTART"
+	box.add_child(start_button)
+	var controls := _make_label(13, Color("89939f"))
+	controls.text = "WASD 移动 · CTRL/C 蹲下 · 1步枪 2手枪 3狙击枪 · 右键开镜 · R重开"
 	controls.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	start_box.add_child(controls)
+	box.add_child(controls)
 
-	result_panel = _create_center_panel(ui_root, Vector2(560, 440))
-	var result_box := VBoxContainer.new()
-	result_box.add_theme_constant_override("separation", 12)
-	result_panel.add_child(result_box)
-	_add_spacer(result_box, 4)
-	var result_title := _make_label(36, Color("ffffff"))
-	result_title.text = "DRILL COMPLETE"
-	result_title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	result_box.add_child(result_title)
-	result_stats_label = _make_label(20, Color("dce3f5"))
+
+func _create_result_panel(ui_root: Control) -> void:
+	result_panel = _create_center_panel(ui_root, Vector2(580, 560))
+	var box := VBoxContainer.new()
+	box.add_theme_constant_override("separation", 10)
+	result_panel.add_child(box)
+	var title := _make_label(34, Color.WHITE)
+	title.text = "训练结束"
+	title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	box.add_child(title)
+	result_stats_label = _make_label(18, Color("e3e8ee"))
 	result_stats_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	result_stats_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
-	result_stats_label.custom_minimum_size = Vector2(500, 235)
-	result_box.add_child(result_stats_label)
-	retry_button = _make_button("RUN IT AGAIN")
+	result_stats_label.custom_minimum_size = Vector2(520, 330)
+	box.add_child(result_stats_label)
+	var retry_button := _make_button("使用相同参数再来一局")
 	retry_button.pressed.connect(_start_round)
-	result_box.add_child(retry_button)
-	var license_note := _make_label(12, Color("64718f"))
-	license_note.text = "Built with Godot Engine 4.7.2 · MIT License"
+	box.add_child(retry_button)
+	var edit_button := _make_secondary_button("调整训练参数")
+	edit_button.pressed.connect(_show_settings)
+	box.add_child(edit_button)
+	var license_note := _make_label(11, Color("76818d"))
+	license_note.text = "Godot 4.7.2 · 武器、手臂与枪声音效均为 CC0 素材"
 	license_note.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	result_box.add_child(license_note)
+	box.add_child(license_note)
+
+
+func _add_setting_row(grid: GridContainer, key: String, label_text: String, minimum: float, maximum: float, step: float, value: float) -> void:
+	var label := _make_label(16, Color("dfe5eb"))
+	label.text = label_text
+	label.custom_minimum_size = Vector2(112, 38)
+	label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	grid.add_child(label)
+	var slider := HSlider.new()
+	slider.min_value = minimum
+	slider.max_value = maximum
+	slider.step = step
+	slider.value = value
+	slider.custom_minimum_size = Vector2(330, 38)
+	slider.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	grid.add_child(slider)
+	var value_label := _make_label(15, Color("ff8b72"))
+	value_label.custom_minimum_size = Vector2(110, 38)
+	value_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
+	value_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	grid.add_child(value_label)
+	setting_sliders[key] = slider
+	setting_value_labels[key] = value_label
+	slider.value_changed.connect(func(new_value: float) -> void: _on_setting_changed(key, new_value))
+
+
+func _on_setting_changed(key: String, value: float) -> void:
+	match key:
+		"ball_distance": ball_distance = value
+		"ball_diameter": ball_diameter = value
+		"round_duration": round_duration = value
+		"red_dot_size": red_dot_size = value
+	_apply_settings(true)
+
+
+func _apply_settings(save: bool = true) -> void:
+	_rebuild_spawn_positions()
+	for target in targets:
+		target.set_target_scale(ball_diameter / BASE_TARGET_SIZE)
+	_update_red_dot()
+	_update_setting_readouts()
+	if save:
+		_save_settings()
+
+
+func _update_setting_readouts() -> void:
+	if setting_value_labels.has("ball_distance"):
+		setting_value_labels["ball_distance"].text = "%.1f m" % ball_distance
+		setting_value_labels["ball_diameter"].text = "%.2f m" % ball_diameter
+		setting_value_labels["round_duration"].text = "%d 秒" % int(round_duration)
+		setting_value_labels["red_dot_size"].text = "%d 像素" % int(red_dot_size)
+	if settings_summary_label:
+		settings_summary_label.text = "%d 秒 · 距离 %.1f 米 · 人物 %.2f 倍 · 红点 %d 像素" % [int(round_duration), ball_distance, ball_diameter, int(red_dot_size)]
+
+
+func _update_red_dot() -> void:
+	if not red_dot:
+		return
+	red_dot.set_dot_diameter(red_dot_size)
+
+
+func _reset_settings() -> void:
+	ball_distance = DEFAULT_BALL_DISTANCE
+	ball_diameter = DEFAULT_BALL_DIAMETER
+	round_duration = DEFAULT_ROUND_DURATION
+	red_dot_size = DEFAULT_RED_DOT_SIZE
+	for key in setting_sliders:
+		var value: float = get(key)
+		setting_sliders[key].set_value_no_signal(value)
+	_apply_settings(true)
+
+
+func _load_settings() -> void:
+	var config := ConfigFile.new()
+	if config.load(SETTINGS_PATH) != OK:
+		return
+	var settings_version := int(config.get_value("training", "version", 1))
+	var saved_distance := float(config.get_value("training", "ball_distance", DEFAULT_BALL_DISTANCE))
+	if settings_version < 2:
+		saved_distance += 20.0
+	ball_distance = clampf(saved_distance, 20.0, 50.0)
+	ball_diameter = clampf(float(config.get_value("training", "ball_diameter", DEFAULT_BALL_DIAMETER)), 0.55, 1.55)
+	round_duration = clampf(float(config.get_value("training", "round_duration", DEFAULT_ROUND_DURATION)), 15.0, 180.0)
+	red_dot_size = clampf(float(config.get_value("training", "red_dot_size", DEFAULT_RED_DOT_SIZE)), 4.0, 20.0)
+
+
+func _save_settings() -> void:
+	var config := ConfigFile.new()
+	config.set_value("training", "version", 2)
+	config.set_value("training", "ball_distance", ball_distance)
+	config.set_value("training", "ball_diameter", ball_diameter)
+	config.set_value("training", "round_duration", round_duration)
+	config.set_value("training", "red_dot_size", red_dot_size)
+	config.save(SETTINGS_PATH)
 
 
 func _prepare_ready_state() -> void:
@@ -325,12 +782,24 @@ func _prepare_ready_state() -> void:
 	start_panel.visible = true
 	result_panel.visible = false
 	countdown_label.visible = false
-	crosshair.visible = false
+	red_dot.visible = false
 	timer_label.visible = false
 	score_label.visible = false
 	accuracy_label.visible = false
 	combo_label.visible = false
+	weapon_label.visible = false
+	_set_scope(false)
 	_reset_stats()
+	_reset_player()
+	_place_initial_targets()
+
+
+func _show_settings() -> void:
+	state = GameState.READY
+	trigger_held = false
+	start_panel.visible = true
+	result_panel.visible = false
+	_reset_player()
 	_place_initial_targets()
 
 
@@ -338,43 +807,44 @@ func _start_round() -> void:
 	round_serial += 1
 	var serial := round_serial
 	state = GameState.COUNTDOWN
+	trigger_held = false
+	fire_cooldown = 0.0
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	start_panel.visible = false
 	result_panel.visible = false
-	crosshair.visible = false
+	red_dot.visible = false
 	timer_label.visible = true
 	score_label.visible = true
 	accuracy_label.visible = true
 	combo_label.visible = false
 	countdown_label.visible = true
 	_reset_stats()
+	_reset_player()
 	_place_initial_targets()
 	_update_hud()
-
 	for count in [3, 2, 1]:
 		if serial != round_serial:
 			return
 		countdown_label.text = str(count)
 		start_audio.play()
 		await get_tree().create_timer(0.72).timeout
-
 	if serial != round_serial:
 		return
-	countdown_label.text = "GO"
+	countdown_label.text = "开始"
 	start_audio.play()
 	await get_tree().create_timer(0.35).timeout
 	if serial != round_serial:
 		return
-
 	countdown_label.visible = false
-	crosshair.visible = true
+	red_dot.visible = true
+	weapon_label.visible = true
 	state = GameState.PLAYING
 	for target in targets:
 		target.mark_spawn_time()
 
 
 func _reset_stats() -> void:
-	time_remaining = ROUND_DURATION
+	time_remaining = round_duration
 	score = 0
 	shots = 0
 	hits = 0
@@ -384,13 +854,26 @@ func _reset_stats() -> void:
 	best_reaction_ms = 0
 
 
+func _reset_player() -> void:
+	if not player_body:
+		return
+	player_body.global_position = Vector3.ZERO
+	player_body.velocity = Vector3.ZERO
+	player_yaw.rotation = Vector3.ZERO
+	player_pitch.rotation = Vector3.ZERO
+	is_crouching = false
+	current_camera_height = STANDING_CAMERA_HEIGHT
+	player_yaw.position.y = current_camera_height
+	player_capsule.height = STANDING_HEIGHT
+	player_collision.position.y = STANDING_HEIGHT * 0.5
+
+
 func _place_initial_targets() -> void:
 	occupied_slots.clear()
 	var available_slots: Array[int] = []
 	for slot in range(SPAWN_SLOT_COUNT):
 		available_slots.append(slot)
 	_shuffle_with_rng(available_slots)
-
 	for index in range(targets.size()):
 		var target := targets[index]
 		target.disable_immediately()
@@ -400,27 +883,161 @@ func _place_initial_targets() -> void:
 
 
 func _shoot() -> void:
+	if sniper_bolting:
+		return
+	fire_cooldown = _weapon_fire_interval(current_weapon)
 	shots += 1
+	var movement_ratio := clampf(current_move_spread / MAX_MOVE_SPREAD_DEGREES, 0.0, 1.0)
+	var recoil_strength := _weapon_recoil_strength(current_weapon)
+	weapon_recoil = minf(weapon_recoil + recoil_strength, 0.24)
+	if current_move_spread > 0.01:
+		var upward_kick := current_move_spread * rng.randf_range(0.16, 0.32) * _weapon_spread_multiplier(current_weapon)
+		var sideways_kick := current_move_spread * rng.randf_range(-0.22, 0.22) * _weapon_spread_multiplier(current_weapon)
+		player_pitch.rotation.x = clampf(
+			player_pitch.rotation.x - deg_to_rad(upward_kick),
+			-MAX_PITCH,
+			MAX_PITCH
+		)
+		player_yaw.rotation.y += deg_to_rad(sideways_kick)
+	_flash_muzzle()
+	if sound_enabled and weapon_audio_players.has(current_weapon):
+		(weapon_audio_players[current_weapon] as AudioStreamPlayer).play()
 	var viewport_center := get_viewport().get_visible_rect().size * 0.5
 	var ray_origin := camera.project_ray_origin(viewport_center)
-	var ray_end := ray_origin + camera.project_ray_normal(viewport_center) * 50.0
-	var query := PhysicsRayQueryParameters3D.create(ray_origin, ray_end, 2)
+	var ray_direction := camera.project_ray_normal(viewport_center)
+	if current_move_spread > 0.01:
+		var effective_spread := current_move_spread * _weapon_spread_multiplier(current_weapon)
+		var spread_radius := tan(deg_to_rad(effective_spread)) * sqrt(rng.randf())
+		var spread_angle := rng.randf_range(0.0, TAU)
+		ray_direction = (
+			ray_direction
+			+ camera.global_basis.x * cos(spread_angle) * spread_radius
+			+ camera.global_basis.y * sin(spread_angle) * spread_radius
+		).normalized()
+	var ray_end := ray_origin + ray_direction * 80.0
+	var query := PhysicsRayQueryParameters3D.create(ray_origin, ray_end, 3)
+	query.exclude = [player_body.get_rid()]
 	query.collide_with_areas = true
-	query.collide_with_bodies = false
+	query.collide_with_bodies = true
 	var hit_result := get_world_3d().direct_space_state.intersect_ray(query)
-
 	if not hit_result.is_empty():
-		var collider := hit_result.get("collider") as AimTarget
-		if collider and collider.register_hit():
-			_register_target_hit(collider)
+		var collider := hit_result.get("collider") as Area3D
+		var target := collider.get_meta("target", null) as AimTarget if collider else null
+		if target and target.is_active:
+			var hit_zone := str(collider.get_meta("hit_zone", "body"))
+			var killed := target.register_weapon_hit(hit_zone, current_weapon)
+			_register_target_hit(target, hit_zone, killed, hit_result.get("position", target.global_position), ray_direction)
+			if current_weapon == "sniper":
+				_cycle_sniper_bolt()
 			return
-
 	combo = 0
-	miss_audio.play()
+	if sound_enabled:
+		miss_audio.play()
+	if current_weapon == "sniper":
+		_cycle_sniper_bolt()
 	_update_hud()
 
 
-func _register_target_hit(target: AimTarget) -> void:
+func _flash_muzzle() -> void:
+	muzzle_flash.position = _weapon_muzzle_position(current_weapon)
+	muzzle_sparks.position = muzzle_flash.position
+	muzzle_flash.visible = true
+	muzzle_sparks.visible = true
+	var flash_serial := shots
+	await get_tree().create_timer(0.045).timeout
+	if flash_serial == shots:
+		muzzle_flash.visible = false
+		muzzle_sparks.visible = false
+
+
+func _weapon_fire_interval(weapon_id: String) -> float:
+	match weapon_id:
+		"pistol": return 0.22
+		"sniper": return 1.35
+		_: return 0.095
+
+
+func _weapon_recoil_strength(weapon_id: String) -> float:
+	match weapon_id:
+		"pistol": return 0.075
+		"sniper": return 0.16
+		_: return 0.045
+
+
+func _weapon_spread_multiplier(weapon_id: String) -> float:
+	match weapon_id:
+		"pistol": return 0.72
+		"sniper": return 1.15
+		_: return 1.0
+
+
+func _switch_weapon(weapon_id: String) -> void:
+	if not weapon_models.has(weapon_id):
+		return
+	trigger_held = false
+	_set_scope(false)
+	current_weapon = weapon_id
+	for id in weapon_models:
+		(weapon_models[id] as Node3D).visible = id == current_weapon
+	if muzzle_flash:
+		muzzle_flash.position = _weapon_muzzle_position(current_weapon)
+	if muzzle_sparks:
+		muzzle_sparks.position = _weapon_muzzle_position(current_weapon)
+	_update_weapon_label()
+
+
+func _update_weapon_label() -> void:
+	if not weapon_label:
+		return
+	var names := {"rifle": "1  M4A1 风格步枪｜自动", "pistol": "2  格洛克风格手枪｜点射", "sniper": "3  AWP 风格狙击枪｜拉栓·三倍镜"}
+	weapon_label.text = names.get(current_weapon, "")
+
+
+func _set_scope(enabled: bool) -> void:
+	scope_active = enabled and current_weapon == "sniper" and state == GameState.PLAYING
+	if camera:
+		camera.fov = 24.0 if scope_active else 72.0
+	if weapon_pivot:
+		weapon_pivot.visible = not scope_active
+	if scope_overlay:
+		scope_overlay.visible = scope_active
+	if red_dot:
+		red_dot.visible = state == GameState.PLAYING and not scope_active
+
+
+func _cycle_sniper_bolt() -> void:
+	if sniper_bolting:
+		return
+	sniper_bolting = true
+	await get_tree().create_timer(0.34).timeout
+	if sound_enabled:
+		bolt_audio.play()
+	var kick_tween := create_tween()
+	kick_tween.tween_property(weapon_pivot, "rotation:z", deg_to_rad(5.5), 0.10)
+	kick_tween.tween_property(weapon_pivot, "rotation:z", WEAPON_BASE_ROTATION.z, 0.18)
+	await get_tree().create_timer(0.74).timeout
+	sniper_bolting = false
+
+
+func _update_weapon(delta: float) -> void:
+	if not weapon_pivot:
+		return
+	weapon_sway = weapon_sway.lerp(Vector2.ZERO, minf(1.0, delta * 9.0))
+	weapon_recoil = move_toward(weapon_recoil, 0.0, delta * 0.42)
+	var horizontal_speed := 0.0
+	if player_body:
+		horizontal_speed = Vector2(player_body.velocity.x, player_body.velocity.z).length()
+	var move_ratio := clampf(horizontal_speed / WALK_SPEED, 0.0, 1.0)
+	var bob_time := Time.get_ticks_msec() * 0.009
+	var bob := Vector2(sin(bob_time) * 0.012, absf(cos(bob_time)) * 0.009) * move_ratio
+	var idle := sin(Time.get_ticks_msec() * 0.0017) * 0.003 if state == GameState.PLAYING else 0.0
+	var target_position := WEAPON_BASE_POSITION + Vector3(weapon_sway.x + bob.x, -weapon_sway.y + idle - bob.y, weapon_recoil)
+	weapon_pivot.position = weapon_pivot.position.lerp(target_position, minf(1.0, delta * 18.0))
+	var target_rotation := WEAPON_BASE_ROTATION + Vector3(-weapon_sway.y * 0.7 - weapon_recoil * 0.9, -weapon_sway.x * 0.8, -weapon_sway.x * 0.5 - bob.x * 0.5)
+	weapon_pivot.rotation = weapon_pivot.rotation.lerp(target_rotation, minf(1.0, delta * 14.0))
+
+
+func _register_target_hit(target: AimTarget, hit_zone: String, killed: bool, hit_position: Vector3 = Vector3.ZERO, hit_direction: Vector3 = Vector3.FORWARD) -> void:
 	hits += 1
 	combo += 1
 	best_combo = maxi(best_combo, combo)
@@ -428,9 +1045,17 @@ func _register_target_hit(target: AimTarget) -> void:
 	total_reaction_ms += reaction_ms
 	if best_reaction_ms == 0 or reaction_ms < best_reaction_ms:
 		best_reaction_ms = reaction_ms
-	score += 100 + mini(200, maxi(0, combo - 1) * 10)
-	hit_audio.play()
-
+	var zone_score := {"head": 120, "body": 55, "limb": 35}.get(hit_zone, 40) as int
+	score += zone_score + mini(120, maxi(0, combo - 1) * 5)
+	if sound_enabled:
+		if killed:
+			break_audio.play()
+		else:
+			hit_audio.play()
+	if not killed:
+		_update_hud()
+		return
+	score += 100
 	var old_slot := target.spawn_slot
 	occupied_slots.erase(old_slot)
 	var candidates: Array[int] = []
@@ -439,12 +1064,10 @@ func _register_target_hit(target: AimTarget) -> void:
 			candidates.append(slot)
 	if candidates.is_empty():
 		candidates.append(old_slot)
-
 	var new_slot := candidates[rng.randi_range(0, candidates.size() - 1)]
 	occupied_slots[new_slot] = target
 	target.reserve_slot(new_slot)
-	var serial := round_serial
-	_respawn_target(target, new_slot, serial)
+	_respawn_target(target, new_slot, round_serial)
 	_update_hud()
 
 
@@ -459,33 +1082,36 @@ func _finish_round() -> void:
 	if state != GameState.PLAYING:
 		return
 	state = GameState.RESULTS
+	trigger_held = false
 	round_serial += 1
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-	crosshair.visible = false
+	red_dot.visible = false
+	weapon_label.visible = false
+	_set_scope(false)
 	countdown_label.visible = false
 	combo_label.visible = false
 	for target in targets:
 		target.disable_immediately()
-
 	var accuracy := 0.0 if shots == 0 else float(hits) / float(shots) * 100.0
 	var average_reaction := 0 if hits == 0 else total_reaction_ms / hits
 	result_stats_label.text = (
-		"SCORE     %06d\n\n" % score
-		+ "HITS      %d / %d\n" % [hits, shots]
-		+ "ACCURACY  %.1f%%\n" % accuracy
-		+ "BEST RUN  x%d\n" % best_combo
-		+ "AVG TIME  %d ms\n" % average_reaction
-		+ "BEST TIME %d ms" % best_reaction_ms
+		"得分  %06d\n\n" % score
+		+ "命中  %d / %d     命中率  %.1f%%\n" % [hits, shots, accuracy]
+		+ "最佳连中  x%d\n平均反应  %d 毫秒     最快  %d 毫秒\n\n" % [best_combo, average_reaction, best_reaction_ms]
+		+ "本局参数\n距离 %.1f 米 · 人物 %.2f 倍 · %d 秒 · 红点 %d 像素" % [ball_distance, ball_diameter, int(round_duration), int(red_dot_size)]
 	)
 	result_panel.visible = true
 
 
 func _update_hud() -> void:
 	var accuracy := 0.0 if shots == 0 else float(hits) / float(shots) * 100.0
-	timer_label.text = "TIME  %02d" % int(ceil(time_remaining))
-	score_label.text = "SCORE  %06d" % score
-	accuracy_label.text = "HITS %d/%d    ACC %.1f%%" % [hits, shots, accuracy]
-	combo_label.text = "STREAK  x%d" % combo
+	var movement_status := "稳定" if current_move_spread <= 0.01 else "移动散布 %.1f°" % current_move_spread
+	if is_crouching:
+		movement_status += "｜蹲下"
+	timer_label.text = "时间  %02d" % int(ceil(time_remaining))
+	score_label.text = "得分  %06d" % score
+	accuracy_label.text = "命中 %d/%d  命中率 %.1f%%  %s" % [hits, shots, accuracy, movement_status]
+	combo_label.text = "连续命中  x%d" % combo
 	combo_label.visible = state == GameState.PLAYING and combo >= 2
 
 
@@ -501,36 +1127,48 @@ func _make_label(font_size: int, color: Color) -> Label:
 	var label := Label.new()
 	label.add_theme_font_size_override("font_size", font_size)
 	label.add_theme_color_override("font_color", color)
-	label.add_theme_color_override("font_shadow_color", Color(0, 0, 0, 0.55))
-	label.add_theme_constant_override("shadow_offset_x", 2)
-	label.add_theme_constant_override("shadow_offset_y", 2)
+	label.add_theme_color_override("font_shadow_color", Color(0, 0, 0, 0.24))
+	label.add_theme_constant_override("shadow_offset_x", 1)
+	label.add_theme_constant_override("shadow_offset_y", 1)
 	return label
 
 
 func _make_button(text: String) -> Button:
 	var button := Button.new()
 	button.text = text
-	button.custom_minimum_size = Vector2(0, 58)
-	button.focus_mode = Control.FOCUS_ALL
-	button.add_theme_font_size_override("font_size", 19)
-	button.add_theme_color_override("font_color", Color("ffffff"))
-	button.add_theme_color_override("font_hover_color", Color("ffffff"))
-	button.add_theme_color_override("font_pressed_color", Color("ffffff"))
+	button.custom_minimum_size = Vector2(0, 54)
+	button.add_theme_font_size_override("font_size", 18)
+	button.add_theme_color_override("font_color", Color.WHITE)
+	var normal := StyleBoxFlat.new()
+	normal.bg_color = Color("d92f3d")
+	normal.set_corner_radius_all(8)
+	var hover := normal.duplicate() as StyleBoxFlat
+	hover.bg_color = Color("f04350")
+	var pressed := normal.duplicate() as StyleBoxFlat
+	pressed.bg_color = Color("ab202d")
+	button.add_theme_stylebox_override("normal", normal)
+	button.add_theme_stylebox_override("hover", hover)
+	button.add_theme_stylebox_override("pressed", pressed)
+	button.add_theme_stylebox_override("focus", hover)
+	return button
 
-	var normal_style := StyleBoxFlat.new()
-	normal_style.bg_color = Color("dd4d2d")
-	normal_style.corner_radius_top_left = 8
-	normal_style.corner_radius_top_right = 8
-	normal_style.corner_radius_bottom_left = 8
-	normal_style.corner_radius_bottom_right = 8
-	var hover_style := normal_style.duplicate() as StyleBoxFlat
-	hover_style.bg_color = Color("fa6541")
-	var pressed_style := normal_style.duplicate() as StyleBoxFlat
-	pressed_style.bg_color = Color("b73922")
-	button.add_theme_stylebox_override("normal", normal_style)
-	button.add_theme_stylebox_override("hover", hover_style)
-	button.add_theme_stylebox_override("pressed", pressed_style)
-	button.add_theme_stylebox_override("focus", hover_style)
+
+func _make_secondary_button(text: String) -> Button:
+	var button := Button.new()
+	button.text = text
+	button.custom_minimum_size = Vector2(0, 48)
+	button.add_theme_font_size_override("font_size", 16)
+	button.add_theme_color_override("font_color", Color("dce3ea"))
+	var style := StyleBoxFlat.new()
+	style.bg_color = Color("303943")
+	style.border_color = Color("65717e")
+	style.set_border_width_all(1)
+	style.set_corner_radius_all(8)
+	button.add_theme_stylebox_override("normal", style)
+	var hover := style.duplicate() as StyleBoxFlat
+	hover.bg_color = Color("414c57")
+	button.add_theme_stylebox_override("hover", hover)
+	button.add_theme_stylebox_override("focus", hover)
 	return button
 
 
@@ -540,34 +1178,18 @@ func _create_center_panel(parent: Control, panel_size: Vector2) -> PanelContaine
 	panel.position = -panel_size * 0.5
 	panel.size = panel_size
 	panel.mouse_filter = Control.MOUSE_FILTER_STOP
-	var panel_style := StyleBoxFlat.new()
-	panel_style.bg_color = Color(0.035, 0.055, 0.11, 0.96)
-	panel_style.border_color = Color(1.0, 0.32, 0.18, 0.65)
-	panel_style.set_border_width_all(1)
-	panel_style.set_corner_radius_all(16)
-	panel_style.content_margin_left = 28
-	panel_style.content_margin_right = 28
-	panel_style.content_margin_top = 24
-	panel_style.content_margin_bottom = 24
-	panel.add_theme_stylebox_override("panel", panel_style)
+	var style := StyleBoxFlat.new()
+	style.bg_color = Color(0.075, 0.09, 0.105, 0.965)
+	style.border_color = Color(0.85, 0.19, 0.24, 0.85)
+	style.set_border_width_all(1)
+	style.set_corner_radius_all(16)
+	style.content_margin_left = 28
+	style.content_margin_right = 28
+	style.content_margin_top = 22
+	style.content_margin_bottom = 20
+	panel.add_theme_stylebox_override("panel", style)
 	parent.add_child(panel)
 	return panel
-
-
-func _add_crosshair_bar(parent: Control, bar_position: Vector2, bar_size: Vector2) -> void:
-	var bar := ColorRect.new()
-	bar.color = Color("fff2e8")
-	bar.position = bar_position
-	bar.size = bar_size
-	bar.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	parent.add_child(bar)
-
-
-func _add_spacer(parent: VBoxContainer, height: float) -> void:
-	var spacer := Control.new()
-	spacer.custom_minimum_size = Vector2(0, height)
-	spacer.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	parent.add_child(spacer)
 
 
 func _make_tone(start_frequency: float, end_frequency: float, duration: float, volume: float) -> AudioStreamWAV:
@@ -576,7 +1198,6 @@ func _make_tone(start_frequency: float, end_frequency: float, duration: float, v
 	var audio_data := PackedByteArray()
 	audio_data.resize(sample_count * 2)
 	var phase := 0.0
-
 	for index in range(sample_count):
 		var progress := float(index) / float(maxi(1, sample_count - 1))
 		var frequency := lerpf(start_frequency, end_frequency, progress)
@@ -585,7 +1206,33 @@ func _make_tone(start_frequency: float, end_frequency: float, duration: float, v
 		var sample := int(sin(phase) * 32767.0 * volume * envelope)
 		audio_data[index * 2] = sample & 0xff
 		audio_data[index * 2 + 1] = (sample >> 8) & 0xff
+	var stream := AudioStreamWAV.new()
+	stream.format = AudioStreamWAV.FORMAT_16_BITS
+	stream.mix_rate = mix_rate
+	stream.stereo = false
+	stream.data = audio_data
+	return stream
 
+
+func _make_break_sound() -> AudioStreamWAV:
+	var mix_rate := 22050
+	var duration := 0.19
+	var sample_count := int(duration * mix_rate)
+	var audio_data := PackedByteArray()
+	audio_data.resize(sample_count * 2)
+	var sound_rng := RandomNumberGenerator.new()
+	sound_rng.seed = 82471
+	for index in range(sample_count):
+		var time := float(index) / float(mix_rate)
+		var progress := time / duration
+		var envelope := pow(1.0 - progress, 3.2)
+		var noise := sound_rng.randf_range(-1.0, 1.0)
+		var brittle_tones := sin(TAU * 2350.0 * time) * 0.28 + sin(TAU * 3610.0 * time) * 0.16
+		var crack := 1.0 if index % 331 < 5 else 0.0
+		var value := (noise * 0.46 + brittle_tones + crack * noise * 0.34) * envelope
+		var sample := int(clampf(value, -1.0, 1.0) * 32767.0)
+		audio_data[index * 2] = sample & 0xff
+		audio_data[index * 2 + 1] = (sample >> 8) & 0xff
 	var stream := AudioStreamWAV.new()
 	stream.format = AudioStreamWAV.FORMAT_16_BITS
 	stream.mix_rate = mix_rate

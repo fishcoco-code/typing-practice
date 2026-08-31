@@ -1,27 +1,38 @@
-# Ball Aim Trainer
+# 第一人称射击训练场
 
-A lightweight first-person 3D target-shooting game built with Godot 4.7.
+使用 Godot 4.7 制作的轻量级 3D Web 射击训练游戏。
 
-## MVP rules
+## 当前玩法
 
-- The player stays in one position and aims with the mouse.
-- Twelve invisible spawn slots are arranged in front of the camera.
-- Nine balls are active at a time.
-- Hitting a ball moves it to a random unoccupied slot after a short effect.
-- A round lasts 60 seconds.
-- The result screen reports score, hits, accuracy, best streak, and reaction time.
+- 玩家可以 WASD 移动，按 Ctrl 或 C 蹲下。
+- 12 个刷新点随机维持 9 个人形靶，默认距离为 30 米。
+- 可在开局前调整目标距离、人物大小、一局时长和红点大小。
+- 移动开火时镜头向上并向左右随机偏移，蹲下移动的散布较小。
+- 人形靶拥有黄色描边以及头部、躯干、四肢三类独立命中区。
 
-## Controls
+## 武器与伤害
 
-- Mouse: aim
-- Left mouse button: shoot
-- Escape: release the mouse cursor
-- R: restart the round
+- `1`：M4A1 风格自动步枪。头部 1 枪，身体和四肢 4 枪。
+- `2`：格洛克风格点射手枪。头部 1 枪，身体和四肢 4 枪。
+- `3`：AWP 风格栓动狙击枪。头部和胸腹 1 枪，四肢 2 枪；每枪后必须拉栓。
+- 狙击枪可点击鼠标右键切换三倍镜。
 
-## Project layout
+## 操作
 
-- `src/`: Godot source project
-- `web/`: generated Web export
+- 鼠标：瞄准
+- 鼠标左键：开火
+- 鼠标右键：狙击枪开镜
+- W/A/S/D：移动
+- Ctrl 或 C：蹲下
+- 1/2/3：切换武器
+- Esc：释放鼠标
+- R：重新开始
 
-The game is intentionally built from procedural geometry and synthesized sound,
-so the MVP has no third-party art or audio assets.
+## 目录
+
+- `src/`：Godot 源项目
+- `web/`：Godot Web 导出文件
+- `src/licenses/`：第三方素材许可证与来源记录
+
+武器模型来自 Quaternius 的 CC0 Low Poly Animated Guns；手臂模型为 CC0；
+枪声与拉栓声来自 OpenGameArt 的 CC0 素材；中文字体为 OFL 1.1 的 Noto Sans SC。
