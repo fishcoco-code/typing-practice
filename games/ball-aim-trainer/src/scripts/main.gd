@@ -35,6 +35,8 @@ const MODE_HUMANOID := "humanoid"
 const MODE_BALL := "ball"
 const BALL_TARGET_COLOR := Color("ffd21f")
 const BALL_WEAPON_SCALE_MULTIPLIER := 1.42
+const BALL_GRID_X := [-6.0, 0.0, 6.0]
+const BALL_GRID_Y := [-0.60, 1.80, 4.20, 6.60]
 const ACTIVE_TARGET_COUNT := 9
 const SPAWN_SLOT_COUNT := 12
 const RESPAWN_DELAY := 0.55
@@ -579,13 +581,14 @@ func _create_spawn_slots() -> void:
 
 
 func _rebuild_spawn_positions() -> void:
-	var ball_row_heights := [0.15, 3.25, 6.35]
 	for index in range(spawn_offsets.size()):
 		var offset := spawn_offsets[index]
 		var world_position: Vector3
 		if _is_ball_mode():
-			var row := index / 4
-			world_position = Vector3(offset.x, ball_row_heights[row], -ball_distance)
+			var column := index % BALL_GRID_X.size()
+			var row := index / BALL_GRID_X.size()
+			# 固定射球模式使用正对玩家的竖直靶面：X/Y 展开，Z 完全一致。
+			world_position = Vector3(BALL_GRID_X[column], BALL_GRID_Y[row], -ball_distance)
 		else:
 			world_position = Vector3(offset.x, 0.0, -ball_distance + offset.z)
 		spawn_positions[index] = world_position
@@ -893,7 +896,7 @@ func _apply_training_mode(save: bool = true) -> void:
 		(setting_name_labels["ball_diameter"] as Label).text = "小球大小" if ball_mode else "人物大小"
 	if instructions_label:
 		instructions_label.text = (
-			"固定站位 · 黄色小球多行平铺 · 命中即刷新"
+			"固定站位 · 黄色小球纵向靶面平铺 · 命中即刷新"
 			if ball_mode
 			else "CS 风格移动 · 9 个人形靶 · 12 个随机刷新点"
 		)
