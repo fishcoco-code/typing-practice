@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-05T10:36:20.960Z",
+  "updatedAt": "2026-09-05T15:14:42.952Z",
   "refreshIntervalHours": 6,
   "coverage": "Steam PC new releases",
   "sources": [
@@ -9,11 +9,117 @@
       "name": "Steam 全球商店",
       "status": "online",
       "games": 61,
-      "latencyMs": 310,
+      "latencyMs": 348,
       "note": "新品与即将上线数据正常"
     }
   ],
   "games": [
+    {
+      "id": "steam-4307480",
+      "appId": 4307480,
+      "name": "Gridbound",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-09-05",
+      "releaseLabel": "Sep 5, 2026",
+      "platforms": [
+        "Windows",
+        "macOS"
+      ],
+      "genre": "休闲",
+      "price": "$2.99",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 76,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4307480/a721b2842f09603f5f7e0c024f3f334db74e1769/capsule_231x87.jpg?t=1788619851",
+      "storeUrl": "https://store.steampowered.com/app/4307480/Gridbound/"
+    },
+    {
+      "id": "steam-4641100",
+      "appId": 4641100,
+      "name": "Final Shelter",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-09-05",
+      "releaseLabel": "Sep 5, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "角色扮演",
+      "price": "$2.25",
+      "discount": 10,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 76,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4641100/df039bd81ecd2677f6273965424672efdadf9f5e/capsule_231x87.jpg?t=1788610656",
+      "storeUrl": "https://store.steampowered.com/app/4641100/Final_Shelter/"
+    },
+    {
+      "id": "steam-4942650",
+      "appId": 4942650,
+      "name": "HB Inc.",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-09-05",
+      "releaseLabel": "Sep 5, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "休闲",
+      "price": "Free",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 76,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4942650/845675cc247305e18a41f1dd13301510690651bb/capsule_231x87.jpg?t=1788608938",
+      "storeUrl": "https://store.steampowered.com/app/4942650/HB_Inc/"
+    },
+    {
+      "id": "steam-5103500",
+      "appId": 5103500,
+      "name": "Valdivia AllStars",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-09-05",
+      "releaseLabel": "Sep 5, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "其他",
+      "price": "Free",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 76,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5103500/f17ef573485ff14aa990265da1f4cdd408529bcd/capsule_231x87.jpg?t=1788608480",
+      "storeUrl": "https://store.steampowered.com/app/5103500/Valdivia_AllStars/"
+    },
+    {
+      "id": "steam-5134750",
+      "appId": 5134750,
+      "name": "RAKHEM",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-09-05",
+      "releaseLabel": "Sep 5, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "动作",
+      "price": "$3.14",
+      "discount": 10,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 76,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5134750/9117a2ccf75ad56ff110b9605dccfd09a7318b8f/capsule_231x87.jpg?t=1788606171",
+      "storeUrl": "https://store.steampowered.com/app/5134750/RAKHEM/"
+    },
     {
       "id": "steam-3426960",
       "appId": 3426960,
@@ -674,134 +780,6 @@
       "storeUrl": "https://store.steampowered.com/app/5059360/VOXEL_ISLE_SIMULATOR/"
     },
     {
-      "id": "steam-4895740",
-      "appId": 4895740,
-      "name": "Proyecto Huemul",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-09-04",
-      "releaseLabel": "Sep 4, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "动作",
-      "price": "$4.24",
-      "discount": 15,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 74,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4895740/49fecbb5362d2d0d3bfd2a887634b84041342086/capsule_231x87.jpg?t=1788551925",
-      "storeUrl": "https://store.steampowered.com/app/4895740/Proyecto_Huemul/"
-    },
-    {
-      "id": "steam-5053660",
-      "appId": 5053660,
-      "name": "Mazlide",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-09-04",
-      "releaseLabel": "Sep 4, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "休闲",
-      "price": "$2.99",
-      "discount": 0,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 74,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5053660/b3d2ea1a013f5c85136201c0596d16395666af1b/capsule_231x87.jpg?t=1788552886",
-      "storeUrl": "https://store.steampowered.com/app/5053660/Mazlide/"
-    },
-    {
-      "id": "steam-5028820",
-      "appId": 5028820,
-      "name": "Rocket Propelled Ghost",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-09-04",
-      "releaseLabel": "Sep 4, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "动作",
-      "price": "Free",
-      "discount": 0,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 74,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5028820/b2c2f71e86dc7e4138cef94ba208e6b436e5a1ba/capsule_231x87.jpg?t=1788549088",
-      "storeUrl": "https://store.steampowered.com/app/5028820/Rocket_Propelled_Ghost/"
-    },
-    {
-      "id": "steam-4980030",
-      "appId": 4980030,
-      "name": "PENCILS DOWN™",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-09-04",
-      "releaseLabel": "Sep 4, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "其他",
-      "price": "$5.59",
-      "discount": 20,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 74,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4980030/817a191a43bc826e53692798495d7fe30323bddc/capsule_231x87.jpg?t=1788548769",
-      "storeUrl": "https://store.steampowered.com/app/4980030/PENCILS_DOWN/"
-    },
-    {
-      "id": "steam-3305690",
-      "appId": 3305690,
-      "name": "Cattopia",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-09-04",
-      "releaseLabel": "Sep 4, 2026",
-      "platforms": [
-        "Windows",
-        "macOS",
-        "Linux"
-      ],
-      "genre": "其他",
-      "price": "$7.19",
-      "discount": 10,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 74,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3305690/8b9d043a006a3a0c8cb565015fd0ddf83d293043/capsule_231x87.jpg?t=1788548623",
-      "storeUrl": "https://store.steampowered.com/app/3305690/Cattopia/"
-    },
-    {
-      "id": "steam-5088120",
-      "appId": 5088120,
-      "name": "水浒英雄传：八幕战役",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "upcoming",
-      "releaseDate": "2026-09-05",
-      "releaseLabel": "Sep 5, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "策略",
-      "price": "价格待定",
-      "discount": 0,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 48,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5088120/c1478a4a039512b7dbf17fa4987977cf1fc16ea8/capsule_231x87.jpg?t=1787747483",
-      "storeUrl": "https://store.steampowered.com/app/5088120/_/"
-    },
-    {
       "id": "steam-5078600",
       "appId": 5078600,
       "name": "Load Factor",
@@ -844,27 +822,6 @@
       "storeUrl": "https://store.steampowered.com/app/4916790/Last_Haven_Idle_Survival/"
     },
     {
-      "id": "steam-4549300",
-      "appId": 4549300,
-      "name": "My Dearest Direst Disaster",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "upcoming",
-      "releaseDate": "2026-09-06",
-      "releaseLabel": "Sep 6, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "冒险",
-      "price": "价格待定",
-      "discount": 0,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 48,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4549300/b554cb9889f86a262688f69377966837e8e88fbd/capsule_231x87.jpg?t=1788484665",
-      "storeUrl": "https://store.steampowered.com/app/4549300/My_Dearest_Direst_Disaster/"
-    },
-    {
       "id": "steam-5048570",
       "appId": 5048570,
       "name": "Invictvs",
@@ -884,6 +841,27 @@
       "heatScore": 48,
       "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5048570/b3eea5806d8ffe88b6db0750dcdc1661b0b9ca72/capsule_231x87.jpg?t=1788601162",
       "storeUrl": "https://store.steampowered.com/app/5048570/Invictvs/"
+    },
+    {
+      "id": "steam-4549300",
+      "appId": 4549300,
+      "name": "My Dearest Direst Disaster",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "upcoming",
+      "releaseDate": "2026-09-06",
+      "releaseLabel": "Sep 6, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "冒险",
+      "price": "价格待定",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 48,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4549300/b554cb9889f86a262688f69377966837e8e88fbd/capsule_231x87.jpg?t=1788484665",
+      "storeUrl": "https://store.steampowered.com/app/4549300/My_Dearest_Direst_Disaster/"
     },
     {
       "id": "steam-4813750",
@@ -1122,6 +1100,27 @@
       "storeUrl": "https://store.steampowered.com/app/4973460/The_Ash_Remembers/"
     },
     {
+      "id": "steam-5134230",
+      "appId": 5134230,
+      "name": "Roulette Simulator 2027",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "upcoming",
+      "releaseDate": "2026-09-07",
+      "releaseLabel": "Sep 7, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "模拟",
+      "price": "价格待定",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 48,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5134230/42f6dbabac241d8567d7f574738751a2bc97a530/capsule_231x87.jpg?t=1787759786",
+      "storeUrl": "https://store.steampowered.com/app/5134230/Roulette_Simulator_2027/"
+    },
+    {
       "id": "steam-5099120",
       "appId": 5099120,
       "name": "Falk",
@@ -1144,25 +1143,26 @@
       "storeUrl": "https://store.steampowered.com/app/5099120/Falk/"
     },
     {
-      "id": "steam-5134230",
-      "appId": 5134230,
-      "name": "Roulette Simulator 2027",
+      "id": "steam-4704580",
+      "appId": 4704580,
+      "name": "The Hunter's Inn",
       "source": "Steam",
       "sourceRegion": "全球商店",
       "status": "upcoming",
       "releaseDate": "2026-09-07",
       "releaseLabel": "Sep 7, 2026",
       "platforms": [
-        "Windows"
+        "Windows",
+        "macOS"
       ],
-      "genre": "模拟",
+      "genre": "冒险",
       "price": "价格待定",
       "discount": 0,
       "reviewPercent": 0,
       "reviewCount": 0,
       "heatScore": 48,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5134230/42f6dbabac241d8567d7f574738751a2bc97a530/capsule_231x87.jpg?t=1787759786",
-      "storeUrl": "https://store.steampowered.com/app/5134230/Roulette_Simulator_2027/"
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4704580/c6199f56cce7b6e61dc11d6a7ed9142233757dec/capsule_231x87.jpg?t=1788270500",
+      "storeUrl": "https://store.steampowered.com/app/4704580/The_Hunters_Inn/"
     },
     {
       "id": "steam-5001300",
@@ -1184,28 +1184,6 @@
       "heatScore": 48,
       "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5001300/5a3122425cc4ae4c329b5d83dcc584ceb24f8aa9/capsule_231x87.jpg?t=1787681427",
       "storeUrl": "https://store.steampowered.com/app/5001300/Sewer_Crawler/"
-    },
-    {
-      "id": "steam-4704580",
-      "appId": 4704580,
-      "name": "The Hunter's Inn",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "upcoming",
-      "releaseDate": "2026-09-07",
-      "releaseLabel": "Sep 7, 2026",
-      "platforms": [
-        "Windows",
-        "macOS"
-      ],
-      "genre": "冒险",
-      "price": "价格待定",
-      "discount": 0,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 48,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4704580/c6199f56cce7b6e61dc11d6a7ed9142233757dec/capsule_231x87.jpg?t=1788270500",
-      "storeUrl": "https://store.steampowered.com/app/4704580/The_Hunters_Inn/"
     },
     {
       "id": "steam-4304820",
@@ -1313,6 +1291,27 @@
       "heatScore": 48,
       "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3734150/46e777231c1bffdf57842052fdf08a6e2887e4d1/capsule_231x87.jpg?t=1788543654",
       "storeUrl": "https://store.steampowered.com/app/3734150/Vortha_racing/"
+    },
+    {
+      "id": "steam-4134650",
+      "appId": 4134650,
+      "name": "Bones and Coins",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "upcoming",
+      "releaseDate": "2026-09-07",
+      "releaseLabel": "Sep 7, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "策略",
+      "price": "价格待定",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 48,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4134650/5be194a6a843e037bdb2cae0577cfc70668d3b14/capsule_231x87.jpg?t=1788075361",
+      "storeUrl": "https://store.steampowered.com/app/4134650/Bones_and_Coins/"
     }
   ]
 }
