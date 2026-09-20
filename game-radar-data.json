@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-20T11:25:12.443Z",
+  "updatedAt": "2026-09-20T16:06:52.194Z",
   "refreshIntervalHours": 6,
   "coverage": "Steam PC new releases",
   "sources": [
@@ -9,11 +9,181 @@
       "name": "Steam 全球商店",
       "status": "online",
       "games": 61,
-      "latencyMs": 321,
+      "latencyMs": 610,
       "note": "新品与即将上线数据正常"
     }
   ],
   "games": [
+    {
+      "id": "steam-4739040",
+      "appId": 4739040,
+      "name": "DISCIPLINE SIMULATOR",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-09-20",
+      "releaseLabel": "Sep 20, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "动作",
+      "price": "$4.24",
+      "discount": 15,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 76,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4739040/65419c6d1ddd2942275924fb4ed71f3b82acd2a4/capsule_231x87.jpg?t=1789916676",
+      "storeUrl": "https://store.steampowered.com/app/4739040/DISCIPLINE_SIMULATOR/"
+    },
+    {
+      "id": "steam-3124020",
+      "appId": 3124020,
+      "name": "Darby Is Here Forever",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-09-20",
+      "releaseLabel": "Sep 20, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "冒险",
+      "price": "$2.54",
+      "discount": 15,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 76,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3124020/340f285e5f9a31073f28fdbdac14303e57adcd0c/capsule_231x87.jpg?t=1789914820",
+      "storeUrl": "https://store.steampowered.com/app/3124020/Darby_Is_Here_Forever/"
+    },
+    {
+      "id": "steam-4172110",
+      "appId": 4172110,
+      "name": "Dear Journey...",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-09-20",
+      "releaseLabel": "Sep 20, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "其他",
+      "price": "$7.99",
+      "discount": 20,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 76,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4172110/00b7194e1bd5532d8514a3e9a70f460e077c7310/capsule_231x87.jpg?t=1789912805",
+      "storeUrl": "https://store.steampowered.com/app/4172110/Dear_Journey/"
+    },
+    {
+      "id": "steam-4761260",
+      "appId": 4761260,
+      "name": "Click to Farm",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-09-20",
+      "releaseLabel": "Sep 20, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "休闲",
+      "price": "$2.99",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 76,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4761260/d32a8ce9b950f104db6c34990a410e4d3f65046d/capsule_231x87.jpg?t=1789912592",
+      "storeUrl": "https://store.steampowered.com/app/4761260/Click_to_Farm/"
+    },
+    {
+      "id": "steam-4932410",
+      "appId": 4932410,
+      "name": "Farmabot",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-09-20",
+      "releaseLabel": "Sep 20, 2026",
+      "platforms": [
+        "Windows",
+        "Linux"
+      ],
+      "genre": "模拟",
+      "price": "$9.99",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 76,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4932410/a71ac829fe2b620936f7ced28c56876073a7ed5c/capsule_231x87.jpg?t=1789910007",
+      "storeUrl": "https://store.steampowered.com/app/4932410/Farmabot/"
+    },
+    {
+      "id": "steam-4506090",
+      "appId": 4506090,
+      "name": "ROGUELIKE CARD GAME:BUSINESS EMPIRE",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-09-20",
+      "releaseLabel": "Sep 20, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "策略",
+      "price": "$2.39",
+      "discount": 20,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 76,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4506090/4ead2f0896538f30c04ca34e0e8e7974675f0c7e/capsule_231x87.jpg?t=1789909685",
+      "storeUrl": "https://store.steampowered.com/app/4506090/ROGUELIKE_CARD_GAMEBUSINESS_EMPIRE/"
+    },
+    {
+      "id": "steam-4944490",
+      "appId": 4944490,
+      "name": "Kairos: In Step with Time",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-09-20",
+      "releaseLabel": "Sep 20, 2026",
+      "platforms": [
+        "Windows",
+        "macOS"
+      ],
+      "genre": "休闲",
+      "price": "Free",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 76,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4944490/93ec5ed17dc4477a80a7f890dd34dba606e8c635/capsule_231x87.jpg?t=1789907775",
+      "storeUrl": "https://store.steampowered.com/app/4944490/Kairos_In_Step_with_Time/"
+    },
+    {
+      "id": "steam-5157680",
+      "appId": 5157680,
+      "name": "DIY Dadish",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-09-20",
+      "releaseLabel": "Sep 20, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "动作",
+      "price": "$15.00",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 76,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5157680/0cd73f29ef22a1882abab99cd441ae8995280348/capsule_231x87.jpg?t=1789905861",
+      "storeUrl": "https://store.steampowered.com/app/5157680/DIY_Dadish/"
+    },
     {
       "id": "steam-5110470",
       "appId": 5110470,
@@ -32,7 +202,7 @@
       "reviewPercent": 0,
       "reviewCount": 0,
       "heatScore": 76,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5110470/c5ed2e7f5a7cca86f4db883a83296ec2715d2033/capsule_231x87.jpg?t=1789892876",
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5110470/c5ed2e7f5a7cca86f4db883a83296ec2715d2033/capsule_231x87.jpg?t=1789907739",
       "storeUrl": "https://store.steampowered.com/app/5110470/Cultivation/"
     },
     {
@@ -288,6 +458,27 @@
       "heatScore": 74,
       "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3759810/2889abd4f72e88393dd49e39d21000543b9db751/capsule_231x87.jpg?t=1789852783",
       "storeUrl": "https://store.steampowered.com/app/3759810/CivEconomy/"
+    },
+    {
+      "id": "steam-5010120",
+      "appId": 5010120,
+      "name": "Canyon Carnage",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-09-19",
+      "releaseLabel": "Sep 19, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "动作",
+      "price": "Free",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 74,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5010120/d3caf2f596ff2d20152e164ee752de9d35547282/capsule_231x87.jpg?t=1789917401",
+      "storeUrl": "https://store.steampowered.com/app/5010120/Canyon_Carnage/"
     },
     {
       "id": "steam-5195850",
@@ -585,258 +776,6 @@
       "storeUrl": "https://store.steampowered.com/app/4012730/Panic_Files_Buried_Sanity/"
     },
     {
-      "id": "steam-3759520",
-      "appId": 3759520,
-      "name": "Fluttering",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-09-19",
-      "releaseLabel": "Sep 19, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "冒险",
-      "price": "$4.32",
-      "discount": 10,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 74,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3759520/e394fda855904df9ca4a461cb146be3c1e5bbc74/capsule_231x87.jpg?t=1789831207",
-      "storeUrl": "https://store.steampowered.com/app/3759520/Fluttering/"
-    },
-    {
-      "id": "steam-5171060",
-      "appId": 5171060,
-      "name": "Pirouette & Smile",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-09-19",
-      "releaseLabel": "Sep 19, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "休闲",
-      "price": "$3.00",
-      "discount": 0,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 74,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5171060/a168768d466106e1824c83bb21f11b3eadb14b9a/capsule_231x87.jpg?t=1789830186",
-      "storeUrl": "https://store.steampowered.com/app/5171060/Pirouette__Smile/"
-    },
-    {
-      "id": "steam-4951110",
-      "appId": 4951110,
-      "name": "Auction Gambit",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-09-19",
-      "releaseLabel": "Sep 19, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "休闲",
-      "price": "$0.99",
-      "discount": 0,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 74,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4951110/d795195422fe8fbbb3b57e4f382bc5e0491a9f52/capsule_231x87.jpg?t=1789829134",
-      "storeUrl": "https://store.steampowered.com/app/4951110/Auction_Gambit/"
-    },
-    {
-      "id": "steam-5113810",
-      "appId": 5113810,
-      "name": "Code Name: Boogeyman",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-09-19",
-      "releaseLabel": "Sep 19, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "动作",
-      "price": "$15.00",
-      "discount": 0,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 74,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5113810/35fb11b7c95b79d4685debd1dedf2913bc7b589c/capsule_231x87.jpg?t=1789824738",
-      "storeUrl": "https://store.steampowered.com/app/5113810/Code_Name_Boogeyman/"
-    },
-    {
-      "id": "steam-776250",
-      "appId": 776250,
-      "name": "Somebody's Tale",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-09-19",
-      "releaseLabel": "Sep 19, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "冒险",
-      "price": "$3.51",
-      "discount": 12,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 74,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/776250/3066b3cdbb65e9323e4c80a897a6ce472616502b/capsule_231x87.jpg?t=1789824034",
-      "storeUrl": "https://store.steampowered.com/app/776250/Somebodys_Tale/"
-    },
-    {
-      "id": "steam-5089210",
-      "appId": 5089210,
-      "name": "Granny - Welcome Home",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-09-19",
-      "releaseLabel": "Sep 19, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "动作",
-      "price": "$5.99",
-      "discount": 0,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 74,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5089210/7df3aaed12679aca161303574bad9f1eac7d4382/capsule_231x87.jpg?t=1789823668",
-      "storeUrl": "https://store.steampowered.com/app/5089210/Granny__Welcome_Home/"
-    },
-    {
-      "id": "steam-5040600",
-      "appId": 5040600,
-      "name": "Relaxation Massage Studio",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-09-19",
-      "releaseLabel": "Sep 19, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "其他",
-      "price": "$12.79",
-      "discount": 20,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 74,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5040600/9175730d66a9d2820d31cb84fc21a190be8b4946/capsule_231x87.jpg?t=1789814976",
-      "storeUrl": "https://store.steampowered.com/app/5040600/Relaxation_Massage_Studio/"
-    },
-    {
-      "id": "steam-5197410",
-      "appId": 5197410,
-      "name": "Pixel BlackJack - 二十一点",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-09-19",
-      "releaseLabel": "Sep 19, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "策略",
-      "price": "Free",
-      "discount": 0,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 74,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5197410/e42eee496ea2cd317bd360b93560ab21f88ee683/capsule_231x87.jpg?t=1789804784",
-      "storeUrl": "https://store.steampowered.com/app/5197410/Pixel_BlackJack/"
-    },
-    {
-      "id": "steam-5208380",
-      "appId": 5208380,
-      "name": "Visual Novel: EVENING BROADCAST",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-09-19",
-      "releaseLabel": "Sep 19, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "休闲",
-      "price": "$0.69",
-      "discount": 30,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 74,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5208380/f1fb2d369f7232c9aae5f1b4b89b7f090023d87b/capsule_231x87.jpg?t=1789803225",
-      "storeUrl": "https://store.steampowered.com/app/5208380/Visual_Novel_EVENING_BROADCAST/"
-    },
-    {
-      "id": "steam-5157680",
-      "appId": 5157680,
-      "name": "DIY Dadish",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "upcoming",
-      "releaseDate": "2026-09-20",
-      "releaseLabel": "Sep 20, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "动作",
-      "price": "价格待定",
-      "discount": 0,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 48,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5157680/0cd73f29ef22a1882abab99cd441ae8995280348/capsule_231x87.jpg?t=1788406254",
-      "storeUrl": "https://store.steampowered.com/app/5157680/DIY_Dadish/"
-    },
-    {
-      "id": "steam-4172110",
-      "appId": 4172110,
-      "name": "Dear Journey...",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "upcoming",
-      "releaseDate": "2026-09-20",
-      "releaseLabel": "Sep 20, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "其他",
-      "price": "价格待定",
-      "discount": 0,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 48,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4172110/00b7194e1bd5532d8514a3e9a70f460e077c7310/capsule_231x87.jpg?t=1789347958",
-      "storeUrl": "https://store.steampowered.com/app/4172110/Dear_Journey/"
-    },
-    {
-      "id": "steam-4739040",
-      "appId": 4739040,
-      "name": "DISCIPLINE SIMULATOR",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "upcoming",
-      "releaseDate": "2026-09-20",
-      "releaseLabel": "Sep 20, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "动作",
-      "price": "价格待定",
-      "discount": 0,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 48,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4739040/65419c6d1ddd2942275924fb4ed71f3b82acd2a4/capsule_231x87.jpg?t=1789898358",
-      "storeUrl": "https://store.steampowered.com/app/4739040/DISCIPLINE_SIMULATOR/"
-    },
-    {
       "id": "steam-5166800",
       "appId": 5166800,
       "name": "Partyforge Idle",
@@ -876,7 +815,7 @@
       "reviewPercent": 0,
       "reviewCount": 0,
       "heatScore": 48,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5142630/ce30c8b805f3ae89fc32fee4c1421271be482a05/capsule_231x87.jpg?t=1789790053",
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5142630/ce30c8b805f3ae89fc32fee4c1421271be482a05/capsule_231x87.jpg?t=1789918199",
       "storeUrl": "https://store.steampowered.com/app/5142630/Fund_Manager_Buy_Side/"
     },
     {
@@ -1108,7 +1047,7 @@
       "reviewPercent": 0,
       "reviewCount": 0,
       "heatScore": 48,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4513060/557d7c1d918a2ef462792d648bf4880ee95cfca4/capsule_231x87.jpg?t=1789865421",
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4513060/557d7c1d918a2ef462792d648bf4880ee95cfca4/capsule_231x87.jpg?t=1789909462",
       "storeUrl": "https://store.steampowered.com/app/4513060/Yandere_Virus/"
     },
     {
@@ -1220,28 +1159,6 @@
       "storeUrl": "https://store.steampowered.com/app/5100690/Battle_For_the_Bridge/"
     },
     {
-      "id": "steam-4364730",
-      "appId": 4364730,
-      "name": "IGTAP: an Incremental Game That's Also a Platformer",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "upcoming",
-      "releaseDate": "2026-09-21",
-      "releaseLabel": "Sep 21, 2026",
-      "platforms": [
-        "Windows",
-        "Linux"
-      ],
-      "genre": "其他",
-      "price": "价格待定",
-      "discount": 0,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 48,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4364730/166db1b61869379302b84059808afda23aec3bd9/capsule_231x87.jpg?t=1789749917",
-      "storeUrl": "https://store.steampowered.com/app/4364730/IGTAP_an_Incremental_Game_Thats_Also_a_Platformer/"
-    },
-    {
       "id": "steam-5040690",
       "appId": 5040690,
       "name": "GridEnergy",
@@ -1261,6 +1178,49 @@
       "heatScore": 48,
       "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5040690/287c73f040ed403f4ab0af8a39f4803cf697b537/capsule_231x87.jpg?t=1788423052",
       "storeUrl": "https://store.steampowered.com/app/5040690/GridEnergy/"
+    },
+    {
+      "id": "steam-4364730",
+      "appId": 4364730,
+      "name": "IGTAP: an Incremental Game That's Also a Platformer",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "upcoming",
+      "releaseDate": "2026-09-21",
+      "releaseLabel": "Sep 21, 2026",
+      "platforms": [
+        "Windows",
+        "Linux"
+      ],
+      "genre": "其他",
+      "price": "价格待定",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 48,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4364730/166db1b61869379302b84059808afda23aec3bd9/capsule_231x87.jpg?t=1789912579",
+      "storeUrl": "https://store.steampowered.com/app/4364730/IGTAP_an_Incremental_Game_Thats_Also_a_Platformer/"
+    },
+    {
+      "id": "steam-3129050",
+      "appId": 3129050,
+      "name": "Echoes of Mora",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "upcoming",
+      "releaseDate": "2026-09-21",
+      "releaseLabel": "Sep 21, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "冒险",
+      "price": "价格待定",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 48,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3129050/4259207f64df4efb686251dc117ae3af91a8ce26/capsule_231x87.jpg?t=1789745477",
+      "storeUrl": "https://store.steampowered.com/app/3129050/Echoes_of_Mora/"
     },
     {
       "id": "steam-4433910",
@@ -1306,6 +1266,48 @@
       "heatScore": 48,
       "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4847850/db287d38f6c381f11e4fb512977e3e11f9505826/capsule_231x87.jpg?t=1789745550",
       "storeUrl": "https://store.steampowered.com/app/4847850/Echoes_of_Mora_VR/"
+    },
+    {
+      "id": "steam-4300180",
+      "appId": 4300180,
+      "name": "Fruitbearer",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "upcoming",
+      "releaseDate": "2026-09-21",
+      "releaseLabel": "Sep 21, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "模拟",
+      "price": "价格待定",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 48,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4300180/cc5158efd3b210b15f2cdca96def1d5ccd7bf67e/capsule_231x87.jpg?t=1789395763",
+      "storeUrl": "https://store.steampowered.com/app/4300180/Fruitbearer/"
+    },
+    {
+      "id": "steam-4808810",
+      "appId": 4808810,
+      "name": "Pousse-Pousse",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "upcoming",
+      "releaseDate": "2026-09-21",
+      "releaseLabel": "Sep 21, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "动作",
+      "price": "价格待定",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 48,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4808810/40f9e555f782f71d624f330a0c064ef4a8f019c0/capsule_231x87.jpg?t=1789653442",
+      "storeUrl": "https://store.steampowered.com/app/4808810/PoussePousse/"
     }
   ]
 }
