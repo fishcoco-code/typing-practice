@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-19T20:41:09.169Z",
+  "updatedAt": "2026-09-20T04:54:44.225Z",
   "refreshIntervalHours": 6,
   "coverage": "Steam PC new releases",
   "sources": [
@@ -9,11 +9,223 @@
       "name": "Steam 全球商店",
       "status": "online",
       "games": 61,
-      "latencyMs": 405,
+      "latencyMs": 528,
       "note": "新品与即将上线数据正常"
     }
   ],
   "games": [
+    {
+      "id": "steam-5005050",
+      "appId": 5005050,
+      "name": "UMAN",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-09-19",
+      "releaseLabel": "Sep 19, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "模拟",
+      "price": "$5.39",
+      "discount": 10,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 75,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5005050/96d415dbe320d23f1554a6660324b593a758ee64/capsule_231x87.jpg?t=1789876854",
+      "storeUrl": "https://store.steampowered.com/app/5005050/UMAN/"
+    },
+    {
+      "id": "steam-4427580",
+      "appId": 4427580,
+      "name": "Thuggin It Further",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-09-19",
+      "releaseLabel": "Sep 19, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "策略",
+      "price": "$2.99",
+      "discount": 40,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 75,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4427580/e592cdb0b88511fceb5a2b7eda87ccd1101e5cd5/capsule_231x87.jpg?t=1789874022",
+      "storeUrl": "https://store.steampowered.com/app/4427580/Thuggin_It_Further/"
+    },
+    {
+      "id": "steam-4966210",
+      "appId": 4966210,
+      "name": "Rivet of Y",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-09-19",
+      "releaseLabel": "Sep 19, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "角色扮演",
+      "price": "$9.99",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 75,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4966210/e2d14783030973cfaf91f9a19da706456871b94b/capsule_231x87.jpg?t=1789872475",
+      "storeUrl": "https://store.steampowered.com/app/4966210/Rivet_of_Y/"
+    },
+    {
+      "id": "steam-5099860",
+      "appId": 5099860,
+      "name": "ChessTan",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-09-19",
+      "releaseLabel": "Sep 19, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "策略",
+      "price": "Free",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 75,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5099860/28b59141fd406a16413ce64e957c6afefcc32c40/capsule_231x87.jpg?t=1789869185",
+      "storeUrl": "https://store.steampowered.com/app/5099860/ChessTan/"
+    },
+    {
+      "id": "steam-5097440",
+      "appId": 5097440,
+      "name": "BIG BANG TO US",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-09-19",
+      "releaseLabel": "Sep 19, 2026",
+      "platforms": [
+        "Windows",
+        "macOS"
+      ],
+      "genre": "模拟",
+      "price": "$8.99",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 75,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5097440/3a1aaf64d19041696bc434b726d7b50ab9561d36/capsule_231x87.jpg?t=1789858022",
+      "storeUrl": "https://store.steampowered.com/app/5097440/BIG_BANG_TO_US/"
+    },
+    {
+      "id": "steam-5132180",
+      "appId": 5132180,
+      "name": "忍牌忍战大师Ninja Cards and Ninja Battle Master",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-09-19",
+      "releaseLabel": "Sep 19, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "休闲",
+      "price": "$4.99",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 75,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5132180/4c9511d1fde4dbb778c7a3dc8a0de60b21830a67/capsule_231x87.jpg?t=1789876907",
+      "storeUrl": "https://store.steampowered.com/app/5132180/Ninja_Cards_and_Ninja_Battle_Master/"
+    },
+    {
+      "id": "steam-5139650",
+      "appId": 5139650,
+      "name": "Meridian Strike",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-09-19",
+      "releaseLabel": "Sep 19, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "策略",
+      "price": "$4.49",
+      "discount": 25,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 75,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5139650/363dd0435047e3fb085dfce7fafaca984d65e032/capsule_231x87.jpg?t=1789857417",
+      "storeUrl": "https://store.steampowered.com/app/5139650/Meridian_Strike/"
+    },
+    {
+      "id": "steam-4741630",
+      "appId": 4741630,
+      "name": "Submechanic",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-09-19",
+      "releaseLabel": "Sep 19, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "冒险",
+      "price": "$3.99",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 75,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4741630/2abdd1fe52afdf740cde3c0f7d710a817a7c6b3e/capsule_231x87.jpg?t=1789854682",
+      "storeUrl": "https://store.steampowered.com/app/4741630/Submechanic/"
+    },
+    {
+      "id": "steam-4917360",
+      "appId": 4917360,
+      "name": "Meat Girl",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-09-19",
+      "releaseLabel": "Sep 19, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "休闲",
+      "price": "$5.00",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 75,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4917360/31cbce455ca860dcbc184322a1b8c073dc4b56b0/capsule_231x87.jpg?t=1789853870",
+      "storeUrl": "https://store.steampowered.com/app/4917360/Meat_Girl/"
+    },
+    {
+      "id": "steam-3759810",
+      "appId": 3759810,
+      "name": "CivEconomy",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-09-19",
+      "releaseLabel": "Sep 19, 2026",
+      "platforms": [
+        "Windows",
+        "macOS"
+      ],
+      "genre": "模拟",
+      "price": "$6.99",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 75,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3759810/2889abd4f72e88393dd49e39d21000543b9db751/capsule_231x87.jpg?t=1789852783",
+      "storeUrl": "https://store.steampowered.com/app/3759810/CivEconomy/"
+    },
     {
       "id": "steam-5195850",
       "appId": 5195850,
@@ -32,7 +244,7 @@
       "reviewPercent": 0,
       "reviewCount": 0,
       "heatScore": 75,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5195850/ec1ba1ee8166625270079eaa68ab0c8fc58b3939/capsule_231x87.jpg?t=1789849354",
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5195850/ec1ba1ee8166625270079eaa68ab0c8fc58b3939/capsule_231x87.jpg?t=1789867436",
       "storeUrl": "https://store.steampowered.com/app/5195850/Slap_the_Gamer/"
     },
     {
@@ -562,240 +774,6 @@
       "storeUrl": "https://store.steampowered.com/app/5164660/Slime_Trader/"
     },
     {
-      "id": "steam-5033660",
-      "appId": 5033660,
-      "name": "Car Club Tuning Storm",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-09-19",
-      "releaseLabel": "Sep 19, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "模拟",
-      "price": "$4.49",
-      "discount": 10,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 75,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5033660/d4569d655a726ed1b6a1ccad8b61075328520405/capsule_231x87.jpg?t=1789802079",
-      "storeUrl": "https://store.steampowered.com/app/5033660/Car_Club_Tuning_Storm/"
-    },
-    {
-      "id": "steam-5184210",
-      "appId": 5184210,
-      "name": "Emberwall",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-09-19",
-      "releaseLabel": "Sep 19, 2026",
-      "platforms": [
-        "Windows",
-        "macOS",
-        "Linux"
-      ],
-      "genre": "策略",
-      "price": "$4.99",
-      "discount": 0,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 75,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5184210/48f5e819842b94cb5d2fd6cf777e184c9119c6a3/capsule_231x87.jpg?t=1789801317",
-      "storeUrl": "https://store.steampowered.com/app/5184210/Emberwall/"
-    },
-    {
-      "id": "steam-3665870",
-      "appId": 3665870,
-      "name": "Iron Stars",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-09-18",
-      "releaseLabel": "Sep 18, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "模拟",
-      "price": "$13.49",
-      "discount": 10,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 73,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3665870/3c04248095b4e2360a958e7075a156e3cdc4e7d3/capsule_231x87.jpg?t=1789799452",
-      "storeUrl": "https://store.steampowered.com/app/3665870/Iron_Stars/"
-    },
-    {
-      "id": "steam-3139380",
-      "appId": 3139380,
-      "name": "Trash Wars",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-09-18",
-      "releaseLabel": "Sep 18, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "休闲",
-      "price": "$6.99",
-      "discount": 0,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 73,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3139380/f79f89470c6b309c8604746bb6fbfeb0e9a99f8a/capsule_231x87.jpg?t=1789798331",
-      "storeUrl": "https://store.steampowered.com/app/3139380/Trash_Wars/"
-    },
-    {
-      "id": "steam-5065720",
-      "appId": 5065720,
-      "name": "Server-Admin Simulator",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-09-18",
-      "releaseLabel": "Sep 18, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "模拟",
-      "price": "$7.49",
-      "discount": 25,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 73,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5065720/0af2df78fcf917b518b706b49ac639f0dce5d743/capsule_231x87.jpg?t=1789797314",
-      "storeUrl": "https://store.steampowered.com/app/5065720/ServerAdmin_Simulator/"
-    },
-    {
-      "id": "steam-4947900",
-      "appId": 4947900,
-      "name": "Augmented Yut",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-09-18",
-      "releaseLabel": "Sep 18, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "休闲",
-      "price": "$1.59",
-      "discount": 20,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 73,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4947900/65f1e05a247f83d0791b3899f13812985dd33497/capsule_231x87.jpg?t=1789799351",
-      "storeUrl": "https://store.steampowered.com/app/4947900/Augmented_Yut/"
-    },
-    {
-      "id": "steam-5044710",
-      "appId": 5044710,
-      "name": "Childhood Slots",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-09-18",
-      "releaseLabel": "Sep 18, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "休闲",
-      "price": "$2.99",
-      "discount": 0,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 73,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5044710/75d9a130d30a76c304b6719e81005cbcaf6e2e9c/capsule_231x87.jpg?t=1789794255",
-      "storeUrl": "https://store.steampowered.com/app/5044710/Childhood_Slots/"
-    },
-    {
-      "id": "steam-3984090",
-      "appId": 3984090,
-      "name": "Night of the Living Bubble",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-09-18",
-      "releaseLabel": "Sep 18, 2026",
-      "platforms": [
-        "Windows",
-        "macOS"
-      ],
-      "genre": "动作",
-      "price": "$5.99",
-      "discount": 0,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 73,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3984090/2824b563aa4c747073088047653df544c9078100/capsule_231x87.jpg?t=1789790428",
-      "storeUrl": "https://store.steampowered.com/app/3984090/Night_of_the_Living_Bubble/"
-    },
-    {
-      "id": "steam-5029260",
-      "appId": 5029260,
-      "name": "Nexus Ascendant",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-09-18",
-      "releaseLabel": "Sep 18, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "策略",
-      "price": "$7.49",
-      "discount": 25,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 73,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5029260/96f5b76741348d8a77479d05ea2d6cc79f9f0dda/capsule_231x87.jpg?t=1789790181",
-      "storeUrl": "https://store.steampowered.com/app/5029260/Nexus_Ascendant/"
-    },
-    {
-      "id": "steam-5084210",
-      "appId": 5084210,
-      "name": "IDEL CAVITY INC.",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-09-18",
-      "releaseLabel": "Sep 18, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "休闲",
-      "price": "$3.39",
-      "discount": 15,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 73,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5084210/04ec0e493cc21b48173a16157b707a9d228ce60e/capsule_231x87.jpg?t=1789784970",
-      "storeUrl": "https://store.steampowered.com/app/5084210/IDEL_CAVITY_INC/"
-    },
-    {
-      "id": "steam-5013390",
-      "appId": 5013390,
-      "name": "Sakura: The Eternal Night",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "upcoming",
-      "releaseDate": "2026-09-19",
-      "releaseLabel": "Sep 19, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "角色扮演",
-      "price": "价格待定",
-      "discount": 0,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 48,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5013390/f223d9a864dc8beb8aa931a452a4b6b3bff2009e/capsule_231x87.jpg?t=1789653486",
-      "storeUrl": "https://store.steampowered.com/app/5013390/Sakura_The_Eternal_Night/"
-    },
-    {
       "id": "steam-5157680",
       "appId": 5157680,
       "name": "DIY Dadish",
@@ -1024,7 +1002,7 @@
       "reviewPercent": 0,
       "reviewCount": 0,
       "heatScore": 48,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5206420/55659b0e0643130664c605cf157ae1b676210925/capsule_231x87.jpg?t=1788831436",
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5206420/b7440c81146af2dea03bc604a82b8bdb54aa3155/capsule_231x87.jpg?t=1789869828",
       "storeUrl": "https://store.steampowered.com/app/5206420/Big_Sister/"
     },
     {
@@ -1130,7 +1108,7 @@
       "reviewPercent": 0,
       "reviewCount": 0,
       "heatScore": 48,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4513060/557d7c1d918a2ef462792d648bf4880ee95cfca4/capsule_231x87.jpg?t=1789797042",
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4513060/557d7c1d918a2ef462792d648bf4880ee95cfca4/capsule_231x87.jpg?t=1789865421",
       "storeUrl": "https://store.steampowered.com/app/4513060/Yandere_Virus/"
     },
     {
@@ -1242,27 +1220,6 @@
       "storeUrl": "https://store.steampowered.com/app/5100690/Battle_For_the_Bridge/"
     },
     {
-      "id": "steam-5040690",
-      "appId": 5040690,
-      "name": "GridEnergy",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "upcoming",
-      "releaseDate": "2026-09-21",
-      "releaseLabel": "Sep 21, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "模拟",
-      "price": "价格待定",
-      "discount": 0,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 48,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5040690/287c73f040ed403f4ab0af8a39f4803cf697b537/capsule_231x87.jpg?t=1788423052",
-      "storeUrl": "https://store.steampowered.com/app/5040690/GridEnergy/"
-    },
-    {
       "id": "steam-4364730",
       "appId": 4364730,
       "name": "IGTAP: an Incremental Game That's Also a Platformer",
@@ -1285,9 +1242,9 @@
       "storeUrl": "https://store.steampowered.com/app/4364730/IGTAP_an_Incremental_Game_Thats_Also_a_Platformer/"
     },
     {
-      "id": "steam-3129050",
-      "appId": 3129050,
-      "name": "Echoes of Mora",
+      "id": "steam-5040690",
+      "appId": 5040690,
+      "name": "GridEnergy",
       "source": "Steam",
       "sourceRegion": "全球商店",
       "status": "upcoming",
@@ -1296,14 +1253,59 @@
       "platforms": [
         "Windows"
       ],
+      "genre": "模拟",
+      "price": "价格待定",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 48,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5040690/287c73f040ed403f4ab0af8a39f4803cf697b537/capsule_231x87.jpg?t=1788423052",
+      "storeUrl": "https://store.steampowered.com/app/5040690/GridEnergy/"
+    },
+    {
+      "id": "steam-4847850",
+      "appId": 4847850,
+      "name": "Echoes of Mora VR",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "upcoming",
+      "releaseDate": "2026-09-21",
+      "releaseLabel": "Sep 21, 2026",
+      "platforms": [
+        "Windows",
+        "VR"
+      ],
       "genre": "冒险",
       "price": "价格待定",
       "discount": 0,
       "reviewPercent": 0,
       "reviewCount": 0,
       "heatScore": 48,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3129050/4259207f64df4efb686251dc117ae3af91a8ce26/capsule_231x87.jpg?t=1789745477",
-      "storeUrl": "https://store.steampowered.com/app/3129050/Echoes_of_Mora/"
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4847850/db287d38f6c381f11e4fb512977e3e11f9505826/capsule_231x87.jpg?t=1789745550",
+      "storeUrl": "https://store.steampowered.com/app/4847850/Echoes_of_Mora_VR/"
+    },
+    {
+      "id": "steam-4433910",
+      "appId": 4433910,
+      "name": "CITADEL",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "upcoming",
+      "releaseDate": "2026-09-21",
+      "releaseLabel": "Sep 21, 2026",
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "genre": "其他",
+      "price": "价格待定",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 48,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4433910/421332f099294b0dbbfe9d5922c2820b358948ac/capsule_231x87.jpg?t=1788853300",
+      "storeUrl": "https://store.steampowered.com/app/4433910/CITADEL/"
     }
   ]
 }
