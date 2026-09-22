@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-21T21:59:14.760Z",
+  "updatedAt": "2026-09-22T04:57:33.740Z",
   "refreshIntervalHours": 6,
   "coverage": "Steam PC new releases",
   "sources": [
@@ -9,11 +9,372 @@
       "name": "Steam 全球商店",
       "status": "online",
       "games": 61,
-      "latencyMs": 363,
+      "latencyMs": 442,
       "note": "新品与即将上线数据正常"
     }
   ],
   "games": [
+    {
+      "id": "steam-4821960",
+      "appId": 4821960,
+      "name": "Subspace: Redux",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-09-21",
+      "releaseLabel": "Sep 21, 2026",
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "genre": "动作",
+      "price": "Free",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 75,
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4821960/7e547ae9296cc255b5ffb25427422fa86b708105/capsule_231x87.jpg?t=1790051346",
+      "storeUrl": "https://store.steampowered.com/app/4821960/Subspace_Redux/"
+    },
+    {
+      "id": "steam-4661850",
+      "appId": 4661850,
+      "name": "EQUILIBRIUM",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-09-21",
+      "releaseLabel": "Sep 21, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "策略",
+      "price": "$17.99",
+      "discount": 10,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 75,
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4661850/0ed54b62962aee1015a4a54cfdf736ebccb035ea/capsule_231x87.jpg?t=1790048594",
+      "storeUrl": "https://store.steampowered.com/app/4661850/EQUILIBRIUM/"
+    },
+    {
+      "id": "steam-3077650",
+      "appId": 3077650,
+      "name": "Parasited Will",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-09-21",
+      "releaseLabel": "Sep 21, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "PvP",
+      "price": "$5.99",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 75,
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3077650/0825b5cab91a1599412c5d1ce866d49e7a5b3024/capsule_231x87.jpg?t=1790047229",
+      "storeUrl": "https://store.steampowered.com/app/3077650/Parasited_Will/"
+    },
+    {
+      "id": "steam-4575670",
+      "appId": 4575670,
+      "name": "Succubus Abyss: 30-Day Survival Guide",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-09-21",
+      "releaseLabel": "Sep 21, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "策略",
+      "price": "$8.99",
+      "discount": 10,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 75,
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4575670/7bc62fe773d30ef880f523540011be13da5ced95/capsule_231x87.jpg?t=1790046243",
+      "storeUrl": "https://store.steampowered.com/app/4575670/Succubus_Abyss_30Day_Survival_Guide/"
+    },
+    {
+      "id": "steam-4270850",
+      "appId": 4270850,
+      "name": "SCREENSIDE FISHER",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-09-21",
+      "releaseLabel": "Sep 21, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "休闲",
+      "price": "Free",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 75,
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4270850/8258168b9b96df52df3986eb763dbb404f32982e/capsule_231x87.jpg?t=1790046007",
+      "storeUrl": "https://store.steampowered.com/app/4270850/SCREENSIDE_FISHER/"
+    },
+    {
+      "id": "steam-5206420",
+      "appId": 5206420,
+      "name": "Big Sister",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-09-21",
+      "releaseLabel": "Sep 21, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "休闲",
+      "price": "$0.79",
+      "discount": 20,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 75,
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5206420/b7440c81146af2dea03bc604a82b8bdb54aa3155/capsule_231x87.jpg?t=1790047370",
+      "storeUrl": "https://store.steampowered.com/app/5206420/Big_Sister/"
+    },
+    {
+      "id": "steam-4155880",
+      "appId": 4155880,
+      "name": "Lucky Break",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-09-21",
+      "releaseLabel": "Sep 21, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "策略",
+      "price": "$4.24",
+      "discount": 15,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 75,
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4155880/f3c93b6fe3ab01d36108b0a2c926d551a041bb06/capsule_231x87.jpg?t=1790043290",
+      "storeUrl": "https://store.steampowered.com/app/4155880/Lucky_Break/"
+    },
+    {
+      "id": "steam-1352890",
+      "appId": 1352890,
+      "name": "Seekers Alliance: Hero's Journey",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-09-21",
+      "releaseLabel": "Sep 21, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "策略",
+      "price": "$13.59",
+      "discount": 20,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 75,
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1352890/121cd20c93c2cf71cc1d0c184d6c349a4ad103f6/capsule_231x87.jpg?t=1790042635",
+      "storeUrl": "https://store.steampowered.com/app/1352890/Seekers_Alliance_Heros_Journey/"
+    },
+    {
+      "id": "steam-4289410",
+      "appId": 4289410,
+      "name": "BuGarden",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-09-21",
+      "releaseLabel": "Sep 21, 2026",
+      "platforms": [
+        "Windows",
+        "macOS"
+      ],
+      "genre": "其他",
+      "price": "$3.99",
+      "discount": 20,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 75,
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4289410/30953b35de3d9c502b3115027378b679a80bb8ef/capsule_231x87.jpg?t=1790050993",
+      "storeUrl": "https://store.steampowered.com/app/4289410/BuGarden/"
+    },
+    {
+      "id": "steam-3255500",
+      "appId": 3255500,
+      "name": "Ved: Recure",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-09-21",
+      "releaseLabel": "Sep 21, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "动作",
+      "price": "$15.29",
+      "discount": 15,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 75,
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3255500/6fbfc5de6ba7ea95104dcfe92b23156ed62aa48e/capsule_231x87.jpg?t=1790042252",
+      "storeUrl": "https://store.steampowered.com/app/3255500/Ved_Recure/"
+    },
+    {
+      "id": "steam-5109380",
+      "appId": 5109380,
+      "name": "A Decent Farewell",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-09-21",
+      "releaseLabel": "Sep 21, 2026",
+      "platforms": [
+        "Windows",
+        "VR"
+      ],
+      "genre": "角色扮演",
+      "price": "Free",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 75,
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5109380/782ec1587febdfc49f3c94e90314faa46f0c07e5/capsule_231x87.jpg?t=1790038177",
+      "storeUrl": "https://store.steampowered.com/app/5109380/A_Decent_Farewell/"
+    },
+    {
+      "id": "steam-4842290",
+      "appId": 4842290,
+      "name": "BloodVeil:Cursed Blood",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-09-21",
+      "releaseLabel": "Sep 21, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "动作",
+      "price": "$3.99",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 75,
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4842290/ae33dcf9fc40aa42448da186520b83806f7abf92/capsule_231x87.jpg?t=1790037771",
+      "storeUrl": "https://store.steampowered.com/app/4842290/BloodVeilCursed_Blood/"
+    },
+    {
+      "id": "steam-3008700",
+      "appId": 3008700,
+      "name": "Eagle Knight Paradox",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-09-21",
+      "releaseLabel": "Sep 21, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "动作",
+      "price": "$8.99",
+      "discount": 10,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 75,
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3008700/8231e66196bfe0cfcfbfef6196d2d47f942a9e92/capsule_231x87.jpg?t=1790033394",
+      "storeUrl": "https://store.steampowered.com/app/3008700/Eagle_Knight_Paradox/"
+    },
+    {
+      "id": "steam-2343580",
+      "appId": 2343580,
+      "name": "Ghoul Fright",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-09-21",
+      "releaseLabel": "Sep 21, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "动作",
+      "price": "$6.99",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 75,
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2343580/ff353b0c19a9e56bb2d5b73691b10cf6a401fb05/capsule_231x87.jpg?t=1790034789",
+      "storeUrl": "https://store.steampowered.com/app/2343580/Ghoul_Fright/"
+    },
+    {
+      "id": "steam-5033050",
+      "appId": 5033050,
+      "name": "Kamikaze Dolphin",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-09-21",
+      "releaseLabel": "Sep 21, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "其他",
+      "price": "$0.99",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 75,
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5033050/9302e87b74da7b618b0c8b7dbb78af56dafedc6d/capsule_231x87.jpg?t=1790031550",
+      "storeUrl": "https://store.steampowered.com/app/5033050/Kamikaze_Dolphin/"
+    },
+    {
+      "id": "steam-4920750",
+      "appId": 4920750,
+      "name": "Grim Siege",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-09-21",
+      "releaseLabel": "Sep 21, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "策略",
+      "price": "$5.40",
+      "discount": 10,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 75,
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4920750/2f6f53b957e37d2456b904269be1c1a4f5bdad68/capsule_231x87.jpg?t=1790031491",
+      "storeUrl": "https://store.steampowered.com/app/4920750/Grim_Siege/"
+    },
+    {
+      "id": "steam-4920310",
+      "appId": 4920310,
+      "name": "Ludus Deceptor",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-09-21",
+      "releaseLabel": "Sep 21, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "休闲",
+      "price": "$3.59",
+      "discount": 40,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 75,
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4920310/fc71c575c4237db1a775a98bc459487d09434118/capsule_231x87.jpg?t=1790032874",
+      "storeUrl": "https://store.steampowered.com/app/4920310/Ludus_Deceptor/"
+    },
     {
       "id": "steam-2636430",
       "appId": 2636430,
@@ -244,7 +605,7 @@
       "reviewPercent": 0,
       "reviewCount": 0,
       "heatScore": 75,
-      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2140700/5356c0805611c856f525b5afe2a7e1d8d8310c2b/capsule_231x87.jpg?t=1790018053",
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2140700/5356c0805611c856f525b5afe2a7e1d8d8310c2b/capsule_231x87.jpg?t=1790036431",
       "storeUrl": "https://store.steampowered.com/app/2140700/SO_BELOW/"
     },
     {
@@ -419,368 +780,9 @@
       "storeUrl": "https://store.steampowered.com/app/5109060/Hardware_Store_Tidy_Up/"
     },
     {
-      "id": "steam-4951360",
-      "appId": 4951360,
-      "name": "Ashrun Survivors",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-09-21",
-      "releaseLabel": "Sep 21, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "其他",
-      "price": "$5.49",
-      "discount": 0,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 75,
-      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4951360/5ffcb00489883c99978b9532845d3b71a2f5099a/capsule_231x87.jpg?t=1790010650",
-      "storeUrl": "https://store.steampowered.com/app/4951360/Ashrun_Survivors/"
-    },
-    {
-      "id": "steam-5073840",
-      "appId": 5073840,
-      "name": "Starwood: Lantern",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-09-21",
-      "releaseLabel": "Sep 21, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "策略",
-      "price": "$10.00",
-      "discount": 0,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 75,
-      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5073840/eada2e9b7dcf71004e7b49a47060ecf08f0aeb21/capsule_231x87.jpg?t=1790010548",
-      "storeUrl": "https://store.steampowered.com/app/5073840/Starwood_Lantern/"
-    },
-    {
-      "id": "steam-2781680",
-      "appId": 2781680,
-      "name": "The Stickman",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-09-21",
-      "releaseLabel": "Sep 21, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "PvP",
-      "price": "$10.19",
-      "discount": 15,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 75,
-      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2781680/357cb074a749f815ef0365ece6cc2dad9d61da34/capsule_231x87.jpg?t=1790010514",
-      "storeUrl": "https://store.steampowered.com/app/2781680/The_Stickman/"
-    },
-    {
-      "id": "steam-3949620",
-      "appId": 3949620,
-      "name": "Video Game Menu: The Game",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-09-21",
-      "releaseLabel": "Sep 21, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "模拟",
-      "price": "$3.59",
-      "discount": 10,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 75,
-      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3949620/312281d656693b5e6e2b9c1bb78ca5fa5d82ef4e/capsule_231x87.jpg?t=1790010257",
-      "storeUrl": "https://store.steampowered.com/app/3949620/Video_Game_Menu_The_Game/"
-    },
-    {
-      "id": "steam-4802680",
-      "appId": 4802680,
-      "name": "After the Silence",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-09-21",
-      "releaseLabel": "Sep 21, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "休闲",
-      "price": "$5.99",
-      "discount": 0,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 75,
-      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4802680/6875b8c55f8d76e8cbe0e9a1ad115152f27730a4/capsule_231x87.jpg?t=1790010237",
-      "storeUrl": "https://store.steampowered.com/app/4802680/After_the_Silence/"
-    },
-    {
-      "id": "steam-5035760",
-      "appId": 5035760,
-      "name": "Elixonomy",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-09-21",
-      "releaseLabel": "Sep 21, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "策略",
-      "price": "$7.50",
-      "discount": 25,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 75,
-      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5035760/8d6c8aa9c311a73905d6c80757b1af7059ad7413/capsule_231x87.jpg?t=1790010199",
-      "storeUrl": "https://store.steampowered.com/app/5035760/Elixonomy/"
-    },
-    {
-      "id": "steam-4286910",
-      "appId": 4286910,
-      "name": "EON Survivor",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-09-21",
-      "releaseLabel": "Sep 21, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "动作",
-      "price": "$7.99",
-      "discount": 20,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 75,
-      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4286910/809391b19e90836da90be27bd367c019396577cb/capsule_231x87.jpg?t=1790023710",
-      "storeUrl": "https://store.steampowered.com/app/4286910/EON_Survivor/"
-    },
-    {
-      "id": "steam-4988860",
-      "appId": 4988860,
-      "name": "Museum Disarter",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-09-21",
-      "releaseLabel": "Sep 21, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "模拟",
-      "price": "$5.39",
-      "discount": 10,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 75,
-      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4988860/8efb7168423f85b184f403c2daa8a456f49fb30b/capsule_231x87.jpg?t=1790010052",
-      "storeUrl": "https://store.steampowered.com/app/4988860/Museum_Disarter/"
-    },
-    {
-      "id": "steam-4983250",
-      "appId": 4983250,
-      "name": "Whispers in Clay",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-09-21",
-      "releaseLabel": "Sep 21, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "休闲",
-      "price": "$4.79",
-      "discount": 20,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 75,
-      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4983250/3dddd35a9f68fb022d6c70a9df3434c4364469d1/capsule_231x87.jpg?t=1790010052",
-      "storeUrl": "https://store.steampowered.com/app/4983250/Whispers_in_Clay/"
-    },
-    {
-      "id": "steam-4602350",
-      "appId": 4602350,
-      "name": "Turning point",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-09-21",
-      "releaseLabel": "Sep 21, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "动作",
-      "price": "$2.99",
-      "discount": 25,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 75,
-      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4602350/8233906abb1643872e1dae39b2c63528e3d01d55/capsule_231x87.jpg?t=1790010051",
-      "storeUrl": "https://store.steampowered.com/app/4602350/Turning_point/"
-    },
-    {
-      "id": "steam-3874130",
-      "appId": 3874130,
-      "name": "Micro Solar Punk",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-09-21",
-      "releaseLabel": "Sep 21, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "策略",
-      "price": "$11.25",
-      "discount": 10,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 75,
-      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3874130/d7057de8da0dc4d758ccca068b48a654fd7fe882/capsule_231x87.jpg?t=1790013271",
-      "storeUrl": "https://store.steampowered.com/app/3874130/Micro_Solar_Punk/"
-    },
-    {
-      "id": "steam-3565480",
-      "appId": 3565480,
-      "name": "Roadhouse Simulator",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-09-21",
-      "releaseLabel": "Sep 21, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "休闲",
-      "price": "$17.99",
-      "discount": 10,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 75,
-      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3565480/011ce1aecc562f0a8556c5abd64cbcd19e808ed4/capsule_231x87_alt_assets_39.jpg?t=1790017493",
-      "storeUrl": "https://store.steampowered.com/app/3565480/Roadhouse_Simulator/"
-    },
-    {
-      "id": "steam-3891030",
-      "appId": 3891030,
-      "name": "Back to 21",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-09-21",
-      "releaseLabel": "Sep 21, 2026",
-      "platforms": [
-        "Windows",
-        "macOS"
-      ],
-      "genre": "角色扮演",
-      "price": "$6.31",
-      "discount": 21,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 75,
-      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3891030/a052dcaeeaf2e96b45cda3e5adb078c1e739832d/capsule_231x87.jpg?t=1790008953",
-      "storeUrl": "https://store.steampowered.com/app/3891030/Back_to_21/"
-    },
-    {
-      "id": "steam-4980100",
-      "appId": 4980100,
-      "name": "Slayer Queen",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-09-21",
-      "releaseLabel": "Sep 21, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "动作",
-      "price": "$1.40",
-      "discount": 30,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 75,
-      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4980100/271905f3ea228fec105953bf851e07b68c8df136/capsule_231x87.jpg?t=1790008223",
-      "storeUrl": "https://store.steampowered.com/app/4980100/Slayer_Queen/"
-    },
-    {
-      "id": "steam-4991180",
-      "appId": 4991180,
-      "name": "Noodle Go!",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-09-21",
-      "releaseLabel": "Sep 21, 2026",
-      "platforms": [
-        "Windows",
-        "macOS"
-      ],
-      "genre": "策略",
-      "price": "$7.99",
-      "discount": 0,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 75,
-      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4991180/dde47e71da478b21511eb7faf4f5391be2485196/capsule_231x87.jpg?t=1790010172",
-      "storeUrl": "https://store.steampowered.com/app/4991180/Noodle_Go/"
-    },
-    {
-      "id": "steam-4159550",
-      "appId": 4159550,
-      "name": "Formula 2.5",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-09-21",
-      "releaseLabel": "Sep 21, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "竞速",
-      "price": "$7.19",
-      "discount": 10,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 75,
-      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4159550/8a66d38194dc316defe5b5596116f44943e2b2dd/capsule_231x87.jpg?t=1790007388",
-      "storeUrl": "https://store.steampowered.com/app/4159550/Formula_25/"
-    },
-    {
-      "id": "steam-5145800",
-      "appId": 5145800,
-      "name": "Slap Leather",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-09-21",
-      "releaseLabel": "Sep 21, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "休闲",
-      "price": "$1.80",
-      "discount": 20,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 75,
-      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5145800/265417d88a77c3e89f3c218f70885116ac0c5d21/capsule_231x87.jpg?t=1790007338",
-      "storeUrl": "https://store.steampowered.com/app/5145800/Slap_Leather/"
-    },
-    {
-      "id": "steam-3008700",
-      "appId": 3008700,
-      "name": "Eagle Knight Paradox",
+      "id": "steam-4264240",
+      "appId": 4264240,
+      "name": "King of Pickaxe",
       "source": "Steam",
       "sourceRegion": "全球商店",
       "status": "upcoming",
@@ -795,135 +797,8 @@
       "reviewPercent": 0,
       "reviewCount": 0,
       "heatScore": 48,
-      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3008700/8231e66196bfe0cfcfbfef6196d2d47f942a9e92/capsule_231x87.jpg?t=1788763527",
-      "storeUrl": "https://store.steampowered.com/app/3008700/Eagle_Knight_Paradox/"
-    },
-    {
-      "id": "steam-5034000",
-      "appId": 5034000,
-      "name": "Where Stella Meats Water",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "upcoming",
-      "releaseDate": "2026-09-21",
-      "releaseLabel": "Sep 21, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "合作",
-      "price": "价格待定",
-      "discount": 0,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 48,
-      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5034000/e9e93447177d4044ebf0d35ea01c190ab48adbac/capsule_231x87.jpg?t=1789341576",
-      "storeUrl": "https://store.steampowered.com/app/5034000/Where_Stella_Meats_Water/"
-    },
-    {
-      "id": "steam-4155880",
-      "appId": 4155880,
-      "name": "Lucky Break",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "upcoming",
-      "releaseDate": "2026-09-21",
-      "releaseLabel": "Sep 21, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "策略",
-      "price": "价格待定",
-      "discount": 0,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 48,
-      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4155880/f3c93b6fe3ab01d36108b0a2c926d551a041bb06/capsule_231x87.jpg?t=1789535002",
-      "storeUrl": "https://store.steampowered.com/app/4155880/Lucky_Break/"
-    },
-    {
-      "id": "steam-5214350",
-      "appId": 5214350,
-      "name": "Soul Monsters: Gael's Survival",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "upcoming",
-      "releaseDate": "2026-09-21",
-      "releaseLabel": "Sep 21, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "生存",
-      "price": "价格待定",
-      "discount": 0,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 48,
-      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5214350/56d13e75f5badfc59cf58ed630c437340621cc63/capsule_231x87.jpg?t=1788945080",
-      "storeUrl": "https://store.steampowered.com/app/5214350/Soul_Monsters_Gaels_Survival/"
-    },
-    {
-      "id": "steam-3255500",
-      "appId": 3255500,
-      "name": "Ved: Recure",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "upcoming",
-      "releaseDate": "2026-09-21",
-      "releaseLabel": "Sep 21, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "动作",
-      "price": "价格待定",
-      "discount": 0,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 48,
-      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3255500/6fbfc5de6ba7ea95104dcfe92b23156ed62aa48e/capsule_231x87.jpg?t=1789994860",
-      "storeUrl": "https://store.steampowered.com/app/3255500/Ved_Recure/"
-    },
-    {
-      "id": "steam-4289410",
-      "appId": 4289410,
-      "name": "BuGarden",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "upcoming",
-      "releaseDate": "2026-09-21",
-      "releaseLabel": "Sep 21, 2026",
-      "platforms": [
-        "Windows",
-        "macOS"
-      ],
-      "genre": "其他",
-      "price": "价格待定",
-      "discount": 0,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 48,
-      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4289410/30953b35de3d9c502b3115027378b679a80bb8ef/capsule_231x87.jpg?t=1789717547",
-      "storeUrl": "https://store.steampowered.com/app/4289410/BuGarden/"
-    },
-    {
-      "id": "steam-1352890",
-      "appId": 1352890,
-      "name": "Seekers Alliance: Hero's Journey",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "upcoming",
-      "releaseDate": "2026-09-21",
-      "releaseLabel": "Sep 21, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "策略",
-      "price": "价格待定",
-      "discount": 0,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 48,
-      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1352890/121cd20c93c2cf71cc1d0c184d6c349a4ad103f6/capsule_231x87.jpg?t=1789892009",
-      "storeUrl": "https://store.steampowered.com/app/1352890/Seekers_Alliance_Heros_Journey/"
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4264240/4c871f7e0cf5ca095f6292c0fc6eeaa195a574a6/capsule_231x87.jpg?t=1789960323",
+      "storeUrl": "https://store.steampowered.com/app/4264240/King_of_Pickaxe/"
     },
     {
       "id": "steam-3328490",
@@ -947,27 +822,6 @@
       "heatScore": 48,
       "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3328490/7c90b08fb35641cd7ba2f8855692c3e6d12151cb/capsule_231x87.jpg?t=1789791971",
       "storeUrl": "https://store.steampowered.com/app/3328490/Airport_Control_27/"
-    },
-    {
-      "id": "steam-4264240",
-      "appId": 4264240,
-      "name": "King of Pickaxe",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "upcoming",
-      "releaseDate": "2026-09-21",
-      "releaseLabel": "Sep 21, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "动作",
-      "price": "价格待定",
-      "discount": 0,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 48,
-      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4264240/4c871f7e0cf5ca095f6292c0fc6eeaa195a574a6/capsule_231x87.jpg?t=1789960323",
-      "storeUrl": "https://store.steampowered.com/app/4264240/King_of_Pickaxe/"
     },
     {
       "id": "steam-3208930",
@@ -1011,27 +865,6 @@
       "heatScore": 48,
       "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2999500/840a82aa0cb488801f5ac416564e5ccf6df51c50/capsule_231x87.jpg?t=1789809693",
       "storeUrl": "https://store.steampowered.com/app/2999500/STUNTBOOST/"
-    },
-    {
-      "id": "steam-4575670",
-      "appId": 4575670,
-      "name": "Succubus Abyss: 30-Day Survival Guide",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "upcoming",
-      "releaseDate": "2026-09-22",
-      "releaseLabel": "Sep 22, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "策略",
-      "price": "价格待定",
-      "discount": 0,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 48,
-      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4575670/7bc62fe773d30ef880f523540011be13da5ced95/capsule_231x87.jpg?t=1788778014",
-      "storeUrl": "https://store.steampowered.com/app/4575670/Succubus_Abyss_30Day_Survival_Guide/"
     },
     {
       "id": "steam-3240010",
@@ -1308,6 +1141,177 @@
       "heatScore": 48,
       "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4291520/c7eb930f660a393d08816726cb0e77076263cfd8/capsule_231x87.jpg?t=1789722921",
       "storeUrl": "https://store.steampowered.com/app/4291520/Sea_Sweeper/"
+    },
+    {
+      "id": "steam-3807690",
+      "appId": 3807690,
+      "name": "Yami Kids",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "upcoming",
+      "releaseDate": "2026-09-22",
+      "releaseLabel": "Sep 22, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "角色扮演",
+      "price": "价格待定",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 48,
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3807690/a05b06a9500332116b05d2723af3d55beb483e4a/capsule_231x87.jpg?t=1789546519",
+      "storeUrl": "https://store.steampowered.com/app/3807690/Yami_Kids/"
+    },
+    {
+      "id": "steam-2538870",
+      "appId": 2538870,
+      "name": "False Hero",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "upcoming",
+      "releaseDate": "2026-09-22",
+      "releaseLabel": "Sep 22, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "其他",
+      "price": "价格待定",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 48,
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2538870/5fffba9781e0dcb44d2c5bc3fb788dacf0c7961f/capsule_231x87.jpg?t=1789433374",
+      "storeUrl": "https://store.steampowered.com/app/2538870/False_Hero/"
+    },
+    {
+      "id": "steam-4811180",
+      "appId": 4811180,
+      "name": "Ball in the Basket",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "upcoming",
+      "releaseDate": "2026-09-22",
+      "releaseLabel": "Sep 22, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "其他",
+      "price": "价格待定",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 48,
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4811180/1a9ece84433d31ba8ba784a6fe3758bd7d80f5b6/capsule_231x87.jpg?t=1789761950",
+      "storeUrl": "https://store.steampowered.com/app/4811180/Ball_in_the_Basket/"
+    },
+    {
+      "id": "steam-4543210",
+      "appId": 4543210,
+      "name": "Imberite Idle",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "upcoming",
+      "releaseDate": "2026-09-22",
+      "releaseLabel": "Sep 22, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "休闲",
+      "price": "价格待定",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 48,
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4543210/935565ce84de4d7dd48bda053d83ca33631c73f1/capsule_231x87.jpg?t=1788592850",
+      "storeUrl": "https://store.steampowered.com/app/4543210/Imberite_Idle/"
+    },
+    {
+      "id": "steam-3882630",
+      "appId": 3882630,
+      "name": "SOMNIUS",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "upcoming",
+      "releaseDate": "2026-09-22",
+      "releaseLabel": "Sep 22, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "动作",
+      "price": "价格待定",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 48,
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3882630/ab98173029f975fc247321f6c8f50cf0f469d741/capsule_231x87.jpg?t=1789908789",
+      "storeUrl": "https://store.steampowered.com/app/3882630/SOMNIUS/"
+    },
+    {
+      "id": "steam-4384850",
+      "appId": 4384850,
+      "name": "Realindustry",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "upcoming",
+      "releaseDate": "2026-09-22",
+      "releaseLabel": "Sep 22, 2026",
+      "platforms": [
+        "Windows",
+        "macOS"
+      ],
+      "genre": "模拟",
+      "price": "价格待定",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 48,
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4384850/835c1558f48449ad0bd675b3f897219588e2923b/capsule_231x87.jpg?t=1790019358",
+      "storeUrl": "https://store.steampowered.com/app/4384850/Realindustry/"
+    },
+    {
+      "id": "steam-1133700",
+      "appId": 1133700,
+      "name": "Curve Fever Pro",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "upcoming",
+      "releaseDate": "2026-09-22",
+      "releaseLabel": "Sep 22, 2026",
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "genre": "动作",
+      "price": "Free",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 48,
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1133700/c13437fc64ef24ca0006e73eed0219c1402da6a1/capsule_231x87.jpg?t=1790009325",
+      "storeUrl": "https://store.steampowered.com/app/1133700/Curve_Fever_Pro/"
+    },
+    {
+      "id": "steam-4094660",
+      "appId": 4094660,
+      "name": "Rivage",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "upcoming",
+      "releaseDate": "2026-09-22",
+      "releaseLabel": "Sep 22, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "其他",
+      "price": "价格待定",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 48,
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4094660/d114841db0c1f85b5b5735571caa364abcbc167f/capsule_231x87.jpg?t=1790002396",
+      "storeUrl": "https://store.steampowered.com/app/4094660/Rivage/"
     }
   ]
 }
