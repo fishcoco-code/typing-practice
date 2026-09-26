@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-26T11:25:56.169Z",
+  "updatedAt": "2026-09-26T16:24:24.897Z",
   "refreshIntervalHours": 6,
   "coverage": "Steam PC new releases",
   "sources": [
@@ -9,11 +9,162 @@
       "name": "Steam 全球商店",
       "status": "online",
       "games": 61,
-      "latencyMs": 300,
+      "latencyMs": 390,
       "note": "新品与即将上线数据正常"
     }
   ],
   "games": [
+    {
+      "id": "steam-4452940",
+      "appId": 4452940,
+      "name": "Moon Fishies",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-09-26",
+      "releaseLabel": "Sep 26, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "休闲",
+      "price": "$3.75",
+      "discount": 25,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 76,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4452940/7ec3231b521d4e1a7b6b44a13a5b47fc33ff0430/capsule_231x87.jpg?t=1790436766",
+      "storeUrl": "https://store.steampowered.com/app/4452940/Moon_Fishies/"
+    },
+    {
+      "id": "steam-4273820",
+      "appId": 4273820,
+      "name": "Maritime Simulator",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-09-26",
+      "releaseLabel": "Sep 26, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "策略",
+      "price": "$12.99",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 76,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4273820/714bbf41ff7c8511934b2eee5f721452fab4c3a8/capsule_231x87.jpg?t=1790436498",
+      "storeUrl": "https://store.steampowered.com/app/4273820/Maritime_Simulator/"
+    },
+    {
+      "id": "steam-3939990",
+      "appId": 3939990,
+      "name": "Truck Titans",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-09-26",
+      "releaseLabel": "Sep 26, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "休闲",
+      "price": "$7.99",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 76,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3939990/e14473624d3a2ec05632a4cd3f35555ab5690188/capsule_231x87.jpg?t=1790435485",
+      "storeUrl": "https://store.steampowered.com/app/3939990/Truck_Titans/"
+    },
+    {
+      "id": "steam-4803270",
+      "appId": 4803270,
+      "name": "『スクジサマ』を巡る考察",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-09-26",
+      "releaseLabel": "Sep 26, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "冒险",
+      "price": "$11.19",
+      "discount": 30,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 76,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4803270/054644f7f718321d4090602947b3833d27c1f632/capsule_231x87.jpg?t=1790434872",
+      "storeUrl": "https://store.steampowered.com/app/4803270/_/"
+    },
+    {
+      "id": "steam-5148990",
+      "appId": 5148990,
+      "name": "Scratch Tickets With Your Friends 🎰",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-09-26",
+      "releaseLabel": "Sep 26, 2026",
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "genre": "休闲",
+      "price": "$4.82",
+      "discount": 31,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 76,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5148990/449c538fa26f08ea1af9c0f7ad75e0bfbd9a2073/capsule_231x87.jpg?t=1790431659",
+      "storeUrl": "https://store.steampowered.com/app/5148990/Scratch_Tickets_With_Your_Friends/"
+    },
+    {
+      "id": "steam-4882170",
+      "appId": 4882170,
+      "name": "Voltus' Neon Nightmare - Colossal Cure",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-09-26",
+      "releaseLabel": "Sep 26, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "动作",
+      "price": "$5.09",
+      "discount": 15,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 76,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4882170/3744d91961aedbda8932928e05c8fed17786189f/capsule_231x87.jpg?t=1790431263",
+      "storeUrl": "https://store.steampowered.com/app/4882170/Voltus_Neon_Nightmare__Colossal_Cure/"
+    },
+    {
+      "id": "steam-4633320",
+      "appId": 4633320,
+      "name": "Gridhammer",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-09-26",
+      "releaseLabel": "Sep 26, 2026",
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "genre": "PvP",
+      "price": "$9.99",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 76,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4633320/c7793dc8af89a9bffa0a50634a631d77c9c7aef3/capsule_231x87.jpg?t=1790429942",
+      "storeUrl": "https://store.steampowered.com/app/4633320/Gridhammer/"
+    },
     {
       "id": "steam-4953150",
       "appId": 4953150,
@@ -140,7 +291,7 @@
       "reviewPercent": 0,
       "reviewCount": 0,
       "heatScore": 76,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3653680/f7fe0b3c5911981a2b53754a9a7aad48c3204ba8/capsule_231x87.jpg?t=1790417966",
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3653680/f7fe0b3c5911981a2b53754a9a7aad48c3204ba8/capsule_231x87.jpg?t=1790432518",
       "storeUrl": "https://store.steampowered.com/app/3653680/Versus_One/"
     },
     {
@@ -632,156 +783,6 @@
       "heatScore": 74,
       "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4408710/6e778015ac9cef3c0ab951bf99ad71f41201436f/capsule_231x87.jpg?t=1790367412",
       "storeUrl": "https://store.steampowered.com/app/4408710/Traffic_Stop_Anomaly/"
-    },
-    {
-      "id": "steam-3321770",
-      "appId": 3321770,
-      "name": "Overdeveloped: Requiem",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-09-25",
-      "releaseLabel": "Sep 25, 2026",
-      "platforms": [
-        "Windows",
-        "macOS",
-        "Linux"
-      ],
-      "genre": "合作",
-      "price": "$1.99",
-      "discount": 0,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 74,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3321770/72805677d5b28ca5e82e305b1706597b34529c13/capsule_231x87.jpg?t=1790386124",
-      "storeUrl": "https://store.steampowered.com/app/3321770/Overdeveloped_Requiem/"
-    },
-    {
-      "id": "steam-4608820",
-      "appId": 4608820,
-      "name": "Raiders 1941",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-09-25",
-      "releaseLabel": "Sep 25, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "动作",
-      "price": "$8.99",
-      "discount": 10,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 74,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4608820/876fb53759bbde3c6b6b486985837c7a9745a80f/capsule_231x87.jpg?t=1790374356",
-      "storeUrl": "https://store.steampowered.com/app/4608820/Raiders_1941/"
-    },
-    {
-      "id": "steam-4956240",
-      "appId": 4956240,
-      "name": "STAR BREW: OVEREXTRACT",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-09-25",
-      "releaseLabel": "Sep 25, 2026",
-      "platforms": [
-        "Windows",
-        "Linux"
-      ],
-      "genre": "休闲",
-      "price": "$5.37",
-      "discount": 0,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 74,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4956240/223744b69e18c9429f2e166e142e4942c9f2284d/capsule_231x87.jpg?t=1790366552",
-      "storeUrl": "https://store.steampowered.com/app/4956240/STAR_BREW_OVEREXTRACT/"
-    },
-    {
-      "id": "steam-5204230",
-      "appId": 5204230,
-      "name": "Makarov Math Suite",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-09-25",
-      "releaseLabel": "Sep 25, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "模拟",
-      "price": "$14.99",
-      "discount": 0,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 74,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5204230/0103d912f74e3451ef4b6443d1df6b4e22d94f3a/capsule_231x87.jpg?t=1790364281",
-      "storeUrl": "https://store.steampowered.com/app/5204230/Makarov_Math_Suite/"
-    },
-    {
-      "id": "steam-5080400",
-      "appId": 5080400,
-      "name": "Stock Car Tycoon",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-09-25",
-      "releaseLabel": "Sep 25, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "竞速",
-      "price": "$4.49",
-      "discount": 10,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 74,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5080400/3eeab6dd0a3aff395471f7d9de7e723739e46bb6/capsule_231x87.jpg?t=1790418380",
-      "storeUrl": "https://store.steampowered.com/app/5080400/Stock_Car_Tycoon/"
-    },
-    {
-      "id": "steam-5080420",
-      "appId": 5080420,
-      "name": "Dungeon Forge",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-09-25",
-      "releaseLabel": "Sep 25, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "角色扮演",
-      "price": "$2.39",
-      "discount": 40,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 74,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5080420/88edfe11e1979524ae97ec798d36592d85e824a9/capsule_231x87.jpg?t=1790362532",
-      "storeUrl": "https://store.steampowered.com/app/5080420/Dungeon_Forge/"
-    },
-    {
-      "id": "steam-5185810",
-      "appId": 5185810,
-      "name": "One Last Machine",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-09-25",
-      "releaseLabel": "Sep 25, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "动作",
-      "price": "$6.79",
-      "discount": 15,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 74,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5185810/9a6e9ed1b36d4d6716f0c2f034e1137580a6a112/capsule_231x87.jpg?t=1790413643",
-      "storeUrl": "https://store.steampowered.com/app/5185810/One_Last_Machine/"
     },
     {
       "id": "steam-5223400",
