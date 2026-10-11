@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-10T21:45:05.237Z",
+  "updatedAt": "2026-10-11T05:47:53.153Z",
   "refreshIntervalHours": 6,
   "coverage": "Steam PC new releases",
   "sources": [
@@ -9,11 +9,244 @@
       "name": "Steam 全球商店",
       "status": "online",
       "games": 61,
-      "latencyMs": 508,
+      "latencyMs": 779,
       "note": "新品与即将上线数据正常"
     }
   ],
   "games": [
+    {
+      "id": "steam-5129430",
+      "appId": 5129430,
+      "name": "Arcanum Idle",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-10-10",
+      "releaseLabel": "Oct 10, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "模拟",
+      "price": "$9.99",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 75,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5129430/f14bb6a46307b0a8b91130e7ec994d9596cff970/capsule_231x87.jpg?t=1791695935",
+      "storeUrl": "https://store.steampowered.com/app/5129430/Arcanum_Idle/"
+    },
+    {
+      "id": "steam-4570650",
+      "appId": 4570650,
+      "name": "Backrooms: Infinite",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-10-10",
+      "releaseLabel": "Oct 10, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "冒险",
+      "price": "$4.19",
+      "discount": 30,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 75,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4570650/7ee629b6e25caa0eabd8d868edc7a34427410b03/capsule_231x87.jpg?t=1791691676",
+      "storeUrl": "https://store.steampowered.com/app/4570650/Backrooms_Infinite/"
+    },
+    {
+      "id": "steam-5249210",
+      "appId": 5249210,
+      "name": "NekoTrak",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-10-10",
+      "releaseLabel": "Oct 10, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "休闲",
+      "price": "$3.19",
+      "discount": 20,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 75,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5249210/26e4825e3f8eff2463bd03bf827b1c1af0abe971/capsule_231x87.jpg?t=1791691089",
+      "storeUrl": "https://store.steampowered.com/app/5249210/NekoTrak/"
+    },
+    {
+      "id": "steam-5046820",
+      "appId": 5046820,
+      "name": "Ultimate Racing Simulator 1",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-10-10",
+      "releaseLabel": "Oct 10, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "模拟",
+      "price": "$10.99",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 75,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5046820/ca289c9838d6e16bf34f7b58e27e1e6d39116f2d/capsule_231x87.jpg?t=1791697296",
+      "storeUrl": "https://store.steampowered.com/app/5046820/Ultimate_Racing_Simulator_1/"
+    },
+    {
+      "id": "steam-4665910",
+      "appId": 4665910,
+      "name": "429 - Four Twenty Knight",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-10-10",
+      "releaseLabel": "Oct 10, 2026",
+      "platforms": [
+        "Windows",
+        "VR"
+      ],
+      "genre": "动作",
+      "price": "$6.90",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 75,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4665910/c38c01589ac7626a60a7cffec4989b7bc67ac91d/capsule_231x87.jpg?t=1791681681",
+      "storeUrl": "https://store.steampowered.com/app/4665910/429__Four_Twenty_Knight/"
+    },
+    {
+      "id": "steam-3063690",
+      "appId": 3063690,
+      "name": "KYRO",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-10-10",
+      "releaseLabel": "Oct 10, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "合作",
+      "price": "$11.24",
+      "discount": 25,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 75,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3063690/0b6e592de1f3834ef8130eb1fea49529e19b36d2/capsule_231x87.jpg?t=1791681242",
+      "storeUrl": "https://store.steampowered.com/app/3063690/KYRO/"
+    },
+    {
+      "id": "steam-5267160",
+      "appId": 5267160,
+      "name": "I Can't See You",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-10-10",
+      "releaseLabel": "Oct 10, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "动作",
+      "price": "$5.99",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 75,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5267160/8bc275f3bf49e59d959a9608c5aa02b8f7811d3d/capsule_231x87.jpg?t=1791673576",
+      "storeUrl": "https://store.steampowered.com/app/5267160/I_Cant_See_You/"
+    },
+    {
+      "id": "steam-5301280",
+      "appId": 5301280,
+      "name": "Distributed Shield",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-10-10",
+      "releaseLabel": "Oct 10, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "策略",
+      "price": "$8.79",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 75,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5301280/087989e946730ccda39f12a0f1e6babd471dbd31/capsule_231x87.jpg?t=1791672940",
+      "storeUrl": "https://store.steampowered.com/app/5301280/Distributed_Shield/"
+    },
+    {
+      "id": "steam-5235060",
+      "appId": 5235060,
+      "name": "Logic Puzzle Hall",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-10-10",
+      "releaseLabel": "Oct 10, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "休闲",
+      "price": "$1.99",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 75,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5235060/3e5418cf158a4b1cf54cbc499c43c5c64523cff9/capsule_231x87.jpg?t=1791672661",
+      "storeUrl": "https://store.steampowered.com/app/5235060/Logic_Puzzle_Hall/"
+    },
+    {
+      "id": "steam-5136630",
+      "appId": 5136630,
+      "name": "CyberCowboys",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-10-10",
+      "releaseLabel": "Oct 10, 2026",
+      "platforms": [
+        "Windows",
+        "Linux"
+      ],
+      "genre": "休闲",
+      "price": "Free",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 75,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5136630/9c879aa94454d083bf6f2e8791f7faf8e7450855/capsule_231x87.jpg?t=1791672464",
+      "storeUrl": "https://store.steampowered.com/app/5136630/CyberCowboys/"
+    },
+    {
+      "id": "steam-5291030",
+      "appId": 5291030,
+      "name": "Rooftops Parkour Pro",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-10-10",
+      "releaseLabel": "Oct 10, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "动作",
+      "price": "$5.00",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 75,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5291030/93ba91d4e13d86303b5a26d5528c4468e3a7565d/capsule_231x87.jpg?t=1791670234",
+      "storeUrl": "https://store.steampowered.com/app/5291030/Rooftops_Parkour_Pro/"
+    },
     {
       "id": "steam-4691280",
       "appId": 4691280,
@@ -263,13 +496,13 @@
         "Windows",
         "macOS"
       ],
-      "genre": "休闲",
+      "genre": "其他",
       "price": "$4.49",
       "discount": 10,
       "reviewPercent": 0,
       "reviewCount": 0,
       "heatScore": 75,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4354120/6d18c8a8e2bc45279c7d26b38212bf99d378e0d0/capsule_231x87.jpg?t=1791644573",
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4354120/6d18c8a8e2bc45279c7d26b38212bf99d378e0d0/capsule_231x87.jpg?t=1791695300",
       "storeUrl": "https://store.steampowered.com/app/4354120/Ant_Clicker/"
     },
     {
@@ -523,7 +756,7 @@
       "reviewPercent": 0,
       "reviewCount": 0,
       "heatScore": 75,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4895790/754737bf9534764da24a3e79fd6d5c00a071a12b/capsule_231x87.jpg?t=1791620292",
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4895790/754737bf9534764da24a3e79fd6d5c00a071a12b/capsule_231x87.jpg?t=1791675464",
       "storeUrl": "https://store.steampowered.com/app/4895790/_/"
     },
     {
@@ -546,240 +779,6 @@
       "heatScore": 75,
       "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3982940/2bd31589e788a4607b49e16048116c38d1fb4522/capsule_231x87.jpg?t=1791620052",
       "storeUrl": "https://store.steampowered.com/app/3982940/Not_Suitable_For_Screening/"
-    },
-    {
-      "id": "steam-4979430",
-      "appId": 4979430,
-      "name": "The Enchanted Crayon",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-10-10",
-      "releaseLabel": "Oct 10, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "其他",
-      "price": "Free",
-      "discount": 0,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 75,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4979430/936dc84001ac6ddd31813084a8a4ee767d82a867/capsule_231x87.jpg?t=1791618001",
-      "storeUrl": "https://store.steampowered.com/app/4979430/The_Enchanted_Crayon/"
-    },
-    {
-      "id": "steam-5301260",
-      "appId": 5301260,
-      "name": "Scavenger's March",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-10-10",
-      "releaseLabel": "Oct 10, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "休闲",
-      "price": "$2.69",
-      "discount": 10,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 75,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5301260/1852d9d1c1f6cdb91bf219a6bf4b3d393681e29f/capsule_231x87.jpg?t=1791617931",
-      "storeUrl": "https://store.steampowered.com/app/5301260/Scavengers_March/"
-    },
-    {
-      "id": "steam-4150920",
-      "appId": 4150920,
-      "name": "The Szyk",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-10-10",
-      "releaseLabel": "Oct 10, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "休闲",
-      "price": "Free",
-      "discount": 0,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 75,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4150920/a2f3aa3b8e75469719e72bd6b53d27261982396f/capsule_231x87.jpg?t=1791617385",
-      "storeUrl": "https://store.steampowered.com/app/4150920/The_Szyk/"
-    },
-    {
-      "id": "steam-4711830",
-      "appId": 4711830,
-      "name": "Evenin' Shift",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-10-10",
-      "releaseLabel": "Oct 10, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "其他",
-      "price": "Free",
-      "discount": 0,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 75,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4711830/0d405378b2b63dc2d6277757e0ab564e5caf4195/capsule_231x87.jpg?t=1791659363",
-      "storeUrl": "https://store.steampowered.com/app/4711830/Evenin_Shift/"
-    },
-    {
-      "id": "steam-4846870",
-      "appId": 4846870,
-      "name": "キズツケ kizutsuke",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-10-10",
-      "releaseLabel": "Oct 10, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "合作",
-      "price": "Free",
-      "discount": 0,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 75,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4846870/f8420abd1b2efb967088a1dfda6290f3a793c4db/capsule_231x87.jpg?t=1791617478",
-      "storeUrl": "https://store.steampowered.com/app/4846870/_kizutsuke/"
-    },
-    {
-      "id": "steam-4185150",
-      "appId": 4185150,
-      "name": "Space Tanks",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-10-10",
-      "releaseLabel": "Oct 10, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "策略",
-      "price": "$4.99",
-      "discount": 0,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 75,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4185150/ca5d8d731101c5e8158dfce3fe99fc0623390a58/capsule_231x87.jpg?t=1791615748",
-      "storeUrl": "https://store.steampowered.com/app/4185150/Space_Tanks/"
-    },
-    {
-      "id": "steam-5151840",
-      "appId": 5151840,
-      "name": "Double Alpha",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-10-09",
-      "releaseLabel": "Oct 9, 2026",
-      "platforms": [
-        "Windows",
-        "Linux"
-      ],
-      "genre": "模拟",
-      "price": "$10.00",
-      "discount": 0,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 73,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5151840/cb3c0e515b00a8118040fe2ad2e9dcb49dfd7aed/capsule_231x87.jpg?t=1791613796",
-      "storeUrl": "https://store.steampowered.com/app/5151840/Double_Alpha/"
-    },
-    {
-      "id": "steam-5125470",
-      "appId": 5125470,
-      "name": "Rage Mountain Rally",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-10-09",
-      "releaseLabel": "Oct 9, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "动作",
-      "price": "$4.49",
-      "discount": 10,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 73,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5125470/29281839e8d5864d0e72bb88c1225894135f9fe4/capsule_231x87.jpg?t=1791608936",
-      "storeUrl": "https://store.steampowered.com/app/5125470/Rage_Mountain_Rally/"
-    },
-    {
-      "id": "steam-5105400",
-      "appId": 5105400,
-      "name": "SPACE JK",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-10-09",
-      "releaseLabel": "Oct 9, 2026",
-      "platforms": [
-        "Windows",
-        "macOS",
-        "Linux"
-      ],
-      "genre": "休闲",
-      "price": "Free",
-      "discount": 0,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 73,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5105400/7514dcddff0fc8580af6e9221f6fdbb24b3b6b3b/capsule_231x87.jpg?t=1791608363",
-      "storeUrl": "https://store.steampowered.com/app/5105400/SPACE_JK/"
-    },
-    {
-      "id": "steam-3203950",
-      "appId": 3203950,
-      "name": "Skirmish Game Simulator",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-10-09",
-      "releaseLabel": "Oct 9, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "模拟",
-      "price": "$50.00",
-      "discount": 0,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 73,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3203950/ea8d46eba9b820b247d1dcec07ae26e2dcf05123/capsule_231x87.jpg?t=1791608023",
-      "storeUrl": "https://store.steampowered.com/app/3203950/Skirmish_Game_Simulator/"
-    },
-    {
-      "id": "steam-5295550",
-      "appId": 5295550,
-      "name": "Happy Cats Market",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-10-09",
-      "releaseLabel": "Oct 9, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "休闲",
-      "price": "$4.24",
-      "discount": 15,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 73,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5295550/baa98c2ad6c1aaa1db600edc708c717d5da988af/capsule_231x87.jpg?t=1791650103",
-      "storeUrl": "https://store.steampowered.com/app/5295550/Happy_Cats_Market/"
     },
     {
       "id": "steam-5138180",
@@ -989,7 +988,7 @@
       "reviewPercent": 0,
       "reviewCount": 0,
       "heatScore": 48,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4985520/b118d84f66ba16a72c8b3610dab3530773a8c79a/capsule_231x87.jpg?t=1790151932",
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4985520/b118d84f66ba16a72c8b3610dab3530773a8c79a/capsule_231x87.jpg?t=1791689834",
       "storeUrl": "https://store.steampowered.com/app/4985520/Idle_Vapor_Legends/"
     },
     {
@@ -1010,7 +1009,7 @@
       "reviewPercent": 0,
       "reviewCount": 0,
       "heatScore": 48,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4267800/c7b1ea6202d25e4f9165abbae7c1cc7b843e1732/capsule_231x87.jpg?t=1791645179",
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4267800/c7b1ea6202d25e4f9165abbae7c1cc7b843e1732/capsule_231x87.jpg?t=1791697146",
       "storeUrl": "https://store.steampowered.com/app/4267800/Bandit_Simulator_TD/"
     },
     {
@@ -1145,28 +1144,6 @@
       "storeUrl": "https://store.steampowered.com/app/2954010/Burn_With_Me/"
     },
     {
-      "id": "steam-2210950",
-      "appId": 2210950,
-      "name": "Aethel Mine",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "upcoming",
-      "releaseDate": "2026-10-12",
-      "releaseLabel": "Oct 12, 2026",
-      "platforms": [
-        "Windows",
-        "Linux"
-      ],
-      "genre": "动作",
-      "price": "价格待定",
-      "discount": 0,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 48,
-      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2210950/ed9ea83cd85999605ef556f7a0ddb84a60a3d79d/capsule_231x87.jpg?t=1791358202",
-      "storeUrl": "https://store.steampowered.com/app/2210950/Aethel_Mine/"
-    },
-    {
       "id": "steam-4801520",
       "appId": 4801520,
       "name": "Adventures of Mack",
@@ -1207,6 +1184,28 @@
       "heatScore": 48,
       "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5262490/9954dd0261049789f6e2846e3b03da7dbd7336a3/capsule_231x87.jpg?t=1789754070",
       "storeUrl": "https://store.steampowered.com/app/5262490/Poco_Loco/"
+    },
+    {
+      "id": "steam-2210950",
+      "appId": 2210950,
+      "name": "Aethel Mine",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "upcoming",
+      "releaseDate": "2026-10-12",
+      "releaseLabel": "Oct 12, 2026",
+      "platforms": [
+        "Windows",
+        "Linux"
+      ],
+      "genre": "动作",
+      "price": "价格待定",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 48,
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2210950/ed9ea83cd85999605ef556f7a0ddb84a60a3d79d/capsule_231x87.jpg?t=1791358202",
+      "storeUrl": "https://store.steampowered.com/app/2210950/Aethel_Mine/"
     },
     {
       "id": "steam-3746950",
