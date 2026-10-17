@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-17T10:45:02.028Z",
+  "updatedAt": "2026-10-17T15:35:52.044Z",
   "refreshIntervalHours": 6,
   "coverage": "Steam PC new releases",
   "sources": [
@@ -9,11 +9,160 @@
       "name": "Steam 全球商店",
       "status": "online",
       "games": 61,
-      "latencyMs": 318,
+      "latencyMs": 406,
       "note": "新品与即将上线数据正常"
     }
   ],
   "games": [
+    {
+      "id": "steam-3587820",
+      "appId": 3587820,
+      "name": "Double Envelopment",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-10-17",
+      "releaseLabel": "Oct 17, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "策略",
+      "price": "$7.49",
+      "discount": 25,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 76,
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3587820/c672555622cddbb3aaea03e20d1b5c9c8263e2f7/capsule_231x87.jpg?t=1792249708",
+      "storeUrl": "https://store.steampowered.com/app/3587820/Double_Envelopment/"
+    },
+    {
+      "id": "steam-3576670",
+      "appId": 3576670,
+      "name": "PATIENT ZERO",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-10-17",
+      "releaseLabel": "Oct 17, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "动作",
+      "price": "$3.99",
+      "discount": 20,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 76,
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3576670/81dbf1a850443aecf2cea2e1eb31cb4d7d8d9a94/capsule_231x87.jpg?t=1792245197",
+      "storeUrl": "https://store.steampowered.com/app/3576670/PATIENT_ZERO/"
+    },
+    {
+      "id": "steam-5280170",
+      "appId": 5280170,
+      "name": "AWAITING YOUR HORDERS",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-10-17",
+      "releaseLabel": "Oct 17, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "动作",
+      "price": "$5.99",
+      "discount": 40,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 76,
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5280170/f8d58b1c73388f00ea3894b84e65c6f3c41ead28/capsule_231x87.jpg?t=1792244587",
+      "storeUrl": "https://store.steampowered.com/app/5280170/AWAITING_YOUR_HORDERS/"
+    },
+    {
+      "id": "steam-3703550",
+      "appId": 3703550,
+      "name": "Astrowar",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-10-17",
+      "releaseLabel": "Oct 17, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "动作",
+      "price": "Free",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 76,
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3703550/a68ae076fd243a0f4872a9be5d3d580c290a9704/capsule_231x87.jpg?t=1792242885",
+      "storeUrl": "https://store.steampowered.com/app/3703550/Astrowar/"
+    },
+    {
+      "id": "steam-5026810",
+      "appId": 5026810,
+      "name": "Fresh Stacker",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-10-17",
+      "releaseLabel": "Oct 17, 2026",
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "genre": "休闲",
+      "price": "$5.00",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 76,
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5026810/7d57f8786bc7edc3fb1090eff7c40a8851f9f662/capsule_231x87.jpg?t=1792241310",
+      "storeUrl": "https://store.steampowered.com/app/5026810/Fresh_Stacker/"
+    },
+    {
+      "id": "steam-1979510",
+      "appId": 1979510,
+      "name": "Madcar Multiplayer",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-10-17",
+      "releaseLabel": "Oct 17, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "竞速",
+      "price": "Free",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 76,
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1979510/75818f7d9c914083705d1f7400be3022425c224c/capsule_231x87.jpg?t=1792239954",
+      "storeUrl": "https://store.steampowered.com/app/1979510/Madcar_Multiplayer/"
+    },
+    {
+      "id": "steam-5114130",
+      "appId": 5114130,
+      "name": "Beta Earth: Sovereignty Next",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "released",
+      "releaseDate": "2026-10-17",
+      "releaseLabel": "Oct 17, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "角色扮演",
+      "price": "Free",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 76,
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5114130/ecd7205cf6222c6b5d4b92c2d7f3f45ebebb547e/capsule_231x87.jpg?t=1792237035",
+      "storeUrl": "https://store.steampowered.com/app/5114130/Beta_Earth_Sovereignty_Next/"
+    },
     {
       "id": "steam-5267570",
       "appId": 5267570,
@@ -631,155 +780,6 @@
       "storeUrl": "https://store.steampowered.com/app/5061570/Puzzle_Butterflies/"
     },
     {
-      "id": "steam-5061590",
-      "appId": 5061590,
-      "name": "Puzzle Beetles",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-10-16",
-      "releaseLabel": "Oct 16, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "休闲",
-      "price": "$2.99",
-      "discount": 40,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 74,
-      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5061590/7e8c22147e439057985b4a1520c1fac7972b6075/capsule_231x87.jpg?t=1792194834",
-      "storeUrl": "https://store.steampowered.com/app/5061590/Puzzle_Beetles/"
-    },
-    {
-      "id": "steam-5316940",
-      "appId": 5316940,
-      "name": "GRID64",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-10-16",
-      "releaseLabel": "Oct 16, 2026",
-      "platforms": [
-        "Windows",
-        "Linux"
-      ],
-      "genre": "策略",
-      "price": "$2.69",
-      "discount": 10,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 74,
-      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5316940/7364537bf549802d5580fa9268b968e138968618/capsule_231x87.jpg?t=1792193013",
-      "storeUrl": "https://store.steampowered.com/app/5316940/GRID64/"
-    },
-    {
-      "id": "steam-5232370",
-      "appId": 5232370,
-      "name": "A Lot Of Steps",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-10-16",
-      "releaseLabel": "Oct 16, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "休闲",
-      "price": "$1.99",
-      "discount": 0,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 74,
-      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5232370/623b019ce41cd664c0d7a8925bc3fe32a07b95e9/capsule_231x87.jpg?t=1792192095",
-      "storeUrl": "https://store.steampowered.com/app/5232370/A_Lot_Of_Steps/"
-    },
-    {
-      "id": "steam-4350900",
-      "appId": 4350900,
-      "name": "Just a Cat",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-10-16",
-      "releaseLabel": "Oct 16, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "休闲",
-      "price": "Free",
-      "discount": 0,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 74,
-      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4350900/2290ff0aefee071d45da46eddae3794219100981/capsule_231x87.jpg?t=1792191974",
-      "storeUrl": "https://store.steampowered.com/app/4350900/Just_a_Cat/"
-    },
-    {
-      "id": "steam-5066530",
-      "appId": 5066530,
-      "name": "Nekomancer",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-10-16",
-      "releaseLabel": "Oct 16, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "角色扮演",
-      "price": "$5.99",
-      "discount": 0,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 74,
-      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5066530/1516b7242c1d74e310c4903fb37c357b7d1dd878/capsule_231x87.jpg?t=1792188318",
-      "storeUrl": "https://store.steampowered.com/app/5066530/Nekomancer/"
-    },
-    {
-      "id": "steam-5252440",
-      "appId": 5252440,
-      "name": "Steel & Fortune",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-10-16",
-      "releaseLabel": "Oct 16, 2026",
-      "platforms": [
-        "Windows",
-        "macOS"
-      ],
-      "genre": "角色扮演",
-      "price": "$6.39",
-      "discount": 20,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 74,
-      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5252440/0833d1a1c508aedfd8f4a22459a76a93c09584d5/capsule_231x87.jpg?t=1792217284",
-      "storeUrl": "https://store.steampowered.com/app/5252440/Steel__Fortune/"
-    },
-    {
-      "id": "steam-5211690",
-      "appId": 5211690,
-      "name": "Ghillie Wars",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "released",
-      "releaseDate": "2026-10-16",
-      "releaseLabel": "Oct 16, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "PvP",
-      "price": "$5.99",
-      "discount": 0,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 74,
-      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5211690/93fcd2defd8f69bfecaf10035bc6962e68511273/capsule_231x87.jpg?t=1792187601",
-      "storeUrl": "https://store.steampowered.com/app/5211690/Ghillie_Wars/"
-    },
-    {
       "id": "steam-5220910",
       "appId": 5220910,
       "name": "GomokuSoccer",
@@ -1055,27 +1055,6 @@
       "storeUrl": "https://store.steampowered.com/app/5380190/Just_One_More_Fly/"
     },
     {
-      "id": "steam-5334500",
-      "appId": 5334500,
-      "name": "Insufferedere: Kuudere",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "upcoming",
-      "releaseDate": "2026-10-19",
-      "releaseLabel": "Oct 19, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "休闲",
-      "price": "价格待定",
-      "discount": 0,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 48,
-      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5334500/bd872e42e1a1c0648781fe6c5de0e02f216468e4/capsule_231x87.jpg?t=1792195942",
-      "storeUrl": "https://store.steampowered.com/app/5334500/Insufferedere_Kuudere/"
-    },
-    {
       "id": "steam-5209950",
       "appId": 5209950,
       "name": "Resonance",
@@ -1095,6 +1074,27 @@
       "heatScore": 48,
       "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5209950/7f1ad8720185a170afede4ad95278cfae25db60e/capsule_231x87.jpg?t=1789709040",
       "storeUrl": "https://store.steampowered.com/app/5209950/Resonance/"
+    },
+    {
+      "id": "steam-5334500",
+      "appId": 5334500,
+      "name": "Insufferedere: Kuudere",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "upcoming",
+      "releaseDate": "2026-10-19",
+      "releaseLabel": "Oct 19, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "休闲",
+      "price": "价格待定",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 48,
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5334500/bd872e42e1a1c0648781fe6c5de0e02f216468e4/capsule_231x87.jpg?t=1792195942",
+      "storeUrl": "https://store.steampowered.com/app/5334500/Insufferedere_Kuudere/"
     },
     {
       "id": "steam-5264690",
@@ -1118,27 +1118,6 @@
       "storeUrl": "https://store.steampowered.com/app/5264690/Style_Over_Substance/"
     },
     {
-      "id": "steam-5321580",
-      "appId": 5321580,
-      "name": "Trolley Problem Is Not Problem",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "upcoming",
-      "releaseDate": "2026-10-19",
-      "releaseLabel": "Oct 19, 2026",
-      "platforms": [
-        "Windows"
-      ],
-      "genre": "策略",
-      "price": "价格待定",
-      "discount": 0,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 48,
-      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5321580/1d89a980887d1b98ef5bbeb6c87f08deedb8ef4d/capsule_231x87.jpg?t=1791506122",
-      "storeUrl": "https://store.steampowered.com/app/5321580/Trolley_Problem_Is_Not_Problem/"
-    },
-    {
       "id": "steam-4297360",
       "appId": 4297360,
       "name": "Burg Tag",
@@ -1159,6 +1138,27 @@
       "heatScore": 48,
       "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4297360/84fa8fc281096487f33b8fbf70587d79a86649cb/capsule_231x87.jpg?t=1792113149",
       "storeUrl": "https://store.steampowered.com/app/4297360/Burg_Tag/"
+    },
+    {
+      "id": "steam-5321580",
+      "appId": 5321580,
+      "name": "Trolley Problem Is Not Problem",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "upcoming",
+      "releaseDate": "2026-10-19",
+      "releaseLabel": "Oct 19, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "策略",
+      "price": "价格待定",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 48,
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5321580/1d89a980887d1b98ef5bbeb6c87f08deedb8ef4d/capsule_231x87.jpg?t=1791506122",
+      "storeUrl": "https://store.steampowered.com/app/5321580/Trolley_Problem_Is_Not_Problem/"
     },
     {
       "id": "steam-4621970",
@@ -1269,6 +1269,27 @@
       "storeUrl": "https://store.steampowered.com/app/4942310/Mixshogi/"
     },
     {
+      "id": "steam-1761910",
+      "appId": 1761910,
+      "name": "Athanasia",
+      "source": "Steam",
+      "sourceRegion": "全球商店",
+      "status": "upcoming",
+      "releaseDate": "2026-10-19",
+      "releaseLabel": "Oct 19, 2026",
+      "platforms": [
+        "Windows"
+      ],
+      "genre": "动作",
+      "price": "价格待定",
+      "discount": 0,
+      "reviewPercent": 0,
+      "reviewCount": 0,
+      "heatScore": 48,
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1761910/2387b09119d2952c63182774be2fe9b04d781aee/capsule_231x87.jpg?t=1791833834",
+      "storeUrl": "https://store.steampowered.com/app/1761910/Athanasia/"
+    },
+    {
       "id": "steam-5284680",
       "appId": 5284680,
       "name": "Armed Monsters",
@@ -1288,28 +1309,6 @@
       "heatScore": 48,
       "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5284680/3e145c89747e62f6652e755a40b344c53b11e8ff/capsule_231x87.jpg?t=1790390717",
       "storeUrl": "https://store.steampowered.com/app/5284680/Armed_Monsters/"
-    },
-    {
-      "id": "steam-5336590",
-      "appId": 5336590,
-      "name": "Howling Woods",
-      "source": "Steam",
-      "sourceRegion": "全球商店",
-      "status": "upcoming",
-      "releaseDate": "2026-10-19",
-      "releaseLabel": "Oct 19, 2026",
-      "platforms": [
-        "Windows",
-        "macOS"
-      ],
-      "genre": "休闲",
-      "price": "价格待定",
-      "discount": 0,
-      "reviewPercent": 0,
-      "reviewCount": 0,
-      "heatScore": 48,
-      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5336590/936fde179431b5c217ac51037cba74252ee7ce60/capsule_231x87.jpg?t=1791997593",
-      "storeUrl": "https://store.steampowered.com/app/5336590/Howling_Woods/"
     }
   ]
 }
